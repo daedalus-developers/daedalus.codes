@@ -38,7 +38,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource/inter": "^5.0.8",
 		"@tailwindcss/forms": "^0.5.6",
-		"@tailwindcss/typography": "^0.5.10"
+		"@tailwindcss/typography": "^0.5.10",
+		"theme-change": "^2.5.0"
 	}
 }
