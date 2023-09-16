@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="bg-daedalusLight dark:bg-daedalusDark">
 	<main>
 		<div class="relative isolate">
 			<svg
