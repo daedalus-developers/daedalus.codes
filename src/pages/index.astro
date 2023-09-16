@@ -1,9 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Page from "../layouts/Page.astro";
+import Card from "../components/Card.astro";
+
 ---
 
-<Layout title="Daedalus">
+<Page title="Daedalus" description="Home Page">
 	<main>
 		<svg
 			class="astro-a"
@@ -61,7 +62,7 @@ import Card from '../components/Card.astro';
 			/>
 		</ul>
 	</main>
-</Layout>
+</Page>
 
 <style>
 	main {
