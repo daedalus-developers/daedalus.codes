@@ -1,14 +1,16 @@
 <script lang="ts">
-	import HeroSimple from '$lib/components/HeroSimple.svelte';
-	import HeroWithImage from '$lib/components/HeroWithImage.svelte';
-	import BlogSection from '$lib/components/sections/BlogSection.svelte';
-	import TeamSection from '$lib/components/sections/TeamSection.svelte';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	import Cta from '$lib/components/CTA.svelte';
+	import Courses from '$lib/components/Courses.svelte';
+	import Events from '$lib/components/Events.svelte';
+	import Hero from '$lib/components/Hero.svelte';
+	import Mission from '$lib/components/Mission.svelte';
+	import Projects from '$lib/components/Projects.svelte';
 </script>
 
 <svelte:head><title>Daedalus</title></svelte:head>
-<HeroSimple />
-<HeroWithImage />
-<TeamSection teamMembers={data.teamMembers} />
-<BlogSection />
+<Hero />
+<Courses />
+<Projects />
+<Mission />
+<Events />
+<Cta />

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import Moon from './icons/Moon.svelte';
-	import Sun from './icons/Sun.svelte';
+	import Moon from '../icons/Moon.svelte';
+	import Sun from '../icons/Sun.svelte';
 	let darkMode = true;
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;

@@ -5,10 +5,10 @@
 
 :root {
 	font-family: 'Inter';
-	--color-primary: #f72585;
+	--color-primary: #7209b7;
 	--color-secondary: #8d62ef;
-	--color-accent: #ff8329;
-	--color-surface: #1e2030;
-	--color-daedalus-light: #f1f1f1;
+	--color-accent: #f72585;
+	--color-surface: #ff8329;
+	--color-daedalus-light: #ffffff;
 	--color-daedalus-dark: #1d1d1f;
 }

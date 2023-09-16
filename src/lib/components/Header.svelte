@@ -1,13 +1,17 @@
 <script lang="ts">
-	import ToggleTheme from './ToggleTheme.svelte';
+	import ToggleTheme from './utils/ToggleTheme.svelte';
 	const links: { text: string; link: string }[] = [
 		{
 			text: 'Home',
 			link: '/'
 		},
 		{
-			text: 'Courses',
+			text: 'Projects',
 			link: '/projects'
+		},
+		{
+			text: 'Courses',
+			link: '/courses'
 		},
 		{
 			text: 'Events',
