@@ -12,8 +12,8 @@
 <svelte:head><title>Daedalus</title></svelte:head>
 
 <HeroWithCTA />
-<HeroDark />
-<Hero />
+<!-- <HeroDark /> -->
+<!-- <Hero /> -->
 <Courses />
 <Projects />
 <Mission />

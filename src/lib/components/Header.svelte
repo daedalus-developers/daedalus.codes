@@ -9,7 +9,7 @@
 	const links: { text: string; link: string }[] = [
 		{
 			text: 'Home',
-			link: ''
+			link: '/'
 		},
 		{
 			text: 'Projects',
@@ -26,6 +26,10 @@
 		{
 			text: 'About us',
 			link: '/about'
+		},
+		{
+			text: 'Contact',
+			link: '/contact'
 		}
 	];
 </script>
