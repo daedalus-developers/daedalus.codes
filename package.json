@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "daedalus.codes",
   "type": "module",
   "version": "0.0.1",
@@ -62,5 +61,4 @@
 		"vitest": "^0.32.2"
 	},
 	"type": "module"
->>>>>>> svelte
 }
