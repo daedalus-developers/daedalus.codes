@@ -27,6 +27,7 @@
 	
 </script>
 
+
 <SectionHeader title="FREE COURSES" description="You can check out some of our free courses" />
 <div class="container">
 	<div class="buttons">
@@ -56,6 +57,7 @@
 			  <p>{item.description}</p>
 		  {/each}
 		{/if}
+
 	</div>
 </div>
 
