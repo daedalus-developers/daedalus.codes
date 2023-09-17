@@ -1,11 +1,12 @@
 <script>
 	import SectionHeader from './sections/SectionHeader.svelte';
+	import SectionHeaderCourses from './sections/SectionHeaderCourses.svelte';
 </script>
 
 <div class="py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<SectionHeader title="Events" description="You can check out some of our free courses" />
+			<SectionHeaderCourses title="Free Course" description="You can check out some of our FREE COURSES" />
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 			<dl
