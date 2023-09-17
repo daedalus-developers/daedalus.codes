@@ -1,24 +1,4 @@
 {
-  "name": "daedalus.codes",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "^5.0.0",
-    "@tailwindcss/forms": "^0.5.6",
-    "@tailwindcss/typography": "^0.5.10",
-    "astro": "^3.0.12",
-    "daisyui": "^3.7.3",
-    "tailwindcss": "^3.0.24",
-    "theme-change": "^2.5.0"
-  }
-=======
 	"name": "daedalus.codes",
 	"version": "0.0.2",
 	"private": true,

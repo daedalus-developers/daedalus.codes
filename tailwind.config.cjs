@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: "class",
-  theme: {
-    extend: {},
-  },
-  plugins: [require("daisyui")],
-  daisyui: {
-    logs: false,
-  },
-};
-=======
 import plugin from 'tailwindcss/plugin';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
@@ -53,4 +39,3 @@ const config = {
 };
 
 module.exports = config;
->>>>>>> svelte
