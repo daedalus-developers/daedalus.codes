@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import Moon from '../icons/Moon.svelte';
-	import Sun from '../icons/Sun.svelte';
+	import Icon from '@iconify/svelte';
 	let darkMode = true;
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;
@@ -25,7 +24,8 @@
 	}
 </script>
 
-<label class="relative inline-flex items-center cursor-pointer">
+<!-- <label class="relative inline-flex items-center cursor-pointer"> -->
+<label class="cursor-pointer">
 	<input
 		type="checkbox"
 		value={darkMode}
@@ -34,9 +34,9 @@
 		class="sr-only peer"
 	/>
 	<span class:hidden={!darkMode}>
-		<Moon iconClass="h3 w3 text-yellow-500" />
+		<Icon icon="flat-color-icons:flash-on" class="text-2xl" />
 	</span>
 	<span class:hidden={darkMode}>
-		<Sun iconClass="h3 w3 text-gray-900" />
+		<Icon icon="flat-color-icons:flash-off" class="text-2xl" />
 	</span>
 </label>
