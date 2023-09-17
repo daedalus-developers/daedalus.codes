@@ -3,124 +3,93 @@
 	import SectionHeaderCourses from './sections/SectionHeaderCourses.svelte';
 </script>
 
-<div class="py-24 sm:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl lg:text-center">
-			<SectionHeaderCourses title="Free Course" description="You can check out some of our FREE COURSES" />
+<div class=" py-24 sm:py-32 ">
+	<div class="mx-auto max-w-7xl px-6 lg:px-8 border-2 border-rose-500">
+		<div class="mx-auto max-w-2xl text-center">
+			<SectionHeaderCourses
+				title="Free Course"
+				description="You can check out some of our FREE COURSES"
+			/>
 		</div>
-		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-			<dl
-				class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+		
+		<div
+			class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 border-2 border-green-500 justify-items-center"
+		>
+			<article
+				class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
 			>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900 dark:text-white">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
-								/>
-							</svg>
+				<img
+					src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+					alt=""
+					class="absolute inset-0 -z-10 h-full w-full object-cover"
+				/>
+				<div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+				<div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+
+				<div
+					class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"
+				>
+					<time datetime="2020-03-16" class="mr-8">Mar 16, 2020</time>
+					<div class="-ml-4 flex items-center gap-x-4">
+						<svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
+							<circle cx="1" cy="1" r="1" />
+						</svg>
+						<div class="flex gap-x-2.5">
+							<img
+								src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+								alt=""
+								class="h-6 w-6 flex-none rounded-full bg-white/10"
+							/>
+							Michael Foster
 						</div>
-						Push to deploy
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio
-						urna massa nunc massa.
-					</dd>
+					</div>
 				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-								/>
-							</svg>
+				<h3 class="mt-3 text-lg font-semibold leading-6 text-white">
+					<a href="#">
+						<span class="absolute inset-0" />
+						Boost your conversion rate
+					</a>
+				</h3>
+			</article>
+
+			<!-- More posts... -->
+
+			<article
+				class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+			>
+				<img
+					src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+					alt=""
+					class="absolute inset-0 -z-10 h-full w-full object-cover"
+				/>
+				<div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+				<div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+
+				<div
+					class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"
+				>
+					<time datetime="2020-03-16" class="mr-8">Mar 16, 2020</time>
+					<div class="-ml-4 flex items-center gap-x-4">
+						<svg viewBox="0 0 2 2" class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50">
+							<circle cx="1" cy="1" r="1" />
+						</svg>
+						<div class="flex gap-x-2.5">
+							<img
+								src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+								alt=""
+								class="h-6 w-6 flex-none rounded-full bg-white/10"
+							/>
+							Michael Foster
 						</div>
-						SSL certificates
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida
-						quam turpis enim lacus amet.
-					</dd>
+					</div>
 				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-								/>
-							</svg>
-						</div>
-						Simple queues
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue
-						commodo diam neque.
-					</dd>
-				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
-								/>
-							</svg>
-						</div>
-						Advanced security
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id
-						hac maecenas ac donec pharetra eget.
-					</dd>
-				</div>
-			</dl>
+				<h3 class="mt-3 text-lg font-semibold leading-6 text-white">
+					<a href="#">
+						<span class="absolute inset-0" />
+						Boost your conversion rate
+					</a>
+				</h3>
+			</article>
 		</div>
 	</div>
 </div>
