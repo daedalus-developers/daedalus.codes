@@ -1,29 +1,22 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import SectionHeader from './sections/SectionHeader.svelte';
 	let activeTab = 'Mission'
 
-  const mission = [
-    {
-      id: 1,
-      name: 'Mission',
-      description:
-        "Our mission is to foster a vibrant and collaborative community of Filipino software developers and engineers. We aim to provide a nurturing environment where members can mentor, guide, and support each other in their professional and personal growth within the world of technology."
-    }
-  ]
+	const mission = {
+		name: 'Mission',
+		description:
+			"Our mission is to foster a vibrant and collaborative community of Filipino software developers and engineers. We aim to provide a nurturing environment where members can mentor, guide, and support each other in their professional and personal growth within the world of technology."
+		}
 
-  const vision = [
-    {
-      id: 2,
-      name: 'Vision',
-      description: 
-		" Our vision is to become the go-to online destination for software developers and engineers in the Philippines, known for its unwavering commitment to knowledge sharing, mentorship, and camaraderie"
-    }
-  ]
+	const vision = {
+		name: 'Vision',
+		description: 
+			" Our vision is to become the go-to online destination for software developers and engineers in the Philippines, known for its unwavering commitment to knowledge sharing, mentorship, and camaraderie"
+		}
 
-  function setActiveTab(tabName: string) {
-    activeTab = tabName
-  }
+	function setActiveTab(tabName: string) {
+		activeTab = tabName
+	}
 	
 </script>
 
@@ -48,13 +41,9 @@
 	<br>
 	<div>
 		{#if activeTab === 'Mission'}
-		  {#each mission as item (item.id)}
-			  <p>{item.description}</p>
-		  {/each}
+			<p>{mission.description}</p>
 		{:else if activeTab === 'Vision'}
-		  {#each vision as item (item.id)}
-			  <p>{item.description}</p>
-		  {/each}
+			  <p>{vision.description}</p>
 		{/if}
 	</div>
 </div>
