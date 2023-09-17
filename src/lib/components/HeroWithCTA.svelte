@@ -16,7 +16,7 @@
 		class="py-12 sm:py-32 lg:pb-40 bg-contain bg-no-repeat bg-center"
 		style="background-image: url('/smokes.jpg');"
 	>
-		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8" id="#herocta">
 			<div class="mx-auto max-w-2xl text-center">
 				<h1 class="text-8xl dark:text-white text-white font-black antialiased tracking-tighter">
 					carry the world with our

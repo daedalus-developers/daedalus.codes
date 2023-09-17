@@ -6,6 +6,8 @@ const config: PlaywrightTestConfig = {
 		port: 4173
 	},
 	testDir: 'tests',
+	// reporter: 'html',
+	fullyParallel: true,
 	testMatch: /(.+\.)?(test|spec)\.[jt]s/
 };
 
