@@ -1,0 +1,14 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	font-family: 'Inter';
+	--color-primary: #7209b7;
+	--color-secondary: #8d62ef;
+	--color-accent: #f72585;
+	--color-surface: #ff8329;
+	--color-daedalus-light: #ffffff;
+	--color-daedalus-dark: #1d1d1f;
+}

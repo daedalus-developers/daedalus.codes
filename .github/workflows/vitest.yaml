@@ -1,0 +1,19 @@
+name: Vitests
+on:
+  push:
+    branches: [main, svelte]
+  pull_request:
+    branches: [main, svelte]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Run Playwright tests
+        run: npx vitest
