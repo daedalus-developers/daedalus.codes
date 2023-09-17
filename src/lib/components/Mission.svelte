@@ -20,6 +20,7 @@
 	
 </script>
 
+
 <SectionHeader title="FREE COURSES" description="You can check out some of our free courses" />
 <div class="container">
 	<div class="buttons">
@@ -45,6 +46,7 @@
 		{:else if activeTab === 'Vision'}
 			  <p>{vision.description}</p>
 		{/if}
+
 	</div>
 </div>
 
