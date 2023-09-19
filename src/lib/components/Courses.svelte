@@ -3,15 +3,15 @@
 	import SectionHeaderCourses from './sections/SectionHeaderCourses.svelte';
 </script>
 
-<div class=" py-24 sm:py-32 ">
+<div class=" py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8 border-2 border-rose-500">
-		<div class="mx-auto max-w-2xl text-center">
+		<div class="mx-auto max-w-3xl">
 			<SectionHeaderCourses
-				title="Free Course"
-				description="You can check out some of our FREE COURSES"
+				title="FREE COURSES"
+				description="You can check out <br> some of our  <span style='color:#F72585;'>free courses</span>  "
 			/>
 		</div>
-		
+
 		<div
 			class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 border-2 border-green-500 justify-items-center"
 		>
@@ -93,3 +93,6 @@
 		</div>
 	</div>
 </div>
+
+<style>
+</style>
