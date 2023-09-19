@@ -21,6 +21,8 @@
 				avatar: items[item].avatar as string,
 				github: items[item].github as string,
 				twitter: items[item].twitter as string,
+				linkedin: items[item].twitter as string,
+				facebook: items[item].facebook as string,
 				tiktok: items[item].tiktok as string,
 				kofi: items[item].kofi as string,
 				patreon: items[item].patreon as string
@@ -91,26 +93,62 @@
 							{member.description}
 						</p>
 						<ul role="list" class="mt-6 flex justify-center gap-x-6">
-							<li>
-								{#if member.github}
+							{#if member.github}
+								<li>
 									<a href={member.github} class="text-gray-400 hover:text-blue-500">
 										<span class="sr-only">Github</span>
 										<Icon icon="akar-icons:github-fill" />
 									</a>
-								{/if}
-								{#if member.linkedin}
+								</li>
+							{/if}
+							{#if member.linkedin}
+								<li>
 									<a href={member.linkedin} class="text-gray-400 hover:text-blue-500">
 										<span class="sr-only">LinkedIn</span>
 										<Icon icon="mdi:linkedin" />
 									</a>
-								{/if}
-								{#if member.twitter}
-									<a href={member.linkedin} class="text-gray-400 hover:text-blue-500">
+								</li>
+							{/if}
+							{#if member.twitter}
+								<li>
+									<a href={member.twitter} class="text-gray-400 hover:text-blue-500">
 										<span class="sr-only">Twitter</span>
 										<Icon icon="simple-icons:x" />
 									</a>
-								{/if}
-							</li>
+								</li>
+							{/if}
+							{#if member.facebook}
+								<li>
+									<a href={member.facebook} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Facebook</span>
+										<Icon icon="simple-icons:facebook" />
+									</a>
+								</li>
+							{/if}
+							{#if member.tiktok}
+								<li>
+									<a href={member.tiktok} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Tiktok</span>
+										<Icon icon="simple-icons:tiktok" />
+									</a>
+								</li>
+							{/if}
+							{#if member.patreon}
+								<li>
+									<a href={member.patreon} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Patreon</span>
+										<Icon icon="simple-icons:patreon" />
+									</a>
+								</li>
+							{/if}
+							{#if member.kofi}
+								<li>
+									<a href={member.kofi} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Kofi</span>
+										<Icon icon="simple-icons:kofi" />
+									</a>
+								</li>
+							{/if}
 						</ul>
 					</li>
 				{/each}
