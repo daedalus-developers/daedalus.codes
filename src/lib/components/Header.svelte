@@ -8,28 +8,24 @@
 
 	const links: { text: string; link: string }[] = [
 		{
+			text: 'About us',
+			link: '#about'
+		},
+		{
 			text: 'Home',
 			link: '/'
 		},
 		{
-			text: 'Projects',
-			link: '/projects'
+			text: 'Courses',
+			link: '#courses'
 		},
 		{
-			text: 'Courses',
-			link: '/courses'
+			text: 'Projects',
+			link: '#projects'
 		},
 		{
 			text: 'Events',
-			link: '/events'
-		},
-		{
-			text: 'About us',
-			link: '/about'
-		},
-		{
-			text: 'Contact',
-			link: '/contact'
+			link: '#events'
 		}
 	];
 </script>
@@ -47,14 +43,14 @@
 			>
 				<a href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Daedalus</span>
-					<span class="h-8 w-auto font-black text-2xl dark:text-white text-black"
-						>Daedal<span class="text-accent dark:text-primary font-black">us</span></span
+					<span class="h-8 w-auto font-black text-2xl dark:text-white text-black lg:block hidden"
+						>Daedal<span class="text-accent dark:text-accent font-black">us</span></span
 					>
 				</a>
 				<div class="flex lg:hidden">
 					<button
 						type="button"
-						class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 dark:text-white text-gray-500 lg:hidden"
+						class="-m-2.5 inline-flex z-10 items-center justify-center rounded-md p-2.5 dark:text-white text-gray-500 lg:hidden"
 						on:click={() => (hidden = !hidden)}
 					>
 						<span class="sr-only">Open main menu</span>
@@ -74,8 +70,7 @@
 					<a
 						href="/login"
 						class="text-sm font-light leading-6 text-gray-900 dark:text-white
-              hover:text-secondary dark:hover:text-secondary"
-						>Log in <span aria-hidden="true">&rarr;</span></a
+              hover:text-secondary dark:hover:text-secondary">Log in?</a
 					>
 					<ToggleTheme />
 				</div>
