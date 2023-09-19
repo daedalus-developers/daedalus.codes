@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-	font-family: 'Inter';
+	font-family: 'Inter Variable', sans-serif;
 	--color-primary: #7209b7;
 	--color-secondary: #8d62ef;
 	--color-accent: #f72585;

@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -15,13 +16,22 @@ const config = {
 				surface: 'var(--color-surface)',
 				daedalusLight: 'var(--color-daedalus-light)',
 				daedalusDark: 'var(--color-daedalus-dark)'
+			},
+			fontFamily: {
+				inter: ['Inter Variable', ...defaultTheme.fontFamily.sans]
+			},
+			backgroundSize: {
+				'50%': '50%',
+				'70%': '70%',
+				'80%': '80%',
+				'90%': '90%'
 			}
 		}
 	},
 
 	plugins: [
-		forms,
-		typography,
+		forms(),
+		typography(),
 		plugin(({ addVariant, e, postcss }) => {
 			addVariant('firefox', ({ container, separator }) => {
 				const isFirefoxRule = postcss.atRule({

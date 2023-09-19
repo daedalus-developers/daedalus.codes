@@ -1,46 +1,38 @@
-<script>
-	import SectionHeader from './sections/SectionHeader.svelte';
-</script>
-
-<div class="relative isolate overflow-hidden">
-	<div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-		<div class="mx-auto max-w-2xl text-center">
-			<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-				Boost your productivity.<br />Start using our app today.
-			</h2>
-			<p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-				Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua
-				proident excepteur commodo do ea.
-			</p>
-			<div class="mt-10 flex items-center justify-center gap-x-6">
-				<a
-					href="#"
-					class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-					>Get started</a
+<div class="relative pt-10">
+	<div
+		class="py-12 sm:py-32 lg:pb-40 bg-[url('/smokes.jpg')] backdrop-opacity-20 bg-opacity-50 bg-center bg-no-repeat lg:bg-50% bg-80%"
+	>
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center">
+				<h1
+					class="lg:text-8xl text-5xl dark:text-white text-white font-black antialiased tracking-tighter"
 				>
-				<a href="#" class="text-sm font-semibold leading-6 text-white"
-					>Learn more <span aria-hidden="true">→</span></a
+					carry the world with our
+					<div class="z-10 lg:inline-flex bg-accent rounded-xl hidden">
+						<a href="#contact" class="text-black text-xl font-light tracking-normal px-6 py-4"
+							>Get help</a
+						>
+					</div>
+					craftsmanship
+				</h1>
+				<a
+					class="relative mt-6 rounded-full bg-accent text-xs font-light p-2 lg:hidden"
+					href="#contact">Get help</a
 				>
 			</div>
 		</div>
 	</div>
-	<svg
-		viewBox="0 0 1024 1024"
-		class="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+	<div
+		class="dark:hidden absolute inset-x-0 top-[calc(100%-13rem)] -z-20 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
 		aria-hidden="true"
 	>
-		<circle
-			cx="512"
-			cy="512"
-			r="512"
-			fill="url(#8d958450-c69f-4251-94bc-4e091a323369)"
-			fill-opacity="0.7"
+		<div
+			class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#7209b7] to-[#7209b7] opacity-60 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+			style="clip-path: 
+	       polygon(
+	       74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 
+	       60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 
+	       17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
 		/>
-		<defs>
-			<radialGradient id="8d958450-c69f-4251-94bc-4e091a323369">
-				<stop stop-color="#7775D6" />
-				<stop offset="1" stop-color="#E935C1" />
-			</radialGradient>
-		</defs>
-	</svg>
+	</div>
 </div>
