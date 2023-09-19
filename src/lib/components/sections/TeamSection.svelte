@@ -1,51 +1,120 @@
 <script lang="ts">
+	import { avatarLinkBuilder } from '$lib/helper';
 	import type { TeamMember } from '$lib/types';
-	import GitHub from '../icons/GitHub.svelte';
-	export let teamMembers: TeamMember[] = [];
+	import Icon from '@iconify/svelte';
+	import { browser } from '$app/environment';
+
+	const getTeamMembers = async () => {
+		const teamMembers: TeamMember[] = [];
+		const request = await fetch('https://daedalus.fly.dev/api/collections/teamView/records/');
+		const response = await request.json();
+		const { items } = response;
+		const collectionId = items[0].collectionId;
+		for (const item in items) {
+			const member: TeamMember = {
+				id: items[item].id as string,
+				firstName: items[item].firstName as string,
+				lastName: items[item].lastName as string,
+				email: items[item].email as string,
+				title: items[item].title as string[],
+				description: items[item].description as string,
+				avatar: items[item].avatar as string,
+				github: items[item].github as string,
+				twitter: items[item].twitter as string,
+				tiktok: items[item].tiktok as string,
+				kofi: items[item].kofi as string,
+				patreon: items[item].patreon as string
+			};
+
+			member.avatar = avatarLinkBuilder({
+				collectionName: collectionId,
+				id: member.id,
+				fileName: member.avatar
+			});
+			teamMembers.push(member);
+		}
+		return teamMembers;
+	};
+
+	let teamMembers = browser ? getTeamMembers() : Promise.resolve([]);
 </script>
 
-<div class="bg-white py-24 sm:py-32">
+<div class="dark:bg-daedalusDark bg-daedalusLight py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:mx-0">
-			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our team</h2>
+			<h2 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-900 sm:text-4xl">
+				Our team
+			</h2>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
 				We’re a dynamic group of individuals who are passionate about what we do and dedicated to
 				delivering the best results for our clients.
 			</p>
 		</div>
-		<ul
-			role="list"
-			class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
-		>
-			{#each teamMembers as member}
-				<li>
-					<img class="mx-auto h-24 w-24 rounded-full" src={member.avatar} alt="" />
-					<h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
-						{member.lastName}, {member.firstName}
-					</h3>
-					{#each member.title as title}
-						<p class="text-sm leading-6 text-gray-600">{title}</p>
-					{/each}
-					<ul role="list" class="mt-6 flex justify-center gap-x-6">
-						<li>
-							<a href={member.github} class="text-gray-400 hover:text-blue-500">
-								<span class="sr-only">Github</span>
-								<GitHub />
-							</a>
-						</li>
-					</ul>
-				</li>
-			{/each}
-		</ul>
+
+		{#await teamMembers}
+			<div class="flex justify-center">
+				<div
+					class="w-12 h-12 rounded-full animate-spin
+                    border-8 border-solid border-accent border-t-transparent"
+				/>
+			</div>
+		{:then teamMembers}
+			<ul
+				role="list"
+				class="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
+			>
+				{#each teamMembers as member}
+					<li>
+						{#if member.avatar.match(/\.(jpg|jpeg|png)$/i)}
+							<img class="mx-auto object-fill h-32 rounded-xl" src={member.avatar} alt="" />
+						{:else}
+							<Icon
+								class="mx-auto h-32 rounded-xl text-9xl dark:text-white text-gray-700"
+								icon="arcticons:anonymous-messenger"
+							/>
+						{/if}
+						<h3
+							class="mt-6 text-base font-semibold leading-7 tracking-tight dark:text-gray-300 text-gray-900"
+						>
+							<!-- <a href={`mailto:${member.email}`}> -->
+							{member.firstName}
+							{member.lastName}
+							<!-- </a> -->
+						</h3>
+						{#each member.title as title, id}
+							<p class="text-md leading-6 text-gray-600 inline-flex font-mono">
+								{#if id !== 0},{/if}
+								{title}
+							</p>
+						{/each}
+						<p class="text-xs text-gray-600 italic">
+							{member.description}
+						</p>
+						<ul role="list" class="mt-6 flex justify-center gap-x-6">
+							<li>
+								{#if member.github}
+									<a href={member.github} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Github</span>
+										<Icon icon="akar-icons:github-fill" />
+									</a>
+								{/if}
+								{#if member.linkedin}
+									<a href={member.linkedin} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">LinkedIn</span>
+										<Icon icon="mdi:linkedin" />
+									</a>
+								{/if}
+								{#if member.twitter}
+									<a href={member.linkedin} class="text-gray-400 hover:text-blue-500">
+										<span class="sr-only">Twitter</span>
+										<Icon icon="simple-icons:x" />
+									</a>
+								{/if}
+							</li>
+						</ul>
+					</li>
+				{/each}
+			</ul>
+		{/await}
 	</div>
 </div>
-
-<!-- <div -->
-<!-- 	class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" -->
-<!-- 	role="status" -->
-<!-- > -->
-<!-- 	<span -->
-<!-- 		class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]" -->
-<!-- 		>Loading...</span -->
-<!-- 	> -->
-<!-- </div> -->
