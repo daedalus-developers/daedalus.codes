@@ -54,7 +54,7 @@
 				<div class="flex lg:hidden">
 					<button
 						type="button"
-						class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 dark:text-white text-gray-500 lg:hidden"
+						class="-m-2.5 inline-flex z-10 items-center justify-center rounded-md p-2.5 dark:text-white text-gray-500 lg:hidden"
 						on:click={() => (hidden = !hidden)}
 					>
 						<span class="sr-only">Open main menu</span>
