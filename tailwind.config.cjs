@@ -25,6 +25,9 @@ const config = {
 				'70%': '70%',
 				'80%': '80%',
 				'90%': '90%'
+			},
+			container: {
+				center: true
 			}
 		}
 	},
