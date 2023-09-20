@@ -5,8 +5,10 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
+		reporters: ['verbose', 'json'],
 		coverage: {
-			reporter: ['json-summary']
-		}
+			reporter: ['text', 'json-summary', 'json']
+		},
+		outputFile: 'test-results/results.json'
 	}
 });
