@@ -1,8 +1,6 @@
-name: Playwright Tests
+run-name: Playwright Integration Tests
 on:
   push:
-    branches: [main, production]
-  pull_request:
     branches: [main, production]
 jobs:
   test:

@@ -1,9 +1,7 @@
-name: Vitests
+run-name: Vitest Unit Tests
 on:
-  push:
-    branches: [main, svelte]
   pull_request:
-    branches: [main, svelte]
+    branches: [main, production]
 jobs:
   test:
     timeout-minutes: 60
