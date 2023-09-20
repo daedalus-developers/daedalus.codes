@@ -92,7 +92,7 @@
 	}
 	button{
 		font-weight: 900;
-		font-size: 25px;
+		font-size: 30px;
 		color: white;
 	}
 
@@ -104,6 +104,7 @@
 	}
 	p{
 		margin-top: 50px;
+		text-align: justify;
 		font-family: 'Poppins';
 		font-style: italic;
 		font-weight: 400;
