@@ -17,92 +17,32 @@
 	}
 </script>
 
-<div class="component">
-	<div class="container">
-		<div class="buttons">
+<div class="w-full max-w-full">
+	<div class="min-h-screen flex flex-col items-center justify-center">
+		<div class="flex space-x-4 w-full max-w-2xl">
 			<button
 				on:click={() => setActiveTab('Mission')}
-				class="tab-button"
+				class = "font-semibold text-3xl {(activeTab === 'Mission') ? "text-secondary border-b-4 border-solid border-secondary rounded " :'text-black dark:text-white' }"
 				class:active={activeTab === 'Mission'}
 			>
 				Mission
 			</button>
 			<button
 				on:click={() => setActiveTab('Vision')}
-				class="tab-button"
+				class = "font-semibold text-3xl {(activeTab === 'Vision') ? "text-secondary border-b-4 border-solid border-secondary rounded " :'text-black dark:text-white' }"
 				class:active={activeTab === 'Vision'}
 			>
 				Vision
 			</button>
 		</div>
-		<br />
-		<div class="content">
-			<div class="vl"></div>
+		<br>
+		<div class="dark:text-white w-full max-w-2xl flex gap-5">
+			<div class="mt-4 border-4 border-secondary h-52 rounded"></div>
 			{#if activeTab === 'Mission'}
-				<p>{mission.description}</p>
+				<p class="mt-8 text-justify font-serif italic font-normal text-2xl">{mission.description}</p>
 			{:else if activeTab === 'Vision'}
-				<p>{vision.description}</p>
+				<p class="mt-8 text-justify font-serif italic font-normal text-2xl">{vision.description}</p>
 			{/if}
 		</div>
 	</div>
 </div>
-
-<style>
-	.component {
-		width: 900px;
-		position: relative;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		box-sizing: border-box;
-	}
-	.container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	.buttons {
-		margin-left: 0;
-		width: 900px;
-		display: flex;
-		gap: 40px;
-	}
-	.tab-button.active {
-		color: var(--color-secondary);
-		border-bottom: 3px solid var(--color-secondary);
-		border-bottom-width: 5px;
-		border-radius: 10%;
-	}
-	.content {
-		width: 700px;
-		display: flex;
-		gap: 25px;
-	}
-	.vl {
-		margin-top: 20px;
-		border: 6px solid var(--color-secondary);
-		height: 250px;
-		border-radius: 5px;
-	}
-	button {
-		font-weight: 900;
-		font-size: 30px;
-		color: white;
-	}
-
-	button:hover {
-		cursor: pointer;
-		border-bottom-width: 5px;
-		border-bottom: 2px solid var(--color-secondary);
-		opacity: 0.1;
-	}
-	p {
-		margin-top: 50px;
-		text-align: justify;
-		font-family: 'Poppins';
-		font-style: italic;
-		font-weight: 400;
-		font-size: 25px;
-		color: white;
-	}
-</style>
