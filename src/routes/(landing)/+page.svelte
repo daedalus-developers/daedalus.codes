@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Cta from '$lib/components/CTA.svelte';
 	import Courses from '$lib/components/Courses.svelte';
 	import Events from '$lib/components/Events.svelte';
 	import Hero from '$lib/components/Hero.svelte';
@@ -21,25 +22,42 @@
 		style="width: 100%; height: 100%; opacity: 0.50; background: #7209B7; box-shadow: 200px 200px 200px; filter: blur(200px)"
 	/>
 </div>
+
 <div id="hero">
 	<Hero />
 </div>
-<div id="courses">
+
+<section class="main-section" id="courses">
 	<Courses />
-</div>
-<div id="projects">
+</section>
+
+<section class="main-section" id="projects">
 	<Projects />
-</div>
-<div id="events">
+</section>
+
+<section class="main-section" id="events">
 	<Events />
-</div>
-<div id="about" class="py-24">
+</section>
+
+<section class="main-section" id="contactUs">
+	<Cta />
+</section>
+
+<section class="main-section py-24XX" id="about">
 	<Mission />
 	<TeamSection />
-</div>
+</section>
 
 <style>
 	:root {
 		scroll-behavior: smooth;
+	}
+
+	.main-section {
+		padding: 60px 0;
+	}
+
+	.main-section:nth-child(odd) {
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 </style>
