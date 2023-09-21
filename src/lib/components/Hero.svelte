@@ -1,27 +1,20 @@
 <div class="relative mx-auto max-w-7xl pt-10" data-hero>
 	<div
-		class="bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:bg-100% lg:pb-40"
+		class="lg:bg-100% bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:pb-40"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
+			<div class="mx-auto max-w-2xl">
 				<h1
 					class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
 				>
-					<span>carry the world</span>
-					<span>
-						<span>with our</span>
-						<div class="z-10 hidden rounded-xl bg-accent lg:inline-flex">
-							<a href="#contact" class="px-6 py-4 text-xl font-light tracking-normal text-black"
-								>Get help</a
-							>
-						</div>
-					</span>
-					<span>craftsmanship</span>
+					<span> lets craft something great together </span>
 				</h1>
-				<a
-					class="relative mt-6 rounded-full bg-accent p-2 text-xs font-light lg:hidden"
-					href="#contact">Get help</a
-				>
+				<div class="mt-5">
+					<a
+						class="relative mt-6 rounded-full bg-accent p-2 hover:bg-surface"
+						href="#contact">Get help</a
+					>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -43,7 +36,6 @@
 <style>
 	[data-hero] {
 		padding-top: 0;
-		
 	}
 	[data-hero] > div {
 		background-size: cover;
@@ -52,28 +44,16 @@
 		min-height: min(100vh, 560px);
 		display: flex;
 		align-items: center;
+		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+	}
+	[data-hero] h1 {
+		font-size: calc(36px + min(3.15vw, 54px));
 	}
 	[data-hero] a {
 		text-shadow: none;
-	}
-	@media only screen and (max-width: 1023px) {
-		[data-hero] a {
-			padding: 24px 74px;
-			display: inline-block;
-			font-size: calc(16px + min(1.125vw, 8px));
-		}
-	}
-	[data-hero] h1 {
-		display: flex;
-		flex-direction: column;
-		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
-		font-size: calc(36px + min(3.15vw, 54px));
-
-	}
-	[data-hero] h1 span:nth-child(2) {
-		display: flex;
-		gap: 24px;
-		align-items: center;
-		justify-content: center;
+		transition: 0.2s ease-in-out;
+		padding: 18px 74px;
+		display: inline-block;
+		font-size: calc(16px + min(1.125vw, 8px));
 	}
 </style>
