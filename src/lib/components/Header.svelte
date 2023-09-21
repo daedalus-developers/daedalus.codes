@@ -32,25 +32,25 @@
 
 <!-- NOTE: https://www.braydoncoyer.dev/blog/build-a-glassmorphic-navbar-with-tailwindcss-backdrop-filter-and-backdrop-blur -->
 <div
-	class="lg:pt-2 lg:sticky lg:top-0 lg:z-10 lg:backdrop-filter lg:backdrop-blur-md lg:bg-opacity-90 lg:firefox:bg-opacity-90"
+	class="lg:sticky lg:top-0 lg:z-10 lg:bg-opacity-90 lg:pt-2 lg:backdrop-blur-md lg:backdrop-filter"
 >
-	<header class="lg:pt-2 mx-auto justify-center">
+	<header class="mx-auto justify-center lg:pt-2">
 		<div>
 			<nav
-				class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8
-         lg:border lg:border-gray-800 lg:rounded bg-gray-600 bg-opacity-5 backdrop-filter"
+				class="mx-auto flex max-w-7xl items-center justify-between bg-gray-600 bg-opacity-5
+         p-6 backdrop-filter lg:rounded lg:border lg:border-gray-800 lg:px-8"
 				aria-label="Global"
 			>
 				<a href="/" class="-m-1.5 p-1.5">
 					<span class="sr-only">Daedalus</span>
-					<span class="h-8 w-auto font-black text-2xl dark:text-white text-black lg:block hidden"
-						>Daedal<span class="text-accent dark:text-accent font-black">us</span></span
+					<span class="hidden h-8 w-auto text-2xl font-black text-black dark:text-white lg:block"
+						>Daedal<span class="font-black text-accent dark:text-accent">us</span></span
 					>
 				</a>
 				<div class="flex lg:hidden">
 					<button
 						type="button"
-						class="-m-2.5 inline-flex z-10 items-center justify-center rounded-md p-2.5 dark:text-white text-gray-500 lg:hidden"
+						class="z-10 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-500 dark:text-white lg:hidden"
 						on:click={() => (hidden = !hidden)}
 					>
 						<span class="sr-only">Open main menu</span>
@@ -61,16 +61,16 @@
 					{#each links as link}
 						<a
 							href={link.link}
-							class="active:text-primary text-sm font-light leading-6
-              text-gray-900 dark:text-white
-              hover:text-secondary dark:hover:text-secondary"
+							class="text-sm font-light leading-6 text-gray-900
+              hover:text-secondary active:text-primary
+              dark:text-white dark:hover:text-secondary"
 							class:active={$page.url.pathname === link.link}>{link.text}</a
 						>
 					{/each}
 					<a
 						href="/login"
-						class="text-sm font-light leading-6 text-gray-900 dark:text-white
-              hover:text-secondary dark:hover:text-secondary">Log in?</a
+						class="text-sm font-light leading-6 text-gray-900 hover:text-secondary
+              dark:text-white dark:hover:text-secondary">Log in?</a
 					>
 					<ToggleTheme />
 				</div>
@@ -79,15 +79,15 @@
 		<!-- Mobile menu, show/hide based on menu open state. -->
 		<div class="lg:hidden" {hidden} role="dialog" aria-modal="true">
 			<!-- Background backdrop, show/hide based on slide-over state. -->
-			<div class="fixed inset-0 z-15 backdrop-blur-md backdrop-filter bg-opacity-25" {hidden} />
+			<div class="z-15 fixed inset-0 bg-opacity-25 backdrop-blur-md backdrop-filter" {hidden} />
 			<div
 				class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">
 						<span class="sr-only">Daedalus</span>
-						<span class="h-8 w-auto font-black text-2xl dark:text-white text-black"
-							>Daedal<span class="text-accent dark:text-primary font-black">us</span></span
+						<span class="h-8 w-auto text-2xl font-black text-black dark:text-white"
+							>Daedal<span class="font-black text-accent dark:text-primary">us</span></span
 						>
 					</a>
 					<button
@@ -105,7 +105,7 @@
 							{#each links as link}
 								<a
 									href={link.link}
-									class="active:text-primary -mx-3 block rounded-lg px-3 py-1 font-semibold text-center leading-5 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:text-black"
+									class="-mx-3 block rounded-lg px-3 py-1 text-center font-semibold leading-5 text-gray-900 hover:bg-gray-50 active:text-primary dark:text-white dark:hover:text-black"
 									class:active={$page.url.pathname === link.link}>{link.text}</a
 								>
 							{/each}
@@ -114,12 +114,12 @@
 						<div class="py-6">
 							<a
 								href="/register"
-								class="-mx-3 text-center block rounded-lg px-3 py-1 text-base font-semibold leading-5 text-gray-900 dark:text-white hover:bg-gray-50"
+								class="-mx-3 block rounded-lg px-3 py-1 text-center text-base font-semibold leading-5 text-gray-900 hover:bg-gray-50 dark:text-white"
 								>Sign up</a
 							>
 							<a
 								href="/Login"
-								class="-mx-3 text-center block rounded-lg px-3 py-1 text-base font-semibold leading-5 text-gray-900 dark:text-white hover:bg-gray-50"
+								class="-mx-3 block rounded-lg px-3 py-1 text-center text-base font-semibold leading-5 text-gray-900 hover:bg-gray-50 dark:text-white"
 								>Login</a
 							>
 						</div>
