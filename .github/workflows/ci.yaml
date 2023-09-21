@@ -1,8 +1,13 @@
 name: CI
 on:
   push:
-    branches: [main, production]
+    branches:
+      - main
+      - production
   pull_request:
+    branches:
+      - main
+      - production
   # cancel in-progress runs on new commits to same PR (gitub.event.number)
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
