@@ -3,3 +3,4 @@ export const mission =
 export const vision =
 	' Our vision is to become the go-to online destination for software developers and engineers in the Philippines, known for its unwavering commitment to knowledge sharing, mentorship, and camaraderie';
 export const coursesData = [{title:"For Starters", backgroundImage:"'/salyJuts.svg'"}, {title:"For Upskilling", backgroundImage:"'/saly.svg'"}];
+
