@@ -1,11 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-
-	const links: { text: string; link: string }[] = [
-		{ text: 'privacy policy', link: '/about#privacy' },
-		{ text: 'disclaimer', link: '/about#disclaimer' },
-		{ text: 'terms and condition', link: '/about#terms' }
-	];
+	import { footerLinks as links } from '$lib/data/links';
 </script>
 
 <div class="relative mx-auto">
@@ -14,11 +9,17 @@
 			<div class="flex flex-col py-10 lg:flex-row">
 				<div class="flex flex-col items-center justify-center lg:basis-1/2">
 					<div>
-						<p class="mb-[-10px] text-start text-xs font-bold tracking-tight text-white">
+						<p
+							class="mb-[-10px] text-start text-xs font-bold tracking-tight text-white"
+						>
 							STAY UP TO DATE
 						</p>
-						<p class="text-7xl font-black tracking-tight text-zinc-900">get our</p>
-						<p class="text-7xl font-black tracking-tight text-zinc-900">infographics</p>
+						<p class="text-7xl font-black tracking-tight text-zinc-900">
+							get our
+						</p>
+						<p class="text-7xl font-black tracking-tight text-zinc-900">
+							infographics
+						</p>
 						<div class="flex pt-4">
 							<input
 								class="form-input w-3/4 appearance-none border-b-black border-l-transparent
@@ -35,10 +36,16 @@
 				</div>
 				<div class="flex items-center justify-center lg:basis-1/2">
 					<div>
-						<p class="text-md text-start font-bold tracking-tight text-white">GET IN TOUCH</p>
-						<p class="text-4xl font-light text-zinc-900">contact@daedalus.codes</p>
+						<p class="text-md text-start font-bold tracking-tight text-white">
+							GET IN TOUCH
+						</p>
+						<p class="text-4xl font-light text-zinc-900">
+							contact@daedalus.codes
+						</p>
 						<p class="text-4xl font-light text-zinc-900">(+63)9123456789</p>
-						<p class="pt-10 text-4xl font-light text-zinc-900">Philippines 🇵🇭</p>
+						<p class="pt-10 text-4xl font-light text-zinc-900">
+							Philippines 🇵🇭
+						</p>
 					</div>
 				</div>
 			</div>
@@ -52,9 +59,15 @@
 						{/each}
 					</ul>
 				</div>
-				<div class="mx-auto flex max-w-7xl flex-col justify-between py-10 lg:basis-1/2 lg:flex-row">
-					<div class="mx-auto flex flex-col lg:basis-1/2 lg:flex-row lg:justify-between lg:py-0">
-						<p class="py-2 text-sm uppercase text-slate-900 lg:py-0">see what we're up to</p>
+				<div
+					class="mx-auto flex max-w-7xl flex-col justify-between py-10 lg:basis-1/2 lg:flex-row"
+				>
+					<div
+						class="mx-auto flex flex-col lg:basis-1/2 lg:flex-row lg:justify-between lg:py-0"
+					>
+						<p class="py-2 text-sm uppercase text-slate-900 lg:py-0">
+							see what we're up to
+						</p>
 						<ul class="mx-auto inline-flex space-x-4">
 							<li>
 								<a href="https://www.facebook.com/daedalusdev">
@@ -78,12 +91,16 @@
 							</li>
 						</ul>
 					</div>
-					<p class="py-10 text-sm text-slate-900 lg:py-0">© 2023 Daedalus. All rights reserved.</p>
+					<p class="py-10 text-sm text-slate-900 lg:py-0">
+						© 2023 Daedalus. All rights reserved.
+					</p>
 				</div>
 			</div>
 		</footer>
 	</div>
 </div>
 <div class="bg-[#8d62ef]">
-	<p class="text-center text-xl font-extralight text-slate-900">Made with 🪄 by Daedalus Team</p>
+	<p class="text-center text-xl font-extralight text-slate-900">
+		Made with 🪄 by Daedalus Team
+	</p>
 </div>

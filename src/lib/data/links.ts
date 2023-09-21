@@ -1,4 +1,9 @@
-export const navLinks: { text: string; link: string }[] = [
+type Link = {
+	text: string;
+	link: string;
+};
+
+export const navLinks: Link[] = [
 	{
 		text: 'About us',
 		link: '#about'
@@ -19,4 +24,10 @@ export const navLinks: { text: string; link: string }[] = [
 		text: 'Events',
 		link: '#events'
 	}
+];
+
+export const footerLinks: Link[] = [
+	{ text: 'privacy policy', link: '/about#privacy' },
+	{ text: 'disclaimer', link: '/about#disclaimer' },
+	{ text: 'terms and condition', link: '/about#terms' }
 ];
