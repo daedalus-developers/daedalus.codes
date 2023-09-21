@@ -1,10 +1,9 @@
-import plugin from 'tailwindcss/plugin';
+import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config}*/
-const config = {
+export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'class',
 	theme: {
@@ -25,27 +24,12 @@ const config = {
 				'70%': '70%',
 				'80%': '80%',
 				'90%': '90%'
+			},
+			container: {
+				center: true
 			}
 		}
 	},
 
-	plugins: [
-		forms(),
-		typography(),
-		plugin(({ addVariant, e, postcss }) => {
-			addVariant('firefox', ({ container, separator }) => {
-				const isFirefoxRule = postcss.atRule({
-					name: '-moz-document',
-					params: 'url-prefix()'
-				});
-				isFirefoxRule.append(container.nodes);
-				container.append(isFirefoxRule);
-				isFirefoxRule.walkRules((rule) => {
-					rule.selector = `.${e(`firefox${separator}${rule.selector.slice(1)}`)}`;
-				});
-			});
-		})
-	]
-};
-
-module.exports = config;
+	plugins: [forms, typography]
+} satisfies Config;

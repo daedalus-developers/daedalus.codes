@@ -6,7 +6,9 @@
 
 	const getTeamMembers = async () => {
 		const teamMembers: TeamMember[] = [];
-		const request = await fetch('https://daedalus.fly.dev/api/collections/teamView/records/');
+		const request = await fetch(
+			'https://daedalus.fly.dev/api/collections/teamView/records/'
+		);
 		const response = await request.json();
 		const { items } = response;
 		const collectionId = items[0].collectionId;
@@ -41,22 +43,24 @@
 	let teamMembers = browser ? getTeamMembers() : Promise.resolve([]);
 </script>
 
-<div class="dark:bg-daedalusDark bg-daedalusLight py-24 sm:py-32">
+<div class="mx-auto bg-daedalusLight dark:bg-daedalusDark">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl lg:mx-0">
-			<h2 class="text-3xl font-bold tracking-tight dark:text-gray-300 text-gray-900 sm:text-4xl">
+		<div class="mx-auto max-w-2xl">
+			<h2
+				class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl"
+			>
 				Our team
 			</h2>
 			<p class="mt-6 text-lg leading-8 text-gray-600">
-				We’re a dynamic group of individuals who are passionate about what we do and dedicated to
-				delivering the best results for our clients.
+				We’re a dynamic group of individuals who are passionate about what we do
+				and dedicated to delivering the best results for our clients.
 			</p>
 		</div>
 
 		{#await teamMembers}
-			<div class="flex justify-center">
+			<div class="mx-auto flex justify-center">
 				<div
-					class="w-12 h-12 rounded-full animate-spin
+					class="h-12 w-12 animate-spin rounded-full
                     border-8 border-solid border-accent border-t-transparent"
 				/>
 			</div>
@@ -68,15 +72,19 @@
 				{#each teamMembers as member}
 					<li>
 						{#if member.avatar.match(/\.(jpg|jpeg|png)$/i)}
-							<img class="mx-auto object-fill h-32 rounded-xl" src={member.avatar} alt="" />
+							<img
+								class="mx-auto h-32 rounded-xl object-fill"
+								src={member.avatar}
+								alt=""
+							/>
 						{:else}
 							<Icon
-								class="mx-auto h-32 rounded-xl text-9xl dark:text-white text-gray-700"
+								class="mx-auto h-32 rounded-xl text-9xl text-gray-700 dark:text-white"
 								icon="arcticons:anonymous-messenger"
 							/>
 						{/if}
 						<h3
-							class="mt-6 text-base font-semibold leading-7 tracking-tight dark:text-gray-300 text-gray-900"
+							class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900 dark:text-gray-300"
 						>
 							<!-- <a href={`mailto:${member.email}`}> -->
 							{member.firstName}
@@ -84,18 +92,21 @@
 							<!-- </a> -->
 						</h3>
 						{#each member.title as title, id}
-							<p class="text-md leading-6 text-gray-600 inline-flex font-mono">
+							<p class="text-md inline-flex font-mono leading-6 text-gray-600">
 								{#if id !== 0},{/if}
 								{title}
 							</p>
 						{/each}
-						<p class="text-xs text-gray-600 italic">
+						<p class="text-xs italic text-gray-600">
 							{member.description}
 						</p>
 						<ul role="list" class="mt-6 flex justify-center gap-x-6">
 							{#if member.github}
 								<li>
-									<a href={member.github} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.github}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Github</span>
 										<Icon icon="akar-icons:github-fill" />
 									</a>
@@ -103,7 +114,10 @@
 							{/if}
 							{#if member.linkedin}
 								<li>
-									<a href={member.linkedin} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.linkedin}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">LinkedIn</span>
 										<Icon icon="mdi:linkedin" />
 									</a>
@@ -111,7 +125,10 @@
 							{/if}
 							{#if member.twitter}
 								<li>
-									<a href={member.twitter} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.twitter}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Twitter</span>
 										<Icon icon="simple-icons:x" />
 									</a>
@@ -119,7 +136,10 @@
 							{/if}
 							{#if member.facebook}
 								<li>
-									<a href={member.facebook} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.facebook}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Facebook</span>
 										<Icon icon="simple-icons:facebook" />
 									</a>
@@ -127,7 +147,10 @@
 							{/if}
 							{#if member.tiktok}
 								<li>
-									<a href={member.tiktok} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.tiktok}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Tiktok</span>
 										<Icon icon="simple-icons:tiktok" />
 									</a>
@@ -135,7 +158,10 @@
 							{/if}
 							{#if member.patreon}
 								<li>
-									<a href={member.patreon} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.patreon}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Patreon</span>
 										<Icon icon="simple-icons:patreon" />
 									</a>
@@ -143,7 +169,10 @@
 							{/if}
 							{#if member.kofi}
 								<li>
-									<a href={member.kofi} class="text-gray-400 hover:text-blue-500">
+									<a
+										href={member.kofi}
+										class="text-gray-400 hover:text-blue-500"
+									>
 										<span class="sr-only">Kofi</span>
 										<Icon icon="simple-icons:kofi" />
 									</a>

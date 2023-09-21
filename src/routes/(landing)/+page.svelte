@@ -10,11 +10,15 @@
 <svelte:head><title>Daedalus</title></svelte:head>
 
 <div
-	class="absolute inset-x-0 top-0 transform-gpu overflow-hidden blur-3xl sm:-top-80 aspect-auto hidden dark:block"
+	class="absolute inset-x-0 top-0 hidden aspect-auto transform-gpu overflow-hidden blur-3xl dark:block sm:-top-80"
 >
 	<div
-		class="relative left-1/2 transform -translate-x-1/2 aspect-[1155/678] w-[36.125rem] sm:w-[72.1875rem] bg-gradient-to-br from-[#7209b7] to-[#7209b7] opacity-20"
+		class="relative left-1/2 aspect-[1155/678] w-[36.125rem] -translate-x-1/2 transform bg-gradient-to-br from-[#7209b7] to-[#7209b7] opacity-20 sm:w-[72.1875rem]"
 		style="clip-path: ellipse(50% 75% at 50% 0%);"
+	/>
+
+	<div
+		style="width: 100%; height: 100%; opacity: 0.50; background: #7209B7; box-shadow: 200px 200px 200px; filter: blur(200px)"
 	/>
 </div>
 <div id="hero">
@@ -29,7 +33,7 @@
 <div id="events">
 	<Events />
 </div>
-<div id="about">
+<div id="about" class="py-24">
 	<Mission />
 	<TeamSection />
 </div>

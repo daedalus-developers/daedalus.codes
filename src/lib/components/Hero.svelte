@@ -1,29 +1,32 @@
-<div class="relative pt-10">
+<div class="relative mx-auto max-w-7xl pt-10" data-hero>
 	<div
-		class="py-12 sm:py-32 lg:pb-40 bg-[url('/smokes.jpg')] backdrop-opacity-20 bg-opacity-50 bg-center bg-no-repeat lg:bg-50% bg-80%"
+		class="bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:bg-100% lg:pb-40"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
 				<h1
-					class="lg:text-8xl text-5xl dark:text-white text-white font-black antialiased tracking-tighter"
+					class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
 				>
-					carry the world with our
-					<div class="z-10 lg:inline-flex bg-accent rounded-xl hidden">
-						<a href="#contact" class="text-black text-xl font-light tracking-normal px-6 py-4"
-							>Get help</a
-						>
-					</div>
-					craftsmanship
+					<span>carry the world</span>
+					<span>
+						<span>with our</span>
+						<div class="z-10 hidden rounded-xl bg-accent lg:inline-flex">
+							<a href="#contact" class="px-6 py-4 text-xl font-light tracking-normal text-black"
+								>Get help</a
+							>
+						</div>
+					</span>
+					<span>craftsmanship</span>
 				</h1>
 				<a
-					class="relative mt-6 rounded-full bg-accent text-xs font-light p-2 lg:hidden"
+					class="relative mt-6 rounded-full bg-accent p-2 text-xs font-light lg:hidden"
 					href="#contact">Get help</a
 				>
 			</div>
 		</div>
 	</div>
 	<div
-		class="dark:hidden absolute inset-x-0 top-[calc(100%-13rem)] -z-20 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+		class="absolute inset-x-0 top-[calc(100%-13rem)] -z-20 transform-gpu overflow-hidden blur-3xl dark:hidden sm:top-[calc(100%-30rem)]"
 		aria-hidden="true"
 	>
 		<div
@@ -36,3 +39,41 @@
 		/>
 	</div>
 </div>
+
+<style>
+	[data-hero] {
+		padding-top: 0;
+		
+	}
+	[data-hero] > div {
+		background-size: cover;
+		border-bottom-left-radius: calc(6vw);
+		border-bottom-right-radius: calc(6vw);
+		min-height: min(100vh, 560px);
+		display: flex;
+		align-items: center;
+	}
+	[data-hero] a {
+		text-shadow: none;
+	}
+	@media only screen and (max-width: 1023px) {
+		[data-hero] a {
+			padding: 24px 74px;
+			display: inline-block;
+			font-size: calc(16px + min(1.125vw, 8px));
+		}
+	}
+	[data-hero] h1 {
+		display: flex;
+		flex-direction: column;
+		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+		font-size: calc(36px + min(3.15vw, 54px));
+
+	}
+	[data-hero] h1 span:nth-child(2) {
+		display: flex;
+		gap: 24px;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
