@@ -1,7 +1,6 @@
 <script>
 	import SectionHeader from './sections/SectionHeader.svelte';
 </script>
-
 <!-- <SectionHeader title="FREE COURSES" description="You can check out some of our free courses" /> -->
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
