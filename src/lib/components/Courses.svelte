@@ -4,7 +4,7 @@
 </script>
 
 <div class=" py-24 sm:py-32">
-	<div class="mx-auto max-w-7xl px-6 lg:px-8 ">
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-3xl">
 			<SectionHeaderCourses
 				title="FREE COURSES"
@@ -13,14 +13,18 @@
 		</div>
 
 		<div
-			class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 sm:mt-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 justify-items-center "
+			class="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 sm:mt-10 lg:mx-0 lg:max-w-none lg:grid-cols-2 justify-items-center text-5xl font-black dark:text-white text-center "
 		>
-			<div class=" h-[440px] w-[446px] rounded-[93px] border-2 border-[#8D62EF]">
-				<h1>OTEN1</h1>
+			<div
+				class=" h-[440px] w-[446px] rounded-[93px] border-2 border-[#8D62EF] bg-[url('/salyJuts.svg')] bg-auto bg-no-repeat bg-[center_top_5rem] "
+			>
+				<h1 class="mt-12">For Starters</h1>
 			</div>
 
-			<div class=" h-[440px] w-[446px] rounded-[93px] border-2 border-[#8D62EF]">
-				<h1>OTEN2</h1>
+			<div
+				class=" h-[440px] w-[446px] rounded-[93px] border-2 border-[#8D62EF] bg-[url('/saly.svg')] bg-auto bg-no-repeat bg-[center_top_5rem]"
+			>
+				<h1 class="mt-12">For Upskilling</h1>
 			</div>
 		</div>
 	</div>

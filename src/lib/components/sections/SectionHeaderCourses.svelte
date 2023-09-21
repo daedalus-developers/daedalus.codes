@@ -4,11 +4,11 @@
 </script>
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8">
-	<div class="mx-auto text-center flex justify-center">
+	<div class="mx-auto text-center flex justify-center dark:text-white">
 		<h2
-			style="color:#8D62EF;"
+
 			class="text-sm font-bold basis-1/4 text-left tracking-tight
-			 dark:text-white"
+			text-[#8D62EF]"
 		>
 			{title}
 		</h2>
