@@ -23,3 +23,14 @@ test('expect tagline to be visible', async ({ page }) => {
 	const taglineText = await taglineElement.textContent();
 	expect(taglineText).toMatch(expectedTextSubsetRegex);
 });
+
+test('expect footer to contain stay up to date', async ({ page }) => {
+	await page.goto('/');
+	const footer = await page.waitForSelector('footer');
+	const footerText = await footer.textContent();
+	expect(footerText).toContain('stay up to date'.toUpperCase());
+});
+
+// test('stay up to date get our infographics', async ({ page }) => {
+// 	await page.goto('/');
+// });
