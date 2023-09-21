@@ -1,4 +1,4 @@
-<div class="relative pt-10">
+<div class="relative mx-auto max-w-7xl pt-10">
 	<div
 		class="bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:bg-50% lg:pb-40"
 	>
