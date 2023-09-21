@@ -1,19 +1,23 @@
-<div class="relative mx-auto max-w-7xl pt-10">
+<div class="relative mx-auto max-w-7xl pt-10" id="hero">
+
 	<div
 		class="bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:bg-50% lg:pb-40"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
+			<div class="mx-auto max-w-7xl text-center">
 				<h1
 					class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
 				>
-					carry the world with our
-					<div class="z-10 hidden rounded-xl bg-accent lg:inline-flex">
-						<a href="#contact" class="px-6 py-4 text-xl font-light tracking-normal text-black"
-							>Get help</a
-						>
-					</div>
-					craftsmanship
+					<span>carry the world</span>
+					<span>
+						with our
+						<div class="z-10 hidden rounded-xl bg-accent lg:inline-flex">
+							<a href="#contact" class="px-6 py-4 text-xl font-light tracking-normal text-black"
+								>Get help</a
+							>
+						</div>
+					</span>
+					<span>craftsmanship</span>
 				</h1>
 				<a
 					class="relative mt-6 rounded-full bg-accent p-2 text-xs font-light lg:hidden"
@@ -36,3 +40,49 @@
 		/>
 	</div>
 </div>
+
+<style>
+	#hero {
+		padding-top: 0;
+	}
+
+	#hero a {
+		text-shadow: none;
+	}
+	
+	#hero > div {
+		min-height: 65vh;
+		background-size:cover;
+		display:flex;
+		align-items:center;
+		gap: 16px;
+		border-bottom-left-radius: 100px;
+		border-bottom-right-radius: 100px;
+	}
+
+	 #hero h1 {
+		font-size: calc(36px + 3.425vw);
+		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.3);
+	 }
+
+	 @media only screen and (max-width: 1023px) {
+		#hero a {
+			font-size: calc(16px + 1.125vw);
+			display: inline-block;
+			padding: 21px 54px;
+		}
+	 }
+
+	 #hero h1 span:nth-child(2) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: calc(16px + 0.25vw);
+	 }
+
+	 #hero h1 span:nth-child(2) a {
+		font-size: calc(16px + 0.325vw);
+		display: inline-block;
+		padding: 21px 34px;
+	 }
+</style>
