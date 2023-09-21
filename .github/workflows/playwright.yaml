@@ -1,9 +1,15 @@
-run-name: Playwright Integration Tests
+name: Playwright
 on:
   push:
     branches: [main, production]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+permissions:
+  contents: read
 jobs:
-  test:
+  Integration Tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
