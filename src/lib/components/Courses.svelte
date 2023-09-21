@@ -1,8 +1,6 @@
 <script>
-	import SectionHeader from './sections/SectionHeader.svelte';
 	import SectionHeaderCourses from './sections/SectionHeaderCourses.svelte';
 	import CardsCourses from './utils/CardsCourses.svelte';
-	let source = "'/salyJuts.svg'"
 </script>
 
 <div class=" py-24 sm:py-32">
@@ -10,7 +8,7 @@
 		<div class="mx-auto max-w-3xl">
 			<SectionHeaderCourses
 				title="FREE COURSES"
-				description="You can check out <br> some of our  <span style='color:#F72585;'>free courses</span>  "
+				description="You can check out <br> some of our  <span style='color:surface;'>free courses</span>  "
 			/>
 		</div>
 
