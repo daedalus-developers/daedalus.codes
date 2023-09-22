@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [main, production, testlint]
+    branches: [main, production]
   pull_request:
 
 concurrency:

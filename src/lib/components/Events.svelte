@@ -68,7 +68,7 @@
 								data-event-id={index}
 								style={index === 0 ? setMarginLeft : ''}
 							>
-								<a href="/" data-event-content>
+								<a href="/events" data-event-content>
 									<h3>{event.title}</h3>
 									<span>{event.shortDescription}</span>
 								</a>
