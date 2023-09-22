@@ -41,9 +41,6 @@
 	};
 
 	let teamMembers = browser ? getTeamMembers() : Promise.resolve([]);
-
-	let activeTab = 'Mission';
-	import { mission as actualMission, vision as actualVision } from '$lib/data';
 </script>
 
 <div class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
