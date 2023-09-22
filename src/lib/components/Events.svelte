@@ -1,125 +1,266 @@
 <script>
 	import SectionHeader from './sections/SectionHeader.svelte';
+	import { eventsData as events } from '$lib/data';
+	import { onMount } from 'svelte';
+
+
+	const eventsReversed = events.reverse().slice(0, 5);
+	console.log({
+		events,
+		eventsReversed
+	})
+
+	let maxInstance =  4;
+	let curInstance = 0;
+	let percent = 80;
+	let gap = 16;
+
+	onMount( async () => {
+		document.documentElement.style.setProperty('--custom-gap', `${gap}px`);
+	});
+
+	let setMarginLeft = `margin-left: 0;`;
+
+	const nextPrevious = (action = '') => {
+		switch ('next') {
+			case action:
+				if ( curInstance === maxInstance)
+					curInstance = 0;
+				else
+					curInstance += 1
+
+				setMarginLeft = `margin-left: calc( -${(percent * curInstance)}% - ${gap * curInstance}px );`;
+				break;
+		
+			default:
+				if ( curInstance === 0) 
+					return;
+				curInstance -= 1;
+				setMarginLeft = `margin-left: calc( -${(percent * curInstance)}% - ${gap * curInstance}px );`;
+				break;
+		}
+		console.log(curInstance);
+	}
+	
 </script>
 
-<div class="py-24 sm:py-32">
+<div class="py-24 sm:py-32" data-events>
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<SectionHeader title="Events" description="You can check out some of our free courses" />
+			<!-- <SectionHeader title="Events" description="See our journey and events with the community" /> -->
 		</div>
-		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-			<dl
-				class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
-			>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900 dark:text-white">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
-								/>
-							</svg>
-						</div>
-						Push to deploy
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio
-						urna massa nunc massa.
-					</dd>
+		<div data-flex>
+			<div data-flex-item>
+				<span class="text-secondary mb-5">Events</span>
+				<h2>
+					<span>
+						See our <span class="text-accent">journey</span>
+					</span>
+					<span>
+						and <span class="text-accent">events</span>
+					</span>
+					<span>within the</span>
+					<span class="text-secondary">community</span>
+				</h2>
+				<div>
+					<a
+						class="relative mt-6 rounded-full bg-accent p-2 hover:bg-surface"
+						href="#!">See more</a
+					>
 				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
+			</div>
+			<div data-flex-item>
+				<div data-slider>
+					<div data-event-slides>
+						{#each eventsReversed as event, index}
+							<div data-event data-event-id={index} 
+								style={(index === 0) ? setMarginLeft : ''}
 							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-								/>
-							</svg>
-						</div>
-						SSL certificates
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida
-						quam turpis enim lacus amet.
-					</dd>
+								<a href="/" data-event-content>
+									<h3>{event.title}</h3>
+									<span>{event.shortDescription}</span>
+								</a>
+								<img src={event.backgroundImage} alt="">
+							</div>
+						{/each}
+					</div>
+					<!-- <button data-event-navigator data-id="left" on:click={() => nextPrevious()}>&#x2190;</button> -->
+					<button data-event-navigator data-id="left" on:click={() => nextPrevious()}>
+						<img src="/leftArrow.svg" alt="" srcset="">
+					</button>
+					<!-- <button data-event-navigator data-id="right" on:click={() => nextPrevious('next')}>&#x2192;</button> -->
+					<button data-event-navigator data-id="right" on:click={() => nextPrevious('next')}>
+						<img src="/rightArrow.svg" alt="" srcset="">
+					</button>
 				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-								/>
-							</svg>
-						</div>
-						Simple queues
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue
-						commodo diam neque.
-					</dd>
-				</div>
-				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
-						<div
-							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
-						>
-							<svg
-								class="h-6 w-6 text-white"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33"
-								/>
-							</svg>
-						</div>
-						Advanced security
-					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id
-						hac maecenas ac donec pharetra eget.
-					</dd>
-				</div>
-			</dl>
+			</div>
 		</div>
 	</div>
 </div>
+
+
+<style>
+	[data-flex] {
+		display: flex;
+		align-items: center;
+	}
+	@media only screen and (max-width: 998px) {
+		[data-flex] {
+			flex-direction: column !important;
+		}
+	}
+	[data-flex-item] {
+		width: 100%;
+		padding: 16px 0;
+	}
+	[data-flex-item]:nth-child(1) {
+		max-width: 40%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	[data-flex-item]:nth-child(1) a {
+		text-shadow: none;
+		transition: 0.2s ease-in-out;
+		padding: 14px 44px;
+		display: inline-block;
+		font-size: calc(16px + min(1.125vw, 8px));
+	}
+
+	@media only screen and (max-width: 998px) {
+		[data-flex-item]:nth-child(1) {
+			max-width: 100%;
+			padding-right: 0;
+		}
+	}
+	[data-flex-item]:nth-child(1) h2 {
+		display: flex;
+		flex-direction: column;
+		font-weight: bold;
+		font-size: calc(24px + min(1.75vw, 52px));
+		line-height: calc(24px + min(1.75vw, 52px));
+	}
+	@media only screen and (max-width: 998px) {
+		[data-flex-item]:nth-child(1) h2 {
+			font-size: calc(44px + min(1.4vw, 32px));
+			line-height: calc(44px + min(1.4vw, 32px));
+		}
+	}
+
+	[data-slider] {
+		position: relative;
+	}
+	[data-event-navigator] {
+		position: absolute;
+		z-index: 1;
+		font-size: calc(36px + 3vw);
+		top: 60%;
+		transform: translate(-50%, -50%);
+		transition: 0.3s ease-in-out;
+		color: var(--color-accent);
+		text-shadow:
+        -1px -1px 0 rgba(255, 255, 255, 0.1), /* Top-left shadow */
+        1px -1px 0 rgba(255, 255, 255, 0.1),  /* Top-right shadow */
+        -1px 1px 0 rgba(255, 255, 255, 0.1),  /* Bottom-left shadow */
+        1px 1px 0 rgba(255, 255, 255, 0.1);   /* Bottom-right shadow */
+	}
+	@media only screen and (max-width: 998px) {
+		[data-event-navigator] {
+			transform: translate(0%, -50%);
+		}
+	}
+
+	[data-event-navigator]:hover {
+		font-size: calc(46px + 3vw);
+	}
+	[data-event-navigator][data-id="left"] {
+		left: 0;
+	}
+	[data-event-navigator][data-id="right"] {
+		right: 0;
+	}
+
+	[data-event-slides] {
+		display: flex;
+		gap: var(--custom-gap);
+		overflow: hidden;
+		position: relative;
+		border-radius: 16px;
+	}
+	[data-event-slides]::before,
+	[data-event-slides]::after {
+		z-index: 1;
+			content: "";
+			position: absolute;
+			top: 0;
+			width: 2.5rem;
+			height: 100%;
+			background: linear-gradient(
+					to left,
+					rgba(29, 29, 31, 0),
+					rgba(29, 29, 31, 1)
+			);
+	}
+	[data-event-slides]::before {
+			left: 0;
+	}
+	[data-event-slides]::after {
+			right: 0;
+			transform: scaleX(-1);
+	}
+	[data-event] {
+		width: 100%;
+		min-width: calc(80%);
+		aspect-ratio: 16/9;
+		padding: 16px;
+		border-radius: 16px;
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		background: linear-gradient(to right, var(--color-primary), var(--color-accent), var(--color-surface));
+		transition: margin-left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	}
+
+	[data-event] [data-event-content] {
+		position: absolute;
+		inset: 0;
+		padding: 16px;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+		z-index: 2;
+		color: #ffffff;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.6);
+	}
+
+	[data-event] [data-event-content] h3 {
+		margin-top: auto;
+		font-weight: bold;
+		font-size: calc(18px + min(0.45vw, 2px));
+		line-height: calc(18px + min(0.45vw, 2px));
+	}
+
+	[data-event] [data-event-content] span {
+		font-size: calc(12px + min(0.45vw, 2px));
+		line-height: calc(12px + min(0.45vw, 2px));
+		opacity: 0.8;
+	}
+
+	[data-event] img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+		opacity: 0.7;
+		transition: 0.1s;
+	}
+
+	[data-event]:hover img {
+		transform: scale(1.05);
+	}
+</style>
+
