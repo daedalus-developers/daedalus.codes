@@ -2,19 +2,14 @@
 	import { eventsData as events } from '$lib/data';
 	import { onMount } from 'svelte';
 
-
 	const eventsReversed = events.reverse().slice(0, 5);
-	console.log({
-		events,
-		eventsReversed
-	})
 
-	let maxInstance =  4;
+	let maxInstance = 4;
 	let curInstance = 0;
 	let percent = 80;
 	let gap = 16;
 
-	onMount( async () => {
+	onMount(async () => {
 		document.documentElement.style.setProperty('--custom-gap', `${gap}px`);
 	});
 
@@ -23,31 +18,30 @@
 	const nextPrevious = (action = '') => {
 		switch ('next') {
 			case action:
-				if ( curInstance === maxInstance)
-					curInstance = 0;
-				else
-					curInstance += 1
+				if (curInstance === maxInstance) curInstance = 0;
+				else curInstance += 1;
 
-				setMarginLeft = `margin-left: calc( -${(percent * curInstance)}% - ${gap * curInstance}px );`;
+				setMarginLeft = `margin-left: calc( -${percent * curInstance}% - ${
+					gap * curInstance
+				}px );`;
 				break;
-		
+
 			default:
-				if ( curInstance === 0) 
-					return;
+				if (curInstance === 0) return;
 				curInstance -= 1;
-				setMarginLeft = `margin-left: calc( -${(percent * curInstance)}% - ${gap * curInstance}px );`;
+				setMarginLeft = `margin-left: calc( -${percent * curInstance}% - ${
+					gap * curInstance
+				}px );`;
 				break;
 		}
-		console.log(curInstance);
-	}
-	
+	};
 </script>
 
 <div class="py-24 sm:py-32" data-events>
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div data-flex>
 			<div data-flex-item>
-				<span class="text-secondary mb-5">Events</span>
+				<span class="mb-5 text-secondary">Events</span>
 				<h2>
 					<span>
 						See our <span class="text-accent">journey</span>
@@ -69,29 +63,38 @@
 				<div data-slider>
 					<div data-event-slides>
 						{#each eventsReversed as event, index}
-							<div data-event data-event-id={index} 
-								style={(index === 0) ? setMarginLeft : ''}
+							<div
+								data-event
+								data-event-id={index}
+								style={index === 0 ? setMarginLeft : ''}
 							>
 								<a href="/" data-event-content>
 									<h3>{event.title}</h3>
 									<span>{event.shortDescription}</span>
 								</a>
-								<img src={event.backgroundImage} alt="">
+								<img src={event.backgroundImage} alt="" />
 							</div>
 						{/each}
 					</div>
-					<button data-event-navigator data-id="left" on:click={() => nextPrevious()}>
-						<img src="/leftArrow.svg" alt="" srcset="">
+					<button
+						data-event-navigator
+						data-id="left"
+						on:click={() => nextPrevious()}
+					>
+						<img src="/leftArrow.svg" alt="" srcset="" />
 					</button>
-					<button data-event-navigator data-id="right" on:click={() => nextPrevious('next')}>
-						<img src="/rightArrow.svg" alt="" srcset="">
+					<button
+						data-event-navigator
+						data-id="right"
+						on:click={() => nextPrevious('next')}
+					>
+						<img src="/rightArrow.svg" alt="" srcset="" />
 					</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <style>
 	[data-flex] {
@@ -153,10 +156,10 @@
 		transition: 0.3s ease-in-out;
 		color: var(--color-accent);
 		text-shadow:
-        -1px -1px 0 rgba(255, 255, 255, 0.1), /* Top-left shadow */
-        1px -1px 0 rgba(255, 255, 255, 0.1),  /* Top-right shadow */
-        -1px 1px 0 rgba(255, 255, 255, 0.1),  /* Bottom-left shadow */
-        1px 1px 0 rgba(255, 255, 255, 0.1);   /* Bottom-right shadow */
+			-1px -1px 0 rgba(255, 255, 255, 0.1),
+			/* Top-left shadow */ 1px -1px 0 rgba(255, 255, 255, 0.1),
+			/* Top-right shadow */ -1px 1px 0 rgba(255, 255, 255, 0.1),
+			/* Bottom-left shadow */ 1px 1px 0 rgba(255, 255, 255, 0.1); /* Bottom-right shadow */
 	}
 	@media only screen and (max-width: 998px) {
 		[data-event-navigator] {
@@ -167,10 +170,10 @@
 	[data-event-navigator]:hover {
 		font-size: calc(46px + 3vw);
 	}
-	[data-event-navigator][data-id="left"] {
+	[data-event-navigator][data-id='left'] {
 		left: 0;
 	}
-	[data-event-navigator][data-id="right"] {
+	[data-event-navigator][data-id='right'] {
 		right: 0;
 	}
 
@@ -184,23 +187,23 @@
 	[data-event-slides]::before,
 	[data-event-slides]::after {
 		z-index: 1;
-			content: "";
-			position: absolute;
-			top: 0;
-			width: 2.5rem;
-			height: 100%;
-			background: linear-gradient(
-					to left,
-					rgba(29, 29, 31, 0),
-					rgba(29, 29, 31, 1)
-			);
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 2.5rem;
+		height: 100%;
+		background: linear-gradient(
+			to left,
+			rgba(29, 29, 31, 0),
+			rgba(29, 29, 31, 1)
+		);
 	}
 	[data-event-slides]::before {
-			left: 0;
+		left: 0;
 	}
 	[data-event-slides]::after {
-			right: 0;
-			transform: scaleX(-1);
+		right: 0;
+		transform: scaleX(-1);
 	}
 	[data-event] {
 		width: 100%;
@@ -211,7 +214,12 @@
 		overflow: hidden;
 		position: relative;
 		z-index: 1;
-		background: linear-gradient(to right, var(--color-primary), var(--color-accent), var(--color-surface));
+		background: linear-gradient(
+			to right,
+			var(--color-primary),
+			var(--color-accent),
+			var(--color-surface)
+		);
 		transition: margin-left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 	}
 
@@ -257,4 +265,3 @@
 		transform: scale(1.05);
 	}
 </style>
-
