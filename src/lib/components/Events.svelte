@@ -1,5 +1,4 @@
 <script>
-	import SectionHeader from './sections/SectionHeader.svelte';
 	import { eventsData as events } from '$lib/data';
 	import { onMount } from 'svelte';
 
@@ -46,9 +45,6 @@
 
 <div class="py-24 sm:py-32" data-events>
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
-		<div class="mx-auto max-w-2xl lg:text-center">
-			<!-- <SectionHeader title="Events" description="See our journey and events with the community" /> -->
-		</div>
 		<div data-flex>
 			<div data-flex-item>
 				<span class="text-secondary mb-5">Events</span>
@@ -84,11 +80,9 @@
 							</div>
 						{/each}
 					</div>
-					<!-- <button data-event-navigator data-id="left" on:click={() => nextPrevious()}>&#x2190;</button> -->
 					<button data-event-navigator data-id="left" on:click={() => nextPrevious()}>
 						<img src="/leftArrow.svg" alt="" srcset="">
 					</button>
-					<!-- <button data-event-navigator data-id="right" on:click={() => nextPrevious('next')}>&#x2192;</button> -->
 					<button data-event-navigator data-id="right" on:click={() => nextPrevious('next')}>
 						<img src="/rightArrow.svg" alt="" srcset="">
 					</button>
