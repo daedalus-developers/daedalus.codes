@@ -90,7 +90,7 @@
 						{member.lastName}
 						<!-- </a> -->
 					</h3>
-					{#each member.title as title, id}
+					{#each member.title as title}
 						<p class="font-mono text-sm leading-6 text-gray-600">
 							{title}
 						</p>
