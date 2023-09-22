@@ -35,8 +35,8 @@
 	<Events />
 </section>
 <section data-main-section id="about">
-	<TeamSection />
 	<Mission />
+	<TeamSection />
 </section>
 <section data-main-section id="contact">
 	<Cta />
