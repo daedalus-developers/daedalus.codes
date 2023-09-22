@@ -7,7 +7,7 @@
 				<h1
 					class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
 				>
-					<span> lets craft something great together </span>
+					<span> carry the world with our craftsmanship </span>
 				</h1>
 				<div class="mt-5">
 					<a

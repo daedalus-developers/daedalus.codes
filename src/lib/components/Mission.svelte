@@ -1,48 +1,31 @@
 <script lang="ts">
-	let activeTab = 'Mission';
-	import { mission as actualMission, vision as actualVision } from '$lib/data';
-
-	const mission = {
-		name: 'Mission',
-		description: actualMission
+	import { mission, vision } from '$lib/data';
+	let currentTab = 0;
+	const tabs: { id: number; title: string; description: string }[] = [
+		{ id: 0, title: 'Mission', description: mission },
+		{ id: 1, title: 'Vision', description: vision }
+	];
+	const setCurrentTab = (id: number) => {
+		currentTab = id;
 	};
-
-	const vision = {
-		name: 'Vision',
-		description: actualVision
-	};
-
-	function setActiveTab(tabName: string) {
-		activeTab = tabName;
-	}
 </script>
 
-<div class="w-full max-w-full">
-	<div class="min-h-screen flex flex-col items-center justify-center">
-		<div class="flex space-x-4 w-full max-w-2xl">
-			<button
-				on:click={() => setActiveTab('Mission')}
-				class = "font-semibold text-3xl {(activeTab === 'Mission') ? "text-secondary border-b-4 border-solid border-secondary rounded " :'text-black dark:text-white' }"
-				class:active={activeTab === 'Mission'}
+<div class="mx-auto flex max-w-7xl flex-col px-12 py-24">
+	<div class="flex-row pb-4">
+		{#each tabs as tab}
+			<span
+				class="text-3xl font-semibold {currentTab === tab.id
+					? 'rounded border-b-4 border-solid border-secondary text-secondary '
+					: 'text-black dark:text-white'}"
+				class:active={currentTab === tab.id}
 			>
-				Mission
-			</button>
-			<button
-				on:click={() => setActiveTab('Vision')}
-				class = "font-semibold text-3xl {(activeTab === 'Vision') ? "text-secondary border-b-4 border-solid border-secondary rounded " :'text-black dark:text-white' }"
-				class:active={activeTab === 'Vision'}
-			>
-				Vision
-			</button>
-		</div>
-		<br>
-		<div class="dark:text-white w-full max-w-2xl flex gap-5">
-			<div class="mt-4 border-4 border-secondary h-52 rounded"></div>
-			{#if activeTab === 'Mission'}
-				<p class="mt-8 text-justify font-serif italic font-normal text-2xl">{mission.description}</p>
-			{:else if activeTab === 'Vision'}
-				<p class="mt-8 text-justify font-serif italic font-normal text-2xl">{vision.description}</p>
-			{/if}
-		</div>
+				<button on:click={() => setCurrentTab(tab.id)}>{tab.title}</button>
+			</span>
+		{/each}
+	</div>
+	<div
+		class="rounded border-l-4 border-solid border-secondary p-4 font-serif text-2xl italic"
+	>
+		{tabs[currentTab].description}
 	</div>
 </div>

@@ -34,7 +34,7 @@
 <section data-main-section id="events">
 	<Events />
 </section>
-<section data-main-section id="about" class="py-24">
+<section data-main-section id="about">
 	<TeamSection />
 	<Mission />
 </section>

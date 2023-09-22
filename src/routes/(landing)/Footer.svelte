@@ -1,6 +1,10 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { footerLinks as links } from '$lib/data/links';
+	let emailInput: string = '';
+	const handleSubscribeInfographics = () => {
+		alert(emailInput);
+	};
 </script>
 
 <div class="mx-auto bg-secondary">
@@ -20,17 +24,33 @@
 						<p class="text-7xl font-black tracking-tight text-zinc-900">
 							infographics
 						</p>
-						<div class="flex pt-4">
-							<input
-								class="form-input w-3/4 appearance-none border-b-black border-l-transparent
+						<div class="flex pt-4 text-black">
+							<form
+								on:submit|preventDefault={handleSubscribeInfographics}
+								class="flex grow"
+							>
+								<input
+									class="form-input w-3/4 appearance-none border-b-black border-l-transparent
                 border-r-transparent border-t-transparent bg-transparent
                 p-0 outline-none placeholder:text-white focus:border-none focus:border-transparent focus:outline-none"
-								type="email"
-								placeholder="Your Email"
-							/>
-							<button class="tex-black mx-auto rounded-full bg-white">
-								<Icon icon="formkit:arrowright" width="44" height="44" />
-							</button>
+									type="email"
+									placeholder="Your Email"
+									required
+									bind:value={emailInput}
+								/>
+								<button
+									type="submit"
+									class="tex-black mx-auto rounded-full bg-white"
+								>
+									<Icon
+										icon="prime:send"
+										color="#1d1d1d"
+										width="44"
+										height="44"
+										class="pr-1 pt-1"
+									/>
+								</button>
+							</form>
 						</div>
 					</div>
 				</div>

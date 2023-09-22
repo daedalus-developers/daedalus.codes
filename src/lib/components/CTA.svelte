@@ -1,4 +1,4 @@
-<div class="max-w 7xl relative mx-auto pt-10" data-cta>
+<div class="relative mx-auto max-w-7xl pt-10" data-cta>
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="text-centerX mx-auto max-w-2xl">
 			<div

@@ -41,11 +41,12 @@
 	};
 
 	let teamMembers = browser ? getTeamMembers() : Promise.resolve([]);
+
+	let activeTab = 'Mission';
+	import { mission as actualMission, vision as actualVision } from '$lib/data';
 </script>
 
-<div
-	class="mx-auto max-w-7xl bg-daedalusLight px-6 py-10 dark:bg-daedalusDark lg:px-8"
->
+<div class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
 	<div class="mx-auto max-w-2xl">
 		<h2 class="text-3xl font-bold tracking-tight text-accent sm:text-4xl">
 			Our team
