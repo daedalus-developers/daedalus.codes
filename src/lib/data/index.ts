@@ -8,9 +8,7 @@ export const coursesData = [
 	{ title: 'For Upskilling', link: '/', backgroundImage: '/upskilling.png' }
 ];
 
-export const projectsData = [
-	
-]
+export const projectsData = [];
 
 // last data should be the latest event
 export const eventsData = [
@@ -74,4 +72,4 @@ export const eventsData = [
 		backgroundImage: '/smokes.jpg',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	}
-]
+];
