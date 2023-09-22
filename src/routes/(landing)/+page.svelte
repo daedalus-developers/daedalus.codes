@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Cta from '$lib/components/CTA.svelte';
 	import Courses from '$lib/components/Courses.svelte';
 	import Events from '$lib/components/Events.svelte';
 	import Hero from '$lib/components/Hero.svelte';
@@ -24,22 +25,28 @@
 <div id="hero">
 	<Hero />
 </div>
-<div id="courses">
+<section data-main-section id="courses">
 	<Courses />
-</div>
-<div id="projects">
+</section>
+<section data-main-section id="projects">
 	<Projects />
-</div>
-<div id="events">
+</section>
+<section data-main-section id="events">
 	<Events />
-</div>
-<div id="about" class="py-24">
-	<Mission />
+</section>
+<section data-main-section id="about" class="py-24">
 	<TeamSection />
-</div>
+	<Mission />
+</section>
+<section data-main-section id="contact">
+	<Cta />
+</section>
 
 <style>
 	:root {
 		scroll-behavior: smooth;
+	}
+	[data-main-section]:nth-child(odd) {
+		background-color: rgba(0, 0, 0, 0.07);
 	}
 </style>

@@ -3,8 +3,8 @@
 	import { footerLinks as links } from '$lib/data/links';
 </script>
 
-<div class="relative mx-auto">
-	<div class="bg-[#8d62ef]">
+<div class="mx-auto bg-secondary">
+	<div>
 		<footer class="mx-auto max-w-7xl lg:pt-12" aria-labelledby="footer-heading">
 			<div class="flex flex-col py-10 lg:flex-row">
 				<div class="flex flex-col items-center justify-center lg:basis-1/2">
@@ -28,8 +28,8 @@
 								type="email"
 								placeholder="Your Email"
 							/>
-							<button class="mx-auto rounded-full bg-white">
-								<Icon icon="tabler:arrow-right" width="44" height="44" />
+							<button class="tex-black mx-auto rounded-full bg-white">
+								<Icon icon="formkit:arrowright" width="44" height="44" />
 							</button>
 						</div>
 					</div>
@@ -43,8 +43,9 @@
 							contact@daedalus.codes
 						</p>
 						<p class="text-4xl font-light text-zinc-900">(+63)9123456789</p>
-						<p class="pt-10 text-4xl font-light text-zinc-900">
-							Philippines 🇵🇭
+						<p class="inline-flex pt-10 text-4xl font-light text-zinc-900">
+							Philippines
+							<Icon icon="emojione-v1:flag-for-philippines" class="ml-4" />
 						</p>
 					</div>
 				</div>
@@ -98,9 +99,4 @@
 			</div>
 		</footer>
 	</div>
-</div>
-<div class="bg-[#8d62ef]">
-	<p class="text-center text-xl font-extralight text-slate-900">
-		Made with 🪄 by Daedalus Team
-	</p>
 </div>

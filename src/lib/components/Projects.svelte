@@ -5,14 +5,19 @@
 <div class="py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl lg:text-center">
-			<SectionHeader title="Events" description="You can check out some of our free courses" />
+			<SectionHeader
+				title="Events"
+				description="You can check out some of our free courses"
+			/>
 		</div>
 		<div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
 			<dl
 				class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
 			>
 				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900 dark:text-white">
+					<dt
+						class="text-base font-semibold leading-7 text-gray-900 dark:text-white"
+					>
 						<div
 							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
 						>
@@ -34,8 +39,8 @@
 						Push to deploy
 					</dt>
 					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio
-						urna massa nunc massa.
+						Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse
+						semper morbi. Odio urna massa nunc massa.
 					</dd>
 				</div>
 				<div class="relative pl-16">
@@ -61,8 +66,8 @@
 						SSL certificates
 					</dt>
 					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida
-						quam turpis enim lacus amet.
+						Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget.
+						Sem sodales gravida quam turpis enim lacus amet.
 					</dd>
 				</div>
 				<div class="relative pl-16">
@@ -88,8 +93,8 @@
 						Simple queues
 					</dt>
 					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue
-						commodo diam neque.
+						Quisque est vel vulputate cursus. Risus proin diam nunc commodo.
+						Lobortis auctor congue commodo diam neque.
 					</dd>
 				</div>
 				<div class="relative pl-16">
@@ -115,8 +120,8 @@
 						Advanced security
 					</dt>
 					<dd class="mt-2 text-base leading-7 text-gray-600">
-						Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id
-						hac maecenas ac donec pharetra eget.
+						Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis
+						aliquet hac quis. Id hac maecenas ac donec pharetra eget.
 					</dd>
 				</div>
 			</dl>

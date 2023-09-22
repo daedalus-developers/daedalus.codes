@@ -12,3 +12,11 @@
 	--color-daedalus-light: #ffffff;
 	--color-daedalus-dark: #1d1d1f;
 }
+
+body {
+	font-size: calc(15px + 0.45vw);
+}
+
+html.dark {
+	color: white !important;
+}
