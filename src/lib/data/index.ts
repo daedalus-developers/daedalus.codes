@@ -7,3 +7,69 @@ export const coursesData = [
 	{ title: 'For Starters', link: '/', backgroundImage: '/starters.png' },
 	{ title: 'For Upskilling', link: '/', backgroundImage: '/upskilling.png' }
 ];
+
+export const projectsData = [];
+
+// last data should be the latest event
+export const eventsData = [
+	{
+		title: 'Bida Ang Saya',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'Events Section Component',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'First F2F Session',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'Collab with Lorem',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'DevCon Davao',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'Bida Ang Saya 1',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'Events Section Component 2',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'First F2F Session 3',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'Collab with Lorem 4 ',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	},
+	{
+		title: 'DevCon Davao 5',
+		link: '/',
+		backgroundImage: '/smokes.jpg',
+		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
+	}
+];
