@@ -5,10 +5,6 @@ type Link = {
 
 export const navLinks: Link[] = [
 	{
-		text: 'About us',
-		link: '#about'
-	},
-	{
 		text: 'Home',
 		link: '/'
 	},
@@ -23,6 +19,10 @@ export const navLinks: Link[] = [
 	{
 		text: 'Events',
 		link: '#events'
+	},
+	{
+		text: 'About us',
+		link: '#about'
 	}
 ];
 
