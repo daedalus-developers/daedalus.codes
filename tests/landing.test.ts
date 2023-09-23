@@ -13,7 +13,7 @@ test('expect links to be visible', async ({ page }) => {
 	await expect(page.getByRole('link', { name: 'Courses' })).toBeVisible();
 	await expect(page.getByRole('link', { name: 'Projects' })).toBeVisible();
 	await expect(page.getByRole('link', { name: 'Events' })).toBeVisible();
-	await expect(page.getByRole('link', { name: 'Log in?' })).toBeVisible();
+	await expect(page.getByRole('link', { name: 'Log in' })).toBeVisible();
 });
 
 test('expect tagline to be visible', async ({ page }) => {
