@@ -9,7 +9,7 @@ describe('Header', () => {
 		expect(screen.getByRole('link', { name: 'Courses' })).toBeVisible();
 		expect(screen.getByRole('link', { name: 'Projects' })).toBeVisible();
 		expect(screen.getByRole('link', { name: 'Events' })).toBeVisible();
-		expect(screen.getByRole('link', { name: 'Log in?' })).toBeVisible();
+		expect(screen.getByRole('link', { name: 'Log in' })).toBeVisible();
 	});
 	it('should diplay theme toggle', () => {
 		render(Header, {});
