@@ -9,7 +9,6 @@ export const navLinks: Link[] = [
 		link: '/'
 	},
 	{
-
 		text: 'Courses',
 		link: '#courses'
 	},
@@ -22,11 +21,9 @@ export const navLinks: Link[] = [
 		link: '#events'
 	},
 	{
-
 		text: 'About us',
 		link: '#about'
-	},
-
+	}
 ];
 
 export const footerLinks: Link[] = [
