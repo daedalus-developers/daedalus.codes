@@ -18,10 +18,9 @@
 		>
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Daedalus</span>
-				<span
-					class="hidden h-8 w-auto text-2xl font-black text-black dark:text-white lg:block"
-					>Daedal<span class="font-black text-accent dark:text-accent">us</span
-					></span
+
+				<span class="h-8 w-auto text-2xl font-black text-black dark:text-white lg:block"
+					>Daedal<span class="font-black text-accent dark:text-accent">us</span></span
 				>
 			</a>
 			<div class="flex lg:hidden">
@@ -111,3 +110,7 @@
 		</div>
 	</header>
 </div>
+
+<style>
+	
+</style>
