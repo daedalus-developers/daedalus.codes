@@ -18,6 +18,7 @@
 		>
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Daedalus</span>
+
 				<span class="h-8 w-auto text-2xl font-black text-black dark:text-white lg:block"
 					>Daedal<span class="font-black text-accent dark:text-accent">us</span></span
 				>
@@ -45,7 +46,7 @@
 				<a
 					href="/login"
 					class="text-sm font-light leading-6 text-gray-900 hover:text-secondary
-              dark:text-white dark:hover:text-secondary">Log in?</a
+              dark:text-white dark:hover:text-secondary">Log in</a
 				>
 				<ToggleTheme />
 			</div>
@@ -53,15 +54,21 @@
 		<!-- Mobile menu, show/hide based on menu open state. -->
 		<div class="lg:hidden" {hidden} role="dialog" aria-modal="true">
 			<!-- Background backdrop, show/hide based on slide-over state. -->
-			<div class="z-15 fixed inset-0 bg-opacity-25 backdrop-blur-md backdrop-filter" {hidden} />
+			<div
+				class="z-15 fixed inset-0 bg-opacity-25 backdrop-blur-md backdrop-filter"
+				{hidden}
+			/>
 			<div
 				class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">
 						<span class="sr-only">Daedalus</span>
-						<span class="h-8 w-auto text-2xl font-black text-black dark:text-white"
-							>Daedal<span class="font-black text-accent dark:text-primary">us</span></span
+						<span
+							class="h-8 w-auto text-2xl font-black text-black dark:text-white"
+							>Daedal<span class="font-black text-accent dark:text-primary"
+								>us</span
+							></span
 						>
 					</a>
 					<button

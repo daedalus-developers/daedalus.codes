@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="dark:bg-daedalusDark bg-daedalusLight flex-col justify-items-center items-center place-items-center"
+	class="flex-col place-items-center items-center justify-items-center bg-daedalusLight dark:bg-daedalusDark"
 >
 	<slot />
 </div>

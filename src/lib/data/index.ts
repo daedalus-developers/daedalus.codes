@@ -19,7 +19,7 @@ export const eventsData = [
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
-		title: 'Events Section Component',
+		title: 'Event Section Component',
 		link: '/',
 		backgroundImage: '/smokes.jpg',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
@@ -49,7 +49,7 @@ export const eventsData = [
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
-		title: 'Events Section Component 2',
+		title: 'Event Section Component 2',
 		link: '/',
 		backgroundImage: '/smokes.jpg',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'

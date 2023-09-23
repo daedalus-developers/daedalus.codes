@@ -5,7 +5,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import Mission from '$lib/components/Mission.svelte';
 	import Projects from '$lib/components/Projects.svelte';
-	import TeamSection from '$lib/components/sections/TeamSection.svelte';
+	// import TeamSection from '$lib/components/sections/TeamSection.svelte';
 </script>
 
 <svelte:head><title>Daedalus</title></svelte:head>
@@ -36,7 +36,7 @@
 </section>
 <section data-main-section id="about">
 	<Mission />
-	<TeamSection />
+	<!-- <TeamSection /> -->
 </section>
 <section data-main-section id="contact">
 	<Cta />

@@ -12,9 +12,3 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
-# CUSTOM IGNORE FILES
-src/app.css
-src/app.d.ts
-src/app.html
-src/index.test.ts
-src/test.config.ts

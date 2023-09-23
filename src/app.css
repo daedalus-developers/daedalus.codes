@@ -1,6 +1,9 @@
 /* Write your global styles here, in PostCSS syntax */
+/* prettier-ignore */
 @tailwind base;
+/* prettier-ignore */
 @tailwind components;
+/* prettier-ignore */
 @tailwind utilities;
 
 :root {
