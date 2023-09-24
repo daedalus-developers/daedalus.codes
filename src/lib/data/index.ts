@@ -15,61 +15,61 @@ export const eventsData = [
 	{
 		title: 'Bida Ang Saya',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'Event Section Component',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'First F2F Session',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'Collab with Lorem',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'DevCon Davao',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'Bida Ang Saya 1',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'Event Section Component 2',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'First F2F Session 3',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'Collab with Lorem 4 ',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	},
 	{
 		title: 'DevCon Davao 5',
 		link: '/',
-		backgroundImage: '/smokes.jpg',
+		backgroundImage: '/neon-robot.webp',
 		shortDescription: 'Lorem Ipsum sit qmet, consectetur adipiscing elit'
 	}
 ];

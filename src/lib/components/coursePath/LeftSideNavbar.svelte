@@ -15,7 +15,7 @@
 	];
 </script>
 
-<aside class="w-1/4 p-4">
+<aside class="w-full max-w-[200px] p-4 md:mr-auto">
 	{#each branches as branch}
 		<div class="mb-4">
 			<p

@@ -1,50 +1,77 @@
 <div class="relative mx-auto max-w-7xl pt-10" data-hero>
-	<div
-		class="lg:bg-100% bg-opacity-50 bg-[url('/smokes.jpg')] bg-80% bg-center bg-no-repeat py-12 backdrop-opacity-20 sm:py-32 lg:pb-40"
-	>
-		<div class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl">
-				<h1
-					class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl">
+			<h1
+				class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
+			>
+				<span> carry the world with our craftsmanship </span>
+			</h1>
+			<div class="mt-5">
+				<a
+					class="relative rounded-full bg-accent p-2 hover:bg-surface"
+					href="#contact">Get help</a
 				>
-					<span> carry the world with our craftsmanship </span>
-				</h1>
-				<div class="mt-5">
-					<a
-						class="relative rounded-full bg-accent p-2 hover:bg-surface"
-						href="#contact">Get help</a
-					>
-				</div>
 			</div>
 		</div>
-	</div>
-	<div
-		class="absolute inset-x-0 top-[calc(100%-13rem)] -z-20 transform-gpu overflow-hidden blur-3xl dark:hidden sm:top-[calc(100%-30rem)]"
-		aria-hidden="true"
-	>
-		<div
-			class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#7209b7] to-[#7209b7] opacity-60 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-			style="clip-path: 
-	       polygon(
-	       74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 
-	       60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 
-	       17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-		/>
 	</div>
 </div>
 
 <style>
+	@property --gradient-angle {
+		syntax: '<angle>';
+		initial-value: 0deg;
+		inherits: false;
+	}
+	@keyframes rotation {
+		0% {
+			--gradient-angle: 0deg;
+		}
+		100% {
+			--gradient-angle: 360deg;
+		}
+	}
+
 	[data-hero] {
 		padding-top: 0;
-	}
-	[data-hero] > div {
-		background-size: cover;
 		border-bottom-left-radius: calc(6vw);
 		border-bottom-right-radius: calc(6vw);
+
+		position: relative;
+		z-index: 1;
+	}
+	[data-hero]::before,
+	[data-hero]::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: conic-gradient(
+			from var(--gradient-angle),
+			var(--color-primary),
+			var(--color-secondary),
+			var(--color-accent),
+			var(--color-surface),
+			var(--color-accent),
+			var(--color-secondary),
+			var(--color-primary)
+		);
+		border-radius: inherit;
+		animation: rotation 5s linear infinite;
+		z-index: -2;
+	}
+
+	[data-hero]::after {
+		filter: blur(2.5rem);
+	}
+
+	[data-hero] > div {
+		background: url('/neon-robot.webp');
+		background-size: cover;
 		min-height: min(100vh, 560px);
 		display: flex;
 		align-items: center;
-		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.5);
+		border-bottom-left-radius: inherit;
+		border-bottom-right-radius: inherit;
 	}
 	[data-hero] h1 {
 		font-size: calc(28px + min(2.75vw, 56px));
@@ -56,5 +83,6 @@
 		transition: 0.2s ease-in-out;
 		padding: 16px calc(16px + max(30px, 2.5vw));
 		font-size: calc(16px + min(1.125vw, 8px));
+		box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.5);
 	}
 </style>
