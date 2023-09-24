@@ -6,7 +6,7 @@
 
 	let maxInstance = 4;
 	let curInstance = 0;
-	let percent = 80;
+	let customEventCardMinWidth = 90;
 	let gap = 16;
 
 	onMount(async () => {
@@ -21,17 +21,17 @@
 				if (curInstance === maxInstance) curInstance = 0;
 				else curInstance += 1;
 
-				setMarginLeft = `margin-left: calc( -${percent * curInstance}% - ${
-					gap * curInstance
-				}px );`;
+				setMarginLeft = `margin-left: calc( -${
+					customEventCardMinWidth * curInstance
+				}% - ${gap * curInstance}px );`;
 				break;
 
 			default:
 				if (curInstance === 0) return;
 				curInstance -= 1;
-				setMarginLeft = `margin-left: calc( -${percent * curInstance}% - ${
-					gap * curInstance
-				}px );`;
+				setMarginLeft = `margin-left: calc( -${
+					customEventCardMinWidth * curInstance
+				}% - ${gap * curInstance}px );`;
 				break;
 		}
 	};
@@ -118,9 +118,9 @@
 
 	[data-flex-item]:nth-child(1) a {
 		text-shadow: none;
-		transition: 0.2s ease-in-out;
-		padding: 14px 44px;
 		display: inline-block;
+		transition: 0.2s ease-in-out;
+		padding: 16px calc(16px + max(30px, 2.5vw));
 		font-size: calc(16px + min(1.125vw, 8px));
 	}
 
@@ -134,8 +134,8 @@
 		display: flex;
 		flex-direction: column;
 		font-weight: bold;
-		font-size: calc(24px + min(1.75vw, 52px));
-		line-height: calc(24px + min(1.75vw, 52px));
+		font-size: calc(28px + min(2.75vw, 56px));
+		line-height: calc(28px + min(2.75vw, 56px));
 	}
 	@media only screen and (max-width: 998px) {
 		[data-flex-item]:nth-child(1) h2 {
@@ -155,20 +155,11 @@
 		transform: translate(-50%, -50%);
 		transition: 0.3s ease-in-out;
 		color: var(--color-accent);
-		text-shadow:
-			-1px -1px 0 rgba(255, 255, 255, 0.1),
-			/* Top-left shadow */ 1px -1px 0 rgba(255, 255, 255, 0.1),
-			/* Top-right shadow */ -1px 1px 0 rgba(255, 255, 255, 0.1),
-			/* Bottom-left shadow */ 1px 1px 0 rgba(255, 255, 255, 0.1); /* Bottom-right shadow */
 	}
 	@media only screen and (max-width: 998px) {
 		[data-event-navigator] {
 			transform: translate(0%, -50%);
 		}
-	}
-
-	[data-event-navigator]:hover {
-		font-size: calc(46px + 3vw);
 	}
 	[data-event-navigator][data-id='left'] {
 		left: 0;
@@ -207,7 +198,8 @@
 	}
 	[data-event] {
 		width: 100%;
-		min-width: calc(80%);
+		/* min-width: calc(80%); */
+		min-width: 90%;
 		aspect-ratio: 16/9;
 		padding: 16px;
 		border-radius: 16px;

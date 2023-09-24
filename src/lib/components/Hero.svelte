@@ -11,7 +11,7 @@
 				</h1>
 				<div class="mt-5">
 					<a
-						class="relative mt-6 rounded-full bg-accent p-2 hover:bg-surface"
+						class="relative rounded-full bg-accent p-2 hover:bg-surface"
 						href="#contact">Get help</a
 					>
 				</div>
@@ -47,13 +47,14 @@
 		text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
 	}
 	[data-hero] h1 {
-		font-size: calc(36px + min(3.15vw, 54px));
+		font-size: calc(28px + min(2.75vw, 56px));
+		line-height: calc(28px + min(2.75vw, 56px));
 	}
 	[data-hero] a {
 		text-shadow: none;
-		transition: 0.2s ease-in-out;
-		padding: 18px 74px;
 		display: inline-block;
+		transition: 0.2s ease-in-out;
+		padding: 16px calc(16px + max(30px, 2.5vw));
 		font-size: calc(16px + min(1.125vw, 8px));
 	}
 </style>
