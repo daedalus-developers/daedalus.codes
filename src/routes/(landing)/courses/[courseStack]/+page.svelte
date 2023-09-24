@@ -1,9 +1,6 @@
 <script lang="ts">
 	import CourseContent from '$lib/components/coursePath/CourseContent.svelte';
 	import LeftSideNavbar from '$lib/components/coursePath/LeftSideNavbar.svelte';
-	import type { PageData } from './$types';
-
-	export let data: PageData;
 </script>
 
 <section
