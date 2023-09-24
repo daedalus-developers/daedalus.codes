@@ -14,17 +14,67 @@
 			title: 'Course 3',
 			shortDescription: 'Short description for Course 3',
 			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 4',
+			shortDescription: 'Short description for Course 1',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 5',
+			shortDescription: 'Short description for Course 2',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 6',
+			shortDescription: 'Short description for Course 3',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 7',
+			shortDescription: 'Short description for Course 1',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 8',
+			shortDescription: 'Short description for Course 2',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 9',
+			shortDescription: 'Short description for Course 3',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 10',
+			shortDescription: 'Short description for Course 1',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 11',
+			shortDescription: 'Short description for Course 2',
+			backgroundImage: 'https://placehold.co/600x400'
+		},
+		{
+			title: 'Course 12',
+			shortDescription: 'Short description for Course 3',
+			backgroundImage: 'https://placehold.co/600x400'
 		}
 	];
 </script>
 
-<section class="flex w-full flex-wrap gap-2">
+<section
+	class="grid-auto-rows-[1fr] grid w-full grid-cols-1 gap-2 overflow-y-auto p-2 pr-4 md:grid-cols-2"
+>
 	{#each courses as course (course.title)}
 		<article
-			class="relative aspect-video w-[500px] transform overflow-hidden rounded-2xl
-        transition-transform duration-300 ease-in-out [&>img]:hover:scale-105"
+			class="max relative m-1 aspect-video h-fit w-full transform
+        overflow-hidden rounded-2xl transition-all duration-300 ease-in-out [&>img]:hover:scale-105"
 		>
-			<a class="absolute inset-0 bottom-0 z-[1] overflow-hidden p-4" href="/">
+			<a
+				class="absolute inset-0 bottom-0 z-[1] h-full overflow-hidden p-4"
+				href="/"
+			>
 				<div
 					class=" absolute left-[0.5rem] top-[0.5rem] z-[-1] h-16 bg-primary opacity-50 transition-all duration-1000 ease-out"
 				/>
@@ -33,7 +83,7 @@
 				</h3>
 				<span>{course.shortDescription}</span>
 			</a>
-			<img src={course.backgroundImage} alt="" />
+			<img src={course.backgroundImage} alt="" class="max-w-full" />
 		</article>
 	{/each}
 </section>
