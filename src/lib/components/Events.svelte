@@ -98,6 +98,16 @@
 </div>
 
 <style>
+	@property --gradient-angle {
+		syntax: '<angle>';
+		initial-value: 0deg;
+		inherits: false;
+	}
+	@keyframes rotation {
+		0% { --gradient-angle: 0deg; }
+		100% { --gradient-angle: 360deg; }
+	}
+
 	[data-flex] {
 		display: flex;
 		align-items: center;
@@ -181,22 +191,24 @@
 	[data-event-slides] {
 		display: flex;
 		gap: var(--custom-gap);
-		overflow: hidden;
 		position: relative;
 		border-radius: 16px;
+		overflow: hidden;
+		padding: 12px 16px 12px 6px;
+		/* border: solid 1px red; */
 	}
 	[data-event-slides]::before,
 	[data-event-slides]::after {
 		z-index: 1;
 		content: '';
 		position: absolute;
-		top: 0;
-		width: 2.5rem;
-		height: 100%;
+		top: 12px;
+		height: calc(100% - (12px * 2));
+		width: 4.5rem;
 		background: linear-gradient(
 			to left,
 			rgba(29, 29, 31, 0),
-			rgba(29, 29, 31, 1)
+			rgba(29, 29, 31, 0.8)
 		);
 	}
 	[data-event-slides]::before {
@@ -208,21 +220,35 @@
 	}
 	[data-event] {
 		width: 100%;
-		/* min-width: calc(80%); */
 		min-width: 90%;
 		aspect-ratio: 16/9;
 		padding: 16px;
-		border-radius: 16px;
-		overflow: hidden;
+		transition: margin-left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+		border-radius: 0.35rem;
 		position: relative;
 		z-index: 1;
-		background: linear-gradient(
-			to right,
+	}
+
+	[data-event]::before,
+	[data-event]::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: conic-gradient(
+			from var(--gradient-angle), 
 			var(--color-primary),
+			var(--color-secondary),
 			var(--color-accent),
-			var(--color-surface)
-		);
-		transition: margin-left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+			var(--color-surface),
+			var(--color-accent),
+			var(--color-secondary),
+			var(--color-primary));
+		border-radius: inherit;
+		animation: rotation 5s linear infinite;
+		z-index: -2;
+	}
+	[data-event]::after {
+		filter: blur(6px);
 	}
 
 	[data-event] [data-event-content] {
@@ -253,17 +279,16 @@
 
 	[data-event] img {
 		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+		top: 2px;
+		right: 2px;
+		bottom: 2px;
+		left: 2px;
+		width: calc(100% - 4px);
+		height: calc(100% - 4px);
+		border-radius: inherit;
 		object-fit: cover;
 		z-index: -1;
-		opacity: 0.7;
 		transition: 0.1s;
 	}
 
-	[data-event]:hover img {
-		transform: scale(1.05);
-	}
 </style>
