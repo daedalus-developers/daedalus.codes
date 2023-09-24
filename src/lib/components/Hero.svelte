@@ -1,5 +1,5 @@
 <div class="relative mx-auto max-w-7xl pt-10" data-hero>
-	<div class="mx-auto max-w-7xl px-6 lg:px-8" >
+	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl">
 			<h1
 				class="text-5xl font-black tracking-tighter text-white antialiased dark:text-white lg:text-8xl"
@@ -23,8 +23,12 @@
 		inherits: false;
 	}
 	@keyframes rotation {
-		0% { --gradient-angle: 0deg; }
-		100% { --gradient-angle: 360deg; }
+		0% {
+			--gradient-angle: 0deg;
+		}
+		100% {
+			--gradient-angle: 360deg;
+		}
 	}
 
 	[data-hero] {
@@ -41,14 +45,15 @@
 		position: absolute;
 		inset: 0;
 		background: conic-gradient(
-			from var(--gradient-angle), 
+			from var(--gradient-angle),
 			var(--color-primary),
 			var(--color-secondary),
 			var(--color-accent),
 			var(--color-surface),
 			var(--color-accent),
 			var(--color-secondary),
-			var(--color-primary));
+			var(--color-primary)
+		);
 		border-radius: inherit;
 		animation: rotation 5s linear infinite;
 		z-index: -2;

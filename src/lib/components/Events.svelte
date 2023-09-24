@@ -104,8 +104,12 @@
 		inherits: false;
 	}
 	@keyframes rotation {
-		0% { --gradient-angle: 0deg; }
-		100% { --gradient-angle: 360deg; }
+		0% {
+			--gradient-angle: 0deg;
+		}
+		100% {
+			--gradient-angle: 360deg;
+		}
 	}
 
 	[data-flex] {
@@ -235,14 +239,15 @@
 		position: absolute;
 		inset: 0;
 		background: conic-gradient(
-			from var(--gradient-angle), 
+			from var(--gradient-angle),
 			var(--color-primary),
 			var(--color-secondary),
 			var(--color-accent),
 			var(--color-surface),
 			var(--color-accent),
 			var(--color-secondary),
-			var(--color-primary));
+			var(--color-primary)
+		);
 		border-radius: inherit;
 		animation: rotation 5s linear infinite;
 		z-index: -2;
@@ -290,5 +295,4 @@
 		z-index: -1;
 		transition: 0.1s;
 	}
-
 </style>
