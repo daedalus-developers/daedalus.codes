@@ -1,6 +1,7 @@
 <script>
 	import { eventsData as events } from '$lib/data';
 	import { onMount } from 'svelte';
+	import Icon from '@iconify/svelte';
 
 	const eventsReversed = events.reverse().slice(0, 5);
 
@@ -81,14 +82,14 @@
 						data-id="left"
 						on:click={() => nextPrevious()}
 					>
-						<img src="/leftArrow.svg" alt="" srcset="" />
+						<Icon icon="ic:baseline-less-than" />
 					</button>
 					<button
 						data-event-navigator
 						data-id="right"
 						on:click={() => nextPrevious('next')}
 					>
-						<img src="/rightArrow.svg" alt="" srcset="" />
+						<Icon icon="ic:baseline-greater-than" />
 					</button>
 				</div>
 			</div>
@@ -155,12 +156,21 @@
 		transform: translate(-50%, -50%);
 		transition: 0.3s ease-in-out;
 		color: var(--color-accent);
+		opacity: 0.6;
 	}
 	@media only screen and (max-width: 998px) {
 		[data-event-navigator] {
 			transform: translate(0%, -50%);
 		}
 	}
+	[data-event-navigator]:hover {
+		color: var(--color-surface);
+	}
+
+	[data-slider]:hover [data-event-navigator] {
+		opacity: 1;
+	}
+
 	[data-event-navigator][data-id='left'] {
 		left: 0;
 	}
