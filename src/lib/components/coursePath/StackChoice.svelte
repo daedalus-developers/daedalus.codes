@@ -13,15 +13,16 @@
 	<div class="mb-32 flex justify-center">
 		<a
 			class="mx-3 w-72 cursor-pointer rounded-full
-             border bg-daedalusDark px-5 py-3 text-center text-white hover:bg-secondary hover:text-white
-             dark:bg-white dark:text-black dark:hover:text-white"
+             border bg-daedalusDark px-5 py-3 text-center text-white hover:bg-secondary hover:text-white dark:border-daedalusDark dark:bg-white
+             dark:text-black dark:hover:bg-secondary dark:hover:text-black"
 			href={frontEndUrl}
 		>
 			Front End
 		</a>
 		<a
-			class="mx-3 w-72 cursor-pointer rounded-full border bg-daedalusDark px-5 py-3 text-center text-white hover:bg-secondary hover:text-white
-        dark:bg-white dark:text-black dark:hover:text-white"
+			class="mx-3 w-72 cursor-pointer rounded-full
+             border bg-daedalusDark px-5 py-3 text-center text-white hover:bg-secondary hover:text-white dark:border-daedalusDark dark:bg-white
+             dark:text-black dark:hover:bg-secondary dark:hover:text-black"
 			href={backEndUrl}
 		>
 			Back End
