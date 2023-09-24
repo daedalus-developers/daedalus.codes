@@ -21,8 +21,8 @@
 <section class="flex w-full flex-wrap gap-2">
 	{#each courses as course (course.title)}
 		<article
-			class="relative aspect-video w-[500px] transform overflow-hidden rounded-2xl
-        transition-transform duration-300 ease-in-out [&>img]:hover:scale-105"
+			class="relative aspect-video w-[500px] transform overflow-hidden rounded-2xl transition-all
+        duration-300 ease-in-out md:w-[300px] lg:w-[400px] [&>img]:hover:scale-105"
 		>
 			<a class="absolute inset-0 bottom-0 z-[1] overflow-hidden p-4" href="/">
 				<div
