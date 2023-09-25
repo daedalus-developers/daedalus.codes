@@ -8,11 +8,11 @@
 
 <!-- NOTE: https://www.braydoncoyer.dev/blog/build-a-glassmorphic-navbar-with-tailwindcss-backdrop-filter-and-backdrop-blur -->
 <div
-	class="lg:sticky lg:top-0 lg:z-10 lg:bg-opacity-90 lg:pt-2 lg:backdrop-blur-md lg:backdrop-filter"
+	class="lg:sticky lg:top-0 lg:z-10 lg:bg-opacity-90 lg:pt-2 lg:backdrop-filter"
 >
 	<header class="mx-auto max-w-7xl justify-center lg:pt-2">
 		<nav
-			class="mx-auto flex max-w-7xl items-center justify-between bg-gray-600 bg-opacity-5
+			class="mx-auto lg:backdrop-blur-md flex max-w-7xl items-center justify-between bg-gray-600 bg-opacity-5
          p-6 backdrop-filter lg:rounded lg:border lg:border-gray-800 lg:px-8"
 			aria-label="Global"
 		>
