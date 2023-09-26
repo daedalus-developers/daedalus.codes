@@ -5,7 +5,7 @@
 				data-content
 				class="text-5xl font-black tracking-tighter antialiased dark:text-white lg:text-8xl"
 			>
-				<span> lets craft something greate together </span>
+				<span> lets craft something great together </span>
 			</div>
 			<div class="mt-5">
 				<a
