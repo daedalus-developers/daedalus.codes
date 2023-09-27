@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { footerLinks as links } from '$lib/data/links';
+	// import { footerLinks as links } from '$lib/data/links';
 	let emailInput: string = '';
 	const handleSubscribeInfographics = () => {
 		alert(emailInput);
