@@ -61,20 +61,23 @@
 						GET IN TOUCH
 					</p>
 					<p class="text-2xl font-light text-zinc-900 lg:text-4xl">
-						contact@daedalus.codes
+						daedalusdevph@gmail.com
 					</p>
 					<p class="text-2xl font-light text-zinc-900 lg:text-4xl">
-						(+63)9123456789
+						(+63) 9564261438
 					</p>
-					<p class="inline-flex pt-10 text-4xl font-light text-zinc-900">
+					<p
+						class="inline-flex justify-items-center pt-10 text-4xl font-light text-zinc-900"
+					>
 						Philippines
-						<Icon icon="emojione-v1:flag-for-philippines" class="ml-4" />
+						<Icon icon="emojione-v1:flag-for-philippines" class="ml-4 mt-1" />
 					</p>
 				</div>
 			</div>
 		</div>
 		<div class="flex flex-col border-t border-t-black lg:flex-row">
-			<div class="mx-auto basis-1/2 py-10">
+			<!-- unused  -->
+			<!-- <div class="mx-auto basis-1/2 py-10">
 				<ul class="mx-auto text-center text-sm text-slate-900 lg:inline-flex">
 					{#each links as link}
 						<li class="py-2 uppercase lg:mx-10 lg:py-0">
@@ -82,35 +85,61 @@
 						</li>
 					{/each}
 				</ul>
-			</div>
+			</div> -->
 			<div
-				class="mx-auto flex max-w-7xl flex-col justify-between py-10 lg:basis-1/2 lg:flex-row"
+				class="mx-auto flex max-w-7xl flex-col justify-between py-10 lg:basis-3/4 lg:flex-row"
 			>
 				<div
-					class="mx-auto flex flex-col lg:basis-1/2 lg:flex-row lg:justify-between lg:py-0"
+					class="mx-auto flex flex-col lg:basis-2/4 lg:flex-row lg:justify-between lg:py-0"
 				>
-					<p class="py-2 text-sm uppercase text-slate-900 lg:py-0">
+					<p class=" py-2 text-sm uppercase text-slate-900 lg:py-0">
 						see what we're up to
 					</p>
 					<ul class="mx-auto inline-flex space-x-4">
 						<li>
-							<a href="https://www.facebook.com/daedalusdev">
+							<a href="https://www.facebook.com/daedalusdev" target="_blank">
 								<Icon icon="simple-icons:facebook" color="white" />
 							</a>
 						</li>
 						<li>
-							<a href="https://www.facebook.com/daedalusdev">
+							<a href="https://www.tiktok.com/@daedalusdev" target="_blank">
 								<Icon icon="simple-icons:tiktok" color="white" />
 							</a>
 						</li>
 						<li>
-							<a href="https://www.facebook.com/daedalusdev">
+							<a href="https://twitter.com/DaedalusDevPH" target="_blank">
 								<Icon icon="simple-icons:x" color="white" />
 							</a>
 						</li>
 						<li>
-							<a href="https://www.facebook.com/daedalusdev">
+							<a
+								href="https://www.linkedin.com/company/daedalusdev"
+								target="_blank"
+							>
 								<Icon icon="simple-icons:linkedin" color="white" />
+							</a>
+						</li>
+						<li>
+							<a
+								href="https://www.youtube.com/@DaedalusDevelopers"
+								target="_blank"
+							>
+								<Icon
+									icon="simple-icons:youtube"
+									width="25"
+									height="25"
+									color="white"
+								/>
+							</a>
+						</li>
+						<li>
+							<a href="https://discord.gg/daedalusdev" target="_blank">
+								<Icon
+									icon="simple-icons:discord"
+									width="25"
+									height="25"
+									color="white"
+								/>
 							</a>
 						</li>
 					</ul>
