@@ -70,7 +70,7 @@
 			></div>
 			<div
 				data-navbar-container
-				class="navbarBackground fixed inset-y-0 right-0 z-10 w-full overflow-y-auto border border-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+				class="navbarBackground fixed inset-y-0 right-0 z-10 h-[100vh] w-full overflow-y-auto border border-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">
