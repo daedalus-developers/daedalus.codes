@@ -18,7 +18,7 @@
 						STAY UP TO DATE
 					</p>
 					<p
-						class="text-5xl font-black tracking-tight text-zinc-900 lg:text-7xl"
+						class="mb-2 mt-3 text-5xl font-black tracking-tight text-zinc-900 lg:text-7xl"
 					>
 						get our
 					</p>
@@ -27,15 +27,15 @@
 					>
 						infographics
 					</p>
-					<div class="flex pt-4 text-black">
+					<div class="flex pt-6 text-black">
 						<form
 							on:submit|preventDefault={handleSubscribeInfographics}
 							class="flex grow"
 						>
 							<input
-								class="form-input w-3/4 appearance-none border-b-black border-l-transparent
-                border-r-transparent border-t-transparent bg-transparent
-                p-0 outline-none placeholder:text-white focus:border-none focus:border-transparent focus:outline-none"
+								class="focus:border- form-input w-3/4 appearance-none border-b-black
+                border-l-transparent border-r-transparent border-t-transparent
+                bg-transparent p-0 outline-none placeholder:text-white focus:border-b-black focus:border-l-transparent focus:border-r-transparent focus:border-t-transparent focus:ring-transparent"
 								type="email"
 								placeholder="Your Email"
 								required
@@ -43,7 +43,7 @@
 							/>
 							<button
 								type="submit"
-								class="tex-black mx-auto rounded-full bg-white hover:bg-primary"
+								class="tex-black mx-auto rounded-full bg-white hover:bg-accent"
 							>
 								<Icon
 									icon="prime:send"
@@ -90,12 +90,12 @@
 				class="mx-auto flex max-w-7xl flex-col justify-between py-10 lg:basis-3/4 lg:flex-row"
 			>
 				<div
-					class="mx-auto flex flex-col lg:basis-2/4 lg:flex-row lg:justify-between lg:py-0"
+					class="mx-auto flex flex-col items-center lg:basis-2/4 lg:flex-row lg:justify-between lg:py-0"
 				>
 					<p class=" py-2 text-sm uppercase text-slate-900 lg:py-0">
 						see what we're up to
 					</p>
-					<ul class="mx-auto inline-flex space-x-4">
+					<ul class="mx-auto inline-flex items-center space-x-4">
 						<li>
 							<a href="https://www.facebook.com/daedalusdev" target="_blank">
 								<Icon icon="simple-icons:facebook" color="white" />
@@ -144,7 +144,7 @@
 						</li>
 					</ul>
 				</div>
-				<p class="py-10 text-sm text-slate-900 lg:py-0">
+				<p class="mb-auto mt-auto py-10 text-sm text-slate-900 lg:py-0">
 					© 2023 Daedalus. All rights reserved.
 				</p>
 			</div>
