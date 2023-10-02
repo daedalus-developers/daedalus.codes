@@ -5,9 +5,12 @@
 				data-content
 				class="text-5xl font-black tracking-tighter antialiased dark:text-white lg:text-8xl"
 			>
-				<span> lets craft something great together </span>
+				<span>
+					lets <span class="text-accent">craft</span> something great
+					<span class="text-secondary">together</span>
+				</span>
 			</div>
-			<div class="mt-5">
+			<div class="mt-8">
 				<a
 					class="relative rounded-full bg-accent p-2 hover:bg-surface"
 					href="#contact">Get help</a

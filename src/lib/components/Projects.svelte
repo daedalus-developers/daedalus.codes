@@ -38,13 +38,15 @@
 						</div>
 						Push to deploy
 					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
+					<dd class="mt-2 text-base leading-7 text-gray-500">
 						Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse
 						semper morbi. Odio urna massa nunc massa.
 					</dd>
 				</div>
 				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
+					<dt
+						class="text-base font-semibold leading-7 text-gray-900 dark:text-white"
+					>
 						<div
 							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
 						>
@@ -65,13 +67,15 @@
 						</div>
 						SSL certificates
 					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
+					<dd class="mt-2 text-base leading-7 text-gray-500">
 						Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget.
 						Sem sodales gravida quam turpis enim lacus amet.
 					</dd>
 				</div>
 				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
+					<dt
+						class="text-base font-semibold leading-7 text-gray-900 dark:text-white"
+					>
 						<div
 							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
 						>
@@ -92,13 +96,15 @@
 						</div>
 						Simple queues
 					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
+					<dd class="mt-2 text-base leading-7 text-gray-500">
 						Quisque est vel vulputate cursus. Risus proin diam nunc commodo.
 						Lobortis auctor congue commodo diam neque.
 					</dd>
 				</div>
 				<div class="relative pl-16">
-					<dt class="text-base font-semibold leading-7 text-gray-900">
+					<dt
+						class="text-base font-semibold leading-7 text-gray-900 dark:text-white"
+					>
 						<div
 							class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
 						>
@@ -119,7 +125,7 @@
 						</div>
 						Advanced security
 					</dt>
-					<dd class="mt-2 text-base leading-7 text-gray-600">
+					<dd class="mt-2 text-base leading-7 text-gray-500">
 						Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis
 						aliquet hac quis. Id hac maecenas ac donec pharetra eget.
 					</dd>

@@ -7,10 +7,8 @@
 </script>
 
 <!-- NOTE: https://www.braydoncoyer.dev/blog/build-a-glassmorphic-navbar-with-tailwindcss-backdrop-filter-and-backdrop-blur -->
-<div
-	class="sticky left-0 top-0 z-10 backdrop-blur-md lg:sticky lg:bg-opacity-90"
->
-	<header class="mx-auto max-w-7xl justify-center">
+<div class="sticky left-0 top-0 z-10 lg:sticky lg:bg-opacity-90">
+	<header class="mx-auto max-w-7xl justify-center backdrop-blur-md">
 		<nav
 			class="mx-auto flex max-w-7xl items-center justify-between bg-gray-600 bg-opacity-5
          p-6 backdrop-filter lg:rounded lg:border lg:border-gray-800 lg:px-8"
