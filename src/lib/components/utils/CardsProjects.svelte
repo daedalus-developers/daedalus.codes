@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { listOfProjects } from '$lib/data';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 
@@ -6,7 +6,7 @@
 		loop: true,
 		breakpoints: {
 			'(max-width:640px)': { axis: 'y' }
-		}
+		},
 	};
 </script>
 
@@ -71,6 +71,7 @@
 
 	.embla__slide:hover article {
 		visibility: visible;
+		width: 100%;
 		background: rgb(0, 0, 0);
 		background: linear-gradient(
 			0deg,
