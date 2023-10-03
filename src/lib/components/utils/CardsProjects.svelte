@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
 	import { listOfProjects } from '$lib/data';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 
