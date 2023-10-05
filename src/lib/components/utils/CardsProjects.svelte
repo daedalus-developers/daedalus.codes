@@ -1,6 +1,4 @@
 <script>
-// @ts-nocheck
-
 	import { listOfProjects } from '$lib/data';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 
@@ -8,7 +6,7 @@
 		loop: true,
 		breakpoints: {
 			'(max-width:640px)': { axis: 'y' }
-		},
+		}
 	};
 </script>
 
