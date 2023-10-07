@@ -1,15 +1,15 @@
-<script lang="ts">
+<script>
 	import { eventsData as events } from '$lib/data';
 	import { onMount } from 'svelte';
-	// @ts-ignore
-	import Icon from '@iconify/svelte';
 	import EmblaCarousel from 'embla-carousel-svelte';
 	import Autoplay from 'embla-carousel-autoplay';
 
-	// @ts-ignore
-	let data: any[] = [];
-
+	/**
+	 * @type {string | any[]}
+	 */
+	let data = [];
 	onMount(async () => {
+		
 		setTimeout(() => {
 			data = events;
 			console.log(data)
@@ -21,7 +21,7 @@
 		align: 0,
 		dragFree: false
 	};
-	let plugins: any[] = [Autoplay()];
+	let plugins = [Autoplay()];
 </script>
 
 <div class="container">
@@ -69,7 +69,7 @@
 						<div class="embla__container">
 							{#if data.length === 0}
 								{#each [1,2,3] as dt}
-									<div class="embla__slide md:p-3 md:py-4">
+									<div class="embla__slide md:p-3 md:py-4" data-id="dummy-{dt}">
 										<div class="__item aspect-video rounded-2xl bg-neutral-800"></div>
 									</div>
 								{/each}
