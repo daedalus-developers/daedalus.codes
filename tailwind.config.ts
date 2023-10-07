@@ -17,7 +17,9 @@ export default {
 				daedalusDark: 'var(--color-daedalus-dark)'
 			},
 			fontFamily: {
-				inter: ['Inter Variable', ...defaultTheme.fontFamily.sans]
+				inter: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+				poppins: ['Poppins', ...defaultTheme.fontFamily.serif],
+				montserrat: ['Montserrat', ...defaultTheme.fontFamily.serif]
 			},
 			backgroundSize: {
 				'50%': '50%',
