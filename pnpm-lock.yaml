@@ -64,6 +64,12 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.15(postcss@8.4.29)
+  embla-carousel-autoplay:
+    specifier: 8.0.0-rc14
+    version: 8.0.0-rc14(embla-carousel@8.0.0-rc14)
+  embla-carousel-svelte:
+    specifier: 8.0.0-rc14
+    version: 8.0.0-rc14(svelte@4.2.0)
   eslint:
     specifier: ^8.28.0
     version: 8.49.0
@@ -1441,7 +1447,6 @@ packages:
   /electron-to-chromium@1.4.523:
     resolution: {integrity: sha512-9AreocSUWnzNtvLcbpng6N+GkXnCcBR80IQkxRC9Dfdyg4gaWNUPBujAHUpKkiUkoSoR9UlhA4zD/IgBklmhzg==}
     dev: true
-
   /embla-carousel-reactive-utils@8.0.0-rc14(embla-carousel@8.0.0-rc14):
     resolution: {integrity: sha512-r153bynAo9eTBuWWggPWLYnE9xqVOYmkkeMbAuGX8pkUisJN8aTLMW9b7CYOzjURRB7z85EmYRbeBg+axQzc9g==}
     peerDependencies:
@@ -1449,7 +1454,6 @@ packages:
     dependencies:
       embla-carousel: 8.0.0-rc14
     dev: false
-
   /embla-carousel-svelte@8.0.0-rc14(svelte@4.2.0):
     resolution: {integrity: sha512-Y0qDeHDuJX5yfLgSbs5P1qYyRs2s291kLuUm0wJeS5WUo0fEvcKZGU9XokM/OIJ9F9gI99BUY05Fud7+GD2QOQ==}
     peerDependencies:
@@ -1458,16 +1462,6 @@ packages:
       embla-carousel: 8.0.0-rc14
       embla-carousel-reactive-utils: 8.0.0-rc14(embla-carousel@8.0.0-rc14)
       svelte: 4.2.0
-    dev: false
-
-  /embla-carousel@6.2.0:
-    resolution: {integrity: sha512-dSNsiQ7nmSQJZgbYfZCLdzrnznHwpaAcdJFcMRKgm/pjH1doOgxmfsvlMy4VfO4J11hLz8jm/W8WxSSDqfuu4w==}
-    dev: false
-
-  /embla-carousel@8.0.0-rc14:
-    resolution: {integrity: sha512-/NLkMFZ7xKryRVYeUjmhbfV63Vr07saPBDwAX2TPMbcaiWwfQfU5Xsc2AiCMZANtwmzsjRK6gSBa7hOy/VXu6g==}
-    dev: false
-
   /entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}

@@ -30,6 +30,8 @@
 		"@vitest/coverage-v8": "^0.34.4",
 		"@vitest/ui": "^0.34.4",
 		"autoprefixer": "^10.4.14",
+		"embla-carousel-autoplay": "8.0.0-rc14",
+		"embla-carousel-svelte": "8.0.0-rc14",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
