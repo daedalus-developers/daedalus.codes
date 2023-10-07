@@ -5,15 +5,118 @@
 @tailwind components;
 /* prettier-ignore */
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Montserrat:ital,wght@0,700;1,400;1,900&family=Poppins:ital,wght@0,500;0,600;1,300&display=swap');
 
 :root {
-	font-family: 'Inter Variable', sans-serif;
-	--color-primary: #7209b7;
-	--color-secondary: #8d62ef;
-	--color-accent: #f72585;
-	--color-surface: #ff8329;
-	--color-daedalus-light: #ffffff;
-	--color-daedalus-dark: #1d1d1f;
+	Root Variables{
+		--default-font-family: 'Inter', sans-serif;
+		--brand-font-family: 'Montserrat', sans-serif;
+		--emphasized-font-family: 'Montserrat', sans-serif;
+		--quotation-font-font-family: 'Inter','Poppins', sans-serif;
+	
+	/*color*/
+		--color-primary: #00abab;
+		--color-secondary: #5d5dde;
+		--color-accent: #ffd074;
+		--color-surface-light: #f7fcfe; 
+		--color-surface-dark: #16160e;
+		--color-daedalus-light: #fffffc;
+		--color-daedalus-dark: #2b2b2b;
+	
+	/*hover color*/
+		--primary-hover: #00abab;
+		--accent-hover: #f72585; 
+		--secondary-light-hover: #fffffc; /*--color-daedalus-light */
+		--secondary-dark-hover: #2b2b2b; /*--color-daedalus-dark */
+	
+		--font-size-extrasmall: 15px;
+		--font-size-small: 20px;
+		--font-size-medium: 40px;
+		--font-size-large: 50px;
+		--font-size-extralarge: 125px;
+	
+		--bg-and-color-transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+		--max-width: 1440px;
+	
+	/*button*/
+		--button-background-color: #ffd074;
+		--button-text-color: #2b2b2b;
+		--button-border-radius: 50px;
+		--button-padding: 25px 50px;
+	
+	/*carousel*/
+		--card-border-radius: 20px;
+		--card-padding: 20px;
+		--card-width: 770px;
+		--card-height: 420px;
+	
+	/*Card*/
+		--card-border-radius: 20px;
+		--card-padding: 20px;
+		--card-width: 500px;
+		--card-height: 500px;
+	
+	/*Nav Bar*/
+		--height-navbar: 65px;
+		--width-navbar: auto;
+		--height-Logo: 20px;
+		--height-navbar-Component: 13px;
+	
+	/*Hero*/
+		--Height-Text-Quote: 125px;
+		--Height-Text-Button: 23px;
+		--Height-img: 630px;
+		--Width-img: 630px;
+		--CornerRadius-img: 80px;
+		--Height-Button: 80px; 
+		--Width-Button: 205px;
+	
+	/*Sections Separators*/
+		--Height-Text-Section: 20px;
+		--Height-Text-Description: 35px;
+	
+	/*Courses*/
+		--Height-Text-Courses: 48px;
+		--Height-Border: 630px;
+		--Width-Boder: 630px;
+		--CornerRadius-img: 80px;
+	
+	/*Project Card Carousel*/
+		--Height-Text-Description: 30px;
+		--Height-Text-Titles: 40px;
+		--Height-Text-Tags: 14px;
+		--Height-Text-Button: 23px;
+		--Height-Button: 80px; 
+		--Width-Button: 280px;
+		--Height-img: 420px;
+		--Width-img: 770px;
+	
+	/*Objectives*/
+		--Height-Text-Description: 48px;
+		--Height-Text-Titles: 31px;
+	
+	/*Event Card Carousel*/
+		--Height-Text-Section: 20px;
+		--Height-Text-Description: 50px;
+		--Height-Text-Button: 23px;
+		--Height-Button: 80px; 
+		--Width-Button: 280px;
+		--Height-img: 420px;
+		--Width-img: 770px;
+	
+	/*Ending Tagline*/
+		--Height-Text-Quote: 125px;
+		--Height-Text-Button: 23px;
+		--Height-Button: 80px; 
+		--Width-Button: 205px;
+	
+	/*Footer*/
+		--Text-Height-Title: 20px;
+		--Text-Height-Ads: 73px;
+		--Text-Height-email: 20px;
+		--Text-Height-details: 32px;
+		--Text-Height-footer: 11px;
+	}
 }
 
 body {
