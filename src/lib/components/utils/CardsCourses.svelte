@@ -32,4 +32,8 @@
 			padding-right: 10px;
 		}
 	}
+
+	img {
+		transition: 0.2s ease-out;
+	}
 </style>
