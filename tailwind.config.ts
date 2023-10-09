@@ -12,7 +12,7 @@ export default {
 				primary: 'var(--color-primary)',
 				secondary: 'var(--color-secondary)',
 				accent: 'var(--color-accent)',
-				surface: 'var(--color-surface)',
+				surface: 'var(--color-surface-dark)',
 				daedalusLight: 'var(--color-daedalus-light)',
 				daedalusDark: 'var(--color-daedalus-dark)'
 			},
