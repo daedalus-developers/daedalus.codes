@@ -8,7 +8,39 @@ export const coursesData = [
 	{ title: 'For Upskilling', link: '/', backgroundImage: '/upskilling.png' }
 ];
 
-export const projectsData = [];
+export const listOfProjects = [
+	{
+		Title: 'Okinawa',
+		projectDescription:
+			'Innovative e-commerce hub showcasing the latest in tech gadgets and accessories.',
+		techStack: 'Svelte • HTML • Tailwind',
+		imageSource: '/website1.png'
+	},
+
+	{
+		Title: 'Pinky',
+		projectDescription:
+			' featuring a wealth of content on eco-conscious practices, product assessments, and actionable guidance',
+		techStack: 'React • HTML • BootStrap',
+		imageSource: '/website2.png'
+	},
+
+	{
+		Title: 'Radiance',
+		projectDescription:
+			'Social networking destination uniting outdoor aficionados and scenic snapshots.',
+		techStack: 'React • HTML • BootStrap',
+		imageSource: '/website3.png'
+	},
+
+	{
+		Title: 'Reverie',
+		projectDescription:
+			'Online language learning portal providing interactive lessons at every proficiency level. ',
+		techStack: 'React • HTML • BootStrap',
+		imageSource: '/website2.png'
+	}
+];
 
 // last data should be the latest event
 export const eventsData = [

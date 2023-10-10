@@ -12,12 +12,14 @@ export default {
 				primary: 'var(--color-primary)',
 				secondary: 'var(--color-secondary)',
 				accent: 'var(--color-accent)',
-				surface: 'var(--color-surface)',
+				surface: 'var(--color-surface-dark)',
 				daedalusLight: 'var(--color-daedalus-light)',
 				daedalusDark: 'var(--color-daedalus-dark)'
 			},
 			fontFamily: {
-				inter: ['Inter Variable', ...defaultTheme.fontFamily.sans]
+				inter: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+				poppins: ['Poppins', ...defaultTheme.fontFamily.serif],
+				montserrat: ['Montserrat', ...defaultTheme.fontFamily.serif]
 			},
 			backgroundSize: {
 				'50%': '50%',
