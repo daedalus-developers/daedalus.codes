@@ -4,7 +4,8 @@
 	export let eventSubtitle: string = '🚀 Join Our Hackathon! 🚀';
 	export let eventDescription: string = `
     Unleash your coding skills and creativity in our upcoming hackathon. Solve real-world problems, collaborate with like-minded developers, and bring your innovative ideas to life. Don't miss out – Register Now and be part of the coding adventure!!`;
-
+	export let action = '/api/events/register';
+	export let method: 'POST' | 'GET' | 'PUT' | 'DELETE' | 'PATCH' = 'POST';
 	export let eventDetails: { [key: string]: string }[] = [
 		{
 			key: 'Registration Deadline',
@@ -107,12 +108,7 @@
 			</div>
 		{/each}
 	</article>
-	<form
-		class="my-8 flex flex-col gap-3"
-		action="/events"
-		method="POST"
-		use:enhance
-	>
+	<form class="my-8 flex flex-col gap-3" {action} {method} use:enhance>
 		{#each eventRequirements as eventRequirement}
 			<div class="flex flex-col gap-4 align-middle">
 				<label
