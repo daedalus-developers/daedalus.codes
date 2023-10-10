@@ -28,7 +28,7 @@
 		},
 		{
 			key: 'Note',
-			value: 'A github account is required to participate.'
+			value: 'A github account is required to participate'
 		}
 	];
 
