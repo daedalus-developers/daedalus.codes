@@ -105,15 +105,17 @@
 		<h1 class="text-5xl mb-3">{eventTitle}</h1>
 		<h2 class="text-sm">{eventSubtitle}</h2>
 		<p class="my-4 text-sm text-opacity-80">{eventDescription}</p>
+		{#if eventDetails.length > 0}
 		<h1 class="text-1xl text-center">Event Details</h1>
-		{#each eventDetails as eventDetail}
-			<div class="flex justify-between">
-				<strong class="text-sm text-secondary text-opacity-80"
-					>{eventDetail.key}</strong
-				>
-				<p class=" text-sm text-opacity-80">{eventDetail.value}</p>
-			</div>
-		{/each}
+			{#each eventDetails as eventDetail}
+				<div class="flex justify-between">
+					<strong class="text-sm text-secondary text-opacity-80"
+						>{eventDetail.key}</strong
+					>
+					<p class=" text-sm text-opacity-80">{eventDetail.value}</p>
+				</div>
+			{/each}
+		{/if}
 	</article>
 	<form class="my-8 flex flex-col gap-3" {action} {method} use:enhance>
 		{#each eventRequirements as eventRequirement}
