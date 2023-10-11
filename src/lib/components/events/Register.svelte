@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import CardsCourses from '../utils/CardsCourses.svelte';
 	export let eventTitle: string = 'Daedalus Hack-a-ton';
 	export let eventSubtitle: string = '🚀 Join Our Hackathon! 🚀';
 	export let eventDescription: string = `
