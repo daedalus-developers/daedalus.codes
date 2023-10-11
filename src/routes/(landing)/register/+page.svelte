@@ -4,14 +4,7 @@
 
 <Register
     eventTitle = "Register"
-    eventDetails = {
-        [
-            {
-                key: "Event Details",
-                value: "Coming soon"
-            }
-        ]
-    }
+    eventDetails = {[]}
     eventRequirements = {[
         {
             title: "username",
