@@ -102,7 +102,7 @@
 
 <section class="mx-auto my-7 max-w-3xl">
 	<article>
-		<h1 class="text-5xl">{eventTitle}</h1>
+		<h1 class="text-5xl my-3">{eventTitle}</h1>
 		<h2 class="text-sm">{eventSubtitle}</h2>
 		<p class="my-4 text-sm text-opacity-80">{eventDescription}</p>
 		<h1 class="text-1xl text-center">Event Details</h1>
