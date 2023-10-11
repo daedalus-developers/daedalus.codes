@@ -120,7 +120,7 @@
 		{#each eventRequirements as eventRequirement}
 			<div class="flex flex-col gap-4 align-middle">
 				{#if eventRequirement.html}
-					{@html eventRequirement.html}
+					{eventRequirement.html}
 				{:else if eventRequirement.radioValues}
 					<label
 						for={eventRequirement.title}
