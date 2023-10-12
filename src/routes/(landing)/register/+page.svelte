@@ -4,6 +4,8 @@
 
 <Register
     eventTitle = "Register"
+    eventSubtitle = "🔥 Are YOU ready to become a Daedalus-level coderist? 🪽"
+    eventDescription = "Join us on our coding adventures. We'll go through all the loops, half the binaries, and maybe a dash of syntactic sugar. And then we'll talk about your code after that!"
     eventDetails = {[]}
     eventRequirements = {[
         {
