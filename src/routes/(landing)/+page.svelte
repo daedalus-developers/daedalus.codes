@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Cta from '$lib/components/CTA.svelte';
 	import Courses from '$lib/components/Courses.svelte';
-	import Events from '$lib/components/Events.svelte';
 	import Events2 from '$lib/components/Events2.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Mission from '$lib/components/Mission.svelte';
@@ -32,7 +31,6 @@
 	<Projects />
 </section>
 <section data-main-section id="events">
-	<Events />
 	<Events2 />
 </section>
 <section data-main-section id="about">
