@@ -42,14 +42,14 @@
 						<div>
 							<a
 								class="relative mt-6 rounded-full bg-accent py-5 px-[64px] inline-block hover:bg-surface"
-								href="#!">See more</a
+								href="/events">See more</a
 							>
 						</div>
 					</div>
 					<!-- End -->
 
 					<!-- Smaller Screen -->
-					<div class="flex flex-col  md:items-start items-center gap-1 py-5 lg:hidden">
+					<div class="flex flex-col md:items-start items-center gap-1 py-5 lg:hidden">
 						<p class="text-secondary text-3xl">Events</p>
 						<h2 class="text-5xl md:text-6xl text-center md:text-left font-extrabold" style="text-wrap:balance;">
 							See our <span class="text-accent">journey</span> and <span class="text-accent">events</span> <span>within the</span> <div class="text-secondary">community</div>
@@ -57,7 +57,7 @@
 						<div>
 							<a
 								class="relative mt-3 rounded-full bg-accent py-5 px-[64px] inline-block hover:bg-surface text-center"
-								href="#!">See more</a
+								href="/events">See more</a
 							>
 						</div>
 					</div>
