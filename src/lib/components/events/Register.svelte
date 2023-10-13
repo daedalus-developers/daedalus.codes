@@ -205,4 +205,7 @@
 		margin: 0 auto;
 		width: 80%;
 	}
+	input[type='file'] {
+		cursor: pointer;
+	}
 </style>
