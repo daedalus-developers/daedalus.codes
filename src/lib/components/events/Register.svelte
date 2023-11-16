@@ -48,6 +48,12 @@
 		required?: boolean;
 		min?: number;
 		max?: number;
+		style?: string;
+		html?: string;
+		radioValues?: string[] | boolean[];
+		default?: string | boolean;
+		hidden?: boolean;
+		disabled?: boolean;
 	}[] = [
 		{
 			title: 'githubUsername',
@@ -95,42 +101,83 @@
 
 <section class="mx-auto my-7 max-w-3xl">
 	<article>
-		<h1 class="text-5xl">{eventTitle}</h1>
+		<h1 class="text-5xl mb-3">{eventTitle}</h1>
 		<h2 class="text-sm">{eventSubtitle}</h2>
 		<p class="my-4 text-sm text-opacity-80">{eventDescription}</p>
+		{#if eventDetails.length > 0}
 		<h1 class="text-1xl text-center">Event Details</h1>
-		{#each eventDetails as eventDetail}
-			<div class="flex justify-between">
-				<strong class="text-sm text-secondary text-opacity-80"
-					>{eventDetail.key}</strong
-				>
-				<p class=" text-sm text-opacity-80">{eventDetail.value}</p>
-			</div>
-		{/each}
+			{#each eventDetails as eventDetail}
+				<div class="flex justify-between">
+					<strong class="text-sm text-secondary text-opacity-80"
+						>{eventDetail.key}</strong
+					>
+					<p class=" text-sm text-opacity-80">{eventDetail.value}</p>
+				</div>
+			{/each}
+		{/if}
 	</article>
 	<form class="my-8 flex flex-col gap-3" {action} {method} use:enhance>
 		{#each eventRequirements as eventRequirement}
 			<div class="flex flex-col gap-4 align-middle">
-				<label
-					for={eventRequirement.title}
-					data-input-type={eventRequirement.type}
-				>
-					{eventRequirement.placeholder}
-				</label>
-				<input
-					type={eventRequirement.type}
-					placeholder={eventRequirement.placeholder}
-					required={eventRequirement.required ?? true}
-					min={eventRequirement.min ?? undefined}
-					max={eventRequirement.max ?? undefined}
-					name={eventRequirement.title}
-					id={eventRequirement.title}
-				/>
+				{#if eventRequirement.html}
+					{eventRequirement.html}
+				{:else if eventRequirement.radioValues}
+					<label
+						for={eventRequirement.title}
+						data-input-type={eventRequirement.type}
+						style={(eventRequirement.hidden ? "display: none;" : "") + (eventRequirement.style ?? "")}
+					>
+						{eventRequirement.placeholder}
+					</label>
+				{#each eventRequirement.radioValues as radioItem}
+					<div class="flex align-middle gap-2.5 items-center ml-6">
+						<input
+							type={eventRequirement.type}
+							placeholder={eventRequirement.placeholder}
+							required={eventRequirement.required ?? true}
+							min={eventRequirement.min ?? undefined}
+							max={eventRequirement.max ?? undefined}
+							name={eventRequirement.title}
+							id={typeof radioItem === "boolean" ? eventRequirement.title : radioItem}
+							value={radioItem}
+							checked={eventRequirement.default === radioItem ? true : undefined}
+							style={(eventRequirement.hidden ? "display: none;" : "") + (eventRequirement.style ?? "")}
+							disabled={eventRequirement.disabled ?? undefined}
+						/>
+						<label
+							for={typeof radioItem === "boolean" ? eventRequirement.title : radioItem}
+							data-input-type={eventRequirement.type}
+							style={(eventRequirement.hidden ? "display: none;" : "") + (eventRequirement.style ?? "")}
+						>
+							{radioItem}
+						</label>
+					</div>
+				{/each}
+				{:else}
+					<label
+						for={eventRequirement.title}
+						data-input-type={eventRequirement.type}
+						style={(eventRequirement.hidden ? "display: none;" : "") + (eventRequirement.style ?? "")}
+					>
+						{eventRequirement.placeholder}
+					</label>
+					<input
+						type={eventRequirement.type}
+						placeholder={eventRequirement.placeholder}
+						required={eventRequirement.required ?? true}
+						min={eventRequirement.min ?? undefined}
+						max={eventRequirement.max ?? undefined}
+						name={eventRequirement.title}
+						id={eventRequirement.title}
+						style={(eventRequirement.hidden ? "display: none;" : "") + (eventRequirement.style ?? "")}
+						disabled={eventRequirement.disabled ?? undefined}
+					/>
+				{/if}
 			</div>
 		{/each}
 		<div class="flex flex-row justify-center gap-7 align-middle">
-			<input class="w-28 cursor-pointer px-10 hover:bg-accent" type="reset" />
-			<input class="w-28 cursor-pointer px-10 hover:bg-accent" type="submit" />
+			<input class="w-28 cursor-pointer px-10 hover:bg-accent" type="reset" value="Reset"/>
+			<input class="w-28 cursor-pointer px-10 hover:bg-accent" type="submit" value="Submit"/>
 		</div>
 	</form>
 </section>
@@ -144,6 +191,9 @@
 		font-size: small;
 		padding: 0;
 	}
+	label[data-input-type='radio'], label[data-input-type='checkbox'], label[data-input-type='file'] {
+		display: inline-block;
+	}
 	input {
 		display: block;
 		padding: 10px;
@@ -154,5 +204,8 @@
 		padding: 0;
 		margin: 0 auto;
 		width: 80%;
+	}
+	input[type='file'] {
+		cursor: pointer;
 	}
 </style>
