@@ -1,4 +1,4 @@
-/** @type {import('eslint').Linter.Config} */
+/** @type { import("eslint").Linter.FlatConfig } */
 module.exports = {
 	root: true,
 	extends: [
