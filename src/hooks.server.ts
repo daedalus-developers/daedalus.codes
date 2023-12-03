@@ -1,9 +1,9 @@
 import type { Handle } from '@sveltejs/kit';
 import PocketBase from 'pocketbase';
-import { PUBLIC_PB_URL } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const USER_DB = new PocketBase(PUBLIC_PB_URL);
+	const USER_DB = new PocketBase(env.PUBLIC_PB_URL);
 
 	event.locals.DB = USER_DB;
 
