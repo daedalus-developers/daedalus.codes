@@ -1,38 +1,43 @@
-# create-svelte
+# Development
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+### Install dependencies
 
-## Creating a project
+1. Download [pocketbase](https://pocketbase.io/docs/) runtime depending on your OS.
+   paste it on the `pb` directory;
 
-If you're seeing this, you've probably already done this step. Congrats!
+2. You don't need to touch that directory.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+3. After downloading try running `pnpm run dev:api`
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+4. If successful initialize your instance by going at `http://localhost:8090/_/`
 
-## Developing
+   1. Whatever you put in the installer setup should also be in your
+      `.env.development` credentials
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+   2. Copy the `.env.example` to `.env.development`
 
-```bash
-npm run dev
+      ```sh
+      cp .env.example .env.development
+      ```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+5. You local data that you have will stay with you as `pb/pb_data` is `gitignored`
+   This will keep our production data pristine
 
-## Building
+6. You can now install node dependencies using `pnpm install`
 
-To create a production version of your app:
+7. On a seperate terminal run the ff commands on each one
+   `pnpm dev:api` and `pnpm dev:web`
 
-```bash
-npm run build
-```
+8. In case you are lazy run both using `pnpm dev` but some systems
+   might not support closing each child process.
 
-You can preview the production build with `npm run preview`.
+9. Contribute and make a PR.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+For further questions reachout with the team
+
+## Deployment
+
+The following project will only be deployable using `adapter-cloudflare`  
+and all other `env` setup is there.
+
+If you want to deploy a similar stack on your own you need to host your own pb instance.

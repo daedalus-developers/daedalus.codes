@@ -15,11 +15,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@server': './src/lib/server/',
-			'@data': './src/lib/server/data/',
 			'@services': './src/lib/server/services/',
-			'@queries': './src/lib/server/data/queries/',
-			'@mutations': './src/lib/server/data/mutations/',
-			'@schemas': './src/lib/server/data/schemas/',
 			'@types': './src/lib/types/',
 			'@utils': './src/lib/utils/',
 			'@assets': './src/lib/assets/',
