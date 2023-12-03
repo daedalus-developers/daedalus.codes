@@ -2,7 +2,7 @@
 
 ### What type of PR is this? (check all applicable)
 
-- [ ] 🍕 Feature
+- [ ] ✨ Feature
 - [ ] 🐛 Bug Fix
 - [ ] 📝 Documentation Update
 - [ ] 🎨 Style
@@ -35,8 +35,6 @@ Added tests?
 - [ ] 🙋 no, because I need help
 - [ ] 👍 yes, (then describe the steps you've taken to test your changes).
 
-
-
 ### Checklist:
 
 - [ ] I have tested my changes and they work as intended.
@@ -46,3 +44,4 @@ Added tests?
 ### Additional Comments:
 
 [Any additional comments, notes, or context you'd like to add.]
+
