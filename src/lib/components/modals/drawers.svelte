@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
+	import { Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
 
 	const drawerStore = getDrawerStore();
 </script>
