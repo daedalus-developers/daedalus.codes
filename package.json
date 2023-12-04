@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev:api": "./pb/pocketbase serve",
+		"dev:api": "node -e \"const exec = process.platform === 'win32' ? 'pocketbase.exe' : 'pocketbase'; require('child_process').execFileSync('./pb/' + exec, ['serve'], { stdio: 'inherit' })\"",
 		"dev:web": "vite dev --host",
 		"dev": "pnpm run dev:api & pnpm run dev:web",
 		"build": "vite build",

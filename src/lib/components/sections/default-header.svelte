@@ -9,7 +9,7 @@
 
 	const drawerSettings = {
 		id: 'drawer-side-link-list',
-		width: 'w-[280px] lg:w-[480px]',
+		width: 'w-[280px] md:w-[480px]',
 	}
 	const drawerStore = getDrawerStore();
 
@@ -27,29 +27,30 @@
 <div 
 	class="bg-surface-100-800-token shadow-lg"
 	>
+
 	<Container addClass="flex">
 
-		<a href="/" class="py-2 flex items-center gap-1 me-20">
+		<a href="/" class="py-4 flex items-center gap-1 me-10 lg:me-20">
 			<img 
 				src="/daedalus.png" 
 				alt="logo"
-				class="w-9 h-w-9 lg:w-[50px] lg:h-[50px]"
+				class="w-9 h-w-9 md:w-[50px] md:h-[50px]"
 				>
 				<span 
-					class="text-3xl font-bold block lg:hidden 
+					class="text-2xl font-normal md:font-bold lg:font-black uppercase block md:hidden 
 					bg-clip-text text-transparent bg-gradient-to-r from-secondary-600 to-primary-600"
 				>aedalus</span>
 		</a>
 
 		<div 
-			class="flex gap-10 me-auto"
+			class="flex gap-5 lg:gap-10 me-auto"
 			>
 			{#each primaryLinks as link }
 				{#if link.href !== '/'}
 				<a 
 					href="{link.href}" 
 					class="border-y-4 border-transparent 
-					hidden lg:flex lg:items-center
+					hidden md:flex md:items-center
 					{$page.url.pathname === link.href ? 'active' : ''}">
 					{link.name}
 				</a>
@@ -58,33 +59,33 @@
 		</div>
 
 		<div 
-			class="flex gap-10"
+			class="flex gap-5 lg:gap-10"
 			>
 			{#each secondaryLinks as link }
 			<a 
 				href="{link.href}" 
 				class="border-y-4 border-transparent 
-				hidden lg:flex lg:items-center
+				hidden md:flex md:items-center
 				{$page.url.pathname === link.href ? 'active' : ''}">
 				{link.name}
 			</a>
 			{/each}
 		</div>
 		
-		<div class="flex items-center gap-2 lg:gap-3 ms-20">
+		<div class="flex items-center gap-2 md:gap-3 ms-10 lg:ms-20">
 			<button class="text-2xl">
 				<Icon icon="iconamoon:search" />
 			</button>
 			<a href="/login"
-				class="lg:btn lg:variant-filled-primary hidden lg:flex"
+				class="md:btn md:variant-filled-primary hidden md:flex"
 				>
 				<Icon icon="material-symbols:login" class="text-2xl" />
-				<span class="hidden lg:inline-block">Login</span>
+				<span class="hidden md:inline-block">Login</span>
 			</a>
-			<LightSwitch class="hidden lg:block" />
+			<LightSwitch class="hidden md:block" />
 
 			<button 
-				class="btn btn-ghost lg:hidden text-2xl px-1"
+				class="btn btn-ghost md:hidden text-2xl px-1"
 				on:click={openDrawer}>
 				<Icon icon="carbon:menu" />
 			</button>

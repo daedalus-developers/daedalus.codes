@@ -46,13 +46,11 @@
 				</a>
 			</li>
 			<li>
-				<a href="/login">
+				<a href="/login" on:click={drawerClose}>
 					<Icon icon="material-symbols:login" class="text-2xl" />
 					<span class="ms-2">Login</span>
 				</a>
 			</li>
-			
-			
 		</ul>
 	</nav>
 </nav>
