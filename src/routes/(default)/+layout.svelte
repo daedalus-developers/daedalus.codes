@@ -3,7 +3,7 @@
 </script>
 
 <Layout>
-	<div class="w-screen h-screen mx-auto">
+	<div class="w-screen min-h-screen mx-auto">
 		<slot />
 	</div>
 </Layout>
