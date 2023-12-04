@@ -17,6 +17,7 @@ const config = {
 			'@server': './src/lib/server/',
 			'@services': './src/lib/server/services/',
 			'@types': './src/lib/types/',
+			'@schemas': './src/lib/schemas/',
 			'@utils': './src/lib/utils/',
 			'@assets': './src/lib/assets/',
 			'@stores': './src/lib/stores/',

@@ -7,6 +7,7 @@
 		"dev:web": "vite dev --host",
 		"dev": "pnpm run dev:api & pnpm run dev:web",
 		"dev:be": "./pb/pocketbase serve",
+		"migrate": "./pb/pocketbase migrate",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
