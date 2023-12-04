@@ -3,8 +3,7 @@
 	import { Footer, Header } from '../sections/';
 </script>
 
-<AppShell 
-	slotHeader="sticky top-0">
+<AppShell>
 	<svelte:fragment slot="header">
 		<Header />
 	</svelte:fragment>
