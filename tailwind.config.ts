@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import { skeleton } from '@skeletonlabs/tw-plugin';
-import { artifex , daedalus } from './src/themes';
+import { artifex, daedalus } from './src/themes';
 
 const config = {
 	darkMode: 'class',
