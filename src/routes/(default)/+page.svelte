@@ -1,5 +1,5 @@
 <script>
-	import Hero from "@components/sections/hero.svelte";
+	import {Hero} from "@components";
 
 </script>
 
