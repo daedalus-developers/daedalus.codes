@@ -6,6 +6,7 @@
 		"dev:api": "node -e \"const exec = process.platform === 'win32' ? 'pocketbase.exe' : 'pocketbase'; require('child_process').execFileSync('./pb/' + exec, ['serve'], { stdio: 'inherit' })\"",
 		"dev:web": "vite dev --host",
 		"dev": "pnpm run dev:api & pnpm run dev:web",
+		"dev:be": "./pb/pocketbase serve",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
