@@ -1,15 +1,15 @@
 <script lang="ts">
-import '@fontsource-variable/inter';
+	import '@fontsource-variable/inter';
 	import '../app.postcss';
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import {  Modal, Toast, storePopup } from '@skeletonlabs/skeleton';
+	import { Modal, Toast, storePopup } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+
   import { ModalRegistry, Drawers } from '@components';
 	import type { AfterNavigate } from '@sveltejs/kit';
 	import { afterNavigate } from '$app/navigation';
 	import { autoModeWatcher } from '@skeletonlabs/skeleton';
-
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 	initializeStores();
@@ -22,7 +22,6 @@ import '@fontsource-variable/inter';
 				elemPage.scrollTop = 0;
 		}
 	});
-
 </script>
 
 <svelte:head>{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}</svelte:head>

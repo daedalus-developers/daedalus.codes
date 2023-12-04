@@ -27,7 +27,8 @@
 <div 
 	class="bg-surface-100-800-token shadow-lg"
 	>
-	<Container addClass="flex max-w-64">
+
+	<Container addClass="flex">
 
 		<a href="/" class="py-4 flex items-center gap-1 me-10 lg:me-20">
 			<img 

@@ -51,7 +51,6 @@
 					<span class="ms-2">Login</span>
 				</a>
 			</li>
-			
 		</ul>
 	</nav>
 </nav>
