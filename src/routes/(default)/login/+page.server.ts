@@ -21,14 +21,9 @@ export const actions: Actions = {
 		const { key, password } = form.data;
 
 		try {
-			const authData = await locals.DB.collection(Collections.Users).authWithPassword(
-				key,
-				password
-			);
-			console.log(authData);
+			await locals.DB.collection(Collections.Users).authWithPassword(key, password);
 		} catch (error) {
 			const err = error as ClientResponseError;
-			console.log(err);
 			return err.response.code !== 400
 				? message(form, INVALID_CREDENTIALS)
 				: message(form, SOMETHING_WENT_WRONG, {
