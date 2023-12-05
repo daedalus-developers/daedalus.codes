@@ -2,7 +2,7 @@
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
-  import { primaryLinks, secondaryLinks } from '@utils';
+	import { primaryLinks, secondaryLinks } from '@utils';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	const drawerStore = getDrawerStore();
@@ -24,7 +24,7 @@
 				</a>
 			</li>
 		{/each}
-    {#each secondaryLinks as { name, href, iconifyCode }}
+		{#each secondaryLinks as { name, href, iconifyCode }}
 			<li
 				class={$page.url.pathname === href ? 'variant-ghost-primaryX variant-filled-primary' : ''}
 			>
@@ -35,12 +35,11 @@
 			</li>
 		{/each}
 	</ul>
-	<hr class="mt-auto">
+	<hr class="mt-auto" />
 	<nav class="py-5 px-3">
 		<ul>
 			<li class="flex justify-center">
-				<a href="/"
-					on:click|preventDefault>
+				<a href="/" on:click|preventDefault>
 					<LightSwitch class="rotate-90X" />
 					<!-- <span class="ms-2">Theme</span> -->
 				</a>
