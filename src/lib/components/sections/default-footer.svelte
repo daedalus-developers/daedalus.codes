@@ -9,8 +9,8 @@
 				<div class="h-[66px] w-[65px] bg-orange-300" />
 				<div>
 					<p class="uppercase">Sign up to newsletter</p>
-					<form class="flex flex-wrap flex-row border-[1.2px] border-[#00B6BF] rounded-tl-[6px] rounded-tr-[6px] rounded-bl-[6px] rounded-br-[6px]">
-						<input type="email" placeholder="Type your email..." class="w-[379px] h-[37px] inline-block rounded-tl-[6px] rounded-bl-[6px] text-[#232323]">
+					<form class="flex flex-row">
+						<input type="email" placeholder="Type your email..." class="w-[379px] h-[37px] inline-block rounded-tl-[6px] rounded-bl-[6px] text-[#232323] border-[1.2px] border-[#00B6BF]">
 						<input type="submit" value="Subscribe" class="w-[112px] h-[37px] bg-[#00b6bf] inline-block rounded-tr-[6px] rounded-br-[6px]">
 					</form>
 				</div>
@@ -35,11 +35,6 @@
 					<p>4021</p>
 				</div>
 			</div>
-		</div>	
-	</svelte:fragment>
-	<svelte:fragment slot="sidebarRight">
-		<div class="col-span-1 font-sans bg-[#101010] text-[#FFFFFF]">
-			
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="footer">
