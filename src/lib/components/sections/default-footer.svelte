@@ -4,18 +4,20 @@
 
 <AppBar>
 	<svelte:fragment slot="lead">
-		<div id="logo" class="h-[66px] w-[65px] bg-orange-300" />
-		<div id="getInTouch">
-			<div id="getInTouchText">
-				<p class="uppercase">Get in touch</p>
+		<div class="col-span-1">
+			<div id="logo" class="h-[66px] w-[65px] bg-orange-300" />
+			<div id="getInTouch">
+				<div id="getInTouchText">
+					<p class="uppercase">Get in touch</p>
+				</div>
+				<div id="getInTouchEmail">
+					<p>daedalusdev@gmail.com</p>
+				</div>
 			</div>
-			<div id="getInTouchEmail">
-				<p>daedalusdev@gmail.com</p>
+			<div id="followUs">
+				<p class="uppercase">Follow us</p>
 			</div>
-		</div>
-		<div id="followUs">
-			<p class="uppercase">Follow us</p>
-		</div>
+		</div>	
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
 		<div>
