@@ -4,7 +4,7 @@
 
 <AppShell>
 	<svelte:fragment slot="pageFooter">
-		<div class="flex flex-row font-sans bg-[#101010] text-[#FFFFFF]">
+		<div class="flex flex-row font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[10%] pr-[10%]">
 			<div class="flex-1 w-64 flex-col">
 				<div class="h-[66px] w-[65px] bg-orange-300" />
 				<div>
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 
-			<div class="flex-1 w-32 flex-col">
+			<div class="flex-1 w-32 flex-col pr-0 ml-[20%]">
 				<div class="flex flex-col">
 					<div>
 						<p class="uppercase">Get in touch</p>
@@ -38,7 +38,7 @@
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="footer">
-		<div class="bg-[#101010] text-[#FFFFFF]">
+		<div class="bg-[#101010] text-[#FFFFFF] pb-[5%] pr-[10%] pl-[10%]">
 			<div>
 				<p>&copy {new Date().getFullYear()} All Rights Reserved.</p>
 			</div>
