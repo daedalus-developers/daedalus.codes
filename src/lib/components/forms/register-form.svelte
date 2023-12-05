@@ -2,26 +2,9 @@
 	import { page } from '$app/stores';
 	import { registerSchema } from '@types';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { getFlash } from 'sveltekit-flash-message';
-	import { getToastStore } from '@skeletonlabs/skeleton';
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
 	import EmailInput from './email-input.svelte';
-
-	const toast = getToastStore();
-	const flash = getFlash(page);
-
-	flash.subscribe(($flash) => {
-		if (!$flash) return;
-
-		console.log($flash.message);
-
-		toast.trigger({
-			message: $flash.message
-		});
-
-		flash.set(undefined);
-	});
 
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
 		validators: registerSchema
