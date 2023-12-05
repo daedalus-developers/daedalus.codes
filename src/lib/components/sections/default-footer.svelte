@@ -4,7 +4,7 @@
 
 <AppBar>
 	<svelte:fragment slot="lead">
-		<div class="col-span-1">
+		<div class="col-span-1 font-sans">
 			<div class="h-[66px] w-[65px] bg-orange-300" />
 			<div>
 				<p class="uppercase">Sign up to newsletter</p>
@@ -19,7 +19,7 @@
 		</div>	
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<div class="col-span-1">
+		<div class="col-span-1 font-sans">
 			<div>
 				<div>
 					<p class="uppercase">Get in touch</p>
