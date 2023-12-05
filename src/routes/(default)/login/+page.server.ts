@@ -1,7 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
 import { message, superValidate } from 'sveltekit-superforms/server';
 import { loginSchema } from '@types';
-import { isExisting } from '@server/auth.services';
 import { Collections } from '@types';
 import { INVALID_CREDENTIALS, SOMETHING_WENT_WRONG } from '@utils';
 import type { ClientResponseError } from 'pocketbase';
@@ -20,12 +19,6 @@ export const actions: Actions = {
 		if (!form.valid) return message(form, 'Please fill in all required fields');
 
 		const { key, password } = form.data;
-
-		// let userExists = await isExisting(Collections.Users, 'username', key);
-		//
-		// userExists = await isExisting(Collections.Users, 'email', key);
-		//
-		// if (!userExists) return message(form, INVALID_CREDENTIALS);
 
 		try {
 			const authData = await locals.DB.collection(Collections.Users).authWithPassword(
