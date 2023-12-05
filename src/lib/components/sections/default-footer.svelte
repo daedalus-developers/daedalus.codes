@@ -22,7 +22,7 @@
 			<p class="uppercase">Sign up to newsletter</p>
 			<form>
 				<input type="email" placeholder="Email Address">
-				<input type="submit" id="submit" value=">">
+				<input type="submit" class="w-[23.1px] h-[24.42px] bg-green-600" value=">">
 			</form>
 		</div>
 		<div>
@@ -43,11 +43,3 @@
 		</div>
 	</svelte:fragment>
 </AppBar>
-
-<style>
-#submit {
-	background: green;
-	width: 23.1px;
-	height: 24.42px;
-}
-</style>
