@@ -11,17 +11,23 @@
 
 4. If successful initialize your instance by going at `http://localhost:8090/_/`
 
-   1. Whatever you put in the installer setup should also be in your
-      `.env.development` credentials
-
-   2. Copy the `.env.example` to `.env.development`
+   1. Copy the `.env.example` to `.env.development`
 
       ```sh
       cp .env.example .env.development
       ```
 
+   2. Whatever you put in the installer setup should also be in your
+      `.env.development` credentials
+
+   3. Pocketbase will auto migrate your database which is autosynced by pb
+      through the `/pb/pb_migrations`.
+
 5. You local data that you have will stay with you as `pb/pb_data` is `gitignored`
    This will keep our production data pristine
+
+- Option to use the sample data just upload the `sampledata.zip` located at
+  `pb` directory to your local pb instance at [Backups](http://127.0.0.1:8090/_/#/settings/backups)
 
 6. You can now install node dependencies using `pnpm install`
 
