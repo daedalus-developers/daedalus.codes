@@ -20,17 +20,17 @@
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
 		<div class="col-span-1">
-			<div id="getInTouch">
-				<div id="getInTouchText">
+			<div>
+				<div>
 					<p class="uppercase">Get in touch</p>
 				</div>
-				<div id="getInTouchEmail">
+				<div>
 					<p>daedalusdev@gmail.com</p>
 				</div>
 			</div>
 			<div>
 				<p class="uppercase">Our office</p>
-				<p>1234 Elm Street</p><div id="background" />
+				<p>1234 Elm Street</p>
 				<p>Makati Philippines</p>
 				<p>4021</p>
 			</div>
