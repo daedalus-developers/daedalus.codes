@@ -36,6 +36,10 @@ export const actions: Actions = {
 				...form.data,
 				role: 'user'
 			});
+			const verification = await db
+				.collection(Collections.Users)
+				.requestVerification(form.data.email);
+			console.log(verification);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400

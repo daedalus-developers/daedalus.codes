@@ -13,7 +13,7 @@ export const load: PageServerLoad = () => {
 };
 
 export const actions: Actions = {
-	default: async ({ request, locals }) => {
+	legacy: async ({ request, locals }) => {
 		const form = await superValidate(request, loginSchema);
 
 		if (!form.valid) return message(form, 'Please fill in all required fields');
