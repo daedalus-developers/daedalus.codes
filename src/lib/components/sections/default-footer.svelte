@@ -4,7 +4,7 @@
 
 <AppShell>
 	<svelte:fragment slot="pageFooter">
-		<div class="flex flex-row font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[10%] pr-[10%]">
+		<div class="flex flex-row font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
 			<div class="flex-1 w-64 flex-col">
 				<div class="h-[66px] w-[65px] bg-orange-300" />
 				<div>
