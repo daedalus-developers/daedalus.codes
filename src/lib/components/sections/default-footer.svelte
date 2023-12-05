@@ -5,7 +5,7 @@
 <AppBar>
 	<svelte:fragment slot="lead">
 		<div class="col-span-1">
-			<div id="logo" class="h-[66px] w-[65px] bg-orange-300" />
+			<div class="h-[66px] w-[65px] bg-orange-300" />
 			<div>
 				<p class="uppercase">Sign up to newsletter</p>
 				<form>
@@ -19,19 +19,21 @@
 		</div>	
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<div id="getInTouch">
-			<div id="getInTouchText">
-				<p class="uppercase">Get in touch</p>
+		<div class="col-span-1">
+			<div id="getInTouch">
+				<div id="getInTouchText">
+					<p class="uppercase">Get in touch</p>
+				</div>
+				<div id="getInTouchEmail">
+					<p>daedalusdev@gmail.com</p>
+				</div>
 			</div>
-			<div id="getInTouchEmail">
-				<p>daedalusdev@gmail.com</p>
+			<div>
+				<p class="uppercase">Our office</p>
+				<p>1234 Elm Street</p><div id="background" />
+				<p>Makati Philippines</p>
+				<p>4021</p>
 			</div>
-		</div>
-		<div>
-			<p class="uppercase">Our office</p>
-			<p>1234 Elm Street</p><div id="background" />
-			<p>Makati Philippines</p>
-			<p>4021</p>
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="headline">
