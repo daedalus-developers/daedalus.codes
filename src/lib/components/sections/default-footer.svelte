@@ -4,7 +4,7 @@
 
 <AppBar>
 	<svelte:fragment slot="lead">
-		<div id="logo" />
+		<div id="logo" class="h-[66px] w-[65px] bg-orange-300" />
 		<div id="getInTouch">
 			<div id="getInTouchText">
 				<p class="uppercase">Get in touch</p>
@@ -45,12 +45,6 @@
 </AppBar>
 
 <style>
-#logo {
-	background: orange;
-	width: 65px;
-	height: 66px;
-}
-
 #submit {
 	background: green;
 	width: 23.1px;
