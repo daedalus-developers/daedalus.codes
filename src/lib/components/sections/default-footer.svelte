@@ -6,13 +6,12 @@
 	<svelte:fragment slot="lead">
 		<div class="col-span-1">
 			<div id="logo" class="h-[66px] w-[65px] bg-orange-300" />
-			<div id="getInTouch">
-				<div id="getInTouchText">
-					<p class="uppercase">Get in touch</p>
-				</div>
-				<div id="getInTouchEmail">
-					<p>daedalusdev@gmail.com</p>
-				</div>
+			<div>
+				<p class="uppercase">Sign up to newsletter</p>
+				<form>
+					<input type="email" placeholder="Email Address">
+					<input type="submit" class="w-[23.1px] h-[24.42px] bg-green-600" value=">">
+				</form>
 			</div>
 			<div id="followUs">
 				<p class="uppercase">Follow us</p>
@@ -20,12 +19,13 @@
 		</div>	
 	</svelte:fragment>
 	<svelte:fragment slot="trail">
-		<div>
-			<p class="uppercase">Sign up to newsletter</p>
-			<form>
-				<input type="email" placeholder="Email Address">
-				<input type="submit" class="w-[23.1px] h-[24.42px] bg-green-600" value=">">
-			</form>
+		<div id="getInTouch">
+			<div id="getInTouchText">
+				<p class="uppercase">Get in touch</p>
+			</div>
+			<div id="getInTouchEmail">
+				<p>daedalusdev@gmail.com</p>
+			</div>
 		</div>
 		<div>
 			<p class="uppercase">Our office</p>
