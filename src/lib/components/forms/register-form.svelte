@@ -5,9 +5,17 @@
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
 	import EmailInput from './email-input.svelte';
+	import { getToastStore } from '@skeletonlabs/skeleton';
 
+	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
-		validators: registerSchema
+		validators: registerSchema,
+		onResult: async ({ result }) => {
+			if (result.type === 'redirect')
+				toast.trigger({
+					message: 'Registered successfully, please login'
+				});
+		}
 	});
 </script>
 

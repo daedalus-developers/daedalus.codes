@@ -4,9 +4,17 @@
 	import { superForm } from 'sveltekit-superforms/client';
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
-
+	import { getToastStore } from '@skeletonlabs/skeleton';
+	// import Icon from '@iconify/svelte';
+	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
 		validators: loginSchema,
+		onResult: async ({ result }) => {
+			if (result.type === 'redirect')
+				toast.trigger({
+					message: 'Login successful'
+				});
+		},
 		applyAction: true,
 		invalidateAll: true
 	});
@@ -22,7 +30,7 @@
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
 	</div>
-	<form method="POST" class="form mx-auto min-w-[50%]" use:enhance>
+	<form method="POST" action="?/legacy" class="form mx-auto min-w-[50%]" use:enhance>
 		<TextInput
 			name="key"
 			label="Username or Email"
@@ -41,6 +49,16 @@
 		/>
 		<button class="btn variant-filled-success my-4 w-full">Login</button>
 	</form>
+	<!-- <div class=""> -->
+	<!-- 	<div class="logo-cloud [&>.logo-item]:variant-ghost-secondary justify-center"> -->
+	<!-- 		<a class="logo-item" href="/login/github"> -->
+	<!-- 			<span> -->
+	<!-- 				<Icon icon="mdi:github" width="2rem" /> -->
+	<!-- 			</span> -->
+	<!-- 			<span>Github</span> -->
+	<!-- 		</a> -->
+	<!-- 	</div> -->
+	<!-- </div> -->
 	<p class="text-center">
 		No account yet? Register <a class="underline" href="/register">here</a>.
 	</p>
