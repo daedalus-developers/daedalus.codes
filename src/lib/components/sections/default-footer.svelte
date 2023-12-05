@@ -8,9 +8,9 @@
 			<div class="h-[66px] w-[65px] bg-orange-300" />
 			<div>
 				<p class="uppercase">Sign up to newsletter</p>
-				<form>
-					<input type="email" placeholder="Email Address">
-					<input type="submit" class="w-[23.1px] h-[24.42px] bg-green-600" value=">">
+				<form class="grid grid-rows-1 grid-flow-col">
+					<input type="email" placeholder="Email Address" class="w-[379px] h-[37px]">
+					<input type="submit" value="Subscribe" class="w-[112px] h-[37px] bg-[#00b6bf] ">
 				</form>
 			</div>
 			<div id="followUs">
