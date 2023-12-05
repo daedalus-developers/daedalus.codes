@@ -19,7 +19,7 @@
 				</div>
 			</div>
 
-			<div class="flex-1 w-32 flex-col pr-0 ml-[20%]">
+			<div class="flex-1 w-32 flex-col pr-0">
 				<div class="flex flex-col">
 					<div>
 						<p class="uppercase">Get in touch</p>
@@ -38,11 +38,11 @@
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="footer">
-		<div class="bg-[#101010] text-[#FFFFFF] pb-[5%] pr-[10%] pl-[10%]">
-			<div>
+		<div class="flex flex-row bg-[#101010] text-[#FFFFFF] pb-[5%] pr-[10%] pl-[10%]">
+			<div class="flex flex-1">
 				<p>&copy {new Date().getFullYear()} All Rights Reserved.</p>
 			</div>
-			<div>
+			<div class="flex flex-1">
 				<a href="/privacy-policy">Privacy Policy</a>
 				<a href="/terms-of-service">Terms of Service</a>
 				<a href="/cookies-policy">Cookies Policy</a>
