@@ -1,6 +1,6 @@
 import { object, string, union, type input } from 'zod';
 import { requiredString } from './util.types';
-import { usernameSchema, userFormSchema } from './user.types';
+import { usernameSchema, userSchema } from './user.types';
 
 const emailOrUserName = union([string().email().trim(), usernameSchema]);
 
@@ -9,7 +9,7 @@ export const loginSchema = object({
 	password: requiredString('Password')
 });
 
-export const registerSchema = userFormSchema
+export const registerSchema = userSchema
 	.omit({
 		id: true,
 		avatar: true,

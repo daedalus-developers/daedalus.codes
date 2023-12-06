@@ -10,7 +10,7 @@ export const usernameSchema = requiredString('Username', { min: 3, max: 16 })
 	.toLowerCase()
 	.regex(/^[a-zA-Z0-9_]+$/);
 
-export const userFormSchema = object({
+export const userSchema = object({
 	id: string(),
 	username: usernameSchema,
 	firstName: requiredString('First Name', {
@@ -28,4 +28,4 @@ export const userFormSchema = object({
 	updated: date()
 });
 
-export type UserForm = zInfer<typeof userFormSchema>;
+export type User = zInfer<typeof userSchema>;
