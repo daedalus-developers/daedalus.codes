@@ -1,6 +1,7 @@
 export * from './nullish.utils';
 export * from './ui.utils';
 export * from './response.utils';
+export * from './assets.utils';
 
 export const primaryLinks = [
 	{

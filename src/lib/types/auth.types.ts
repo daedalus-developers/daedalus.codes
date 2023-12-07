@@ -1,6 +1,6 @@
 import { object, string, union, type input } from 'zod';
 import { requiredString } from './util.types';
-import { usernameSchema, userFormSchema } from './user.types';
+import { usernameSchema, userSchema } from './user.types';
 
 const emailOrUserName = union([string().email().trim(), usernameSchema]);
 
@@ -9,7 +9,7 @@ export const loginSchema = object({
 	password: requiredString('Password')
 });
 
-export const registerSchema = userFormSchema
+export const registerSchema = userSchema
 	.omit({
 		id: true,
 		avatar: true,
@@ -32,6 +32,15 @@ export const registerSchema = userFormSchema
 		path: ['passwordConfirm'],
 		message: 'Passwords do not match.'
 	});
+
+export const changePasswordSchema = object({
+	oldPasswod: string().min(8),
+	password: string().min(8),
+	passwordConfirm: string().min(8)
+}).refine((data) => data.password === data.passwordConfirm, {
+	path: ['passwordConfirm'],
+	message: 'Passwords do not match.'
+});
 
 export type AuthLogin = input<typeof loginSchema>;
 

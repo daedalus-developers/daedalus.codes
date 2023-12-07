@@ -28,7 +28,7 @@
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
 	</div>
-	<form method="POST" class="form mx-auto min-w-[50%]" use:enhance>
+	<form method="POST" action="/api/auth?/register" class="form mx-auto min-w-[50%]" use:enhance>
 		<TextInput
 			name="username"
 			label="Username"
