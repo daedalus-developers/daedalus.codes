@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { db } from '@server';
-import { Collections, userSchema, type User } from '@types';
+import { Collections, type User, userFormSchema } from '@types';
 import { superValidate } from 'sveltekit-superforms/server';
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -10,9 +10,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 	if (!locals.user) throw redirect(302, '/login');
 	const id: string = locals.user.id;
 
-	const user = await db.collection<User>(Collections.Users).getOne(id);
+	const user = await db.collection(Collections.Users).getOne<User>(id);
 
-	const form = await superValidate(user, userSchema);
+	const form = await superValidate(user, userFormSchema);
 
 	return {
 		user,

@@ -30,7 +30,12 @@
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
 	</div>
-	<form method="POST" action="?/legacy" class="form mx-auto min-w-[50%]" use:enhance>
+	<form
+		method="POST"
+		action="/api/actions/auth?/legacy"
+		class="form mx-auto min-w-[50%]"
+		use:enhance
+	>
 		<TextInput
 			name="key"
 			label="Username or Email"

@@ -14,5 +14,4 @@
 	<div class="h-screen w-screen mx-auto">
 		<slot />
 	</div>
-	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
 </AppShell>

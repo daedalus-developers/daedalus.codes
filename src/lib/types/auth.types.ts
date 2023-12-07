@@ -33,6 +33,15 @@ export const registerSchema = userSchema
 		message: 'Passwords do not match.'
 	});
 
+export const changePasswordSchema = object({
+	oldPasswod: string().min(8),
+	password: string().min(8),
+	passwordConfirm: string().min(8)
+}).refine((data) => data.password === data.passwordConfirm, {
+	path: ['passwordConfirm'],
+	message: 'Passwords do not match.'
+});
+
 export type AuthLogin = input<typeof loginSchema>;
 
 export type AuthRegister = input<typeof registerSchema>;
