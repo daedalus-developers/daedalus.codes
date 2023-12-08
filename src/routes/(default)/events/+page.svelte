@@ -4,7 +4,7 @@
 
 </script>
 
-<section class="py-32 bg-surface-100-800-token">
+<section class="py-20 bg-surface-100-800-token">
   <Container>
     <div class="flex mb-20">
       <h2 class="text-5xl text-center md:text-left md:text-6xl font-black w-full md:w-auto md:flex-none">Portfolio <span class="text-primary-600">.</span></h2>
