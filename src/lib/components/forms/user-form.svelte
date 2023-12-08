@@ -55,7 +55,7 @@
 			<div class="grid w-full max-w-sm items-center gap-1.5 text-center">
 				<input name="id" value={$form.id} class="hidden" />
 				<input type="file" name="avatar" accept="image/*" />
-				<button class="btn variant-filled-success my-4 w-full" disabled={$delayed}>Update</button>
+				<button class="btn variant-filled-primary my-4 w-full" disabled={$delayed}>Update</button>
 			</div>
 		</form>
 	</div>
@@ -98,6 +98,6 @@
 			errors={$errors.lastName}
 			constraints={$constraints.lastName}
 		/>
-		<button class="btn variant-filled-success my-4 w-full" disabled={$delayed}>Update</button>
+		<button class="btn variant-filled-primary my-4 w-full" disabled={$delayed}>Update</button>
 	</form>
 </div>
