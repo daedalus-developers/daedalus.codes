@@ -4,6 +4,16 @@
 	import { primaryLinks, secondaryLinks } from '@utils';
 	import { Container } from '@components/utilities';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
+
+	const drawerStore = getDrawerStore();
+	const settings = { id: 'example-1' };
+	function drawerOpenLeftNavigation(): void {
+		drawerStore.open({
+			id: 'drawer-side-link-list',
+			width: 'w-full max-w-[240px] sm:max-w-[400px]'
+		});
+	}
 </script>
 
 <div class="bg-surface-100-800-token shadow-lg">
@@ -47,6 +57,12 @@
 		<div class="flex items-center gap-2 md:gap-3 ms-10 lg:ms-20">
 			<button class="text-2xl">
 				<Icon icon="iconamoon:search" />
+			</button>
+			<button 
+				class="text-2xl md:hidden"
+				on:click={drawerOpenLeftNavigation}
+				>
+				<Icon icon="mdi:menu" />
 			</button>
 			<a href="/login" class="md:btn md:variant-filled-primary hidden md:flex">
 				<Icon icon="material-symbols:login" class="text-2xl" />

@@ -5,18 +5,11 @@
 
 <AppShell scrollbarGutter="auto">
 	<svelte:fragment slot="header">
-		<div class="hidden md:block">
-			<Header />
-		</div>
+		<Header />
 	</svelte:fragment>
 	<slot />
 
 	<svelte:fragment slot="pageFooter">
 		<Footer />
-	</svelte:fragment>
-	<svelte:fragment slot="footer">
-		<div class="block md:hidden">
-			<Header />
-		</div>
 	</svelte:fragment>
 </AppShell>
