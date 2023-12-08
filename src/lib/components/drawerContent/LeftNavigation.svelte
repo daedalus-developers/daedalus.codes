@@ -45,10 +45,12 @@
 				</a>
 			</li>
 			<li>
-				<a href="/login" on:click={drawerClose}>
-					<Icon icon="material-symbols:login" class="text-2xl" />
-					<span class="ms-2">Login</span>
-				</a>
+				{#if !$page.data.user.id}
+					<a href="/login" on:click={drawerClose}>
+						<Icon icon="material-symbols:login" class="text-2xl" />
+						<span class="ms-2">Login</span>
+					</a>
+				{/if}
 			</li>
 		</ul>
 	</nav>
