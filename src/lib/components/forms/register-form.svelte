@@ -78,7 +78,7 @@
 			errors={$errors.passwordConfirm}
 			constraints={$constraints.passwordConfirm}
 		/>
-		<button class="btn variant-filled-success my-4 w-full">Register</button>
+		<button class="btn variant-filled-primary my-4 w-full">Register</button>
 	</form>
 	<p class="text-center">
 		Already have an account? Login <a class="underline" href="/login">here</a>.
