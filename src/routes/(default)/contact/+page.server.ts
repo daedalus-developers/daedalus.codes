@@ -2,6 +2,7 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	return {
-		hello: 'world'
+		hello: 'world',
+		contact: 'me'
 	};
 };
