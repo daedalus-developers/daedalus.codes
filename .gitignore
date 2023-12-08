@@ -11,7 +11,4 @@ vite.config.ts.timestamp-*
 /pb/pb_data*
 /pb/pb_public
 /pb/pocketbase*
-package-lock.json
-pb/CHANGELOG.md
-pb/LICENSE.md
-pb/sampledata.zip
+
