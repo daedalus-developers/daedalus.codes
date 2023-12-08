@@ -5,6 +5,7 @@
 	import { Container } from '@components/utilities';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	import AvatarButton from '@components/sections/avatar-button.svelte';
 
 	const drawerStore = getDrawerStore();
 	const settings = { id: 'example-1' };
@@ -58,16 +59,22 @@
 			<button class="text-2xl">
 				<Icon icon="iconamoon:search" />
 			</button>
+			{#if $page?.data?.user?.id}
+				<AvatarButton />
+			{:else}
+				<a href="/login" class="md:btn md:variant-filled-primary hidden md:flex">
+					<Icon icon="material-symbols:login" class="text-2xl" />
+					<span class="hidden md:inline-block">Login</span>
+				</a>
+			{/if}
+
 			<button 
 				class="text-2xl md:hidden"
 				on:click={drawerOpenLeftNavigation}
 				>
 				<Icon icon="mdi:menu" />
 			</button>
-			<a href="/login" class="md:btn md:variant-filled-primary hidden md:flex">
-				<Icon icon="material-symbols:login" class="text-2xl" />
-				<span class="hidden md:inline-block">Login</span>
-			</a>
+
 			<LightSwitch class="hidden md:block" />
 		</div>
 	</Container>
