@@ -15,12 +15,13 @@
 </script>
 
 <div>
-	<button class="btn [&>*]:pointer-events-none" use:popup={userActions}>
+	<button class="btn [&>*]:pointer-events-none px-0" use:popup={userActions}>
 		<Avatar
-			background="bg-transparent"
+			background="bg-transparent variant-filled-secondary"
+			initials={`${user.firstName[0]}${user.lastName[0]}`}
 			src={assetLink(Collections.Users, user.id, user.avatar)}
 			rounded="rounded-full"
-			width="w-10"
+			width="w-8"
 			fallback={`${user.firstName[0]}${user.lastName[0]}`}
 		/>
 	</button>
