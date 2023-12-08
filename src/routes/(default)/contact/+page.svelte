@@ -2,7 +2,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	console.log('🚀 ~ file: +page.svelte:5 ~ data:', data);
+	console.log('🚀 ~ file: +page.svelte:5 ~ data:', data.hello);
 </script>
 
 <!-- TODO: update this placeholder UI from TailwindUI  -->
