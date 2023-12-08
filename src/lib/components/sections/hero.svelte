@@ -2,7 +2,7 @@
 	class="absolute w-64 h-56 lg:w-96 lg:h-80 rounded-full right-0 top-32 bg-purple-800 filter blur-[150px] z-0"
 ></div>
 <div class="flex flex-col columns-2 items-center my-10 lg:my-0 relative lg:px-12 lg:flex-row z-1">
-	<div class="w-full flex justify-center flex-col">
+	<div class="max-w-lg lg:max-w-2xl flex justify-center flex-col">
 		<h1
 			class="mt-12 lg:mt-0 text-4xl lg:text-6xl font-extrabold lg:tracking-wide leading-tight text-white"
 		>
