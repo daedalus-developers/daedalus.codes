@@ -52,7 +52,7 @@
 			errors={$errors.password}
 			constraints={$constraints.password}
 		/>
-		<button class="btn variant-filled-primary my-4 w-full">Login</button>
+		<button class="btn variant-filled-success my-4 w-full">Login</button>
 	</form>
 	<!-- <div class=""> -->
 	<!-- 	<div class="logo-cloud [&>.logo-item]:variant-ghost-secondary justify-center"> -->
