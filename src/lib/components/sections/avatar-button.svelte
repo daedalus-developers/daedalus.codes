@@ -4,6 +4,7 @@
 	import { Avatar, popup, type PopupSettings } from '@skeletonlabs/skeleton';
 	import { Collections, type User } from '@types';
 	import { assetLink } from '@utils/assets.utils';
+	import Icon from '@iconify/svelte';
 
 	const user = $page.data.user as User;
 
@@ -26,16 +27,28 @@
 		/>
 	</button>
 	<div data-popup="userActions">
-		<div class="card flex flex-col items-center justify-center">
-			<header class="card-header flex flex-col gap-4 justify-center items-center">
-				<a href={`/${user.username}`}>Profile</a>
-				<a href={`/me/settings`}>Settings</a>
+		<div class="card flex flex-col min-w-[250px]">
+			<header class="card flex flex-col bg-transparent">
+				<a 
+					href={`/${user.username}`}
+					class="flex items-center gap-1 p-2 hover:variant-ghost"
+					>
+					<Icon icon="mdi:user" width="18" height="18" />
+					Profile
+				</a>
+				<a 
+					href={`/me/settings`}
+					class="flex items-center gap-1 p-2 hover:variant-ghost"
+					>
+					<Icon icon="mdi:settings" width="18" height="18" />
+					Settings
+				</a>
 			</header>
-			<hr />
-			<section class="p-4">
+			<!-- <section class="p-4">
 				<p>{user.email}</p>
-			</section>
-			<footer class="card-footer">
+			</section> -->
+			<hr>
+			<footer class="card-footer px-0 py-1">
 				<LogoutButton />
 			</footer>
 		</div>
