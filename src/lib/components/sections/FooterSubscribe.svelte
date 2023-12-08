@@ -12,9 +12,6 @@
             <input type="submit" value="Subscribe">
         </form>
     </div>
-    <div id="followUs">
-        <p>Follow us</p>
-    </div>
 </div>
 
 <style>

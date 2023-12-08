@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import FooterSubscribe from './FooterSubscribe.svelte';
+	import FooterSocmedHandles from './FooterSocmedHandles.svelte';
 </script>
 
 <AppShell>
 	<svelte:fragment slot="pageFooter">
 		<FooterSubscribe />
 		<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
-
+			<FooterSocmedHandles />
 			<div class="flex">
 				<div>
 					<div>
