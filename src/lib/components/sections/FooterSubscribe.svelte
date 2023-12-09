@@ -15,7 +15,7 @@
 
 <div class="flex flex-row gap-20 m-11">
     <div class="flex flex-1 grow flex-col gap-10">
-        <p class="font-bold">Subscribe to our newsletter</p>
+        <p class="font-semibold text-[##000000] text-2xl">Subscribe to our newsletter</p>
         <p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
         <form class="flex flex-col" on:submit|preventDefault={handleSubmit}>
             <div class="flex flex-row gap-2">
