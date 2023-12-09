@@ -14,7 +14,7 @@
 	<svelte:fragment slot="pageFooter">
 		<div class="flex flex-col">
 			<FooterSubscribe isMobile={isMobile} isDark={isDark} />
-			<div class="flex flex-row gap-80 font-sans bg-[#101010] text-[#FFFFFF] pl-[18%] pt-[5%] pb-[10%] pr-[10%] relative">
+			<div class="flex flex-row flex-wrap gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[18%] pt-[5%] pb-[10%] pr-[10%] relative">
 				<div class="flex gap-8 flex-col">
 					<FooterLogo />
 					<FooterDaedalusEmail />
