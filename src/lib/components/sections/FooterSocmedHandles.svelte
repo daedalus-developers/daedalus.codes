@@ -2,7 +2,7 @@
     <div id="followUs">
         <p>Follow us</p>
     </div>
-    <div>
+    <div class="flex flex-row gap-2">
         <a href="twitter.com">
             <div class="h-[66px] w-[65px] bg-orange-300 border-2" />
         </a>
