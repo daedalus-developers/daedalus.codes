@@ -1,27 +1,30 @@
+<script lang="ts">
+    let invalidEmail = false;
+    const regexEmail = new RegExp("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", "g");
+
+    let email = "";
+    const emailValidation = (e: Event) => { // BUG: does not update when user uses autocomplete to add email.
+        invalidEmail = !regexEmail.test(email);
+        if (email.length < 3) invalidEmail = false;
+    }
+
+    const handleSubmit = async () => {
+        
+    }
+</script>
+
 <div>
     <div>
         <p class="font-bold">Subscribe to our newsletter</p>
         <p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
-        <form>
-            <div>
-                <input type="email" placeholder="Type your email..." name="email">
-                <div class="error">
-                    Please enter a valid email
-                </div>
+        <form class="flex flex-row" on:submit|preventDefault={handleSubmit}>
+            <div class="flex flex-col">
+                <input type="email" placeholder="Type your email..." name="email" on:input={emailValidation} bind:value={email}>
+                <input type="submit" value="Subscribe" class="btn">
             </div>
-            <input type="submit" value="Subscribe">
+            {#if invalidEmail}
+                <p class="text-[#FF0909] italic">Please enter a valid email</p>
+            {/if}
         </form>
     </div>
 </div>
-
-<style>
-    .error {
-        display: none;
-    }
-
-    input:invalid + .error {
-        display: initial;
-        color: red;
-        font-style: italic;
-    }
-</style>
