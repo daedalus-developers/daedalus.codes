@@ -13,8 +13,10 @@
 <AppShell>
 	<svelte:fragment slot="pageFooter">
 		<div class="flex flex-col">
-			<FooterSubscribe isMobile={isMobile} isDark={isDark} />
-			<div class="flex flex-row flex-wrap gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[18%] pt-[5%] pb-[10%] pr-[10%] relative">
+			<FooterSubscribe {isMobile} {isDark} />
+			<div
+				class="flex flex-row flex-wrap gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[18%] pt-[5%] pb-[10%] pr-[10%] relative"
+			>
 				<div class="flex gap-8 flex-col">
 					<FooterLogo />
 					<FooterDaedalusEmail />
@@ -51,7 +53,7 @@
 		bottom: 25%;
 		width: 18%;
 		height: 56%;
-		background: #7952B3;
+		background: #7952b3;
 		border-radius: 50%;
 		filter: blur(300.5px);
 	}
@@ -61,7 +63,7 @@
 		right: 0px;
 		width: 100px;
 		height: 100px;
-		background: #00B6BF;
+		background: #00b6bf;
 		border-radius: 50%;
 		filter: blur(300.5px);
 	}
