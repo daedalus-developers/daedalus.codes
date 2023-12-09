@@ -11,16 +11,8 @@
 		<FooterSubscribe />
 		<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
 			<FooterSocmedHandles />
-			<div class="flex">
-				<div>
-					<div>
-						<FooterDaedalusEmail />
-					</div>
-					<div>
-						<FooterDaedalusAddress />
-					</div>
-				</div>
-			</div>
+			<FooterDaedalusEmail />
+			<FooterDaedalusAddress />
 		</div>
 	</svelte:fragment>
 	<svelte:fragment slot="footer">
