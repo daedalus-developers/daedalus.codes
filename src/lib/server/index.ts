@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 export const createClient = async () => {
 	const pocketbase = new PocketBase(publicEnv.PUBLIC_PB_URL);
 	try {
-		await pocketbase.admins.authWithPassword(env.PB_ADMIN_EMAIL, env.PB_ADMIN_PASSWORD);
+		await pocketbase.admins.authWithPassword(env.PB_ADMIN_EMAIL!, env.PB_ADMIN_PASSWORD!);
 	} catch (e) {
 		console.log(e);
 	}
