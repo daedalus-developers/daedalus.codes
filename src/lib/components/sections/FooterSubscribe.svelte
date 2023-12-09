@@ -25,7 +25,7 @@
                     name="email"
                     on:input={emailValidation}
                     bind:value={email}
-                    class="border-spacing-[1.2px] border-[#7A52B3] rounded"
+                    class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] font-normal"
                 >
                 <input type="submit" value="Subscribe" class="btn bg-[#7A52B3] rounded text-[#FFFFFF] font-semibold">
             </div>
