@@ -2,8 +2,7 @@
 	import { page } from '$app/stores';
 	import LogoutButton from '@components/forms/logout-button.svelte';
 	import { Avatar, popup, type PopupSettings } from '@skeletonlabs/skeleton';
-	import { Collections, type User } from '@types';
-	import { assetLink } from '@utils/assets.utils';
+	import type { User } from '@types';
 
 	const user = $page.data.user as User;
 
@@ -12,13 +11,15 @@
 		target: 'userActions',
 		placement: 'bottom'
 	};
+
+	$: avatar = $page.data.avatar;
 </script>
 
 <div>
 	<button class="btn [&>*]:pointer-events-none" use:popup={userActions}>
 		<Avatar
 			background="bg-transparent"
-			src={assetLink(Collections.Users, user.id, user.avatar)}
+			src={avatar}
 			rounded="rounded-full"
 			width="w-10"
 			fallback={`${user.firstName[0]}${user.lastName[0]}`}
