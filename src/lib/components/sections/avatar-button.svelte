@@ -4,6 +4,7 @@
 	import { Avatar, popup, type PopupSettings } from '@skeletonlabs/skeleton';
 	import { Collections, type User } from '@types';
 	import { assetLink } from '@utils/assets.utils';
+	import Icon from '@iconify/svelte';
 
 	const user = $page.data.user as User;
 
@@ -15,28 +16,35 @@
 </script>
 
 <div>
-	<button class="btn [&>*]:pointer-events-none" use:popup={userActions}>
+	<button class="btn [&>*]:pointer-events-none px-0" use:popup={userActions}>
 		<Avatar
-			background="bg-transparent"
+			background="variant-filled-secondary"
+			initials="{user.firstName[0]}{user.lastName[0]}"
 			src={assetLink(Collections.Users, user.id, user.avatar)}
 			rounded="rounded-full"
-			width="w-10"
+			width="w-9"
 			fallback={`${user.firstName[0]}${user.lastName[0]}`}
 		/>
 	</button>
 	<div data-popup="userActions">
-		<div class="card flex flex-col items-center justify-center">
-			<header class="card-header flex flex-col gap-4 justify-center items-center">
-				<a href={`/${user.username}`}>Profile</a>
-				<a href={`/me/settings`}>Settings</a>
-			</header>
-			<hr />
-			<section class="p-4">
-				<p>{user.email}</p>
-			</section>
-			<footer class="card-footer">
+		<div class="card">
+			<div class="flex flex-col w-[200px]">
+				<a 
+					href={`/${user.username}`}
+					class="flex gap-1 items-center p-3 rounded-none hover:variant-filled"
+					>
+					<Icon icon="mdi:account" />
+					Profile
+				</a>
+				<a 
+					href={`/me`}
+					class="flex gap-1 items-center p-3 rounded-none hover:variant-filled"
+					>
+					<Icon icon="mdi:settings" />
+					Setings
+				</a>
 				<LogoutButton />
-			</footer>
+			</div>
 		</div>
 	</div>
 </div>
