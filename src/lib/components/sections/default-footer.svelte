@@ -2,6 +2,7 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import FooterSubscribe from './FooterSubscribe.svelte';
 	import FooterSocmedHandles from './FooterSocmedHandles.svelte';
+	import FooterDaedalusEmail from './FooterDaedalusEmail.svelte';
 </script>
 
 <AppShell>
@@ -12,12 +13,7 @@
 			<div class="flex">
 				<div>
 					<div>
-						<div>
-							<p class="uppercase">Get in touch</p>
-						</div>
-						<div>
-							<p>daedalusdev@gmail.com</p>
-						</div>
+						<FooterDaedalusEmail />
 					</div>
 					<div>
 						<p class="uppercase">Our office</p>
