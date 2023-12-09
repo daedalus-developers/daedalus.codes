@@ -14,8 +14,8 @@
 </script>
 
 <div class="bg-[#F6F8FB]">
-    <div class="flex flex-row gap-20 ml-24 mr-24 mt-12 mb-12">
-        <div class="flex flex-1 grow flex-col gap-10">
+    <div class="flex flex-row flex-wrap gap-20 ml-24 mr-24 mt-12 mb-12">
+        <div class="flex flex-1 flex-col gap-10">
             <p class="font-semibold text-[##000000] text-2xl">Subscribe to our newsletter</p>
             <p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
             <form class="flex flex-col" on:submit|preventDefault={handleSubmit}>
@@ -26,9 +26,9 @@
                         name="email"
                         on:input={emailValidation}
                         bind:value={email}
-                        class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] text-base font-normal"
+                        class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] text-base font-normal pl-10 pr-10"
                     >
-                    <input type="submit" value="Subscribe" class="btn bg-[#7A52B3] rounded text-[#FFFFFF] text-base font-semibold">
+                    <input type="submit" value="Subscribe" class="btn bg-[#7A52B3] rounded text-[#FFFFFF] text-base font-semibold pl-10 pr-10">
                 </div>
                 {#if invalidEmail}
                     <p class="text-[#FF0909] text-xs italic">Please enter a valid email</p>
