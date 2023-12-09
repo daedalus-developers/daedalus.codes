@@ -13,7 +13,7 @@
 			We build digital solutions that are both beautiful, functional, efficient and user-friendly.
 			We aim to inspire through our work, leaving a lasting impression on your users.
 		</p>
-		<div class="mt-10 z-50 flex items-center gap-x-6">
+		<div class="mt-10 z-10 flex items-center gap-x-6">
 			<a href="/contact" class="btn variant-filled-primary">Get started</a>
 			<a href="/portfolio" class="text-sm font-semibold leading-6 text-white"
 				>Learn more <span aria-hidden="true">→</span></a
