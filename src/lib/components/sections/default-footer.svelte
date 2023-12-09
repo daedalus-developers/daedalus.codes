@@ -4,6 +4,7 @@
 	import FooterSocmedHandles from './FooterSocmedHandles.svelte';
 	import FooterDaedalusEmail from './FooterDaedalusEmail.svelte';
 	import FooterDaedalusAddress from './FooterDaedalusAddress.svelte';
+	import FooterLogo from './FooterLogo.svelte';
 </script>
 
 <AppShell>
@@ -12,6 +13,7 @@
 			<FooterSubscribe />
 			<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
 				<div class="flex gap-8 flex-col">
+					<FooterLogo />
 					<FooterDaedalusEmail />
 					<FooterSocmedHandles />
 				</div>
