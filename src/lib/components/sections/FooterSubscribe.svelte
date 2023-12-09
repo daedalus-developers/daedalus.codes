@@ -14,7 +14,7 @@
 </script>
 
 <div class="bg-[#F6F8FB]">
-    <div class="flex flex-row gap-20 m-11">
+    <div class="flex flex-row gap-20 ml-24 mr-24 mt-12 mb-12">
         <div class="flex flex-1 grow flex-col gap-10">
             <p class="font-semibold text-[##000000] text-2xl">Subscribe to our newsletter</p>
             <p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
@@ -35,6 +35,6 @@
                 {/if}
             </form>
         </div>
-        <div class="flex flex-1 h-80 w-80 bg-orange-400" />
+        <div class="flex h-80 w-80 bg-orange-400" />
     </div>
 </div>
