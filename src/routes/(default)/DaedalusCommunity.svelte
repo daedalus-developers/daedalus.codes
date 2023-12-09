@@ -3,7 +3,7 @@
   import Icon from '@iconify/svelte';
 </script>
 
-<section class="py-32">
+<section class="py-32 bg-surface-100-800-token dark:bg-transparent">
   <Container>
     <div class="flex flex-wrap">
 
