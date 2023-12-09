@@ -14,7 +14,7 @@
 	<svelte:fragment slot="pageFooter">
 		<div class="flex flex-col">
 			<FooterSubscribe isMobile={isMobile} isDark={isDark} />
-			<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pb-[10%] pr-[10%]">
+			<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pb-[10%] pr-[10%] relative">
 				<div class="flex gap-8 flex-col">
 					<FooterLogo />
 					<FooterDaedalusEmail />
@@ -23,6 +23,8 @@
 				<div class="flex flex-col">
 					<FooterDaedalusAddress />
 				</div>
+				<div id="leftCircle" />
+				<div id="rightCircle" />
 			</div>
 		</div>
 	</svelte:fragment>
@@ -41,3 +43,26 @@
 		{/if}
 	</svelte:fragment>
 </AppShell>
+
+<style>
+	#leftCircle {
+		position: absolute;
+		left: -15%;
+		bottom: 25%;
+		width: 18%;
+		height: 56%;
+		background: #7952B3;
+		border-radius: 50%;
+		filter: blur(300.5px);
+	}
+
+	#rightCircle {
+		position: absolute;
+		right: 0px;
+		width: 100px;
+		height: 100px;
+		background: #00B6BF;
+		border-radius: 50%;
+		filter: blur(300.5px);
+	}
+</style>
