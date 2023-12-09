@@ -7,10 +7,6 @@
         invalidEmail = !regexEmail.test(email);
         if (email.length < 3) invalidEmail = false;
     }
-
-    const handleSubmit = async () => {
-        
-    }
 </script>
 
 <div class="bg-[#F6F8FB]">
