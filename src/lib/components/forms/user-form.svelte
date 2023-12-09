@@ -4,8 +4,7 @@
 	import TextInput from './text-input.svelte';
 	import EmailInput from './email-input.svelte';
 	import { getToastStore } from '@skeletonlabs/skeleton';
-	import { Collections, userFormSchema } from '@types';
-	import { assetLink } from '@utils';
+	import { userFormSchema } from '@types';
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 
@@ -17,7 +16,7 @@
 		enhance: accountEnhance,
 		message,
 		delayed
-	} = superForm($page.data.form, {
+	} = superForm($page.data.userForm, {
 		validators: userFormSchema,
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
@@ -27,10 +26,10 @@
 		}
 	});
 
-	$: avatar = assetLink(Collections.Users, $form.id, $form.avatar);
+	$: avatar = $page.data.avatar;
 </script>
 
-<div class="mx-8">
+<div class="mx-4">
 	<div class="flex justify-center mx-auto py-4">
 		<h1 class="h3">Account</h1>
 	</div>

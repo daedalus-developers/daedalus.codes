@@ -13,6 +13,8 @@
 		target: 'userActions',
 		placement: 'bottom'
 	};
+
+	$: avatar = $page.data.avatar;
 </script>
 
 <div>
@@ -21,6 +23,7 @@
 			background="variant-filled-secondary"
 			initials="{user.firstName[0]}{user.lastName[0]}"
 			src={assetLink(Collections.Users, user.id, user.avatar)}
+
 			rounded="rounded-full"
 			width="w-9"
 			fallback={`${user.firstName[0]}${user.lastName[0]}`}

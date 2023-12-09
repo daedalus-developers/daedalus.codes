@@ -1,21 +1,21 @@
-import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
 import { db } from '@server';
-import { Collections, type User, userFormSchema } from '@types';
+import type { PageServerLoad } from './$types';
+import { Collections, userDetailsFormSchema, userFormSchema } from '@types';
 import { superValidate } from 'sveltekit-superforms/server';
 
-export const load: PageServerLoad = async ({ locals }) => {
-	if (!locals.DB.authStore.isValid && !locals.user) throw redirect(302, '/login');
+export const load: PageServerLoad = async ({ parent }) => {
+	const { user, avatar } = await parent();
+	const details = await db
+		.collection(Collections.UsersDetails)
+		.getFirstListItem(`user="${user.id}"`);
 
-	if (!locals.user) throw redirect(302, '/login');
-	const id: string = locals.user.id;
-
-	const user = await db.collection(Collections.Users).getOne<User>(id);
-
-	const form = await superValidate(user, userFormSchema);
+	const userForm = await superValidate(user, userFormSchema);
+	const userDetailsForm = await superValidate(details, userDetailsFormSchema);
 
 	return {
 		user,
-		form
+		avatar,
+		userForm,
+		userDetailsForm
 	};
 };

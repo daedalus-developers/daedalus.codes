@@ -1,6 +1,6 @@
 import { message, setError, superValidate } from 'sveltekit-superforms/server';
 import type { Actions } from './$types';
-import { Collections, changePasswordSchema, loginSchema, registerSchema } from '@types';
+import { Collections, changePasswordSchema, loginSchema, registerSchema, type User } from '@types';
 import { fail, redirect } from '@sveltejs/kit';
 import { isExisting } from '@server/auth.services';
 import { db } from '@server';
@@ -36,10 +36,18 @@ export const actions: Actions = {
 		if (isEmailTaken) return setError(form, 'email', 'Email is already taken.');
 
 		try {
-			await db.collection(Collections.Users).create({
+			// Create database record
+			const { id } = await db.collection(Collections.Users).create<User>({
 				...form.data,
 				role: 'user'
 			});
+
+			// Create relationship between user and user_details
+			await db.collection('users_details').create({
+				user: id
+			});
+
+			// Request verification email
 			await db.collection(Collections.Users).requestVerification(form.data.email);
 		} catch (error) {
 			const err = error as ClientResponseError;
