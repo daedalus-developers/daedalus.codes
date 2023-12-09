@@ -3,7 +3,7 @@
 	const regexEmail = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$', 'g');
 
 	let email = '';
-	const emailValidation = (e: Event) => {
+	const emailValidation = () => {
 		// BUG: does not update when user uses autocomplete to add email.
 		invalidEmail = !regexEmail.test(email);
 		if (email.length < 3) invalidEmail = false;
@@ -12,9 +12,9 @@
 	export let isMobile: boolean;
 	export let isDark: boolean;
 
-	let backgroundColor: string;
-	let fontColor: string;
-	let warningColor: string;
+	// let backgroundColor: string;
+	// let fontColor: string;
+	// let warningColor: string;
 	let darkLightModes = [
 		{ iisDark: true, backgroundColor: '#1A2024', fontColor: '#FFFFFF', warningColor: '#FFFFFF' },
 		{ iisDark: false, backgroundColor: '#F6F8FB', fontColor: '#000000', warningColor: '#FF0909' }
