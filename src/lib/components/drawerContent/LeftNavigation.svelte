@@ -10,6 +10,8 @@
 	function drawerClose(): void {
 		drawerStore.close();
 	}
+
+	const { id } = $page.data.user;
 </script>
 
 <nav class="min-h-screenX group list-nav flex flex-col h-full">
@@ -41,11 +43,10 @@
 			<li class="flex justify-center">
 				<a href="/" on:click|preventDefault>
 					<LightSwitch class="rotate-90X" />
-					<!-- <span class="ms-2">Theme</span> -->
 				</a>
 			</li>
 			<li>
-				{#if !$page.data.user.id}
+				{#if !id}
 					<a href="/login" on:click={drawerClose}>
 						<Icon icon="material-symbols:login" class="text-2xl" />
 						<span class="ms-2">Login</span>

@@ -15,6 +15,8 @@
 			width: 'w-full max-w-[240px] sm:max-w-[400px]'
 		});
 	}
+
+	const { id } = $page.data.user;
 </script>
 
 <div class="bg-surface-100-800-token shadow-lg">
@@ -59,7 +61,7 @@
 			<button class="text-2xl">
 				<Icon icon="iconamoon:search" />
 			</button>
-			{#if $page?.data?.user?.id}
+			{#if id}
 				<AvatarButton />
 			{:else}
 				<a href="/login" class="md:btn md:variant-filled-primary hidden md:flex">
