@@ -12,22 +12,22 @@ export const primaryLinks = [
 	{
 		iconifyCode: 'mdi:about-circle-outline',
 		name: 'About',
-		href: '/about'
+		href: '/#about'
 	},
 	{
 		iconifyCode: 'zondicons:portfolio',
 		name: 'Portfolio',
-		href: '/portfolio'
+		href: '/#portfolio'
 	},
 	{
 		iconifyCode: 'fluent:people-team-20-filled',
 		name: 'Team',
-		href: '/team'
+		href: '/#team'
 	},
 	{
 		iconifyCode: 'clarity:event-solid',
 		name: 'Events',
-		href: '/events'
+		href: '/#events'
 	}
 ];
 
