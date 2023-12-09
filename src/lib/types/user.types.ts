@@ -18,6 +18,8 @@ export const usernameSchema = requiredString('Username', { min: 3, max: 16 })
 	.toLowerCase()
 	.regex(/^[a-zA-Z0-9_]+$/);
 
+export const linkSchema = string().optional();
+
 export const userSchema = object({
 	id: string(),
 	username: usernameSchema,
@@ -50,19 +52,25 @@ export const userFormSchema = userSchema
 
 export const userDetails = object({
 	id: string(),
+	created: string().datetime(),
+	updated: string().datetime(),
 	user: string(),
 	bio: string().optional(),
 	details: string().optional(),
-	linkedin: string().url().optional(),
-	x: string().url().optional(),
-	github: string().url().optional()
+	linkedin: string().optional(),
+	x: string().optional(),
+	github: string().optional()
 });
 
-export const userDetailsFormSchema = userDetails.extend({
-	id: userSchema.shape.id.optional(),
-	created: userSchema.shape.created.optional(),
-	updated: userSchema.shape.updated.optional()
-});
+export const userDetailsFormSchema = userDetails
+	.omit({
+		created: true,
+		updated: true
+	})
+	.extend({
+		id: userDetails.shape.id.optional(),
+		user: userDetails.shape.user.optional()
+	});
 
 export type User = zInfer<typeof userSchema>;
 
