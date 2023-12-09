@@ -4,11 +4,11 @@
 	import { primaryLinks, secondaryLinks } from '@utils';
 	import { Container } from '@components/utilities';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
-	import { getDrawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import AvatarButton from '@components/sections/avatar-button.svelte';
 
 	const drawerStore = getDrawerStore();
-	const settings = { id: 'example-1' };
+	// const settings = { id: 'example-1' };
 	function drawerOpenLeftNavigation(): void {
 		drawerStore.open({
 			id: 'drawer-side-link-list',

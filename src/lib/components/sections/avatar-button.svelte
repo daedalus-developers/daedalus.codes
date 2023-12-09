@@ -14,7 +14,8 @@
 		placement: 'bottom'
 	};
 
-	$: avatar = $page.data.avatar;
+	// $: avatar = $page.data.avatar;
+	$: $page.data.avatar;
 </script>
 
 <div>

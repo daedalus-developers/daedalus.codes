@@ -1,6 +1,6 @@
 <script>
 	import { Container } from '@components/utilities/';
-	import Icon from '@iconify/svelte';
+	// import Icon from '@iconify/svelte';
 </script>
 
 <section class="relative min-h-screen bg-neutral-900 flex items-center">
