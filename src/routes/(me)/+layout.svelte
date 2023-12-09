@@ -4,14 +4,16 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<AppShell>
-	<svelte:fragment slot="header">
-		<Navbar />
-	</svelte:fragment>
-	<svelte:fragment slot="sidebarLeft">
-		<UserRail />
-	</svelte:fragment>
-	<div class="h-screen w-screen mx-auto">
-		<slot />
-	</div>
-</AppShell>
+<div class="h-screen w-screen">
+	<AppShell>
+		<svelte:fragment slot="header">
+			<Navbar />
+		</svelte:fragment>
+		<svelte:fragment slot="sidebarLeft">
+			<UserRail />
+		</svelte:fragment>
+		<div class="mx-auto">
+			<slot />
+		</div>
+	</AppShell>
+</div>

@@ -16,7 +16,7 @@
 		enhance: accountEnhance,
 		message,
 		delayed
-	} = superForm($page.data.form, {
+	} = superForm($page.data.userForm, {
 		validators: userFormSchema,
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
@@ -29,7 +29,7 @@
 	$: avatar = $page.data.avatar;
 </script>
 
-<div class="mx-8">
+<div class="mx-4">
 	<div class="flex justify-center mx-auto py-4">
 		<h1 class="h3">Account</h1>
 	</div>

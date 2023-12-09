@@ -58,7 +58,7 @@ export const userDetails = object({
 	github: string().url().optional()
 });
 
-export const userDetailsForm = userDetails.extend({
+export const userDetailsFormSchema = userDetails.extend({
 	id: userSchema.shape.id.optional(),
 	created: userSchema.shape.created.optional(),
 	updated: userSchema.shape.updated.optional()
