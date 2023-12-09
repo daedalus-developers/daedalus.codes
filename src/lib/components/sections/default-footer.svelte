@@ -8,16 +8,16 @@
 
 <AppShell>
 	<svelte:fragment slot="pageFooter">
-		<div>
+		<div class="flex flex-col">
 			<FooterSubscribe />
-		</div>
-		<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
-			<div class="flex flex-col">
-				<FooterDaedalusEmail />
-				<FooterSocmedHandles />
-			</div>
-			<div class="flex flex-col">
-				<FooterDaedalusAddress />
+			<div class="flex flex-row gap-64 font-sans bg-[#101010] text-[#FFFFFF] pl-[10%] pt-[5%] pr-[10%]">
+				<div class="flex gap-8 flex-col">
+					<FooterDaedalusEmail />
+					<FooterSocmedHandles />
+				</div>
+				<div class="flex flex-col">
+					<FooterDaedalusAddress />
+				</div>
 			</div>
 		</div>
 	</svelte:fragment>
