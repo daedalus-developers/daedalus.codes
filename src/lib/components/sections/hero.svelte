@@ -3,9 +3,6 @@
 	import Icon from "@iconify/svelte";
 </script>
 
-
-
-
 <section class="relative min-h-screen bg-neutral-900 flex items-center">
 	<div
 	class="absolute w-64 h-56 lg:w-96 lg:h-80 rounded-full right-0 top-32 bg-primary-800 filter blur-[150px] z-0"></div>
