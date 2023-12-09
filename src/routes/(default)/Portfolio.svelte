@@ -6,17 +6,18 @@
   let options = {
     loop: false,
     dragFree: true
-   }
+  }
+  let plugins: any = []
 
 </script>
 
-<section class="py-32 bg-surface-100-800-token">
+<section class="py-32 dark:bg-surface-100-800-token">
   <Container>
     <div class="flex mb-20">
       <h2 class="text-5xl text-center md:text-left md:text-6xl font-black w-full md:w-auto md:flex-none">Portfolio <span class="text-primary-600">.</span></h2>
       <span class="w-[60%] border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
     </div>
-    <div class="embla" use:emblaCarouselSvelte={{options}}>
+    <div class="embla" use:emblaCarouselSvelte="{{ options, plugins }}">
       <div class="embla__container">
         <div class="embla__slide w-full max-w-[75%] md:max-w-[50%] lg:max-w-[33.33%] px-3">
           <div class="card bg-initial card-hover overflow-hidden bg-neutral-100 dark:bg-surface-600 Xdark:text-surface-900 rounded-none min-h-[500px]">
