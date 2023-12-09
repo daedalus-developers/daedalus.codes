@@ -3,7 +3,7 @@
 	import { Hero } from '@components';
 	import MissionVision from './MissionVision.svelte';
 	import DaedalusCommunity from './DaedalusCommunity.svelte';
-	import Portfolio from './Portfolio.svelte';
+	import Projects from './Projects.svelte';
 	import Team from './Team.svelte';
 
 	export let data: PageData;
@@ -20,8 +20,8 @@
 	<DaedalusCommunity />
 </section>
 
-<section id="portfolio">
-	<Portfolio {projects} />
+<section id="projects">
+	<Projects {projects} />
 </section>
 
 <section id="team">

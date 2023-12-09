@@ -16,8 +16,8 @@ export const primaryLinks = [
 	},
 	{
 		iconifyCode: 'zondicons:portfolio',
-		name: 'Portfolio',
-		href: '/#portfolio'
+		name: 'Projects',
+		href: '/#projects'
 	},
 	{
 		iconifyCode: 'fluent:people-team-20-filled',

@@ -22,7 +22,7 @@
 					>Get Started</a
 				>
 				<a
-					href="#portfolio"
+					href="#projects"
 					class="w-full md:w-auto btn sm:btn-lg md:btn-xl border-2 border-neutral-100 hover:variant-filled"
 					>Learn More →</a
 				>

@@ -21,7 +21,7 @@
 			<h2
 				class="text-5xl text-center md:text-left md:text-6xl font-black w-full md:w-auto md:flex-none"
 			>
-				Portfolio <span class="text-primary-600">.</span>
+				Projects <span class="text-primary-600">.</span>
 			</h2>
 			<span class="w-[60%] border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
 		</div>
