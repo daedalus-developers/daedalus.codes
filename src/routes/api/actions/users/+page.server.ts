@@ -24,7 +24,7 @@ export const actions: Actions = {
 		}
 		return { userForm };
 	},
-	updateDetails: async ({ request, locals }) => {
+	details: async ({ request, locals }) => {
 		const userDetailsForm = await superValidate(request, userDetailsFormSchema);
 		if (!userDetailsForm.valid) return fail(400, { userDetailsForm });
 		try {
