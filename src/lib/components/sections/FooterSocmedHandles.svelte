@@ -1,5 +1,5 @@
-<div class="flex flex-col">
-    <div id="followUs">
+<div class="flex flex-col gap-5">
+    <div class="uppercase text-sm">
         <p>Follow us</p>
     </div>
     <div class="flex flex-row gap-2">
