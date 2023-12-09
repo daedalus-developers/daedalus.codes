@@ -4,8 +4,7 @@
 	import TextInput from './text-input.svelte';
 	import EmailInput from './email-input.svelte';
 	import { getToastStore } from '@skeletonlabs/skeleton';
-	import { Collections, userFormSchema } from '@types';
-	import { assetLink } from '@utils';
+	import { userFormSchema } from '@types';
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 
@@ -27,7 +26,7 @@
 		}
 	});
 
-	$: avatar = assetLink(Collections.Users, $form.id, $form.avatar);
+	$: avatar = $page.data.avatar;
 </script>
 
 <div class="mx-8">
