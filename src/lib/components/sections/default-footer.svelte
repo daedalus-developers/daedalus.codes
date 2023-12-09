@@ -3,6 +3,7 @@
 	import FooterSubscribe from './FooterSubscribe.svelte';
 	import FooterSocmedHandles from './FooterSocmedHandles.svelte';
 	import FooterDaedalusEmail from './FooterDaedalusEmail.svelte';
+	import FooterDaedalusAddress from './FooterDaedalusAddress.svelte';
 </script>
 
 <AppShell>
@@ -16,10 +17,7 @@
 						<FooterDaedalusEmail />
 					</div>
 					<div>
-						<p class="uppercase">Our office</p>
-						<p>1234 Elm Street</p>
-						<p>Makati Philippines</p>
-						<p>4021</p>
+						<FooterDaedalusAddress />
 					</div>
 				</div>
 			</div>
