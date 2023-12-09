@@ -26,12 +26,12 @@
                         name="email"
                         on:input={emailValidation}
                         bind:value={email}
-                        class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] font-normal"
+                        class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] text-base font-normal"
                     >
-                    <input type="submit" value="Subscribe" class="btn bg-[#7A52B3] rounded text-[#FFFFFF] font-semibold">
+                    <input type="submit" value="Subscribe" class="btn bg-[#7A52B3] rounded text-[#FFFFFF] text-base font-semibold">
                 </div>
                 {#if invalidEmail}
-                    <p class="text-[#FF0909] italic">Please enter a valid email</p>
+                    <p class="text-[#FF0909] text-xs italic">Please enter a valid email</p>
                 {/if}
             </form>
         </div>
