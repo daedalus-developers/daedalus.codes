@@ -14,6 +14,8 @@ export const actions: Actions = {
 		try {
 			if (locals.user)
 				await locals.DB.collection(Collections.Users).update(locals.user.id, userForm.data);
+
+			// Return sucess here
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -22,30 +24,45 @@ export const actions: Actions = {
 						status: err.response.code
 				  });
 		}
-		return { userForm };
+
+		// Misleading return fail
+		return fail(404, { userForm });
 	},
 	details: async ({ request, locals }) => {
 		const userDetailsForm = await superValidate(request, userDetailsFormSchema);
+
 		if (!userDetailsForm.valid) return fail(400, { userDetailsForm });
+
+		// const linkBuilder = (domain: string, username: string) => `https://${domain}/${username}`
+
 		try {
 			if (locals.user) {
 				const { id } = locals.user;
-				const details = await locals.DB.collection(Collections.UsersDetails).getFirstListItem(
-					`user="${id}"`
-				);
-				await locals.DB.collection(Collections.UsersDetails).update(
-					details.id,
-					userDetailsForm.data
-				);
+
+				// Use server instance to query
+				const details = await db
+					.collection(Collections.UsersDetails)
+					.getFirstListItem(`user="${id}"`);
+
+				// use client instance to update
+				await locals.DB.collection(Collections.UsersDetails).update(details.id, {
+					...userDetailsForm.data,
+					user: id,
+					updated: new Date()
+				});
 			}
 		} catch (error) {
 			const err = error as ClientResponseError;
+			console.log(err.message);
 			return err.response.code !== 400
 				? message(userDetailsForm, INVALID_CREDENTIALS)
 				: message(userDetailsForm, err.message, {
 						status: err.response.code
 				  });
 		}
+
+		// Misleading
+		return fail(404, { userDetailsForm });
 	},
 	updateAvatar: async ({ request, locals }) => {
 		const formData = await request.formData();
