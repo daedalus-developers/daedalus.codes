@@ -23,7 +23,6 @@
 			background="variant-filled-secondary"
 			initials="{user.firstName[0]}{user.lastName[0]}"
 			src={assetLink(Collections.Users, user.id, user.avatar)}
-
 			rounded="rounded-full"
 			width="w-9"
 			fallback={`${user.firstName[0]}${user.lastName[0]}`}
@@ -32,17 +31,14 @@
 	<div data-popup="userActions">
 		<div class="card">
 			<div class="flex flex-col w-[200px]">
-				<a 
+				<a
 					href={`/${user.username}`}
 					class="flex gap-1 items-center p-3 rounded-none hover:variant-filled"
-					>
+				>
 					<Icon icon="mdi:account" />
 					Profile
 				</a>
-				<a 
-					href={`/me`}
-					class="flex gap-1 items-center p-3 rounded-none hover:variant-filled"
-					>
+				<a href={`/me`} class="flex gap-1 items-center p-3 rounded-none hover:variant-filled">
 					<Icon icon="mdi:settings" />
 					Setings
 				</a>
