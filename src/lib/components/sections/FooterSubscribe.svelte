@@ -17,8 +17,8 @@
     <div>
         <p class="font-bold">Subscribe to our newsletter</p>
         <p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
-        <form class="flex flex-row" on:submit|preventDefault={handleSubmit}>
-            <div class="flex flex-col">
+        <form class="flex flex-col" on:submit|preventDefault={handleSubmit}>
+            <div class="flex flex-row">
                 <input type="email" placeholder="Type your email..." name="email" on:input={emailValidation} bind:value={email}>
                 <input type="submit" value="Subscribe" class="btn">
             </div>
