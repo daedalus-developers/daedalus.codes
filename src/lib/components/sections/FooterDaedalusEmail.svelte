@@ -1,6 +1,4 @@
-<div>
+<div class="flex flex-col">
     <p class="uppercase">Get in touch</p>
-</div>
-<div>
     <p>daedalusdev@gmail.com</p>
 </div>
