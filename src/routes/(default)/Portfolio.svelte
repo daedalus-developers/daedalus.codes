@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Container } from '@components/utilities';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
-	import Icon from '@iconify/svelte';
+	// import Icon from '@iconify/svelte';
 	import type { Project } from '@types';
 	import { assetLink } from '@utils';
+	import Autoplay from 'embla-carousel-autoplay';
 
 	export let projects: Project[];
 
@@ -11,7 +12,7 @@
 		loop: false,
 		dragFree: true
 	};
-	let plugins: any = [];
+	let plugins = [Autoplay()];
 </script>
 
 <section class="py-32 dark:bg-surface-100-800-token">
