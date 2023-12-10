@@ -5,6 +5,7 @@
 	import DaedalusCommunity from './DaedalusCommunity.svelte';
 	import Projects from './Projects.svelte';
 	import Team from './Team.svelte';
+	import Events from './Events.svelte';
 
 	export let data: PageData;
 
@@ -26,4 +27,8 @@
 
 <section id="team">
 	<Team />
+</section>
+
+<section>
+	<Events />
 </section>
