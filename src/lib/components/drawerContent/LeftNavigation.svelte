@@ -47,12 +47,12 @@
 				</a>
 			</li>
 			{#if !user}
-			<li>
-				<a href="/login" on:click={drawerClose}>
-					<Icon icon="material-symbols:login" class="text-2xl" />
-					<span class="ms-2">Login</span>
-				</a>
-			</li>
+				<li>
+					<a href="/login" on:click={drawerClose}>
+						<Icon icon="material-symbols:login" class="text-2xl" />
+						<span class="ms-2">Login</span>
+					</a>
+				</li>
 			{/if}
 		</ul>
 	</nav>

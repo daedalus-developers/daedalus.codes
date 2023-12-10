@@ -4,15 +4,15 @@
 	import { primaryLinks, secondaryLinks } from '@utils';
 	import { Container } from '@components/utilities';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
-	import { getDrawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import AvatarButton from '@components/sections/avatar-button.svelte';
 
 	const drawerStore = getDrawerStore();
-	const settings = { id: 'example-1' };
+	// const settings = { id: 'example-1' };
 	function drawerOpenLeftNavigation(): void {
 		drawerStore.open({
 			id: 'drawer-side-link-list',
-			width: 'w-full max-w-[240px] sm:max-w-[400px]',
+			width: 'w-full max-w-[240px] sm:max-w-[400px]'
 		});
 	}
 
@@ -61,7 +61,7 @@
 			<button class="text-2xl">
 				<Icon icon="iconamoon:search" />
 			</button>
-			
+
 			{#if user?.id}
 				<AvatarButton />
 			{:else}
@@ -71,13 +71,10 @@
 				</a>
 			{/if}
 
-			<button 
-				class="text-2xl md:hidden"
-				on:click={drawerOpenLeftNavigation}
-				>
+			<button class="text-2xl md:hidden" on:click={drawerOpenLeftNavigation}>
 				<Icon icon="mdi:menu" />
 			</button>
-			
+
 			<LightSwitch class="hidden md:block" />
 		</div>
 	</Container>
