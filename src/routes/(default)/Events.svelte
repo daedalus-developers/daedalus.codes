@@ -9,7 +9,7 @@
 			<h2
 				class="text-5xl text-center md:text-left md:text-6xl font-black w-full md:w-auto md:flex-none"
 			>
-				Projects <span class="text-primary-600">.</span>
+				Events <span class="text-primary-600">.</span>
 			</h2>
 			<span class="w-[60%] border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
 		</div>
@@ -17,7 +17,7 @@
 		<div class="flex flex-col md:flex-row gap-10 justify-between">
 			<!-- first card -->
 			<div
-				class="w-full max-w-[95%] md:max-w-[525px] mx-auto md:mx-[unset] mx-auto md:mx-[unset] flex relative bg-primary-600 hover:bg-purple-800 border-neutral-500 border-[1px]"
+				class="w-full max-w-[95%] md:max-w-[525px] mx-auto md:mx-[unset] flex relative bg-primary-600 hover:bg-purple-800 border-neutral-500 border-[1px]"
 			>
 				<div
 					class="flex flex-col relative right-5 bottom-5 bg-white w-full border-neutral-500 border-[1px]"
