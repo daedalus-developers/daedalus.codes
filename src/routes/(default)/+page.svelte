@@ -10,6 +10,7 @@
 	export let data: PageData;
 
 	const projects = data.projects;
+	const team = data.team;
 </script>
 
 <section id="hero">
@@ -26,9 +27,9 @@
 </section>
 
 <section id="team">
-	<Team />
+	<Team {team} />
 </section>
 
-<section>
+<section id="events">
 	<Events />
 </section>
