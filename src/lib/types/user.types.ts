@@ -110,3 +110,5 @@ export const avatarSchema = object({
 });
 
 export type Avatar = zInfer<typeof avatarSchema>;
+
+export type Team = User & Partial<{ userDetails: UserDetails }>;
