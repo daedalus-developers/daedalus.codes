@@ -1,9 +1,12 @@
 <script lang="ts">
-	import { Container } from '@components';
-	import Icon from '@iconify/svelte';
 	import type { PageData } from './$types';
+	import type { Team } from '@types';
+	import Icon from '@iconify/svelte';
+	import { Container, TeamCard } from '@components';
 
 	export let team: PageData['team'];
+
+	const teamInfo: Team[] = team.items || [];
 </script>
 
 <section class="py-32 relative">
@@ -19,7 +22,7 @@
 			</h2>
 			<span class="w-full border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
 			<div class="w-64">
-				<a href="/team" class="btn variant-filled-primary hidden md:flex gap-2 mx-auto">
+				<a href="/daedalusteam" class="btn variant-filled-primary hidden md:flex gap-2 mx-auto">
 					View All Team
 					<Icon icon="carbon:arrow-right" class="text-2xl" />
 				</a>
@@ -32,41 +35,11 @@
 			be working with as a client or a colleague.
 		</p>
 
-		<a href="/team" class="btn btn-xl variant-filled-primary md:hidden flex gap-2 mx-auto">
+		<a href="/daedalusteam" class="btn btn-xl variant-filled-primary md:hidden flex gap-2 mx-auto">
 			View All Team
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
 
-		<div class="flex flex-wrap mt-20">
-			{#each team as { avatar, firstName, lastName, userDetails, username }}
-				{@const socialMedia = [
-					{ link: userDetails?.x, iconClass: 'entypo:email' },
-					{ link: userDetails?.linkedin, iconClass: 'cib:linkedin' },
-					{ link: userDetails?.github, iconClass: 'mdi:github' }
-				]}
-				<div
-					class="px-3 w-full md:max-w-[50%] lg:max-w-[33.33%] mb-20 flex flex-col gap-4 items-center"
-				>
-					<img
-						src={avatar}
-						alt="{firstName} {lastName}"
-						class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800"
-					/>
-					<h4 class="font-bold text-2xl">{username}</h4>
-					<p class="text-center">
-						{userDetails?.bio}
-					</p>
-					<div class="flex gap-2">
-						{#each socialMedia as { link, iconClass }}
-							{#if link}
-								<a href={link} target="_blank">
-									<Icon icon={iconClass} class="text-2xl" />
-								</a>
-							{/if}
-						{/each}
-					</div>
-				</div>
-			{/each}
-		</div>
+		<TeamCard team={teamInfo} />
 	</Container>
 </section>
