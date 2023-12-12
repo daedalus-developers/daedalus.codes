@@ -1,6 +1,12 @@
 <script lang="ts">
-	import { Container } from '@components/utilities';
+	import type { PageData } from './$types';
+	import type { Team } from '@types';
 	import Icon from '@iconify/svelte';
+	import { Container, TeamCard } from '@components';
+
+	export let team: PageData['team'];
+
+	const teamInfo: Team[] = team.items || [];
 </script>
 
 <section class="py-32 relative">
@@ -34,82 +40,6 @@
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
 
-		<div class="flex flex-wrap mt-20">
-			<div
-				class="px-3 w-full md:max-w-[50%] lg:max-w-[33.33%] mb-20 flex flex-col gap-4 items-center"
-			>
-				<img
-					src="https://images5.alphacoders.com/132/1329226.jpeg"
-					alt="team"
-					class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800"
-				/>
-				<h4 class="font-bold text-2xl">John Wick</h4>
-				<p class="text-center">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ea eius laudantium
-					similique, totam voluptates impedit.
-				</p>
-				<div class="flex gap-2">
-					<a href="#!">
-						<Icon icon="entypo:email" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="cib:linkedin" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="mdi:github" class="text-2xl" />
-					</a>
-				</div>
-			</div>
-			<div
-				class="px-3 w-full md:max-w-[50%] lg:max-w-[33.33%] mb-20 flex flex-col gap-4 items-center"
-			>
-				<img
-					src="https://moewalls.com/wp-content/uploads/2023/08/gojo-sunglasses-monochrome-jujutsu-kaisen-thumb.jpg"
-					alt="team"
-					class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800"
-				/>
-				<h4 class="font-bold text-2xl">John Wick</h4>
-				<p class="text-center">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ea eius laudantium
-					similique, totam voluptates impedit.
-				</p>
-				<div class="flex gap-2">
-					<a href="#!">
-						<Icon icon="entypo:email" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="cib:linkedin" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="mdi:github" class="text-2xl" />
-					</a>
-				</div>
-			</div>
-			<div
-				class="px-3 w-full md:max-w-[50%] lg:max-w-[33.33%] mb-20 flex flex-col gap-4 items-center"
-			>
-				<img
-					src="https://w0.peakpx.com/wallpaper/734/515/HD-wallpaper-anime-the-misfit-of-demon-king-academy-anos-voldigoad-lay-glanzudlii-misha-necron-sasha-necron.jpg"
-					alt="team"
-					class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800"
-				/>
-				<h4 class="font-bold text-2xl">John Wick</h4>
-				<p class="text-center">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet ea eius laudantium
-					similique, totam voluptates impedit.
-				</p>
-				<div class="flex gap-2">
-					<a href="#!">
-						<Icon icon="entypo:email" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="cib:linkedin" class="text-2xl" />
-					</a>
-					<a href="#!">
-						<Icon icon="mdi:github" class="text-2xl" />
-					</a>
-				</div>
-			</div>
-		</div>
+		<TeamCard team={teamInfo} />
 	</Container>
 </section>

@@ -5,20 +5,14 @@ const projectSchema = object({
 	id: string(),
 	title: string(),
 	category: string(),
-	preview: string().nullable(),
+	preview: string(),
 	details: string(),
 	published: boolean(),
 	link: string().nullable(),
-	collectionId: string(),
-	collectionName: string(),
-	created: string(),
-	updated: string()
+	created: string().datetime(),
+	updated: string().datetime()
 });
 
 export const projectsSchema = array(projectSchema);
 
 export type Project = zInfer<typeof projectSchema>;
-
-export type ProjectRecords = {
-	records: Project[];
-};

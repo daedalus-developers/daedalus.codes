@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { Container } from '@components/utilities';
+	import { Container } from '@components';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	// import Icon from '@iconify/svelte';
-	import type { Project } from '@types';
-	import { assetLink } from '@utils';
 	import Autoplay from 'embla-carousel-autoplay';
+	import type { PageData } from './$types';
 
-	export let projects: Project[];
+	export let projects: PageData['projects'];
 
 	let options = {
 		loop: false,
@@ -27,19 +26,14 @@
 		</div>
 		<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 			<div class="embla__container">
-				{#each projects as project}
-					{@const { id, collectionName, preview, title, category, details, link } = project}
+				{#each projects as { category, details, link, preview, title }}
 					<div class="embla__slide w-full max-w-[75%] md:max-w-[50%] lg:max-w-[33.33%] px-3">
 						<div
 							class="card bg-initial card-hover overflow-hidden bg-neutral-100 dark:bg-surface-600 Xdark:text-surface-900 rounded-none min-h-[455px]"
 						>
 							{#if preview}
 								<a href={link} target="_blank">
-									<img
-										src={assetLink(collectionName, id, preview)}
-										alt={title}
-										class="aspect-video object-cover"
-									/>
+									<img src={preview} alt={title} class="aspect-video object-cover" />
 								</a>
 							{:else}
 								<div class="placeholder dark:bg-slate-400 h-[212px] animate-pulse rounded-none" />

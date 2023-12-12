@@ -15,13 +15,20 @@
 	export let isDark: boolean;
 </script>
 
-
-<section class="py-32 {!isDark? 'bg-surface-100-800-token' : ''}">
+<section class="py-32 {!isDark ? 'bg-surface-100-800-token' : ''}">
 	<Container addClass="flex flex-col md:flex-row items-center">
 		<div class="flex flex-col gap-8 md:gap-10 text-center md:text-left">
-			<h3 class="text-3xl md:text-4xl font-bold 
-			dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-clip-text dark:text-transparent">Subscribe to our newsletter</h3>
-			<p>Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and hackathons. Join our dynamic community and access valuable insights straight to your inbox. Don't miss out – subscribe today!</p>
+			<h3
+				class="text-3xl md:text-4xl font-bold
+			dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-clip-text dark:text-transparent"
+			>
+				Subscribe to our newsletter
+			</h3>
+			<p>
+				Stay ahead in tech! Subscribe now for exclusive updates on mentorship, courses, and
+				hackathons. Join our dynamic community and access valuable insights straight to your inbox.
+				Don't miss out – subscribe today!
+			</p>
 			<form class="flex flex-col" on:submit|preventDefault>
 				<div class="flex flex-row gap-2">
 					<input
@@ -32,11 +39,7 @@
 						bind:value={email}
 						class="border-spacing-[1.2px] border-[#7A52B3] rounded text-[#232323] text-base font-normal px-5 w-10/12"
 					/>
-					<input
-						type="submit"
-						value="Subscribe"
-						class="btn variant-filled-secondary rounded"
-					/>
+					<input type="submit" value="Subscribe" class="btn variant-filled-secondary rounded" />
 				</div>
 				{#if invalidEmail}
 					<p class="text-sm italic text-error-500 text-left">Please enter a valid email</p>

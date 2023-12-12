@@ -13,3 +13,6 @@ export const createClient = async () => {
 };
 
 export const db = await createClient();
+
+export { fetchTeam } from './getAllTeam';
+export { getAllProjects } from './getAllProjects';
