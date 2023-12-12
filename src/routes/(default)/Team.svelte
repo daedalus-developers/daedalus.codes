@@ -22,7 +22,7 @@
 			</h2>
 			<span class="w-full border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
 			<div class="w-64">
-				<a href="/daedalusteam" class="btn variant-filled-primary hidden md:flex gap-2 mx-auto">
+				<a href="/team" class="btn variant-filled-primary hidden md:flex gap-2 mx-auto">
 					View All Team
 					<Icon icon="carbon:arrow-right" class="text-2xl" />
 				</a>
@@ -35,7 +35,7 @@
 			be working with as a client or a colleague.
 		</p>
 
-		<a href="/daedalusteam" class="btn btn-xl variant-filled-primary md:hidden flex gap-2 mx-auto">
+		<a href="/team" class="btn btn-xl variant-filled-primary md:hidden flex gap-2 mx-auto">
 			View All Team
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
