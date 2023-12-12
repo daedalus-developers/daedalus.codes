@@ -112,3 +112,11 @@ export const avatarSchema = object({
 export type Avatar = zInfer<typeof avatarSchema>;
 
 export type Team = User & Partial<{ userDetails: UserDetails }>;
+
+export type PaginatedTeam = {
+	page?: number;
+	perPage?: number;
+	totalItems?: number;
+	totalPages?: number;
+	items?: Team[];
+};
