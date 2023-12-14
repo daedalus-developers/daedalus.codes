@@ -19,10 +19,14 @@
 		"test:unit": "vitest"
 	},
 	"devDependencies": {
+		"@cartamd/plugin-attachment": "^3.0.2",
+		"@cartamd/plugin-code": "^3.0.1",
+		"@cartamd/plugin-emoji": "^3.1.0",
+		"@cartamd/plugin-slash": "^3.1.0",
 		"@iconify/svelte": "^3.1.4",
 		"@playwright/test": "^1.28.1",
 		"@skeletonlabs/skeleton": "^2.5.1",
-		"@skeletonlabs/tw-plugin": "^0.2.4",
+		"@skeletonlabs/tw-plugin": "^0.3.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-cloudflare": "^2.3.3",
 		"@sveltejs/adapter-node": "^1.3.1",
@@ -34,6 +38,7 @@
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"autoprefixer": "^10.4.14",
+		"carta-md": "^3.2.0",
 		"clsx": "^2.0.0",
 		"date-fns": "^2.30.0",
 		"decode-formdata": "^0.4.0",
@@ -41,12 +46,12 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-svelte": "^2.30.0",
-		"pocketbase": "^0.19.0",
+		"pocketbase": "^0.20.1",
 		"postcss": "^8.4.24",
-		"postcss-load-config": "^4.0.1",
+		"postcss-load-config": "^5.0.2",
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.1.2",
-		"prettier-plugin-tailwindcss": "^0.4.1",
+		"prettier-plugin-tailwindcss": "^0.5.9",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"sveltekit-search-params": "^1.0.16",
@@ -66,6 +71,7 @@
 		"@floating-ui/dom": "^1.5.3",
 		"@fontsource-variable/inter": "^5.0.15",
 		"embla-carousel-autoplay": "8.0.0-rc15",
-		"embla-carousel-svelte": "8.0.0-rc15"
+		"embla-carousel-svelte": "8.0.0-rc15",
+		"isomorphic-dompurify": "^1.12.0"
 	}
 }

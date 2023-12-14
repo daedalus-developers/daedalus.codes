@@ -1,12 +1,1 @@
-<script lang="ts">
-	import { UserForm, UserDetailsForm } from '@components';
-</script>
-
-<div class="flex">
-	<div class="basis-1/2">
-		<UserForm />
-	</div>
-	<div class="basis-1/2">
-		<UserDetailsForm />
-	</div>
-</div>
+<h1 class="h1">Welcome Back</h1>

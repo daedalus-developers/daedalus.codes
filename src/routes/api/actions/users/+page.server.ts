@@ -22,7 +22,7 @@ export const actions: Actions = {
 				? message(userForm, INVALID_CREDENTIALS)
 				: message(userForm, err.message, {
 						status: err.response.code
-				  });
+					});
 		}
 
 		// Misleading return fail
@@ -46,19 +46,22 @@ export const actions: Actions = {
 
 				// use client instance to update
 				await locals.DB.collection(Collections.UsersDetails).update(details.id, {
-					...userDetailsForm.data,
+					bio: userDetailsForm.data.bio || '',
+					details: userDetailsForm.data.details || '',
+					x: userDetailsForm.data.x || '',
+					linkedIn: userDetailsForm.data.linkedin || '',
+					github: userDetailsForm.data.github || '',
 					user: id,
 					updated: new Date()
 				});
 			}
 		} catch (error) {
 			const err = error as ClientResponseError;
-			console.log(err.message);
 			return err.response.code !== 400
 				? message(userDetailsForm, INVALID_CREDENTIALS)
 				: message(userDetailsForm, err.message, {
 						status: err.response.code
-				  });
+					});
 		}
 
 		// Misleading

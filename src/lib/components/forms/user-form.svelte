@@ -16,7 +16,7 @@
 		enhance: accountEnhance,
 		message,
 		delayed
-	} = superForm($page.data.userForm, {
+	} = superForm($page.data.form, {
 		validators: userFormSchema,
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
