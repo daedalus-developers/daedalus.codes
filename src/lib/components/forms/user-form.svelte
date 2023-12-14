@@ -30,10 +30,10 @@
 </script>
 
 <div class="mx-4">
-	<div class="flex justify-center mx-auto py-4">
+	<div class="mx-auto flex justify-center py-4">
 		<h1 class="h3">Account</h1>
 	</div>
-	<div class="form-control text-center min-w-[50%] mx-auto">
+	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
@@ -54,7 +54,7 @@
 			<div class="grid w-full max-w-sm items-center gap-1.5 text-center">
 				<input name="id" value={$form.id} class="hidden" />
 				<input type="file" name="avatar" accept="image/*" />
-				<button class="btn variant-filled-primary my-4 w-full" disabled={$delayed}>Update</button>
+				<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
 			</div>
 		</form>
 	</div>
@@ -97,6 +97,6 @@
 			errors={$errors.lastName}
 			constraints={$constraints.lastName}
 		/>
-		<button class="btn variant-filled-primary my-4 w-full" disabled={$delayed}>Update</button>
+		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
 	</form>
 </div>

@@ -1,6 +1,6 @@
 import { Collections } from '@types';
 import type { RequestHandler } from './$types';
-import { error, redirect } from '@sveltejs/kit';
+import { error, json, redirect } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 	const { provider } = params;
@@ -32,4 +32,6 @@ export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 		error(404, err as unknown as string);
 	}
 	redirect(303, '/login');
+
+	return json({});
 };

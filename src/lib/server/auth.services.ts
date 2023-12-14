@@ -21,14 +21,14 @@ export const authenticateUser = (locals: App.Locals) => {
 				locals.user?.role === userRole.enum.user
 					? () => {
 							redirect(303, '/admin');
-					  }
+						}
 					: () => {
 							redirect(303, '/profile');
-					  };
-		  }
+						};
+			}
 		: () => {
 				throw fail(400, {});
-		  };
+			};
 };
 
 export const logout = (locals: App.Locals) => {

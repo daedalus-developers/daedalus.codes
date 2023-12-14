@@ -14,7 +14,7 @@ export const contactSchema = object({
 
 export const subscriberSchema = object({
 	id: string(),
-	email: requiredString('Email', { min: 3, max: 20 }).email(),
+	email: string({ required_error: 'Email is required' }).email(),
 	created: string().datetime(),
 	updated: string().datetime()
 });

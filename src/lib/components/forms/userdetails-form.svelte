@@ -15,9 +15,9 @@
 	import '@cartamd/plugin-emoji/default.css';
 	import '@cartamd/plugin-slash/default.css';
 	import '@cartamd/plugin-attachment/default.css';
-	import { sanitize } from 'isomorphic-dompurify';
+	import purifier from 'isomorphic-dompurify';
 	const carta = new Carta({
-		sanitizer: sanitize,
+		sanitizer: purifier.sanitize,
 		extensions: [
 			attachment({
 				async upload(file) {
@@ -119,7 +119,7 @@
 	</form>
 </div>
 
-<style>
+<style lang="postcss">
 	:global(.carta-renderer) {
 		@apply prose prose-invert;
 	}

@@ -33,8 +33,13 @@ export const actions: Actions = {
 
 			const { state, codeVerifier } = authProvider;
 
-			/* @migration task: add path argument */ cookies.set('state', state);
-			/* @migration task: add path argument */ cookies.set('verifier', codeVerifier);
+			cookies.set('state', state, {
+				path: '/'
+			});
+
+			cookies.set('verifier', codeVerifier, {
+				path: '/'
+			});
 
 			redirect(302, authProviderRedirectURL);
 		}

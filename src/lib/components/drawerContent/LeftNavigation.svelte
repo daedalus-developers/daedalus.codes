@@ -14,8 +14,8 @@
 	const user = $page.data.user;
 </script>
 
-<nav class="min-h-screenX group list-nav flex flex-col h-full">
-	<ul class="pb-20 pt-5 h-full overflow-auto">
+<nav class="min-h-screenX group list-nav flex h-full flex-col">
+	<ul class="h-full overflow-auto pb-20 pt-5">
 		{#each primaryLinks as { name, href, iconifyCode }}
 			<li
 				class={$page.url.pathname === href ? 'variant-ghost-primaryX variant-filled-primary' : ''}
@@ -38,7 +38,7 @@
 		{/each}
 	</ul>
 	<hr class="mt-auto" />
-	<nav class="py-5 px-3">
+	<nav class="px-3 py-5">
 		<ul>
 			<li class="flex justify-center">
 				<a href="/" on:click|preventDefault>

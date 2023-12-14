@@ -19,7 +19,7 @@
 </script>
 
 <div>
-	<button class="btn [&>*]:pointer-events-none px-0" use:popup={userActions}>
+	<button class="btn px-0 [&>*]:pointer-events-none" use:popup={userActions}>
 		<Avatar
 			background="variant-filled-secondary"
 			initials="{user.firstName[0]}{user.lastName[0]}"
@@ -31,15 +31,15 @@
 	</button>
 	<div data-popup="userActions">
 		<div class="card">
-			<div class="flex flex-col w-[200px]">
+			<div class="flex w-[200px] flex-col">
 				<a
 					href={`/${user.username}`}
-					class="flex gap-1 items-center p-3 rounded-none hover:variant-filled"
+					class="flex items-center gap-1 rounded-none p-3 hover:variant-filled"
 				>
 					<Icon icon="mdi:account" />
 					Profile
 				</a>
-				<a href={`/me`} class="flex gap-1 items-center p-3 rounded-none hover:variant-filled">
+				<a href={`/me`} class="flex items-center gap-1 rounded-none p-3 hover:variant-filled">
 					<Icon icon="mdi:settings" />
 					Setings
 				</a>

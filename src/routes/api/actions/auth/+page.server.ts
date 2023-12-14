@@ -16,7 +16,8 @@ const NOT_ALLOWED_USERNAME = [
 	'mark',
 	'faq',
 	'projects',
-	'team'
+	'team',
+	'contact'
 ];
 
 export const actions: Actions = {

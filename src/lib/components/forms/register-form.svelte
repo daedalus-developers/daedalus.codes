@@ -23,7 +23,7 @@
 	<div class="mx-auto py-4">
 		<h1 class="h2">Register</h1>
 	</div>
-	<div class="form-control text-center min-w-[50%] mx-auto">
+	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
@@ -83,7 +83,7 @@
 			errors={$errors.passwordConfirm}
 			constraints={$constraints.passwordConfirm}
 		/>
-		<button class="btn variant-filled-primary my-4 w-full">Register</button>
+		<button class="variant-filled-primary btn my-4 w-full">Register</button>
 	</form>
 	<p class="text-center">
 		Already have an account? Login <a class="underline" href="/login">here</a>.
