@@ -5,12 +5,15 @@
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import { userDetailsFormSchema } from '@types';
 	import LinkInput from './link-input.svelte';
-	import { Carta, CartaEditor, CartaViewer } from 'carta-md';
+	import { Carta, CartaEditor } from 'carta-md';
 	import { attachment } from '@cartamd/plugin-attachment';
 	import { emoji } from '@cartamd/plugin-emoji';
 	import { slash } from '@cartamd/plugin-slash';
 	import { code } from '@cartamd/plugin-code';
 	import 'carta-md/default.css';
+	import 'carta-md/light.css';
+	import '@cartamd/plugin-emoji/default.css';
+	import '@cartamd/plugin-slash/default.css';
 	import '@cartamd/plugin-attachment/default.css';
 	import { sanitize } from 'isomorphic-dompurify';
 	const carta = new Carta({
@@ -97,7 +100,7 @@
 			constraints={$constraints.github}
 		/>
 		<div class="pt-4">
-			<CartaEditor {carta} bind:value={$form.details} mode="tabs" />
+			<CartaEditor {carta} bind:value={$form.details} mode="auto" />
 		</div>
 		<textarea
 			class="textarea my-4 hidden"
@@ -106,15 +109,18 @@
 			bind:value={$form.details}
 			placeholder="...."
 		/>
-		<h2 class="h2 py-4 text-center">Details Preview</h2>
-		<div class="prose prose-invert">
-			{#key $form.details}
-				<CartaViewer {carta} value={$form.details} />
-			{/key}
-		</div>
-
-		<!---->
-
+		<!-- <h2 class="h2 py-4 text-center">Details Preview</h2> -->
+		<!-- <div class="prose prose-invert"> -->
+		<!-- 	{#key $form.details} -->
+		<!-- 		<CartaViewer {carta} value={$form.details} /> -->
+		<!-- 	{/key} -->
+		<!-- </div> -->
 		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
 	</form>
 </div>
+
+<style>
+	:global(.carta-renderer) {
+		@apply prose prose-invert;
+	}
+</style>
