@@ -5,28 +5,28 @@
 	export let team: Team[];
 </script>
 
-<ul class="flex flex-wrap mt-20">
+<ul class="mt-20 flex flex-wrap">
 	{#each team as { avatar, firstName, lastName, userDetails, username }}
 		{@const socialMedia = [
 			{ link: userDetails?.x, iconClass: 'entypo:email' },
 			{ link: userDetails?.linkedin, iconClass: 'cib:linkedin' },
 			{ link: userDetails?.github, iconClass: 'mdi:github' }
 		]}
-		<li class="px-3 w-full md:max-w-[50%] lg:max-w-[33.33%] mb-20 flex flex-col gap-4 items-center">
+		<li class="mb-20 flex w-full flex-col items-center gap-4 px-3 md:max-w-[50%] lg:max-w-[33.33%]">
 			{#if avatar}
 				<img
 					src={avatar}
 					alt="{firstName} {lastName}"
-					class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800"
+					class="mx-auto aspect-[1/1.2] w-full max-w-[170px] rounded-lg object-cover opacity-80 shadow-xl shadow-stone-800 transition-all hover:opacity-100 sm:max-w-[265px] md:max-w-[70%]"
 				/>
 			{:else}
 				<div
-					class="w-full max-w-[170px] sm:max-w-[265px] md:max-w-[70%] mx-auto aspect-[1/1.2] object-cover transition-all opacity-80 hover:opacity-100 rounded-lg shadow-xl shadow-stone-800 animate-pulse dark:bg-neutral-800 flex flex-col flex-wrap justify-center items-center"
+					class="mx-auto flex aspect-[1/1.2] w-full max-w-[170px] animate-pulse flex-col flex-wrap items-center justify-center rounded-lg object-cover opacity-80 shadow-xl shadow-stone-800 transition-all hover:opacity-100 dark:bg-neutral-800 sm:max-w-[265px] md:max-w-[70%]"
 				>
 					No image available
 				</div>
 			{/if}
-			<h4 class="font-bold text-2xl">{username}</h4>
+			<h4 class="text-2xl font-bold">{username}</h4>
 			{#if userDetails?.bio}
 				<p class="text-center">
 					{userDetails?.bio}

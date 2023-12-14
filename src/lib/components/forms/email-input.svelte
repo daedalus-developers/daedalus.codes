@@ -24,7 +24,7 @@
 </label>
 
 {#if errors}
-	<span class="text-sm mt-1 text-error-500">{errors}</span>
+	<span class="mt-1 text-sm text-error-500">{errors}</span>
 {/if}
 {#if description && !errors}
 	<span class="text-sm text-tertiary-700">{description}</span>

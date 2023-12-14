@@ -23,10 +23,10 @@
 	);
 </script>
 
-<section class="py-20 bg-transparent dark:bg-surface-100-800-token">
+<section class="bg-transparent py-20 dark:bg-surface-100-800-token">
 	<Container>
 		<h1 class="flex items-center gap-3">
-			<span class="font-bold text-[40px] leading-8">Our Team</span>
+			<span class="text-[40px] font-bold leading-8">Our Team</span>
 			<svg
 				width="34"
 				height="33"
@@ -45,7 +45,7 @@
 			</svg>
 		</h1>
 
-		<p class="font-[500] text-base leading-6 py-10">
+		<p class="py-10 text-base font-[500] leading-6">
 			At Daedalus, we believe in collaboration and knowledge sharing. Our community dedicated
 			individuals with diverse expertise and a passion for helping others succeed. Whether you have
 			questions, seek mentorship, or need guidance, feel free to reach out to any of the following

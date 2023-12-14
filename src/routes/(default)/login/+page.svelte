@@ -2,6 +2,6 @@
 	import { LoginForm } from '@components';
 </script>
 
-<div class="w-screen h-screen">
+<div class="h-screen w-screen">
 	<LoginForm />
 </div>

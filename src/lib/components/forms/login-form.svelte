@@ -25,7 +25,7 @@
 		<img src="https://storage.daedalus.codes/logo.png" alt="Daedalus Logo" />
 		<h1 class="h2">Login</h1>
 	</div>
-	<div class="form-control text-center min-w-[50%] mx-auto">
+	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
@@ -52,7 +52,7 @@
 			errors={$errors.password}
 			constraints={$constraints.password}
 		/>
-		<button class="btn variant-filled-primary my-4 w-full">Login</button>
+		<button class="variant-filled-primary btn my-4 w-full">Login</button>
 	</form>
 	<!-- <div class=""> -->
 	<!-- 	<div class="logo-cloud [&>.logo-item]:variant-ghost-secondary justify-center"> -->

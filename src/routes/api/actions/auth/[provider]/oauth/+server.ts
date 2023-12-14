@@ -1,13 +1,13 @@
 import { Collections } from '@types';
 import type { RequestHandler } from './$types';
-import { error, redirect } from '@sveltejs/kit';
+import { error, json, redirect } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 	const { provider } = params;
 
 	const { authProviders } = await locals.DB.collection(Collections.Users).listAuthMethods();
 	if (!authProviders) {
-		throw redirect(303, '/login');
+		redirect(303, '/login');
 	}
 
 	const redirectURL = `${url.origin}/${provider}/oauth`;
@@ -18,7 +18,7 @@ export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 	const code = url.searchParams.get('code') ?? '';
 
 	if (state !== pocketbaseState) {
-		throw redirect(303, '/login');
+		redirect(303, '/login');
 	}
 
 	try {
@@ -29,7 +29,9 @@ export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 			redirectURL
 		);
 	} catch (err) {
-		throw error(404, err as unknown as string);
+		error(404, err as unknown as string);
 	}
-	throw redirect(303, '/login');
+	redirect(303, '/login');
+
+	return json({});
 };

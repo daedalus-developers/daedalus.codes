@@ -4,7 +4,8 @@ export enum Collections {
 	Media = 'media',
 	Events = 'events',
 	Projects = 'projects',
-	Subscribers = 'subscribers'
+	Subscribers = 'subscribers',
+	Contacts = 'contacts'
 }
 export * from './auth.types';
 export * from './user.types';

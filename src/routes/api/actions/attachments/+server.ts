@@ -16,8 +16,8 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			return json({ url: db.files.getUrl(upload, upload.file) });
 		} catch (e) {
 			const err = e as ClientResponseError;
-			throw error(400, { message: err.message });
+			error(400, { message: err.message });
 		}
 	}
-	throw error(400, { message: 'No file provided' });
+	error(400, { message: 'No file provided' });
 };

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { getToastStore } from '@skeletonlabs/skeleton';
-	import { contactSchema } from '@types';
+	import { contactFormSchema } from '@types';
 	import { superForm } from 'sveltekit-superforms/client';
 	import TextInput from './text-input.svelte';
 	import EmailInput from './email-input.svelte';
@@ -10,7 +10,7 @@
 
 	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
-		validators: contactSchema,
+		validators: contactFormSchema,
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
 				toast.trigger({
@@ -21,7 +21,7 @@
 </script>
 
 <form
-	action="/api/actions?/contact"
+	action="/api/actions/contact?/contact"
 	method="POST"
 	use:enhance
 	class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"

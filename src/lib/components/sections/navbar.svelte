@@ -30,13 +30,13 @@
 		</a>
 	</svelte:fragment>
 	<div class="flex justify-center">
-		<div class="flex gap-5 lg:gap-10 me-auto">
+		<div class="me-auto flex gap-5 lg:gap-10">
 			{#each primaryLinks as link}
 				{#if link.href !== '/'}
 					<a
 						href={link.href}
-						class="border-y-4 border-transparent
-					hidden md:flex md:items-center
+						class="hidden border-y-4
+					border-transparent md:flex md:items-center
 					{$page.url.pathname === link.href ? 'active' : ''}"
 					>
 						{link.name}
@@ -49,8 +49,8 @@
 				{#each secondaryLinks as link}
 					<a
 						href={link.href}
-						class="border-y-4 border-transparent
-				hidden md:flex md:items-center
+						class="hidden border-y-4
+				border-transparent md:flex md:items-center
 				{$page.url.pathname === link.href ? 'active' : ''}"
 					>
 						{link.name}
@@ -70,7 +70,7 @@
 			<a
 				href="/login"
 				data-sveltekit-preload-data="hover"
-				class="md:btn md:variant-filled-primary hidden md:flex"
+				class="hidden md:variant-filled-primary md:btn md:flex"
 			>
 				<Icon icon="material-symbols:login" class="text-2xl" />
 				<span class="hidden md:inline-block">Login</span>

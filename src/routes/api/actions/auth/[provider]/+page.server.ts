@@ -33,12 +33,17 @@ export const actions: Actions = {
 
 			const { state, codeVerifier } = authProvider;
 
-			cookies.set('state', state);
-			cookies.set('verifier', codeVerifier);
+			cookies.set('state', state, {
+				path: '/'
+			});
 
-			throw redirect(302, authProviderRedirectURL);
+			cookies.set('verifier', codeVerifier, {
+				path: '/'
+			});
+
+			redirect(302, authProviderRedirectURL);
 		}
 
-		throw redirect(302, '/login');
+		redirect(302, '/login');
 	}
 };
