@@ -5,27 +5,53 @@
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import { userDetailsFormSchema } from '@types';
 	import LinkInput from './link-input.svelte';
+	import { Carta, CartaEditor, CartaViewer } from 'carta-md';
+	import { attachment } from '@cartamd/plugin-attachment';
+	import { emoji } from '@cartamd/plugin-emoji';
+	import { slash } from '@cartamd/plugin-slash';
+	import { code } from '@cartamd/plugin-code';
+	import 'carta-md/default.css';
+	import '@cartamd/plugin-attachment/default.css';
+	import { sanitize } from 'isomorphic-dompurify';
+	const carta = new Carta({
+		sanitizer: sanitize,
+		extensions: [
+			attachment({
+				async upload(file) {
+					const formData = new FormData();
+					formData.append('file', file);
+					const response = await fetch('/api/actions/attachments', {
+						method: 'POST',
+						body: formData
+					})
+						.then((res) => res.json())
+						.then((res) => res.url as string);
+					return response;
+				}
+			}),
+			emoji(),
+			slash(),
+			code()
+		]
+	});
 
 	const toast = getToastStore();
-	const { form, errors, constraints, enhance, message, delayed } = superForm(
-		$page.data.userDetailsForm,
-		{
-			validators: userDetailsFormSchema,
-			onResult: async ({ result }) => {
-				if (result.type === 'success')
-					toast.trigger({
-						message: 'Profile updated.'
-					});
-			}
+	const { form, errors, constraints, enhance, message, delayed } = superForm($page.data.form, {
+		validators: userDetailsFormSchema,
+		onResult: async ({ result }) => {
+			if (result.type === 'success')
+				toast.trigger({
+					message: 'Profile updated.'
+				});
 		}
-	);
+	});
 </script>
 
 <div class="mx-4">
-	<div class="flex justify-center mx-auto py-4">
+	<div class="mx-auto flex justify-center py-4">
 		<h1 class="h3">Details</h1>
 	</div>
-	<div class="form-control text-center min-w-[50%] mx-auto">
+	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
@@ -44,13 +70,6 @@
 			bind:value={$form.bio}
 			errors={$errors.bio}
 			constraints={$constraints.bio}
-		/>
-		<textarea
-			class="textarea my-4"
-			rows="5"
-			name="details"
-			bind:value={$form.details}
-			placeholder="...."
 		/>
 		<LinkInput
 			name="linkedin"
@@ -77,6 +96,25 @@
 			errors={$errors.github}
 			constraints={$constraints.github}
 		/>
-		<button class="btn variant-filled-primary my-4 w-full" disabled={$delayed}>Update</button>
+		<div class="pt-4">
+			<CartaEditor {carta} bind:value={$form.details} mode="tabs" />
+		</div>
+		<textarea
+			class="textarea my-4 hidden"
+			rows="5"
+			name="details"
+			bind:value={$form.details}
+			placeholder="...."
+		/>
+		<h2 class="h2 py-4 text-center">Details Preview</h2>
+		<div class="prose prose-invert">
+			{#key $form.details}
+				<CartaViewer {carta} value={$form.details} />
+			{/key}
+		</div>
+
+		<!---->
+
+		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
 	</form>
 </div>

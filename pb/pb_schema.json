@@ -91,6 +91,34 @@
     }
   },
   {
+    "id": "1p5euezfrt673ut",
+    "name": "subscribers",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "isyctkix",
+        "name": "email",
+        "type": "email",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "exceptDomains": null,
+          "onlyDomains": null
+        }
+      }
+    ],
+    "indexes": [],
+    "listRule": null,
+    "viewRule": null,
+    "createRule": null,
+    "updateRule": null,
+    "deleteRule": null,
+    "options": {}
+  },
+  {
     "id": "0xp1wd4koyuvvgq",
     "name": "events",
     "type": "base",
@@ -180,117 +208,13 @@
           "values": [
             "open",
             "ongoing",
-            "canceled"
+            "canceled",
+            "finished"
           ]
         }
       }
     ],
     "indexes": [],
-    "listRule": null,
-    "viewRule": null,
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
-    "options": {}
-  },
-  {
-    "id": "ke436i7mqpn0g09",
-    "name": "users_details",
-    "type": "base",
-    "system": false,
-    "schema": [
-      {
-        "system": false,
-        "id": "ttt8not3",
-        "name": "user",
-        "type": "relation",
-        "required": true,
-        "presentable": true,
-        "unique": false,
-        "options": {
-          "collectionId": "_pb_users_auth_",
-          "cascadeDelete": true,
-          "minSelect": null,
-          "maxSelect": 1,
-          "displayFields": null
-        }
-      },
-      {
-        "system": false,
-        "id": "unzexa3t",
-        "name": "bio",
-        "type": "text",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "min": null,
-          "max": null,
-          "pattern": ""
-        }
-      },
-      {
-        "system": false,
-        "id": "6nndu0ox",
-        "name": "details",
-        "type": "editor",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "convertUrls": false
-        }
-      },
-      {
-        "system": false,
-        "id": "tfg2ykwy",
-        "name": "linkedin",
-        "type": "url",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "exceptDomains": [],
-          "onlyDomains": [
-            "linkedin.com"
-          ]
-        }
-      },
-      {
-        "system": false,
-        "id": "ovccqsrz",
-        "name": "x",
-        "type": "url",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "exceptDomains": [],
-          "onlyDomains": [
-            "twitter.com"
-          ]
-        }
-      },
-      {
-        "system": false,
-        "id": "eyzsozn3",
-        "name": "github",
-        "type": "url",
-        "required": false,
-        "presentable": false,
-        "unique": false,
-        "options": {
-          "exceptDomains": [],
-          "onlyDomains": [
-            "github.com"
-          ]
-        }
-      }
-    ],
-    "indexes": [
-      "CREATE UNIQUE INDEX `idx_yL6nU7Q` ON `users_details` (\n  `x`,\n  `github`,\n  `linkedin`\n)",
-      "CREATE UNIQUE INDEX `idx_fi1FSiz` ON `users_details` (`user`)"
-    ],
     "listRule": null,
     "viewRule": null,
     "createRule": null,
@@ -368,6 +292,20 @@
           "exceptDomains": null,
           "onlyDomains": null
         }
+      },
+      {
+        "system": false,
+        "id": "zlimafop",
+        "name": "category",
+        "type": "text",
+        "required": true,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
       }
     ],
     "indexes": [],
@@ -379,22 +317,127 @@
     "options": {}
   },
   {
-    "id": "1p5euezfrt673ut",
-    "name": "subscribers",
+    "id": "ke436i7mqpn0g09",
+    "name": "users_details",
     "type": "base",
     "system": false,
     "schema": [
       {
         "system": false,
-        "id": "isyctkix",
-        "name": "email",
-        "type": "email",
+        "id": "ttt8not3",
+        "name": "user",
+        "type": "relation",
+        "required": true,
+        "presentable": true,
+        "unique": false,
+        "options": {
+          "collectionId": "_pb_users_auth_",
+          "cascadeDelete": true,
+          "minSelect": null,
+          "maxSelect": 1,
+          "displayFields": null
+        }
+      },
+      {
+        "system": false,
+        "id": "unzexa3t",
+        "name": "bio",
+        "type": "text",
         "required": false,
         "presentable": false,
         "unique": false,
         "options": {
-          "exceptDomains": null,
-          "onlyDomains": null
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "6nndu0ox",
+        "name": "details",
+        "type": "editor",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "convertUrls": false
+        }
+      },
+      {
+        "system": false,
+        "id": "4vld7fnm",
+        "name": "github",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "1spvlkd7",
+        "name": "linkedin",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      },
+      {
+        "system": false,
+        "id": "kmgya5ev",
+        "name": "x",
+        "type": "text",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "min": null,
+          "max": null,
+          "pattern": ""
+        }
+      }
+    ],
+    "indexes": [
+      "CREATE UNIQUE INDEX `idx_fi1FSiz` ON `users_details` (`user`)",
+      "CREATE INDEX `idx_lYHyBvS` ON `users_details` (\n  `github`,\n  `linkedin`,\n  `x`\n)"
+    ],
+    "listRule": "@request.auth.id != ''",
+    "viewRule": "@request.auth.id != user.id",
+    "createRule": null,
+    "updateRule": "@request.auth.id != ''",
+    "deleteRule": null,
+    "options": {}
+  },
+  {
+    "id": "0rmz3w5ypfkp0o0",
+    "name": "media",
+    "type": "base",
+    "system": false,
+    "schema": [
+      {
+        "system": false,
+        "id": "3upsladh",
+        "name": "file",
+        "type": "file",
+        "required": false,
+        "presentable": false,
+        "unique": false,
+        "options": {
+          "maxSelect": 1,
+          "maxSize": 5242880,
+          "mimeTypes": [],
+          "thumbs": [],
+          "protected": false
         }
       }
     ],

@@ -6,7 +6,7 @@ import type { ClientResponseError } from 'pocketbase';
 
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const formData = await request.formData();
-	const file = formData.get('avatar');
+	const file = formData.get('file');
 
 	if (file instanceof File && locals.user) {
 		try {
