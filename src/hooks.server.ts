@@ -10,7 +10,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.DB.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
 	try {
-		event.locals.DB.authStore.isValid && (await event.locals.DB.collection('users').authRefresh());
+		if (!event.locals.DB.authStore.isValid) {
+			await event.locals.DB.collection('users').authRefresh();
+		}
 		event.locals.user = { ...event.locals.DB.authStore.model };
 	} catch (error) {
 		event.locals.DB.authStore.clear();
