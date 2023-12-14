@@ -1,21 +1,34 @@
-import { object, string, type input } from 'zod';
+import { object, string, type output } from 'zod';
+import { requiredString } from './util.types';
 
 export const contactSchema = object({
-	firstName: string({
-		required_error: 'First Name is required'
-	}).min(2),
-	lastName: string({
-		required_error: 'Last Name is required'
-	}).min(2),
-	email: string({
-		required_error: 'Email is required'
-	}).email(),
-	phoneNumber: string({
-		required_error: 'Phone Number is required'
-	}).min(10),
-	message: string({
-		required_error: 'Message is required'
-	}).min(10)
+	id: string(),
+	firstName: requiredString('First Name', { min: 3, max: 20 }),
+	lastName: requiredString('Last Name', { min: 3, max: 20 }),
+	email: requiredString('Email', { min: 3, max: 20 }).email(),
+	phoneNumber: string().optional(),
+	message: string().optional(),
+	created: string().datetime(),
+	updated: string().datetime()
 });
 
-export type ContactType = input<typeof contactSchema>;
+export const subscriberSchema = object({
+	id: string(),
+	email: requiredString('Email', { min: 3, max: 20 }).email(),
+	created: string().datetime(),
+	updated: string().datetime()
+});
+
+export const contactFormSchema = contactSchema.omit({
+	id: true,
+	created: true,
+	updated: true
+});
+
+export const subscriberFormSchema = subscriberSchema.omit({
+	id: true,
+	created: true,
+	updated: true
+});
+
+export type Contact = output<typeof contactSchema>;
