@@ -44,8 +44,5 @@ export const actions: Actions = {
 						status: err.response.code
 					});
 		}
-		return message(form, SOMETHING_WENT_WRONG, {
-			status: 500
-		});
 	}
 };
