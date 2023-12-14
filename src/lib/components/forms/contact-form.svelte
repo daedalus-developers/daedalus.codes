@@ -21,7 +21,7 @@
 </script>
 
 <form
-	action="/api/actions/contact"
+	action="/api/actions?/contact"
 	method="POST"
 	use:enhance
 	class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"

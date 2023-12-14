@@ -1,8 +1,5 @@
 <script lang="ts">
 	import ContactForm from '@components/forms/contact-form.svelte';
-	import type { PageData } from './$types';
-
-	export let data: PageData;
 </script>
 
 <!-- TODO: update this placeholder UI from TailwindUI  -->
