@@ -12,7 +12,7 @@
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
 		validators: contactSchema,
 		onResult: async ({ result }) => {
-			if (result.type === 'redirect')
+			if (result.type === 'success')
 				toast.trigger({
 					message: 'Message sent successfully'
 				});
@@ -20,7 +20,12 @@
 	});
 </script>
 
-<form action="/api/actions/contact" method="POST" use:enhance class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+<form
+	action="/api/actions/contact"
+	method="POST"
+	use:enhance
+	class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+>
 	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
