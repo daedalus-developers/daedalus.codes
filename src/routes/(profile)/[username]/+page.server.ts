@@ -1,13 +1,14 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { Collections } from '@types';
+import { Collections, type User } from '@types';
+import { db } from '@server';
 
-export const load: PageServerLoad = async ({ locals, params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	const { username } = params;
 
 	if (username === 'admin') throw error(404, `Not found`);
 
 	return {
-		profile: await locals.DB.collection(Collections.Users).getOne(username, { $autoCancel: false })
+		profile: await db.collection(Collections.Users).getFirstListItem<User>(`username="${username}"`)
 	};
 };
