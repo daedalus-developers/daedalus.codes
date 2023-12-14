@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { AppShell } from '@skeletonlabs/skeleton';
-	import { Footer, Header } from '../sections/';
+	import { Footer, Navbar } from '../sections/';
 </script>
 
 <AppShell scrollbarGutter="auto">
 	<svelte:fragment slot="header">
-		<Header />
+		<Navbar />
 	</svelte:fragment>
 	<slot />
-
 	<svelte:fragment slot="pageFooter">
 		<Footer />
 	</svelte:fragment>
