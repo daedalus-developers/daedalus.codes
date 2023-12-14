@@ -4,9 +4,9 @@ import { db } from '@server';
 import { Collections, type User } from '@types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
-	if (!locals.DB.authStore.isValid && !locals.user) throw redirect(302, '/login');
+	if (!locals.DB.authStore.isValid && !locals.user) redirect(302, '/login');
 
-	if (!locals.user) throw redirect(302, '/login');
+	if (!locals.user) redirect(302, '/login');
 	const id: string = locals.user.id;
 
 	const user = await db.collection(Collections.Users).getOne<User>(id);

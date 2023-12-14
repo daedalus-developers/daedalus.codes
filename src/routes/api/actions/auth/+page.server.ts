@@ -58,7 +58,7 @@ export const actions: Actions = {
 						status: err.response.code
 					});
 		}
-		throw redirect(303, '/login');
+		redirect(303, '/login');
 	},
 	legacy: async ({ request, locals }) => {
 		const form = await superValidate(request, loginSchema);
@@ -80,14 +80,14 @@ export const actions: Actions = {
 
 		if (locals.DB.authStore.isValid && locals.DB.authStore.model) {
 			locals.user = locals.DB.authStore.model;
-			throw redirect(302, '/me');
+			redirect(302, '/me');
 		}
 
 		return message(form, `Bad Request`);
 	},
 	logout: async ({ locals }) => {
 		locals.DB.authStore.clear();
-		throw redirect(302, '/');
+		redirect(302, '/');
 	},
 	changePassword: async ({ request, locals }) => {
 		const form = await superValidate(request, changePasswordSchema);

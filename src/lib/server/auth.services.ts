@@ -20,10 +20,10 @@ export const authenticateUser = (locals: App.Locals) => {
 				locals.user = locals.DB.authStore.model;
 				locals.user?.role === userRole.enum.user
 					? () => {
-							throw redirect(303, '/admin');
+							redirect(303, '/admin');
 					  }
 					: () => {
-							throw redirect(303, '/profile');
+							redirect(303, '/profile');
 					  };
 		  }
 		: () => {
@@ -39,15 +39,15 @@ export const logout = (locals: App.Locals) => {
 };
 
 export const authenticationGuard = (locals: App.Locals) => {
-	if (!locals.DB.authStore.isValid) throw redirect(303, '/login');
-	if (!locals.DB.authStore.token) throw redirect(303, '/login');
-	if (!locals.user?.id) throw redirect(303, '/login');
+	if (!locals.DB.authStore.isValid) redirect(303, '/login');
+	if (!locals.DB.authStore.token) redirect(303, '/login');
+	if (!locals.user?.id) redirect(303, '/login');
 
 	return;
 };
 
 export const authorizationGuard = (locals: App.Locals, requiredRole: UserRole) => {
-	if (!requiredRole !== locals.user?.role) throw redirect(307, '/unauthorized');
+	if (!requiredRole !== locals.user?.role) redirect(307, '/unauthorized');
 
 	return;
 };

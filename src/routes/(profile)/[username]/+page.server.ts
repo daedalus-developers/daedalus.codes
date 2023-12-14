@@ -6,7 +6,7 @@ import { db } from '@server';
 export const load: PageServerLoad = async ({ params }) => {
 	const { username } = params;
 
-	if (username === 'admin') throw error(404, `Not found`);
+	if (username === 'admin') error(404, `Not found`);
 
 	return {
 		profile: await db.collection(Collections.Users).getFirstListItem<User>(`username="${username}"`)
