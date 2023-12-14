@@ -1,31 +1,84 @@
 <script lang="ts">
-	import { AppBar, LightSwitch } from '@skeletonlabs/skeleton';
+	import { page } from '$app/stores';
+	import { AppBar, LightSwitch, getDrawerStore } from '@skeletonlabs/skeleton';
 	import AvatarButton from './avatar-button.svelte';
+	import { primaryLinks, secondaryLinks } from '@utils';
+	import Icon from '@iconify/svelte';
+	const drawerStore = getDrawerStore();
+	// const settings = { id: 'example-1' };
+	function drawerOpenLeftNavigation(): void {
+		drawerStore.open({
+			id: 'drawer-side-link-list',
+			width: 'w-full max-w-[240px] sm:max-w-[400px]'
+		});
+	}
+
+	const user = $page.data.user;
 </script>
 
 <AppBar
-	background="bg-surface-400-800-token"
-	padding="p-1"
+	background="bg-surface-100-800-token"
+	padding="p-4"
 	shadow="shadow-md"
 	slotLead="place-start ml-8"
 	slotDefault="place-center"
 	slotTrail="place-end mr-8"
 >
 	<svelte:fragment slot="lead">
-		<a href="/#hero">
-			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[40px]" />
+		<a href="/">
+			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[50px]" />
 		</a>
 	</svelte:fragment>
 	<div class="flex justify-center">
-		<span
-			class="text-2xl font-black uppercase block
-      bg-clip-text text-transparent bg-gradient-to-r
-      from-secondary-600 to-primary-600"
-			>Daedalus
-		</span>
+		<div class="flex gap-5 lg:gap-10 me-auto">
+			{#each primaryLinks as link}
+				{#if link.href !== '/'}
+					<a
+						href={link.href}
+						class="border-y-4 border-transparent
+					hidden md:flex md:items-center
+					{$page.url.pathname === link.href ? 'active' : ''}"
+					>
+						{link.name}
+					</a>
+				{/if}
+			{/each}
+		</div>
+		{#if !$page.data.user}
+			<div class="flex gap-5 lg:gap-10">
+				{#each secondaryLinks as link}
+					<a
+						href={link.href}
+						class="border-y-4 border-transparent
+				hidden md:flex md:items-center
+				{$page.url.pathname === link.href ? 'active' : ''}"
+					>
+						{link.name}
+					</a>
+				{/each}
+			</div>
+		{/if}
 	</div>
 	<svelte:fragment slot="trail">
-		<AvatarButton />
+		<a href="/search" class="text-2xl">
+			<Icon icon="iconamoon:search" />
+		</a>
+
+		{#if user}
+			<AvatarButton />
+		{:else}
+			<a
+				href="/login"
+				data-sveltekit-preload-data="hover"
+				class="md:btn md:variant-filled-primary hidden md:flex"
+			>
+				<Icon icon="material-symbols:login" class="text-2xl" />
+				<span class="hidden md:inline-block">Login</span>
+			</a>
+		{/if}
+		<button class="text-2xl md:hidden" on:click={drawerOpenLeftNavigation}>
+			<Icon icon="mdi:menu" />
+		</button>
 		<LightSwitch />
 	</svelte:fragment>
 </AppBar>

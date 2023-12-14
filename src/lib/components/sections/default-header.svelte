@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import { primaryLinks, secondaryLinks } from '@utils';
-	import { Container } from '@components/utilities';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import AvatarButton from '@components/sections/avatar-button.svelte';
@@ -20,7 +19,7 @@
 </script>
 
 <div class="bg-surface-100-800-token shadow-lg">
-	<Container addClass="flex">
+	<div class="flex">
 		<a href="/#hero" class="py-4 flex items-center gap-1 me-10 lg:me-20">
 			<img src="/daedalus-shadow.png" alt="logo" class="w-9 h-w-9 md:w-[50px] md:h-[50px]" />
 			<span
@@ -80,7 +79,7 @@
 
 			<LightSwitch class="hidden md:block" />
 		</div>
-	</Container>
+	</div>
 </div>
 
 <style lang="postcss">

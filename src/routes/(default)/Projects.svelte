@@ -2,7 +2,7 @@
 	import { Container } from '@components';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	// import Icon from '@iconify/svelte';
-	import Autoplay from 'embla-carousel-autoplay';
+	// import Autoplay from 'embla-carousel-autoplay';
 	import type { PageData } from './$types';
 
 	export let projects: PageData['projects'];
@@ -11,7 +11,8 @@
 		loop: false,
 		dragFree: true
 	};
-	let plugins = [Autoplay()];
+
+	// let plugins = [Autoplay()];
 </script>
 
 <section class="py-32 dark:bg-surface-100-800-token">
@@ -24,7 +25,7 @@
 			</h2>
 			<span class="w-[60%] border-b-2 border-neutral-500 ms-5 hidden md:block"></span>
 		</div>
-		<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
+		<div class="embla" use:emblaCarouselSvelte={{ options }}>
 			<div class="embla__container">
 				{#each projects as { category, details, link, preview, title }}
 					<div class="embla__slide w-full max-w-[75%] md:max-w-[50%] lg:max-w-[33.33%] px-3">

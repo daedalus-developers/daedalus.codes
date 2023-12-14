@@ -15,7 +15,8 @@ const NOT_ALLOWED_USERNAME = [
 	'user',
 	'mark',
 	'faq',
-	'projects'
+	'projects',
+	'team'
 ];
 
 export const actions: Actions = {
@@ -55,7 +56,7 @@ export const actions: Actions = {
 				? message(form, err.response)
 				: message(form, SOMETHING_WENT_WRONG, {
 						status: err.response.code
-				  });
+					});
 		}
 		throw redirect(303, '/login');
 	},
@@ -74,7 +75,7 @@ export const actions: Actions = {
 				? message(form, INVALID_CREDENTIALS)
 				: message(form, SOMETHING_WENT_WRONG, {
 						status: err.response.code
-				  });
+					});
 		}
 
 		if (locals.DB.authStore.isValid && locals.DB.authStore.model) {
@@ -100,7 +101,7 @@ export const actions: Actions = {
 				? message(form, INVALID_CREDENTIALS)
 				: message(form, err.message, {
 						status: err.response.code
-				  });
+					});
 		}
 	}
 };
