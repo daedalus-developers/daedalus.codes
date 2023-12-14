@@ -12,10 +12,11 @@
 </script>
 
 <label class="label">
-	{#if label}<span class="text-sm font-semibold leading-6 text-white">{label}</span><br />{/if}
+	{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
+	<!-- TODO: update to regex phone validation -->
 	<input
 		class={sx('input-bordered input', errors ? 'input-error' : '')}
-		type="text"
+		type="tel"
 		bind:value
 		aria-invalid={errors ? 'true' : undefined}
 		{...constraints}
@@ -25,7 +26,7 @@
 
 {#if errors}
 	{#each errors as error}
-		<p class="text-sm mt-1 text-error-500">{error}</p>
+		<p class="mt-1 text-sm text-error-500">{error}</p>
 	{/each}
 {/if}
 {#if description && !errors}

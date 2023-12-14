@@ -12,7 +12,7 @@
 </script>
 
 <label class="label">
-	{#if label}<span>{label}</span><br />{/if}
+	{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
 	<input
 		class={sx('input-bordered input w-full', errors ? 'input-error' : '')}
 		type="email"
@@ -24,7 +24,7 @@
 </label>
 
 {#if errors}
-	<span class="text-error-500">{errors}</span>
+	<span class="text-sm mt-1 text-error-500">{errors}</span>
 {/if}
 {#if description && !errors}
 	<span class="text-sm text-tertiary-700">{description}</span>

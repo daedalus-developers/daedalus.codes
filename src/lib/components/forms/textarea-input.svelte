@@ -12,10 +12,10 @@
 </script>
 
 <label class="label">
-	{#if label}<span class="text-sm font-semibold leading-6 text-white">{label}</span><br />{/if}
-	<input
-		class={sx('input-bordered input', errors ? 'input-error' : '')}
-		type="text"
+	{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
+	<textarea
+		class={sx('textarea', errors ? 'input-error' : '')}
+		rows="4"
 		bind:value
 		aria-invalid={errors ? 'true' : undefined}
 		{...constraints}
