@@ -1,3 +1,135 @@
+## v0.20.0
+
+- Added `expand`, `filter`, `fields`, custom query and headers parameters support for the realtime subscriptions.
+    _Requires JS SDK v0.20.0+ or Dart SDK v0.17.0+._
+
+    ```js
+    // JS SDK v0.20.0
+    pb.collection("example").subscribe("*", (e) => {
+      ...
+    }, {
+      expand: "someRelField",
+      filter: "status = 'active'",
+      fields: "id,expand.someRelField.*:excerpt(100)",
+    })
+    ```
+
+    ```dart
+    // Dart SDK v0.17.0
+    pb.collection("example").subscribe("*", (e) {
+        ...
+      },
+      expand: "someRelField",
+      filter: "status = 'active'",
+      fields: "id,expand.someRelField.*:excerpt(100)",
+    )
+    ```
+
+- Generalized the logs to allow any kind of application logs, not just requests.
+
+    The new `app.Logger()` implements the standard [`log/slog` interfaces](https://pkg.go.dev/log/slog) available with Go 1.21.
+    ```
+    // Go: https://pocketbase.io/docs/go-logging/
+    app.Logger().Info("Example message", "total", 123, "details", "lorem ipsum...")
+
+    // JS: https://pocketbase.io/docs/js-logging/
+    $app.logger().info("Example message", "total", 123, "details", "lorem ipsum...")
+    ```
+
+    For better performance and to minimize blocking on hot paths, logs are currently written with
+    debounce and on batches:
+
+      - 3 seconds after the last debounced log write
+      - when the batch threshold is reached (currently 200)
+      - right before app termination to attempt saving everything from the existing logs queue
+
+    Some notable log related changes:
+
+      - ⚠️ Bumped the minimum required Go version to 1.21.
+
+      - ⚠️ Removed `_requests` table in favor of the generalized `_logs`.
+        _Note that existing logs will be deleted!_
+
+      - ⚠️ Renamed the following `Dao` log methods:
+        ```go
+        Dao.RequestQuery(...)      -> Dao.LogQuery(...)
+        Dao.FindRequestById(...)   -> Dao.FindLogById(...)
+        Dao.RequestsStats(...)     -> Dao.LogsStats(...)
+        Dao.DeleteOldRequests(...) -> Dao.DeleteOldLogs(...)
+        Dao.SaveRequest(...)       -> Dao.SaveLog(...)
+        ```
+      - ⚠️ Removed `app.IsDebug()` and the `--debug` flag.
+        This was done to avoid the confusion with the new logger and its debug severity level.
+        If you want to store debug logs you can set `-4` as min log level from the Admin UI.
+
+      - Refactored Admin UI Logs:
+        - Added new logs table listing.
+        - Added log settings option to toggle the IP logging for the activity logger.
+        - Added log settings option to specify a minimum log level.
+        - Added controls to export individual or bulk selected logs as json.
+        - Other minor improvements and fixes.
+
+- Added new `filesystem/System.Copy(src, dest)` method to copy existing files from one location to another.
+  _This is usually useful when duplicating records with `file` field(s) programmatically._
+
+- Added `filesystem.NewFileFromUrl(ctx, url)` helper method to construct a `*filesystem.BytesReader` file from the specified url.
+
+- OAuth2 related additions:
+
+    - Added new `PKCE()` and `SetPKCE(enable)` OAuth2 methods to indicate whether the PKCE flow is supported or not.
+      _The PKCE value is currently configurable from the UI only for the OIDC providers._
+      _This was added to accommodate OIDC providers that may throw an error if unsupported PKCE params are submitted with the auth request (eg. LinkedIn; see [#3799](https://github.com/pocketbase/pocketbase/discussions/3799#discussioncomment-7640312))._
+
+    - Added new `displayName` field for each `listAuthMethods()` OAuth2 provider item.
+      _The value of the `displayName` property is currently configurable from the UI only for the OIDC providers._
+
+    - Added `expiry` field to the OAuth2 user response containing the _optional_ expiration time of the OAuth2 access token ([#3617](https://github.com/pocketbase/pocketbase/discussions/3617)).
+
+    - Allow a single OAuth2 user to be used for authentication in multiple auth collection.
+      _⚠️ Because now you can have more than one external provider with `collectionId-provider-providerId` pair, `Dao.FindExternalAuthByProvider(provider, providerId)` method was removed in favour of the more generic `Dao.FindFirstExternalAuthByExpr(expr)`._
+
+- Added `onlyVerified` auth collection option to globally disallow authentication requests for unverified users.
+
+- Added support for single line comments (ex. `// your comment`) in the API rules and filter expressions.
+
+- Added support for specifying a collection alias in `@collection.someCollection:alias.*`.
+
+- Soft-deprecated and renamed `app.Cache()` with `app.Store()`.
+
+- Minor JSVM updates and fixes:
+
+    - Updated `$security.parseUnverifiedJWT(token)` and `$security.parseJWT(token, key)` to return the token payload result as plain object.
+
+    - Added `$apis.requireGuestOnly()` middleware JSVM binding ([#3896](https://github.com/pocketbase/pocketbase/issues/3896)).
+
+- Use `IS NOT` instead of `!=` as not-equal SQL query operator to handle the cases when comparing with nullable columns or expressions (eg. `json_extract` over `json` field).
+  _Based on my local dataset I wasn't able to find a significant difference in the performance between the 2 operators, but if you stumble on a query that you think may be affected negatively by this, please report it and I'll test it further._
+
+- Added `MaxSize` `json` field option to prevent storing large json data in the db ([#3790](https://github.com/pocketbase/pocketbase/issues/3790)).
+  _Existing `json` fields are updated with a system migration to have a ~2MB size limit (it can be adjusted from the Admin UI)._
+
+- Fixed negative string number normalization support for the `json` field type.
+
+- Trigger the `app.OnTerminate()` hook on `app.Restart()` call.
+  _A new bool `IsRestart` field was also added to the `core.TerminateEvent` event._
+
+- Fixed graceful shutdown handling and speed up a little the app termination time.
+
+- Limit the concurrent thumbs generation to avoid high CPU and memory usage in spiky scenarios ([#3794](https://github.com/pocketbase/pocketbase/pull/3794); thanks @t-muehlberger).
+  _Currently the max concurrent thumbs generation processes are limited to "total of logical process CPUs + 1"._
+  _This is arbitrary chosen and may change in the future depending on the users feedback and usage patterns._
+  _If you are experiencing OOM errors during large image thumb generations, especially in container environment, you can try defining the `GOMEMLIMIT=500MiB` env variable before starting the executable._
+
+- Slightly speed up (~10%) the thumbs generation by changing from cubic (`CatmullRom`) to bilinear (`Linear`) resampling filter (_the quality difference is very little_).
+
+- Added a default red colored Stderr output in case of a console command error.
+  _You can now also silence individually custom commands errors using the `cobra.Command.SilenceErrors` field._
+
+- Fixed links formatting in the autogenerated html->text mail body.
+
+- Removed incorrectly imported empty `local('')` font-face declarations.
+
+
 ## v0.19.4
 
 - Fixed TinyMCE source code viewer textarea styles ([#3715](https://github.com/pocketbase/pocketbase/issues/3715)).
@@ -29,9 +161,9 @@
 
 - Fixed `tokenizer.Scan()/ScanAll()` to ignore the separators from the default trim cutset.
   An option to return also the empty found tokens was also added via `Tokenizer.KeepEmptyTokens(true)`.
-  _This should fix the parsing of whitespace charactes around view query column names when no quotes are used ([#3616](https://github.com/pocketbase/pocketbase/discussions/3616#discussioncomment-7398564))._
+  _This should fix the parsing of whitespace characters around view query column names when no quotes are used ([#3616](https://github.com/pocketbase/pocketbase/discussions/3616#discussioncomment-7398564))._
 
-- Fixed the `:excerpt(max, withEllipsis?)` `field` query param modifier to properly add space to the generated text fragment after block tags.
+- Fixed the `:excerpt(max, withEllipsis?)` `fields` query param modifier to properly add space to the generated text fragment after block tags.
 
 
 ## v0.19.0
