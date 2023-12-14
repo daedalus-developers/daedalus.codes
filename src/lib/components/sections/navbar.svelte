@@ -12,7 +12,7 @@
 	slotTrail="place-end mr-8"
 >
 	<svelte:fragment slot="lead">
-		<a href="/">
+		<a href="/#hero">
 			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[40px]" />
 		</a>
 	</svelte:fragment>

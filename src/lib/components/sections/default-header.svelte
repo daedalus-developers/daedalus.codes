@@ -21,7 +21,7 @@
 
 <div class="bg-surface-100-800-token shadow-lg">
 	<Container addClass="flex">
-		<a href="/" class="py-4 flex items-center gap-1 me-10 lg:me-20">
+		<a href="/#hero" class="py-4 flex items-center gap-1 me-10 lg:me-20">
 			<img src="/daedalus-shadow.png" alt="logo" class="w-9 h-w-9 md:w-[50px] md:h-[50px]" />
 			<span
 				class="text-2xl font-normal md:font-bold lg:font-black uppercase block md:hidden
