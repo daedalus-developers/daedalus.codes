@@ -6,7 +6,6 @@
 	export let data: PageData;
 </script>
 
-
 <section class="bg-surface-100-800-token py-20 text-black">
 	<Container>
 		<div class="mb-20 flex">
