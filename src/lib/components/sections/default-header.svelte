@@ -57,9 +57,6 @@
 		</div>
 
 		<div class="ms-10 flex items-center gap-2 md:gap-3 lg:ms-20">
-			<!-- <button class="text-2xl">
-				<Icon icon="iconamoon:search" />
-			</button> -->
 			<a href="/search" class="text-2xl">
 				<Icon icon="iconamoon:search" />
 			</a>
