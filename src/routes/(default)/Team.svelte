@@ -3,10 +3,13 @@
 	import type { Team } from '@types';
 	import Icon from '@iconify/svelte';
 	import { Container, TeamCard } from '@components';
+	import { page } from '$app/stores';
+	// export let team: PageData['team'];
 
-	export let team: PageData['team'];
+	// const teamInfo: Team[] = team.items || [];
 
-	const teamInfo: Team[] = team.items || [];
+	// export let teamData: PageData;
+	// let team = $page.data.streamed.streamedData.team;
 </script>
 
 <section class="relative py-32">
@@ -40,6 +43,11 @@
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
 
-		<TeamCard team={teamInfo} />
+		{#await $page.data.streamed.streamedData}
+			<TeamCard />
+		{:then result}
+			{@const teamInfo = result.team.items}
+			<TeamCard team={teamInfo} />
+		{/await}
 	</Container>
 </section>
