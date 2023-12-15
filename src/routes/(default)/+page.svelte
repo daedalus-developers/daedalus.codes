@@ -6,11 +6,6 @@
 	import Projects from './Projects.svelte';
 	import Team from './Team.svelte';
 	import Events from './Events.svelte';
-
-	export let data: PageData;
-
-	const projects = data.projects;
-	const team = data.team;
 </script>
 
 <section id="hero">
@@ -23,11 +18,11 @@
 </section>
 
 <section id="projects">
-	<Projects {projects} />
+	<Projects />
 </section>
 
 <section id="team">
-	<Team {team} />
+	<Team />
 </section>
 
 <section id="events">
