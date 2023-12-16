@@ -25,8 +25,7 @@
 				});
 		}
 	});
-
-	$: avatar = $page.data.avatar;
+	$: avatar = $page.data.user.avatar;
 </script>
 
 <div class="mx-4">

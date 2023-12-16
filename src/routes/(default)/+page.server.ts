@@ -1,7 +1,6 @@
 import type { PageServerLoad } from './$types';
 import type { Project, PaginatedTeam } from '@types';
 import { fetchTeam, getAllProjects, getAllEvents, db } from '@server';
-import { Collections } from '@types';
 import { teamQuery } from '@server/queries';
 
 export const load: PageServerLoad = async () => {

@@ -1,20 +1,13 @@
-import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
-import { db } from '@server';
-import { Collections, type User } from '@types';
+import { getUser } from '@server/queries';
 
-export const load: LayoutServerLoad = async ({ locals }) => {
+export const load: LayoutServerLoad = ({ locals }) => {
 	if (!locals.user) {
 		return {};
 	} else {
 		const id: string = locals.user.id;
-
-		const user = await db.collection(Collections.Users).getOne<User>(id);
-		const avatar = db.files.getUrl(user, user.avatar);
-
 		return {
-			user,
-			avatar
+			user: getUser(id)
 		};
 	}
 };
