@@ -1,15 +1,7 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { Team } from '@types';
 	import Icon from '@iconify/svelte';
 	import { Container, TeamCard } from '@components';
 	import { page } from '$app/stores';
-	// export let team: PageData['team'];
-
-	// const teamInfo: Team[] = team.items || [];
-
-	// export let teamData: PageData;
-	// let team = $page.data.streamed.streamedData.team;
 </script>
 
 <section class="relative py-32">
@@ -42,6 +34,12 @@
 			View All Team
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
+
+		<!-- {#await $page.data.team then team} -->
+		<!-- 	<pre> -->
+		<!-- 	{JSON.stringify(team, null, 2)} -->
+		<!--     </pre> -->
+		<!-- {/await} -->
 
 		{#await $page.data.streamed.streamedData}
 			<TeamCard />

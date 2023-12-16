@@ -1,6 +1,8 @@
 import type { PageServerLoad } from './$types';
 import type { Project, PaginatedTeam } from '@types';
-import { fetchTeam, getAllProjects, getAllEvents } from '@server';
+import { fetchTeam, getAllProjects, getAllEvents, db } from '@server';
+import { Collections } from '@types';
+import { teamQuery } from '@server/queries';
 
 export const load: PageServerLoad = async () => {
 	let projects: Project[] = [];
@@ -12,9 +14,9 @@ export const load: PageServerLoad = async () => {
 		await delay(2000);
 
 		const [teamData, projectData, eventsData] = await Promise.all([
-			team = await fetchTeam(1, 3),
-			projects = await getAllProjects(),
-			events = await getAllEvents(1, 2)
+			(team = await fetchTeam(1, 3)),
+			(projects = await getAllProjects()),
+			(events = await getAllEvents(1, 2))
 		]);
 
 		return {
@@ -25,6 +27,7 @@ export const load: PageServerLoad = async () => {
 	}
 
 	return {
+		team: teamQuery,
 		test: 'test',
 		streamed: {
 			streamedData: fetchPageData()
