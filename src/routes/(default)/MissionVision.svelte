@@ -8,7 +8,7 @@
 		<div class="embla" use:emblaCarouselSvelte>
 			<div class="embla__container">
 				<div class="embla__slide cursor-pointer">
-					<div class="border border-transparent p-4 text-center hover:border-surface-700">
+					<div class="border border-transparent p-4 text-center">
 						<h3 class="mb-5 text-3xl font-black md:text-5xl">Our Mission</h3>
 						<hr class="mx-auto mb-10 max-w-[150px] rounded-full bg-primary-600 py-1 sm:max-w-xs" />
 						<p class="md:text-xl lg:text-3xl">
@@ -20,7 +20,7 @@
 					</div>
 				</div>
 				<div class="embla__slide cursor-pointer">
-					<div class="border border-transparent p-4 text-center hover:border-surface-700">
+					<div class="border border-transparent p-4 text-center">
 						<h3 class="mb-5 text-3xl font-black md:text-5xl">Our Vision</h3>
 						<hr
 							class="mx-auto mb-10 max-w-[150px] rounded-full bg-secondary-600 py-1 sm:max-w-xs"

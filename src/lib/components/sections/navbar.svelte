@@ -18,15 +18,15 @@
 
 <AppBar
 	background="bg-surface-100-800-token"
-	padding="p-4"
+	padding="py-4 px-3 md:px-4"
 	shadow="shadow-md"
-	slotLead="place-start ml-8"
+	slotLead="place-start ml-0 md:ml-8"
 	slotDefault="place-center"
-	slotTrail="place-end mr-8"
+	slotTrail="place-end ml-0 md:mr-8"
 >
 	<svelte:fragment slot="lead">
 		<a href="/">
-			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[50px]" />
+			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[40px] md:h-[50px]" />
 		</a>
 	</svelte:fragment>
 	<div class="flex justify-center">

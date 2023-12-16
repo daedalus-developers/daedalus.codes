@@ -13,7 +13,8 @@
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
 				toast.trigger({
-					message: result.data?.message
+					message: result.data?.message,
+					background: 'variant-filled-success'
 				});
 		}
 	});

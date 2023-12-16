@@ -1,46 +1,78 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import type { Team } from '@types';
+	import { Avatar } from '@skeletonlabs/skeleton';
+	export let team: Team[] = [];
 
-	export let team: Team[];
+	let placeholderCount = 3;
 </script>
 
-<ul class="mt-20 flex flex-wrap">
-	{#each team as { avatar, firstName, lastName, userDetails, username }}
-		{@const socialMedia = [
-			{ link: userDetails?.x, iconClass: 'entypo:email' },
-			{ link: userDetails?.linkedin, iconClass: 'cib:linkedin' },
-			{ link: userDetails?.github, iconClass: 'mdi:github' }
-		]}
-		<li class="mb-20 flex w-full flex-col items-center gap-4 px-3 md:max-w-[50%] lg:max-w-[33.33%]">
-			{#if avatar}
-				<img
-					src={avatar}
-					alt="{firstName} {lastName}"
-					class="mx-auto aspect-[1/1.2] w-full max-w-[170px] rounded-lg object-cover opacity-80 shadow-xl shadow-stone-800 transition-all hover:opacity-100 sm:max-w-[265px] md:max-w-[70%]"
-				/>
-			{:else}
-				<div
-					class="mx-auto flex aspect-[1/1.2] w-full max-w-[170px] animate-pulse flex-col flex-wrap items-center justify-center rounded-lg object-cover opacity-80 shadow-xl shadow-stone-800 transition-all hover:opacity-100 dark:bg-neutral-800 sm:max-w-[265px] md:max-w-[70%]"
-				>
-					No image available
+{#if team.length === 0}
+	<ul class="flex animate-pulse flex-wrap justify-evenly md:flex-row">
+		{#each Array(placeholderCount) as _}
+			<li
+				class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
+			>
+				<div class="aspect-[1/1.15] w-full rounded-lg bg-surface-600" />
+				<div class="rounded-full bg-surface-600 pb-3" />
+				<div class="rounded-full bg-surface-600 pb-3" />
+				<div class="flex justify-evenly gap-3">
+					<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
+					<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
+					<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
 				</div>
-			{/if}
-			<h4 class="text-2xl font-bold">{username}</h4>
-			{#if userDetails?.bio}
-				<p class="text-center">
-					{userDetails?.bio}
-				</p>
-			{/if}
-			<div class="flex gap-2">
-				{#each socialMedia as { link, iconClass }}
-					{#if link}
-						<a href={link} target="_blank">
-							<Icon icon={iconClass} class="text-2xl" />
-						</a>
+			</li>
+		{/each}
+	</ul>
+{:else}
+	<ul class="flex flex-wrap justify-center md:flex-row">
+		{#each team as { avatar, firstName, lastName, userDetails, username }}
+			{@const socialMedia = [
+				{ link: userDetails?.x, iconClass: 'entypo:email' },
+				{ link: userDetails?.linkedin, iconClass: 'cib:linkedin' },
+				{ link: userDetails?.github, iconClass: 'mdi:github' }
+			]}
+			<li
+				class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
+			>
+				<div
+					class="relative aspect-[1/1.15] w-full overflow-hidden rounded-lg bg-surface-600
+				"
+				>
+					<Avatar
+						src={avatar}
+						initials={`${firstName[0]}${lastName[0]}`}
+						background="bg-surface-600"
+						rounded="rounded-none"
+						width="w-full"
+						cursor="cursor-pointer"
+						class="absolute inset-0 h-full rounded-none object-cover"
+					/>
+				</div>
+
+				<div class="flex flex-col gap-1 text-center">
+					<p class="text-xl">{firstName} {lastName}</p>
+					{#if userDetails?.bio}
+						<p>{userDetails?.bio || ''}</p>
+					{:else}
+						<div class="rounded-full bg-surface-600X bg-transparent py-3" />
 					{/if}
-				{/each}
-			</div>
-		</li>
-	{/each}
-</ul>
+				</div>
+				<div class="flex justify-evenly gap-3">
+					{#each socialMedia as { link, iconClass }}
+						{#if link}
+							<a href={link} target="_blank" rel="noreferrer">
+								<Icon icon={iconClass} class="h-14 w-14" />
+							</a>
+						<!-- {:else} -->
+							<!-- <div class="aspect-square rounded-full bg-surface-600 p-7 py-1" /> -->
+						{/if}
+					{/each}
+					<!-- <div class="bg-surface-600 py-1 p-7 aspect-square rounded-full" />	 -->
+					<!-- <div class="bg-surface-600 py-1 p-7 aspect-square rounded-full" />	 -->
+					<!-- <div class="bg-surface-600 py-1 p-7 aspect-square rounded-full" /> -->
+				</div>
+			</li>
+		{/each}
+	</ul>
+{/if}

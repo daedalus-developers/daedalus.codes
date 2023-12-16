@@ -7,9 +7,7 @@
 	<svelte:fragment slot="header">
 		<Navbar />
 	</svelte:fragment>
-	<div class="mx-auto min-h-screen w-screen">
-		<slot />
-	</div>
+	<slot />
 	<svelte:fragment slot="pageFooter">
 		<Footer />
 	</svelte:fragment>
