@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { Container, TeamCard } from '@components';
+	import { Container } from '@components';
 	import Icon from '@iconify/svelte';
-	import { Avatar, Paginator } from '@skeletonlabs/skeleton';
+	import { Avatar } from '@skeletonlabs/skeleton';
 
 	export let data: PageData;
 </script>
