@@ -45,21 +45,23 @@
 	};
 </script>
 
-<div class="flex items-center gap-4 py-4">
+<div class="flex flex-col items-center gap-4 py-4">
 	<input class="input" placeholder="Search..." type="search" on:keyup={debounce(onQueryChange)} />
-	<p class="ml-4 text-center text-lg font-bold">
-		Total:<span class="ml-2 text-lg text-primary-500">{totalItems}</span>
-	</p>
-	<p class="text-md ml-2 text-center">
-		Page {$queryStore.page + 1} of {totalPages}
-	</p>
-	<Paginator
-		bind:settings={paginationSettings}
-		showPreviousNextButtons={true}
-		showFirstLastButtons={true}
-		on:page={onPageChange}
-		on:amount={onAmountChange}
-		showNumerals
-		amountText=""
-	/>
+	<div class="flex items-center gap-4">
+		<p class="text-center text-lg font-bold">
+			Total:<span class="text-lg text-primary-500">{totalItems}</span>
+		</p>
+		<p class="text-center text-lg font-bold">
+			Page {$queryStore.page + 1} of {totalPages}
+		</p>
+		<Paginator
+			bind:settings={paginationSettings}
+			showPreviousNextButtons={true}
+			showFirstLastButtons={true}
+			on:page={onPageChange}
+			on:amount={onAmountChange}
+			showNumerals
+			amountText=""
+		/>
+	</div>
 </div>
