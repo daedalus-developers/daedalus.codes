@@ -3,6 +3,7 @@
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import { page } from '$app/stores';
 	import { CartaViewer, Carta } from 'carta-md';
+	import Icon from '@iconify/svelte';
 	const carta = new Carta();
 
 	let options = {
@@ -25,6 +26,10 @@
 				Projects <span class="text-primary-600">.</span>
 			</h2>
 			<span class="ms-5 hidden w-[60%] border-b-2 border-neutral-500 md:block"></span>
+			<a href="/projects" class="variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+				View all
+				<Icon icon="carbon:arrow-right" class="text-2xl" />
+			</a>
 		</div>
 
 		<!-- CAROUSEL -->
@@ -55,7 +60,7 @@
 			{@const projects = query.items}
 			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 				<div class="embla__container">
-					{#each projects as { category, details, preview, title, id }}
+					{#each projects as { tags, description, preview, name, id }}
 						{@const imageSource = preview ? preview : 'https://storage.daedalus.codes/logo.png'}
 						<div
 							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
@@ -67,19 +72,21 @@
 								<div class="card bg-surface-100-800-token relative aspect-[16/11] rounded-none">
 									<img
 										src={imageSource}
-										alt={title}
+										alt={name}
 										class="absolute inset-0 h-full w-full object-cover"
 									/>
 								</div>
 								<div class="flex h-[300px] flex-col gap-5 px-4 py-8">
-									<span class="text-surface-600-300-token uppercase">{category}</span>
+									{#each tags as tag}
+										<span class="text-surface-600-300-token uppercase">{tag}</span>
+									{/each}
 									<h3
 										class="line-clamp-2 text-lg font-bold uppercase text-primary-700 dark:text-primary-500 sm:text-xl"
 									>
-										{title}
+										{name}
 									</h3>
 									<p class="line-clamp-3 text-sm sm:text-base">
-										<CartaViewer {carta} value={details} />
+										<CartaViewer {carta} value={description} />
 									</p>
 								</div>
 							</a>

@@ -46,18 +46,3 @@ export const queryTeam = (page: number = 1, perPage: number = 3) =>
 			const team: Team[] = [];
 			return team;
 		});
-
-export const queryProjects = (page: number = 1, perPage: number = 3) =>
-	db
-		.collection(Collections.Projects)
-		.getList(page, perPage, {
-			sort: 'created'
-		})
-		.then((collection) => {
-			const projects = collection.items.map((project) => {
-				project.preview = db.files.getUrl(project, project.preview);
-				return project;
-			});
-			collection.items = projects;
-			return collection;
-		});
