@@ -61,18 +61,3 @@ export const queryProjects = (page: number = 1, perPage: number = 3) =>
 			collection.items = projects;
 			return collection;
 		});
-
-export const queryEvents = (page: number = 1, perPage: number = 2) =>
-	db
-		.collection(Collections.Events)
-		.getList(page, perPage, {
-			sort: 'created'
-		})
-		.then((collection) => {
-			const events = collection.items.map((event) => {
-				event.preview = db.files.getUrl(event, event.preview);
-				return event;
-			});
-			collection.items = events;
-			return collection;
-		});

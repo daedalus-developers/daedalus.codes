@@ -17,8 +17,13 @@
 				Events <span class="text-primary-600">.</span>
 			</h2>
 			<span class="ms-5 hidden w-[60%] border-b-2 border-neutral-500 md:block"></span>
+			<div class="w-64">
+				<a href="/events#" class="variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+					View all
+					<Icon icon="carbon:arrow-right" class="text-2xl" />
+				</a>
+			</div>
 		</div>
-
 		{#await $page.data.events}
 			<p class="py-10 text-center">Processing</p>
 		{:then query}

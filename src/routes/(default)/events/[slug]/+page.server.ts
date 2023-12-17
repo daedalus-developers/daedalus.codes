@@ -1,17 +1,9 @@
-import { db } from '@server';
 import type { PageServerLoad } from './$types';
-import { Collections } from '@types';
+import { queryEvent } from '@server/queries';
 
-export const load: PageServerLoad = ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	const { slug } = params;
-
 	return {
-		event: db
-			.collection(Collections.Events)
-			.getFirstListItem(`title="${slug.replaceAll('-', ' ')}"`)
-			.then((data) => {
-				data.preview = db.files.getUrl(data, data.preview);
-				return data;
-			})
+		event: await queryEvent(slug)
 	};
 };
