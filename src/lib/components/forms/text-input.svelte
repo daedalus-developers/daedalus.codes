@@ -12,7 +12,7 @@
 </script>
 
 <label class="label">
-	{#if label}<span class="text-sm font-semibold leading-6 text-white">{label}</span><br />{/if}
+	{#if label}<span class="text-sm font-semibold leading-6 dark:text-white">{label}</span><br />{/if}
 	<input
 		class={sx('input-bordered input', errors ? 'input-error' : '')}
 		type="text"
