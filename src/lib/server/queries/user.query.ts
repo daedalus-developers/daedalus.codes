@@ -16,7 +16,7 @@ export const queryUser = (userId: string) =>
 export const queryUserWithDetails = (id: string) =>
 	db.collection(Collections.UsersDetails).getOne<User>(id);
 
-export const queryTeam = (page: number = 1, perPage: number = 10) =>
+export const queryTeam = (page: number = 1, perPage: number = 3) =>
 	db
 		.collection(Collections.UsersDetails)
 		.getList(page, perPage, {
@@ -47,7 +47,7 @@ export const queryTeam = (page: number = 1, perPage: number = 10) =>
 			return team;
 		});
 
-export const queryProjects = (page: number = 1, perPage: number = 10) =>
+export const queryProjects = (page: number = 1, perPage: number = 3) =>
 	db
 		.collection(Collections.Projects)
 		.getList(page, perPage, {
@@ -62,7 +62,7 @@ export const queryProjects = (page: number = 1, perPage: number = 10) =>
 			return collection;
 		});
 
-export const queryEvents = (page: number = 1, perPage: number = 10) =>
+export const queryEvents = (page: number = 1, perPage: number = 2) =>
 	db
 		.collection(Collections.Events)
 		.getList(page, perPage, {
