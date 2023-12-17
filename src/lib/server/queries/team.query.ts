@@ -1,22 +1,7 @@
 import { db } from '@server';
-import { Collections, type Team, type User } from '@types';
+import { Collections, type Team } from '@types';
 
-export const queryUser = (userId: string) =>
-	db
-		.collection(Collections.Users)
-		.getOne(userId)
-		.then((data) => {
-			data.avatar = db.files.getUrl(data, data.avatar);
-			return data;
-		})
-		.catch(() => {
-			return undefined;
-		});
-
-export const queryUserWithDetails = (id: string) =>
-	db.collection(Collections.UsersDetails).getOne<User>(id);
-
-export const queryTeam = (page: number = 1, perPage: number = 3) =>
+export const queryTeamMembers = (page: number = 1, perPage: number = 3) =>
 	db
 		.collection(Collections.UsersDetails)
 		.getList(page, perPage, {

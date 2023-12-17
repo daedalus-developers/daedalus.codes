@@ -3,6 +3,8 @@ export * from './ui.utils';
 export * from './response.utils';
 export * from './assets.utils';
 
+export const LOGO_URL = 'https://storage.daedalus.codes/logo.png';
+
 export const primaryLinks = [
 	{
 		is_protected: false,

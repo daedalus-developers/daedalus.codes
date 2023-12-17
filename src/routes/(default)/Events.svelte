@@ -17,8 +17,13 @@
 				Events <span class="text-primary-600">.</span>
 			</h2>
 			<span class="ms-5 hidden w-[60%] border-b-2 border-neutral-500 md:block"></span>
+			<div class="w-64">
+				<a href="/events" class="variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+					View all
+					<Icon icon="carbon:arrow-right" class="text-2xl" />
+				</a>
+			</div>
 		</div>
-
 		{#await $page.data.events}
 			<p class="py-10 text-center">Processing</p>
 		{:then query}
@@ -32,7 +37,6 @@
 						<div
 							class="variant-filled-primary absolute -right-4 top-4 z-[-1] h-full w-full group-hover:variant-filled-secondary"
 						/>
-
 						<h3
 							class="flex items-center justify-center gap-2 py-4 text-center uppercase opacity-80"
 						>
@@ -45,7 +49,7 @@
 							class="aspect-video w-full bg-white object-cover p-6"
 						/>
 						<div class="min-h-[190px] border-y-2 border-black px-6 py-6">
-							<h2 class="line-clamp-2 text-2xl font-bold">Daedalus Hackathon</h2>
+							<h2 class="line-clamp-2 text-2xl font-bold">{title}</h2>
 							<span class="prose line-clamp-3 max-w-none">
 								<CartaViewer {carta} value={details} />
 							</span>
