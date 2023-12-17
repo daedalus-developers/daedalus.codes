@@ -1,20 +1,19 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import type { PageData } from './$types';
-
+	import EventPaginator from './event-paginator.svelte';
 	export let data: PageData;
 </script>
+
+<EventPaginator />
 
 {#await data.events}
 	Loading .... loading....
 {:then events}
-	<div class="py-4">
-		<!-- TODO: filter and paginate goes here -->
-	</div>
-	<div class="flex flex-col items-center justify-evenly md:flex-row">
+	<div class="grid grid-cols-1 gap-8 pt-4 md:grid-cols-3">
 		{#each events.items as { title, type, date, description, preview, status }}
 			<div
-				class="relative mx-4 flex w-1/3 border-[1px] border-neutral-500 bg-primary-600 hover:bg-purple-800"
+				class="relative mx-4 flex w-full border-[1px] border-neutral-500 bg-primary-600 hover:bg-purple-800"
 			>
 				<div
 					class="relative bottom-5 right-5 flex w-full flex-col border-[1px] border-neutral-500 bg-white"
@@ -35,7 +34,7 @@
 						>
 							<h1 class="text-2xl font-bold">{title}</h1>
 						</a>
-						<p class="my-3 line-clamp-2 text-sm">
+						<p class="my-2 line-clamp-2 text-sm">
 							{description}
 						</p>
 					</div>
