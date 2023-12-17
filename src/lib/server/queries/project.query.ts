@@ -4,7 +4,9 @@ import { Collections } from '@types';
 export const queryProject = (slug: string) =>
 	db
 		.collection(Collections.Projects)
-		.getFirstListItem(`name~"${slug.replaceAll('-', ' ')}"`)
+		.getFirstListItem(`name~"${slug.replaceAll('-', ' ')}"`, {
+			requestKey: 'project'
+		})
 		.then((data) => {
 			data.preview = db.files.getUrl(data, data.preview);
 			return data;
@@ -24,7 +26,8 @@ export const queryProjects = (page: number = 1, perPage: number = 10) =>
 		.collection(Collections.Projects)
 		.getList(page, perPage, {
 			sort: 'created',
-			filter: db.filter('published = true')
+			filter: db.filter('published = true'),
+			requestKey: 'projects'
 		})
 		.then((collection) => {
 			const events = collection.items.map((event) => {

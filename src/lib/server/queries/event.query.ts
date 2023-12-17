@@ -4,7 +4,9 @@ import { Collections } from '@types';
 export const queryEvent = (slug: string) =>
 	db
 		.collection(Collections.Events)
-		.getFirstListItem(`title~"${slug.replaceAll('-', ' ')}"`)
+		.getFirstListItem(`title~"${slug.replaceAll('-', ' ')}"`, {
+			requestKey: 'event'
+		})
 		.then((data) => {
 			data.preview = db.files.getUrl(data, data.preview);
 			return data;
@@ -23,7 +25,8 @@ export const queryEvents = (page: number = 1, perPage: number = 10) =>
 	db
 		.collection(Collections.Events)
 		.getList(page, perPage, {
-			sort: 'created'
+			sort: 'created',
+			requestKey: 'events'
 		})
 		.then((collection) => {
 			const events = collection.items.map((event) => {
