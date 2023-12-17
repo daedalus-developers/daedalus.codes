@@ -4,11 +4,11 @@ import { Collections, userDetailsFormSchema } from '@types';
 import { superValidate } from 'sveltekit-superforms/server';
 
 export const load: PageServerLoad = async ({ parent, locals }) => {
+	await parent();
+
 	const details = await db
 		.collection(Collections.UsersDetails)
 		.getFirstListItem(`user="${locals.user?.id}"`);
-
-	await parent();
 
 	const form = await superValidate(details, userDetailsFormSchema);
 

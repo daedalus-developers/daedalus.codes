@@ -1,22 +1,14 @@
 import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
-import { db } from '@server';
-import { Collections, type User } from '@types';
+import { queryUser } from '@server/queries';
 
-export const load: LayoutServerLoad = async ({ locals }) => {
+export const load: LayoutServerLoad = ({ locals }) => {
 	if (!locals.DB.authStore.isValid && !locals.user) redirect(302, '/login');
-
 	if (!locals.user) {
 		redirect(302, '/login');
 	} else {
-		const id: string = locals.user.id;
-
-		const user = await db.collection(Collections.Users).getOne<User>(id);
-		const avatar = db.files.getUrl(user, user.avatar);
-
 		return {
-			user,
-			avatar
+			user: queryUser(locals.user.id)
 		};
 	}
 };

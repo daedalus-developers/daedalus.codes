@@ -1,43 +1,78 @@
 import { db } from '@server';
-import { Collections } from '@types';
+import { Collections, type Team, type User } from '@types';
 
-export type Team = {
-	avatar: string;
-	firstName: string;
-	lastName: string;
-	linkedin: string;
-	x: string;
-	github: string;
-	username: string;
-	bio: string;
-};
-
-export const teamQuery = db
-	.collection(Collections.UsersDetails)
-	.getList(1, 3, {
-		requestKey: 'team',
-		expand: 'user'
-	})
-	.then((collection) => collection.items)
-	.then((collection) => collection.filter((data) => data?.expand?.user?.role === 'team'))
-	.then((collection) =>
-		collection.map((data) => {
-			const member: Team = {
-				avatar: db.files.getUrl(data.expand?.user, data.expand?.user?.avatar, {
-					thumb: '100x250'
-				}),
-				username: data.expand?.user?.username,
-				firstName: data.expand?.user?.firstName,
-				lastName: data.expand?.user?.lastName,
-				bio: data.bio,
-				linkedin: data.linkedin,
-				github: data.github,
-				x: data.x
-			};
-			return member;
+export const queryUser = (userId: string) =>
+	db
+		.collection(Collections.Users)
+		.getOne(userId)
+		.then((data) => {
+			data.avatar = db.files.getUrl(data, data.avatar);
+			return data;
 		})
-	)
-	.catch(() => {
-		const team: Team[] = [];
-		return team;
-	});
+		.catch(() => {
+			return undefined;
+		});
+
+export const queryUserWithDetails = (id: string) =>
+	db.collection(Collections.UsersDetails).getOne<User>(id);
+
+export const queryTeam = (page: number = 1, perPage: number = 10) =>
+	db
+		.collection(Collections.UsersDetails)
+		.getList(page, perPage, {
+			requestKey: 'team',
+			expand: 'user'
+		})
+		.then((collection) => collection.items)
+		.then((collection) => collection.filter((data) => data?.expand?.user?.role === 'team'))
+		.then((collection) =>
+			collection.map((data) => {
+				const member: Team = {
+					avatar: db.files.getUrl(data.expand?.user, data.expand?.user?.avatar, {
+						thumb: '100x250'
+					}),
+					username: data.expand?.user?.username,
+					firstName: data.expand?.user?.firstName,
+					lastName: data.expand?.user?.lastName,
+					bio: data.bio,
+					linkedin: data.linkedin,
+					github: data.github,
+					x: data.x
+				};
+				return member;
+			})
+		)
+		.catch(() => {
+			const team: Team[] = [];
+			return team;
+		});
+
+export const queryProjects = (page: number = 1, perPage: number = 10) =>
+	db
+		.collection(Collections.Projects)
+		.getList(page, perPage, {
+			sort: 'created'
+		})
+		.then((collection) => {
+			const projects = collection.items.map((project) => {
+				project.preview = db.files.getUrl(project, project.preview);
+				return project;
+			});
+			collection.items = projects;
+			return collection;
+		});
+
+export const queryEvents = (page: number = 1, perPage: number = 10) =>
+	db
+		.collection(Collections.Events)
+		.getList(page, perPage, {
+			sort: 'created'
+		})
+		.then((collection) => {
+			const events = collection.items.map((event) => {
+				event.preview = db.files.getUrl(event, event.preview);
+				return event;
+			});
+			collection.items = events;
+			return collection;
+		});

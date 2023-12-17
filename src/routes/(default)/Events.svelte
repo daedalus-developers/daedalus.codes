@@ -19,12 +19,12 @@
 			<span class="ms-5 hidden w-[60%] border-b-2 border-neutral-500 md:block"></span>
 		</div>
 
-		{#await $page.data.streamed.streamedData}
+		{#await $page.data.events}
 			<p class="py-10 text-center">Processing</p>
-		{:then result}
+		{:then query}
+			{@const events = query.items}
 			<div class="md:justify-space-between flex flex-col md:flex-row">
-				<!-- <p>{JSON.stringify(result.events.items)}</p> -->
-				{#each result.events.items as { collectionId, collectionName, created, date, details, id, preview, status, title, type, updated }, index}
+				{#each events as { date, details, preview, status, title, type }}
 					{@const imageSource = preview ? preview : 'https://storage.daedalus.codes/logo.png'}
 					<div
 						class="group relative mx-auto mb-10 w-full max-w-[340px] bg-white text-surface-900 md:w-[48%] md:max-w-[400px]"
@@ -37,15 +37,13 @@
 							class="flex items-center justify-center gap-2 py-4 text-center uppercase opacity-80"
 						>
 							<Icon icon="ri:calendar-line" class="text-2xl opacity-80" />
-							{title}
+							{type}
 						</h3>
-
 						<img
 							src={imageSource}
 							alt={title}
 							class="aspect-video w-full bg-white object-cover p-6"
 						/>
-
 						<div class="min-h-[190px] border-y-2 border-black px-6 py-6">
 							<h2 class="line-clamp-2 text-2xl font-bold">Daedalus Hackathon</h2>
 							<span class="prose line-clamp-3 max-w-none">

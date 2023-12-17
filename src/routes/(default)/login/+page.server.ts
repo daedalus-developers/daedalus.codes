@@ -5,8 +5,7 @@ import { redirect } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.DB.authStore.isValid) redirect(302, '/me');
-
 	return {
-		form: superValidate(loginSchema)
+		form: await superValidate(loginSchema)
 	};
 };

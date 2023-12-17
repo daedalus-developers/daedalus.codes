@@ -55,7 +55,7 @@
 					{#if userDetails?.bio}
 						<p>{userDetails?.bio || ''}</p>
 					{:else}
-						<div class="rounded-full bg-surface-600X bg-transparent py-3" />
+						<div class="bg-surface-600X rounded-full bg-transparent py-3" />
 					{/if}
 				</div>
 				<div class="flex justify-evenly gap-3">
@@ -64,7 +64,7 @@
 							<a href={link} target="_blank" rel="noreferrer">
 								<Icon icon={iconClass} class="h-14 w-14" />
 							</a>
-						<!-- {:else} -->
+							<!-- {:else} -->
 							<!-- <div class="aspect-square rounded-full bg-surface-600 p-7 py-1" /> -->
 						{/if}
 					{/each}
@@ -76,3 +76,4 @@
 		{/each}
 	</ul>
 {/if}
+

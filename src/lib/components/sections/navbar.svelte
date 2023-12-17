@@ -4,6 +4,7 @@
 	import AvatarButton from './avatar-button.svelte';
 	import { primaryLinks, secondaryLinks } from '@utils';
 	import Icon from '@iconify/svelte';
+	import type { User } from '@types';
 	const drawerStore = getDrawerStore();
 	// const settings = { id: 'example-1' };
 	function drawerOpenLeftNavigation(): void {
@@ -13,7 +14,7 @@
 		});
 	}
 
-	const user = $page.data.user;
+	const user = $page.data.user as Promise<User | undefined>;
 </script>
 
 <AppBar
@@ -63,19 +64,20 @@
 		<a href="/search" class="text-2xl">
 			<Icon icon="iconamoon:search" />
 		</a>
-
-		{#if user}
-			<AvatarButton />
-		{:else}
-			<a
-				href="/login"
-				data-sveltekit-preload-data="hover"
-				class="hidden md:variant-filled-primary md:btn md:flex"
-			>
-				<Icon icon="material-symbols:login" class="text-2xl" />
-				<span class="hidden md:inline-block">Login</span>
-			</a>
-		{/if}
+		{#await user then user}
+			{#if user}
+				<AvatarButton {user} />
+			{:else}
+				<a
+					href="/login"
+					data-sveltekit-preload-data="hover"
+					class="hidden md:variant-filled-primary md:btn md:flex"
+				>
+					<Icon icon="material-symbols:login" class="text-2xl" />
+					<span class="hidden md:inline-block">Login</span>
+				</a>
+			{/if}
+		{/await}
 		<button class="text-2xl md:hidden" on:click={drawerOpenLeftNavigation}>
 			<Icon icon="mdi:menu" />
 		</button>
