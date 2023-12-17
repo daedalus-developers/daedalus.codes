@@ -21,12 +21,27 @@ export const queryEventByID = (id: string) =>
 			return data;
 		});
 
-export const queryEvents = (page: number = 1, perPage: number = 10) =>
+export type eventFilter = {
+	query?: string;
+	type?: string;
+};
+
+export const queryEvents = (
+	page: number = 1,
+	perPage: number = 10,
+	filter: eventFilter = {
+		query: ''
+	}
+) =>
 	db
 		.collection(Collections.Events)
 		.getList(page, perPage, {
 			sort: 'created',
-			requestKey: 'events'
+			requestKey: 'events',
+			filter: db.filter(
+				'(title ?~ {:title} || description ?~ {:description} || details ?~ {:details})',
+				{ title: filter.query, description: filter.query, details: filter.query }
+			)
 		})
 		.then((collection) => {
 			const events = collection.items.map((event) => {
