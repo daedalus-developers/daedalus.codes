@@ -35,13 +35,17 @@
 				Don't miss out – subscribe today!
 			</p>
 			<form class="flex" method="POST" action="/api/actions/contact?/subscribe" use:enhance>
-				<EmailInput bind:value={$form.email} bind:errors={$errors.email} name="email" />
-				<input
-					type="submit"
-					disabled={$delayed}
-					class="variant-filled-primary btn ml-5"
-					value="Subscribe"
-				/>
+				<div class="flex flex-col w-full max-w-[360px]">
+					<EmailInput bind:value={$form.email} bind:errors={$errors.email} name="email" />
+				</div>
+				<div>
+					<input
+						type="submit"
+						disabled={$delayed}
+						class="variant-filled-primary btn ml-2 flex-none"
+						value="Subscribe"
+					/>
+				</div>
 			</form>
 		</div>
 		<div class="calendar hidden aspect-square w-96 items-center justify-center p-10 md:flex">
