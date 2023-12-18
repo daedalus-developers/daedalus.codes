@@ -66,7 +66,7 @@
 							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
 						>
 							<a
-								href="/projects/{name}"
+								href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}
 								class="card bg-surface-100-800-token block cursor-pointer overflow-hidden dark:bg-surface-200-700-token"
 							>
 								<div class="card bg-surface-100-800-token relative aspect-[16/11] rounded-none">
