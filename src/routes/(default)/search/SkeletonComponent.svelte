@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
 	let dummyCount = 6;
 
@@ -12,6 +11,7 @@
 
 {#if ['all', 'users'].includes(currentFilter)}
 	{#each Array(dummyCount) as _}
+		<p class="hidden">{_}</p>
 		<div class="card variant-ghost-surface mb-5 block p-4">
 			<div class="flex flex-col gap-1">
 				<div class="flex items-center gap-3">
@@ -25,6 +25,7 @@
 
 {#if ['all', 'events'].includes(currentFilter)}
 	{#each Array(dummyCount) as _}
+		<p class="hidden">{_}</p>
 		<div class="card variant-ghost-surface mb-5 block p-4">
 			<div class="flex-colX flex items-center gap-3 md:flex-row">
 				<div class="placeholder animate-pulse self-stretch rounded-lg px-20 py-14"></div>

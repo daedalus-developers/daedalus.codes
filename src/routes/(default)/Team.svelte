@@ -1,4 +1,5 @@
 <script lang="ts">
+	/** eslint-disable @typescript-eslint/no-unused-vars */
 	import Icon from '@iconify/svelte';
 	import { Container } from '@components';
 	import { page } from '$app/stores';
@@ -39,6 +40,7 @@
 		{#await $page.data.team}
 			<ul class="flex animate-pulse flex-wrap justify-evenly md:flex-row">
 				{#each Array(3) as _}
+					<p class="hidden">{_}</p>
 					<li
 						class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
 					>
@@ -55,7 +57,7 @@
 			</ul>
 		{:then team}
 			<ul class="flex flex-wrap justify-evenly md:flex-row">
-				{#each team as { avatar, firstName, lastName, bio, username, x, linkedin, github }}
+				{#each team as { avatar, firstName, lastName, bio, x, linkedin, github }}
 					{@const socialMedia = [
 						{ link: x, iconClass: 'mdi:twitter' },
 						{ link: linkedin, iconClass: 'cib:linkedin' },

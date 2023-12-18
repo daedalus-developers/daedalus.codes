@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import { Hero } from '@components';
 	import MissionVision from './MissionVision.svelte';
 	import DaedalusCommunity from './DaedalusCommunity.svelte';

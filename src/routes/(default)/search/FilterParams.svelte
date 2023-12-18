@@ -2,8 +2,10 @@
 	import { queryParam, ssp } from 'sveltekit-search-params';
 	import { page } from '$app/stores';
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const filter = queryParam('filter', ssp.string('all'));
 	$: currentKeyword = $page.url.searchParams.get('q') || '';
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	$: currentLimit = $page.url.searchParams.get('limit') || '10';
 
 	let filterOptions = [

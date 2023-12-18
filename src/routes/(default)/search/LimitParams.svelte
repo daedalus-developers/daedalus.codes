@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { queryParam, ssp } from 'sveltekit-search-params';
-	import { page } from '$app/stores';
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const filter = queryParam('limit', ssp.number(10));
 </script>

@@ -5,6 +5,7 @@
 	export let data: PageData;
 
 	$: queryString = $page.url.searchParams.get('q') || '';
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	$: currentPerPage = $page.url.searchParams.get('perPage') || '10';
 </script>
 
@@ -24,7 +25,7 @@
 	{#await data.projects}
 		Loading...
 	{:then query}
-		{@const { page, perPage, totalItems, totalPages } = query}
+		{@const { page, totalPages } = query}
 		{@const itemCount = query.items.length}
 		<div class="flex gap-2 pb-5 opacity-70">
 			<p>

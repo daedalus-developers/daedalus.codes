@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Container } from '@components/utilities';
-	import { Avatar } from '@skeletonlabs/skeleton';
 	import FilterParams from './FilterParams.svelte';
 	import KeywordParams from './KeywordParams.svelte';
 	import LimitParams from './LimitParams.svelte';
