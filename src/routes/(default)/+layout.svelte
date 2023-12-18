@@ -12,3 +12,4 @@
 		<Footer />
 	</svelte:fragment>
 </AppShell>
+
