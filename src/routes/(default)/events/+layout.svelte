@@ -1,4 +1,4 @@
-<div class="mx-auto h-screen max-w-[95%]">
+<div class="mx-auto min-h-screen max-w-[95%]">
 	<div class="flex py-4">
 		<h2
 			class="w-full text-center text-5xl font-black md:w-auto md:flex-none md:text-left md:text-6xl"
