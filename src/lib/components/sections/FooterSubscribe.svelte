@@ -35,7 +35,7 @@
 				Don't miss out – subscribe today!
 			</p>
 			<form class="flex" method="POST" action="/api/actions/contact?/subscribe" use:enhance>
-				<div class="flex flex-col w-full max-w-[360px]">
+				<div class="flex w-full max-w-[360px] flex-col">
 					<EmailInput bind:value={$form.email} bind:errors={$errors.email} name="email" />
 				</div>
 				<div>
