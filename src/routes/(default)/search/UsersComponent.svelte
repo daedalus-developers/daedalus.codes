@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Icon from '@iconify/svelte';
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	export let usersData: any;
-
-	$: data = usersData;
 </script>
 
 {#if usersData.length === 0}

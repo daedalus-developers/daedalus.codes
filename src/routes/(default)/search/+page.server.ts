@@ -4,10 +4,10 @@ import type { PageServerLoad } from '../$types';
 export const load: PageServerLoad = async ({ url }) => {
 	const q = url.searchParams.get('q') || '';
 	const filterSearchType = url.searchParams.get('filter') || 'all';
-	const limit: any = url.searchParams.get('limit') || 10;
+	const limit = Number(url.searchParams.get('limit')) || 10;
 
 	async function fetchUsers() {
-		return await db.collection('users').getList(1, filterSearchType === 'all' ? 10 : limit, {
+		return await db.collection('users').getList(1, limit, {
 			filter: `username ~ "${q}"`,
 			expand: `user_details`,
 			sort: '-created',
@@ -16,7 +16,7 @@ export const load: PageServerLoad = async ({ url }) => {
 	}
 
 	async function fetchEvents() {
-		return await db.collection('events').getList(1, filterSearchType === 'all' ? 10 : limit, {
+		return await db.collection('events').getList(1, limit, {
 			filter: `title ~ "${q}" || type ~ "${q}"`,
 			sort: '-created',
 			search: q
@@ -24,7 +24,7 @@ export const load: PageServerLoad = async ({ url }) => {
 	}
 
 	async function fetchData() {
-		const delay = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
+		const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 		await delay(2000);
 
 		// if (!q || q.trim() === '') {

@@ -36,7 +36,8 @@
 		{#await $page.data.projects}
 			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 				<div class="embla__container">
-					{#each Array(dummyCardCount) as _, index}
+					{#each Array(dummyCardCount) as _}
+						<p class="hidden">{_}</p>
 						<div
 							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
 						>

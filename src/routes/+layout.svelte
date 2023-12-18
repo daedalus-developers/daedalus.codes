@@ -6,14 +6,14 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { ModalRegistry, Drawers } from '@components';
-	import { afterNavigate, onNavigate } from '$app/navigation';
+	import { onNavigate } from '$app/navigation';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 	initializeStores();
 	setupViewTransition();
 
 	// Use onNavigate instead of afterNavigate so it will work on url fragment identifier eg #about
-	onNavigate((params) => {
+	onNavigate(() => {
 		let elemPage: HTMLElement | null = document.querySelector('#page');
 		elemPage!.scrollTop = 0;
 	});
