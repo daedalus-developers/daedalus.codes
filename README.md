@@ -20,30 +20,27 @@
    2. Whatever you put in the installer setup should also be in your
       `.env.development` credentials
 
-   3. Pocketbase will auto migrate your database which is autosynced by pb
-      through the `/pb/pb_migrations`.
+5. Use the sample data just upload the `sampledata.zip` located at
+   `pb` directory to your local pb instance at [Backups](http://127.0.0.1:8090/_/#/settings/backups)
 
-5. You local data that you have will stay with you as `pb/pb_data` is `gitignored`
+6. You local data that you have will stay with you as `pb/pb_data` is `gitignored`
    This will keep our production data pristine
 
-- Option to use the sample data just upload the `sampledata.zip` located at
-  `pb` directory to your local pb instance at [Backups](http://127.0.0.1:8090/_/#/settings/backups)
+7. You can now install node dependencies using `pnpm install`
 
-6. You can now install node dependencies using `pnpm install`
-
-7. On a seperate terminal run the ff commands on each one
+8. On a seperate terminal run the ff commands on each one
    `pnpm dev:api` and `pnpm dev:web`
 
-8. In case you are lazy run both using `pnpm dev` but some systems
+9. In case you are lazy run both using `pnpm dev` but some systems
    might not support closing each child process.
 
-9. Contribute and make a PR.
+10. Contribute and make a PR.
 
 For further questions reachout with the team
 
 ## Deployment
 
-The following project will only be deployable using `adapter-cloudflare`  
+The following project will only be deployable using `adapter-node`  
 and all other `env` setup is there.
 
 If you want to deploy a similar stack on your own you need to host your own pb instance.
