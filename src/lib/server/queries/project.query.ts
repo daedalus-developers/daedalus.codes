@@ -21,6 +21,7 @@ export const queryProjectById = (id: string) =>
 			return data;
 		});
 
+// todo: add parameter to accept queryString for search feature
 export const queryProjects = (page: number = 1, perPage: number = 10) =>
 	db
 		.collection(Collections.Projects)
