@@ -62,7 +62,7 @@
 			</a>
 
 			{#if user?.id}
-				<AvatarButton />
+				<!-- <AvatarButton /> -->
 			{:else}
 				<a href="/login" class="hidden md:variant-filled-primary md:btn md:flex">
 					<Icon icon="material-symbols:login" class="text-2xl" />

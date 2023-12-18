@@ -41,7 +41,7 @@
 </div>
 
 <style lang="postcss">
-	article {
+	:global(article) {
 		@apply prose mx-auto max-w-[85%] py-4;
 	}
 </style>
