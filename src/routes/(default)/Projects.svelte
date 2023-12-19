@@ -61,7 +61,7 @@
 				<div class="embla__container">
 					{#each projects as project}
 						<div
-							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
+							class="embla__slide w-full max-w-[85%] p-3 sm:max-w-[50%] md:max-w-[45%] lg:max-w-[33.33%]"
 						>
 							<ProjectCard {project} />
 						</div>

@@ -8,25 +8,26 @@
 </script>
 
 <a href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}>
-	<div class="card rounded-none bg-gray-200 text-black dark:bg-gray-200 dark:text-black">
-		<div class="flex rounded-none">
-			<img src={preview ? preview : ASSET_URL + 'daedalus.png'} alt={name} class="w-full" />
-		</div>
-		<div class="mx-4 flex flex-col gap-8 py-8">
+	<div class="card rounded-none dark:bg-surface-800-100-token dark:text-surface-100-800-token min-h-full">
+		<img src={preview ? preview : ASSET_URL + 'daedalus.png'} alt={name} 
+			class="rounded-none aspect-video relative w-full h-full object-cover border-b-2 border-neutral-800"/>
+		<div class="mx-4 flex flex-col gap-1 py-3">
 			<div class="flex flex-row gap-2">
 				{#each tags as tag}
-					<span class="font-medium uppercase text-gray-400">{tag}</span>
+				<span class="uppercase text-sm opacity-70">{tag}</span>
 				{/each}
 			</div>
-			<h3
-				class="text-lg font-bold uppercase tracking-wider text-primary-700 dark:text-primary-700 sm:text-xl"
+			<div class="min-h-[70px]X">
+				<h3
+				class="text-lg font-bold uppercase tracking-wider sm:text-xl line-clamp-2 text-primary-600"
 			>
 				{name}
 			</h3>
+			</div>
 		</div>
 
-		<div class="card-footer mx-4">
-			<p class="text-sm sm:text-base">
+		<div class="card-footer pb-10 min-h-[180px]X">
+			<p class="text-sm sm:text-base line-clamp-3">
 				{description}
 			</p>
 		</div>

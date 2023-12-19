@@ -55,9 +55,9 @@
 				{/each}
 			</ul>
 		{:then teamMembers}
-			<ul class="grid grid-cols-1 gap-5 md:grid-cols-3">
+			<ul class="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 				{#each teamMembers as member}
-					<li class="flex w-full flex-col gap-3 px-10 md:px-2 lg:px-10">
+					<li class="flex w-full flex-col gap-3">
 						<UserCard user={member} />
 					</li>
 				{/each}

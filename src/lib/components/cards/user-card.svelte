@@ -23,15 +23,15 @@
 {#if expand?.user}
 	{@const { user } = expand}
 	<div
-		class="card rounded-none border-transparent bg-transparent shadow-none ring-transparent dark:ring-transparent"
+		class="card rounded-lg border-transparent bg-surface-200-700-token dark:bg-surface-200-700-token p-3 shadow-none ring-transparent dark:ring-transparent min-h-full"
 	>
 		<a href={`/${user.username}`}>
-			<div class="flex justify-center rounded-none bg-surface-600">
+			<div class="flex justify-center rounded-none">
 				<Avatar
 					src={user.avatar}
 					initials={`${user.firstName[0]}${user.lastName[0]}`}
 					background="bg-surface-600"
-					rounded="rounded-none"
+					rounded="rounded-lg"
 					width="w-full"
 					cursor="cursor-pointer"
 				/>
