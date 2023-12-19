@@ -4,6 +4,7 @@
 	import { CartaViewer, Carta } from 'carta-md';
 	import { formatDistance } from 'date-fns';
 	import { code } from '@cartamd/plugin-code';
+	import { emoji } from '@cartamd/plugin-emoji';
 	import { ASSET_URL } from '@utils';
 
 	export let data: PageData;
@@ -11,7 +12,7 @@
 	const { query: user } = data;
 
 	const carta = new Carta({
-		extensions: [code()]
+		extensions: [code(), emoji()]
 	});
 </script>
 
