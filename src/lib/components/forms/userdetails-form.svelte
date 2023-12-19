@@ -15,7 +15,9 @@
 	import '@cartamd/plugin-emoji/default.css';
 	import '@cartamd/plugin-slash/default.css';
 	import '@cartamd/plugin-attachment/default.css';
+	// import '@cartamd/plugin-code/default.css';
 	import purifier from 'isomorphic-dompurify';
+
 	const carta = new Carta({
 		sanitizer: purifier.sanitize,
 		extensions: [
@@ -39,15 +41,18 @@
 	});
 
 	const toast = getToastStore();
-	const { form, errors, constraints, enhance, message, delayed } = superForm($page.data.form, {
-		validators: userDetailsFormSchema,
-		onResult: async ({ result }) => {
-			if (result.type === 'success')
-				toast.trigger({
-					message: 'Profile updated.'
-				});
+	const { form, errors, constraints, enhance, message, delayed, tainted } = superForm(
+		$page.data.form,
+		{
+			validators: userDetailsFormSchema,
+			onResult: async ({ result }) => {
+				if (result.type === 'success')
+					toast.trigger({
+						message: 'Profile updated.'
+					});
+			}
 		}
-	});
+	);
 </script>
 
 <div class="mx-4">
@@ -100,7 +105,7 @@
 			constraints={$constraints.github}
 		/>
 		<div class="pt-4">
-			<CartaEditor {carta} bind:value={$form.details} mode="auto" />
+			<CartaEditor {carta} bind:value={$form.details} mode="tabs" />
 		</div>
 		<textarea
 			class="textarea my-4 hidden"
@@ -109,18 +114,8 @@
 			bind:value={$form.details}
 			placeholder="...."
 		/>
-		<!-- <h2 class="h2 py-4 text-center">Details Preview</h2> -->
-		<!-- <div class="prose prose-invert"> -->
-		<!-- 	{#key $form.details} -->
-		<!-- 		<CartaViewer {carta} value={$form.details} /> -->
-		<!-- 	{/key} -->
-		<!-- </div> -->
-		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
+		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed || !$tainted}
+			>Update</button
+		>
 	</form>
 </div>
-
-<style lang="postcss">
-	:global(.carta-renderer) {
-		@apply prose prose-invert;
-	}
-</style>

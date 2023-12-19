@@ -26,34 +26,32 @@ export const actions: Actions = {
 		}
 	},
 	details: async ({ request, locals }) => {
-		const userDetailsForm = await superValidate(request, userDetailsFormSchema);
+		const form = await superValidate(request, userDetailsFormSchema);
 
-		if (!userDetailsForm.valid) return fail(400, { userDetailsForm });
+		if (!form.valid) return fail(400, { form });
 
 		try {
 			if (locals.user) {
 				const { id } = locals.user;
-
 				const details = await db
 					.collection(Collections.UsersDetails)
 					.getFirstListItem(`user="${id}"`);
-
 				await locals.DB.collection(Collections.UsersDetails).update(details.id, {
-					bio: userDetailsForm.data.bio || '',
-					details: userDetailsForm.data.details || '',
-					x: userDetailsForm.data.x || '',
-					linkedIn: userDetailsForm.data.linkedin || '',
-					github: userDetailsForm.data.github || '',
+					bio: form.data.bio || '',
+					details: form.data.details || '',
+					x: form.data.x || '',
+					linkedIn: form.data.linkedin || '',
+					github: form.data.github || '',
 					user: id,
 					updated: new Date()
 				});
 			}
-			return { userDetailsForm };
+			return { form };
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
-				? message(userDetailsForm, INVALID_CREDENTIALS)
-				: message(userDetailsForm, err.message, {
+				? message(form, INVALID_CREDENTIALS)
+				: message(form, err.message, {
 						status: err.response.code
 					});
 		}

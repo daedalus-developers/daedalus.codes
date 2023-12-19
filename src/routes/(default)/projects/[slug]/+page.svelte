@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { CartaViewer, Carta } from 'carta-md';
-	import { LOGO_URL } from '@utils';
+	import { ASSET_URL } from '@utils';
 
 	export let data: PageData;
 
@@ -32,10 +32,10 @@
 		{#if project.preview}
 			<img src={project.preview} alt={project.title} />
 		{:else}
-			<img src={LOGO_URL} alt={project.title} />
+			<img src={ASSET_URL + 'daedalus.png'} alt={project.title} />
 		{/if}
 	</div>
-	<article>
+	<article class="prose mx-auto max-w-[85%] py-4">
 		<CartaViewer {carta} value={project.details} />
 	</article>
 </div>
