@@ -1,5 +1,17 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { UserCard } from '@components';
+	import type { PageData } from './$types';
+	export let data: PageData;
 </script>
 
-<h1>Hello {$page.data.profile.username}</h1>
+{#await data.query then user}
+	{#if user}
+		<div class="flex h-screen w-screen items-center justify-center">
+			<UserCard {user} />
+		</div>
+	{:else}
+		<div class="flex h-screen w-screen items-center justify-center">
+			<h1 class="h1 text-center">User not found</h1>
+		</div>
+	{/if}
+{/await}

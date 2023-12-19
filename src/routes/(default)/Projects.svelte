@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { Container } from '@components';
+	import { Container, ProjectCard } from '@components';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import { page } from '$app/stores';
-	import { CartaViewer, Carta } from 'carta-md';
 	import Icon from '@iconify/svelte';
-	const carta = new Carta();
 
 	let options = {
 		loop: false,
@@ -61,36 +59,11 @@
 			{@const projects = query.items}
 			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 				<div class="embla__container">
-					{#each projects as { tags, description, preview, name }}
-						{@const imageSource = preview ? preview : 'https://storage.daedalus.codes/logo.png'}
+					{#each projects as project}
 						<div
 							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
 						>
-							<a
-								href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}
-								class="card bg-surface-100-800-token block cursor-pointer overflow-hidden dark:bg-surface-200-700-token"
-							>
-								<div class="card bg-surface-100-800-token relative aspect-[16/11] rounded-none">
-									<img
-										src={imageSource}
-										alt={name}
-										class="absolute inset-0 h-full w-full object-cover"
-									/>
-								</div>
-								<div class="flex h-[300px] flex-col gap-5 px-4 py-8">
-									{#each tags as tag}
-										<span class="text-surface-600-300-token uppercase">{tag}</span>
-									{/each}
-									<h3
-										class="line-clamp-2 text-lg font-bold uppercase text-primary-700 dark:text-primary-500 sm:text-xl"
-									>
-										{name}
-									</h3>
-									<p class="line-clamp-3 text-sm sm:text-base">
-										<CartaViewer {carta} value={description} />
-									</p>
-								</div>
-							</a>
+							<ProjectCard {project} />
 						</div>
 					{/each}
 				</div>

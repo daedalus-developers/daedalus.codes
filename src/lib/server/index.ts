@@ -13,3 +13,5 @@ export const createClient = async () => {
 };
 
 export const db = await createClient();
+
+db.autoCancellation(false);

@@ -118,6 +118,7 @@ export type Team = {
 	firstName: string;
 	lastName: string;
 	linkedin: string;
+	email: string;
 	x: string;
 	github: string;
 	username: string;

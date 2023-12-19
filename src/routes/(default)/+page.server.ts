@@ -1,10 +1,10 @@
 import type { PageServerLoad } from './$types';
-import { queryEvents, queryProjects, queryTeamMembers } from '@server/queries';
+import { queryEvents, queryProjects, queryUsersByRole } from '@server/queries';
 
 export const load: PageServerLoad = async () => {
 	return {
-		team: queryTeamMembers(),
+		team: queryUsersByRole('team'),
 		projects: queryProjects(),
-		events: queryEvents()
+		events: queryEvents(1, 3)
 	};
 };
