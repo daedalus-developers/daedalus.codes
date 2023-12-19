@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import { CartaViewer, Carta } from 'carta-md';
-	import { LOGO_URL } from '@utils';
+	import { ASSET_URL } from '@utils';
 
 	export let data: PageData;
 
@@ -11,25 +11,23 @@
 </script>
 
 <svelte:head>
-	<title>{event.title}</title>
+	<title>{`Daedalus` + event.title}</title>
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={event.title} />
+	<meta property="og:description" content={event.description} />
+	<meta property="og:image" content={event.preview ? event.preview : ASSET_URL + 'daedalus.png'} />
 </svelte:head>
 
 <div class="flex flex-col gap-4">
 	<div class="mx-auto w-[80%] py-4">
 		<div class=" flex">
-			<h2
-				class="h2 w-full text-center font-black underline md:w-auto md:flex-none md:text-left md:text-6xl"
-			>
+			<h2 class="h2">
 				{event.title}
 				<span class="text-primary-600">.</span>
 			</h2>
 		</div>
 		<div class="mx-auto max-w-[50%] py-4">
-			{#if event.preview}
-				<img src={event.preview} alt={event.title} />
-			{:else}
-				<img src={LOGO_URL} alt={event.title} />
-			{/if}
+			<img src={event.preview ? event.preview : ASSET_URL + 'daedalus.png'} alt={event.title} />
 		</div>
 	</div>
 	<article>
