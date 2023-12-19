@@ -5,6 +5,7 @@
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
 	import { getToastStore } from '@skeletonlabs/skeleton';
+	import { ASSET_URL } from '@utils';
 	// import Icon from '@iconify/svelte';
 	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
@@ -22,7 +23,7 @@
 
 <div class="flex flex-col gap-4">
 	<div class="mx-auto py-4">
-		<img src="https://storage.daedalus.codes/logo.png" alt="Daedalus Logo" />
+		<img src={`${ASSET_URL}logo.png`} alt="Daedalus Logo" />
 		<h1 class="h2">Login</h1>
 	</div>
 	<div class="form-control mx-auto min-w-[50%] text-center">

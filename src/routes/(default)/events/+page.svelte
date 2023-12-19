@@ -2,6 +2,7 @@
 	import Icon from '@iconify/svelte';
 	import type { PageData } from './$types';
 	import EventPaginator from './event-paginator.svelte';
+	import { ASSET_URL } from '@utils';
 	export let data: PageData;
 </script>
 
@@ -25,7 +26,7 @@
 					{#if preview}
 						<img src={preview} alt={title} class="my-5 px-9" />
 					{:else}
-						<img src="https://storage.daedalus.codes/logo.png" alt={title} class="my-5 px-9" />
+						<img src={`${ASSET_URL}logo.png`} alt={title} class="my-5 px-9" />
 					{/if}
 					<div class="border-[1px] border-y-neutral-500 p-9 text-black">
 						<a

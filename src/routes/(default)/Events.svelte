@@ -2,10 +2,7 @@
 	import { Container } from '@components/utilities';
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
-	import { CartaViewer, Carta } from 'carta-md';
-	import { formatDistance } from 'date-fns';
-
-	const carta = new Carta();
+	import { ASSET_URL } from '@utils';
 </script>
 
 <section class="relative z-10 bg-transparent py-20 dark:bg-surface-100-800-token">
@@ -28,38 +25,37 @@
 			<p class="py-10 text-center">Processing</p>
 		{:then query}
 			{@const events = query.items}
-			<div class="md:justify-space-between flex flex-col md:flex-row">
-				{#each events as { date, details, preview, status, title, type }}
-					{@const imageSource = preview ? preview : 'https://storage.daedalus.codes/logo.png'}
+			<div class="grid grid-cols-1 grid-rows-1 gap-8 pt-4 md:grid-cols-3">
+				{#each events as { title, type, date, description, preview, status }}
 					<div
-						class="group relative mx-auto mb-10 w-full max-w-[340px] bg-white text-surface-900 md:w-[48%] md:max-w-[400px]"
+						class="relative mx-4 flex w-full border-[1px] border-neutral-500 bg-primary-600 hover:bg-purple-800"
 					>
 						<div
-							class="variant-filled-primary absolute -right-4 top-4 z-[-1] h-full w-full group-hover:variant-filled-secondary"
-						/>
-						<h3
-							class="flex items-center justify-center gap-2 py-4 text-center uppercase opacity-80"
+							class="relative bottom-5 right-5 flex w-full flex-col border-[1px] border-neutral-500 bg-white"
 						>
-							<Icon icon="ri:calendar-line" class="text-2xl opacity-80" />
-							{type}
-						</h3>
-						<img
-							src={imageSource}
-							alt={title}
-							class="aspect-video w-full bg-white object-cover p-6"
-						/>
-						<div class="min-h-[190px] border-y-2 border-black px-6 py-6">
-							<h2 class="line-clamp-2 text-2xl font-bold">{title}</h2>
-							<span class="prose line-clamp-3 max-w-none">
-								<CartaViewer {carta} value={details} />
-							</span>
-						</div>
-						<div class="flex items-center">
-							<div class="w-full px-6 py-4 text-center">
-								{formatDistance(new Date(date), new Date(), { addSuffix: true })}
+							<div class="flex justify-center pt-9 dark:text-black">
+								<Icon icon="ri:calendar-line" class="me-3 text-2xl" />
+								<div class="text-xl">{type}</div>
 							</div>
-							<div class="w-full border-l border-black px-6 py-4 text-center capitalize">
-								{status}
+							{#if preview}
+								<img src={preview} alt={title} class="my-5 px-9" />
+							{:else}
+								<img src={`${ASSET_URL}logo.png`} alt={title} class="my-5 px-9" />
+							{/if}
+							<div class="border-[1px] border-y-neutral-500 p-9 text-black">
+								<a
+									class="variant-filled-primary btn"
+									href={`/events/${title.toLowerCase().replaceAll(' ', '-')}`}
+								>
+									<h1 class="text-2xl font-bold">{title}</h1>
+								</a>
+								<p class="my-2 line-clamp-2 text-sm">
+									{description}
+								</p>
+							</div>
+							<div class="flex justify-between dark:text-black">
+								<div class="w-1/2 border-[1px] py-4 text-center">{date}</div>
+								<div class="w-1/2 py-4 text-center">{status}</div>
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,6 @@
 <script>
 	import { Container } from '@components/utilities/';
+	import { ASSET_URL } from '@utils';
 	// import Icon from '@iconify/svelte';
 </script>
 
@@ -30,7 +31,7 @@
 		</div>
 
 		<div class="flex w-full items-center justify-center">
-			<img src={'https://storage.daedalus.codes/hero.png'} alt="hero" class="md:min-w-[500px]" />
+			<img src={`${ASSET_URL}hero.png`} alt="hero" class="md:min-w-[500px]" />
 		</div>
 	</Container>
 </section>

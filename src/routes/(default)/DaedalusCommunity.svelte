@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Container } from '@components/utilities';
 	import Icon from '@iconify/svelte';
+	import { ASSET_URL } from '@utils';
 </script>
 
 <section class="bg-surface-100-800-token py-32 dark:bg-transparent">
@@ -12,7 +13,7 @@
 					<span class="lg:block"><span class="text-primary-600">Daedalus</span> Community</span>
 				</h2>
 				<img
-					src="https://storage.daedalus.codes/saly.png"
+					src={`${ASSET_URL}saly.png`}
 					alt="thumbnail"
 					class="ms-auto hidden max-w-[500px] md:block"
 				/>
@@ -53,7 +54,7 @@
 
 			<div class="relative -z-10 mt-[-35%] w-full opacity-70 md:max-w-[50%]">
 				<img
-					src="https://storage.daedalus.codes/saly.png"
+					src={`${ASSET_URL}saly.png`}
 					alt="thumbnail"
 					class="mx-auto ms-auto block max-w-[500px] md:hidden"
 				/>

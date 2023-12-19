@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { AppBar, LightSwitch, getDrawerStore } from '@skeletonlabs/skeleton';
 	import AvatarButton from './avatar-button.svelte';
-	import { primaryLinks, secondaryLinks } from '@utils';
+	import { ASSET_URL, primaryLinks, secondaryLinks } from '@utils';
 	import Icon from '@iconify/svelte';
 	import type { User } from '@types';
 	const drawerStore = getDrawerStore();
@@ -27,7 +27,7 @@
 >
 	<svelte:fragment slot="lead">
 		<a href="/">
-			<img src="https://storage.daedalus.codes/logo.png" alt="logo" class="h-[40px] md:h-[50px]" />
+			<img src={`${ASSET_URL}logo.png`} alt="logo" class="h-[40px] md:h-[50px]" />
 		</a>
 	</svelte:fragment>
 	<div class="flex justify-center">

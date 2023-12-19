@@ -4,6 +4,7 @@ export * from './response.utils';
 export * from './assets.utils';
 
 export const LOGO_URL = 'https://storage.daedalus.codes/logo.png';
+export const ASSET_URL = 'https://storage.daedalus.codes/assets/';
 
 export const primaryLinks = [
 	{

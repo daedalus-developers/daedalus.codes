@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { CartaViewer, Carta } from 'carta-md';
 	import Icon from '@iconify/svelte';
+	import { ASSET_URL } from '@utils';
 	const carta = new Carta();
 
 	let options = {
@@ -62,7 +63,7 @@
 			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 				<div class="embla__container">
 					{#each projects as { tags, description, preview, name }}
-						{@const imageSource = preview ? preview : 'https://storage.daedalus.codes/logo.png'}
+						{@const imageSource = preview ? preview : ASSET_URL + 'logo.png'}
 						<div
 							class="embla__slide w-full max-w-[80%] p-3 sm:max-w-[60%] md:max-w-[40%] lg:max-w-[33.33%]"
 						>
