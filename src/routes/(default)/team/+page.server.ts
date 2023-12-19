@@ -1,8 +1,8 @@
-import { queryTeamMembers } from '@server/queries';
+import { queryUsersByRole } from '@server/queries';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	return {
-		team: queryTeamMembers()
+		team: queryUsersByRole('team')
 	};
 };
