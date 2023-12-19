@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{`Daedalus` + project.name}</title>
+	<title>{`Daedalus - ` + project.name}</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={project.name} />
 	<meta property="og:description" content={project.description} />

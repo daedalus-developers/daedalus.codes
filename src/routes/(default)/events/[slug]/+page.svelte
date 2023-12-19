@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{`Daedalus` + event.title}</title>
+	<title>{`Daedalus - ` + event.title}</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={event.title} />
 	<meta property="og:description" content={event.description} />

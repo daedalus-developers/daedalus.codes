@@ -16,13 +16,13 @@
 </script>
 
 <svelte:head>
-	<title>{`Daedalus` + user.username}</title>
+	<title>{`Daedalus - ` + user.expand?.user.username}</title>
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content={user.username} />
+	<meta property="og:title" content={user.expand?.user.username} />
 	<meta property="og:description" content={user.bio} />
 	<meta
 		property="og:image"
-		content={user.expand?.user?.avatar ? user.expand?.user?.avatar : ASSET_URL + 'daedalus.png'}
+		content={user.expand?.user.avatar ? user.expand.user.avatar : ASSET_URL + 'daedalus.png'}
 	/>
 </svelte:head>
 
