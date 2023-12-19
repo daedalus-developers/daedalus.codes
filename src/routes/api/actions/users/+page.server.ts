@@ -40,7 +40,7 @@ export const actions: Actions = {
 					bio: form.data.bio || '',
 					details: form.data.details || '',
 					x: form.data.x || '',
-					linkedIn: form.data.linkedin || '',
+					linkedin: form.data.linkedin || '',
 					github: form.data.github || '',
 					user: id,
 					updated: new Date()
