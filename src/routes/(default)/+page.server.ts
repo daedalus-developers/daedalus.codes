@@ -5,6 +5,6 @@ export const load: PageServerLoad = async () => {
 	return {
 		team: queryTeamMembers(),
 		projects: queryProjects(),
-		events: queryEvents()
+		events: queryEvents(1, 3)
 	};
 };

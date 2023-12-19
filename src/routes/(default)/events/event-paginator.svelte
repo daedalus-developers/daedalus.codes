@@ -29,7 +29,6 @@
 
 	$: paginationSettings.size = totalItems;
 	$: paginationSettings.page = $queryStore.page ?? 0;
-	$: paginationSettings.limit = $queryStore.perPage ?? 6;
 
 	const onPageChange = (event: CustomEvent): void => {
 		$queryStore.page = event.detail;

@@ -23,20 +23,21 @@ export const queryEventByID = (id: string) =>
 
 export type eventFilter = {
 	query?: string;
-	type?: string;
+	sort?: string;
 };
 
 export const queryEvents = (
 	page: number = 1,
 	perPage: number = 10,
 	filter: eventFilter = {
-		query: ''
+		query: '',
+		sort: 'created'
 	}
 ) =>
 	db
 		.collection(Collections.Events)
 		.getList(page, perPage, {
-			sort: 'created',
+			sort: '-date',
 			requestKey: 'events',
 			filter: db.filter(
 				'(title ?~ {:title} || description ?~ {:description} || details ?~ {:details})',
