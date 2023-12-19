@@ -7,30 +7,28 @@
 	const { name, description, preview, tags } = project;
 </script>
 
-<a
-	href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}
-	class="card bg-surface-100-800-token block cursor-pointer overflow-hidden dark:bg-surface-200-700-token"
->
-	<div class="card bg-surface-100-800-token relative aspect-[16/11] rounded-none">
-		<img
-			src={preview ? preview : ASSET_URL + 'logo.png'}
-			alt={name}
-			class="absolute inset-0 h-full w-full object-cover"
-		/>
-	</div>
-	<div class="flex h-[300px] flex-col gap-5 px-4 py-8">
-		<div class="flex flex-row gap-2">
-			{#each tags as tag}
-				<span class="variant-filled chip uppercase">{tag}</span>
-			{/each}
+<a href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}>
+	<div class="card rounded-none bg-gray-200 text-black dark:bg-gray-200 dark:text-black">
+		<div class="flex rounded-none">
+			<img src={preview ? preview : ASSET_URL + 'daedalus.png'} alt={name} class="w-full" />
 		</div>
-		<h3
-			class="line-clamp-2 text-lg font-bold uppercase text-primary-700 dark:text-primary-500 sm:text-xl"
-		>
-			{name}
-		</h3>
-		<p class="line-clamp-3 text-sm sm:text-base">
-			{description}
-		</p>
+		<div class="mx-4 flex flex-col gap-8 py-8">
+			<div class="flex flex-row gap-2">
+				{#each tags as tag}
+					<span class="font-medium uppercase text-gray-400">{tag}</span>
+				{/each}
+			</div>
+			<h3
+				class="text-lg font-bold uppercase tracking-wider text-primary-700 dark:text-primary-700 sm:text-xl"
+			>
+				{name}
+			</h3>
+		</div>
+
+		<div class="card-footer mx-4">
+			<p class="text-sm sm:text-base">
+				{description}
+			</p>
+		</div>
 	</div>
 </a>
