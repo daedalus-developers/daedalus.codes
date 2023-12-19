@@ -19,6 +19,7 @@ export const queryTeamMembers = (page: number = 1, perPage: number = 3) =>
 					username: data.expand?.user?.username,
 					firstName: data.expand?.user?.firstName,
 					lastName: data.expand?.user?.lastName,
+					email: data.expand?.user?.email,
 					bio: data.bio,
 					linkedin: data.linkedin,
 					github: data.github,

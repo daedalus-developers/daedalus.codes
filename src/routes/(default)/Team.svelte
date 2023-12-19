@@ -1,9 +1,8 @@
 <script lang="ts">
 	/** eslint-disable @typescript-eslint/no-unused-vars */
 	import Icon from '@iconify/svelte';
-	import { Container } from '@components';
+	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
-	import { Avatar } from '@skeletonlabs/skeleton';
 </script>
 
 <section class="relative py-32">
@@ -55,46 +54,11 @@
 					</li>
 				{/each}
 			</ul>
-		{:then team}
-			<ul class="flex flex-wrap justify-evenly md:flex-row">
-				{#each team as { avatar, firstName, lastName, bio, x, linkedin, github }}
-					{@const socialMedia = [
-						{ link: x, iconClass: 'mdi:twitter' },
-						{ link: linkedin, iconClass: 'cib:linkedin' },
-						{ link: github, iconClass: 'mdi:github' }
-					]}
-					<li
-						class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
-					>
-						<div class="relative aspect-[1/1.15] w-full overflow-hidden rounded-lg bg-surface-600">
-							<Avatar
-								src={avatar}
-								initials={`${firstName[0]}${lastName[0]}`}
-								background="bg-surface-600"
-								rounded="rounded-none"
-								width="w-full"
-								cursor="cursor-pointer"
-								class="absolute inset-0 h-full rounded-none object-cover"
-							/>
-						</div>
-
-						<div class="flex flex-col gap-1 text-center">
-							<p class="text-xl">{firstName} {lastName}</p>
-							{#if bio}
-								<p>{bio || ''}</p>
-							{:else}
-								<div class="bg-surface-600X rounded-full bg-transparent py-3" />
-							{/if}
-						</div>
-						<div class="flex justify-evenly gap-3">
-							{#each socialMedia as { link, iconClass }}
-								{#if link}
-									<a href={link} target="_blank" rel="noreferrer">
-										<Icon icon={iconClass} class="h-14 w-14" />
-									</a>
-								{/if}
-							{/each}
-						</div>
+		{:then teamMembers}
+			<ul class="grid grid-cols-1 gap-5 md:grid-cols-3">
+				{#each teamMembers as member}
+					<li class="flex w-full flex-col gap-3 px-10 md:px-2 lg:px-10">
+						<UserCard user={member} />
 					</li>
 				{/each}
 			</ul>
