@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { LOGO_URL } from '@utils';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
+	import { ProjectCard } from '@components';
 	export let data: PageData;
 
 	$: queryString = $page.url.searchParams.get('q') || '';
@@ -36,44 +36,7 @@
 		{@const projects = query.items}
 		<section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project}
-				<!-- TODO: export this to a card component  -->
-
-				<a
-					href={`/projects/${project.name.toLowerCase().replaceAll(' ', '-')}`}
-					title={project.name}
-					class="min-h-[400px]X borderX card block aspect-[12/15] w-full rounded-lg p-2"
-				>
-					<header class="bg-surface-50-900-token overflow-hidden rounded-[inherit]">
-						<div class="flex aspect-video items-center justify-center overflow-hidden">
-							{#if project.preview}
-								<img
-									class="h-auto max-w-full rounded-[inherit] object-cover"
-									src={project.preview}
-									alt={project.title}
-								/>
-							{:else}
-								<img
-									class="h-auto max-w-full rounded-[inherit] object-cover"
-									src={LOGO_URL}
-									alt={project.title}
-								/>
-							{/if}
-						</div>
-					</header>
-					<div class="p-4">
-						<section class="py-1">
-							{#each project.tags as tag}
-								<span class="variant-filled chip mb-2 mr-1">{tag}</span>
-							{/each}
-						</section>
-						<h3 class="text-secondary h4 line-clamp-2 font-bold uppercase">{project.name}</h3>
-					</div>
-					<footer class="card-footer pb-8">
-						<div class=" line-clamp-3">
-							{project.description}
-						</div>
-					</footer>
-				</a>
+				<ProjectCard {project} />
 			{/each}
 		</section>
 	{/await}
