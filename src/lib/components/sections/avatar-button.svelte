@@ -16,7 +16,7 @@
 <div>
 	<button class="btn px-0 [&>*]:pointer-events-none" use:popup={userActions}>
 		<Avatar
-			background="variant-filled-secondary"
+			background="bg-transparent"
 			initials="{user.firstName[0]}{user.lastName[0]}"
 			src={user.avatar}
 			rounded="rounded-full"
