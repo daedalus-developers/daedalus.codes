@@ -7,9 +7,22 @@
 html,
 body {
 	font-family: 'Inter Variable', sans-serif;
-	@apply h-full overflow-hidden;
 }
 
 * {
 	scroll-behavior: smooth;
+}
+
+.carta-viewer {
+	@apply prose mx-8 max-w-full py-4 dark:prose-invert;
+	/* Links */
+	@apply prose-a:text-blue-500 hover:prose-a:text-blue-400;
+
+	@apply prose-pre:w-fit;
+}
+
+.carta-renderer {
+	@apply prose mx-8 max-w-full py-4 dark:prose-invert;
+	/* Links */
+	@apply prose-a:text-blue-500 hover:prose-a:text-blue-400;
 }
