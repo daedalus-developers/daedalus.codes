@@ -3,10 +3,11 @@
 	import { superForm } from 'sveltekit-superforms/client';
 	import TextInput from './text-input.svelte';
 	import EmailInput from './email-input.svelte';
-	import { getToastStore } from '@skeletonlabs/skeleton';
+	import { Avatar, FileButton, getToastStore } from '@skeletonlabs/skeleton';
 	import { userFormSchema } from '@types';
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
+	import Icon from '@iconify/svelte';
 
 	const toast = getToastStore();
 	const {
@@ -15,7 +16,8 @@
 		constraints,
 		enhance: accountEnhance,
 		message,
-		delayed
+		delayed,
+		tainted
 	} = superForm($page.data.form, {
 		validators: userFormSchema,
 		onResult: async ({ result }) => {
@@ -25,7 +27,24 @@
 				});
 		}
 	});
+
+	let avatarInput: HTMLInputElement;
+
+	let avatarFile: File | undefined = undefined;
+
+	const onAvatarChange = (): void => {
+		avatarFile = avatarInput.files?.[0];
+	};
+
 	$: avatar = $page.data.user.avatar;
+
+	$: {
+		if (avatarFile) {
+			avatar = URL.createObjectURL(avatarFile);
+		} else {
+			avatar = $page.data.user.avatar;
+		}
+	}
 </script>
 
 <div class="mx-4">
@@ -38,22 +57,56 @@
 		{/if}
 	</div>
 	<div class="flex basis-1/2 flex-col items-center justify-center">
-		<img src={avatar} class="" width="200" height="200" alt="avatar" />
+		<Avatar
+			src={avatar}
+			initials={`${$form.firstName[0]}${$form.lastName[0]}`}
+			background="bg-surface-600"
+			rounded="rounded-none"
+			width="w-1/4"
+			cursor="cursor-pointer"
+		/>
 		<form
 			method="POST"
-			action="/api/actions/users?/updateAvatar"
+			action="/api/actions/users?/avatar"
+			enctype="multipart/form-data"
+			class="form"
 			use:enhance={() => {
 				return async ({ result }) => {
 					if (result.type === 'success') {
 						invalidateAll();
+						toast.trigger({
+							message: 'Avatar updated.'
+						});
+					} else if (result.type === 'failure') {
+						toast.trigger({
+							message: result.data + ''
+						});
 					}
 				};
 			}}
 		>
 			<div class="grid w-full max-w-sm items-center gap-1.5 text-center">
-				<input name="id" value={$form.id} class="hidden" />
-				<input type="file" name="avatar" accept="image/*" />
-				<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
+				<FileButton
+					name="avatar"
+					bind:fileInput={avatarInput}
+					type="file"
+					on:change={onAvatarChange}
+					accept="image/*">Select Avatar</FileButton
+				>
+				<div class="flex gap-2">
+					<input
+						disabled={!avatarFile}
+						type="submit"
+						class="variant-glass-primary btn my-4 w-full"
+						value={avatar ? 'Update' : 'Upload'}
+					/>
+					<button
+						type="submit"
+						formaction="/api/actions/users?/removeAvatar"
+						class="variant-glass-error btn my-4"
+						><Icon icon="ph:x" class="mr-1" /> Remove
+					</button>
+				</div>
 			</div>
 		</form>
 	</div>
@@ -96,6 +149,10 @@
 			errors={$errors.lastName}
 			constraints={$constraints.lastName}
 		/>
-		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed}>Update</button>
+		<button
+			class="variant-filled-primary btn my-4 w-full"
+			type="submit"
+			disabled={$delayed || !$tainted}>Update</button
+		>
 	</form>
 </div>

@@ -19,6 +19,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Daedalus</title>
+</svelte:head>
 <Drawers />
 <Modal components={ModalRegistry} />
 <Toast position="br" />
