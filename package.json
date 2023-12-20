@@ -28,10 +28,9 @@
 		"@skeletonlabs/skeleton": "^2.6.1",
 		"@skeletonlabs/tw-plugin": "^0.3.0",
 		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/adapter-cloudflare": "^3.0.0",
-		"@sveltejs/adapter-node": "^2.0.0",
-		"@sveltejs/enhanced-img": "^0.1.6",
-		"@sveltejs/kit": "^2.0.3",
+		"@sveltejs/adapter-node": "^2.0.1",
+		"@sveltejs/enhanced-img": "^0.1.7",
+		"@sveltejs/kit": "^2.0.4",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
@@ -41,7 +40,7 @@
 		"autoprefixer": "^10.4.14",
 		"carta-md": "^3.4.0",
 		"clsx": "^2.0.0",
-		"date-fns": "^3.0.0",
+		"date-fns": "^3.0.1",
 		"decode-formdata": "^0.5.0",
 		"dotenv": "^16.3.1",
 		"eslint": "^8.56.0",
@@ -73,6 +72,7 @@
 		"@fontsource-variable/inter": "^5.0.15",
 		"embla-carousel-autoplay": "8.0.0-rc15",
 		"embla-carousel-svelte": "8.0.0-rc15",
-		"isomorphic-dompurify": "^1.12.0"
+		"isomorphic-dompurify": "^1.13.0"
 	}
 }
+
