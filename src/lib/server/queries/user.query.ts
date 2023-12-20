@@ -24,13 +24,12 @@ export const queryUsersByRole = (role: string = '') =>
 			if (role === '') {
 				return collection;
 			} else if (role === 'user') {
-				collection.filter((data) => data.expand?.user?.role === 'user');
-				return collection;
+				return collection.filter((data) => data.expand?.user?.role === 'user');
 			} else if (role === 'team') {
-				collection.filter((data) => data.expand?.user?.role === 'team');
+				return collection.filter((data) => data.expand?.user?.role === 'team');
+			} else {
 				return collection;
 			}
-			return collection;
 		})
 		.then((collection) => {
 			collection.forEach((data) => {
