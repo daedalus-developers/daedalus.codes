@@ -3,7 +3,6 @@
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
 	import { primaryLinks, secondaryLinks } from '@utils';
-	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	const drawerStore = getDrawerStore();
 
@@ -40,13 +39,32 @@
 	<hr class="mt-auto" />
 	<nav class="px-3 py-5">
 		<ul>
-			<li class="flex justify-center">
-				<a href="/" on:click|preventDefault>
-					<LightSwitch class="rotate-90X" />
-					<!-- <span class="ms-2">Theme</span> -->
-				</a>
-			</li>
-			{#if !user}
+			{#if user}
+				<li>
+					<a href="/me/details" on:click={drawerClose}>
+						<Icon icon="mdi:details" class="text-2xl" />
+						<span class="ms-2">Details</span>
+					</a>
+				</li>
+				<li>
+					<a href="/me/account" on:click={drawerClose}>
+						<Icon icon="mdi:user" class="text-2xl" />
+						<span class="ms-2">Account</span>
+					</a>
+				</li>
+				<li>
+					<a href="/me/settings" on:click={drawerClose}>
+						<Icon icon="mdi:gear" class="text-2xl" />
+						<span class="ms-2">Settings</span>
+					</a>
+				</li>
+				<li>
+					<a href="/me" on:click={drawerClose}>
+						<Icon icon="mdi:user" class="text-2xl" />
+						<span class="ms-2">Me</span>
+					</a>
+				</li>
+			{:else}
 				<li>
 					<a href="/login" on:click={drawerClose}>
 						<Icon icon="material-symbols:login" class="text-2xl" />

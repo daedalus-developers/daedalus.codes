@@ -17,25 +17,25 @@ export const primaryLinks = [
 		is_protected: false,
 		iconifyCode: 'mdi:about-circle-outline',
 		name: 'About',
-		href: '/#about'
+		href: 'about'
 	},
 	{
 		is_protected: false,
 		iconifyCode: 'zondicons:portfolio',
 		name: 'Projects',
-		href: '/#projects'
+		href: 'projects'
 	},
 	{
 		is_protected: false,
 		iconifyCode: 'fluent:people-team-20-filled',
 		name: 'Team',
-		href: '/#team'
+		href: 'team'
 	},
 	{
 		is_protected: true,
 		iconifyCode: 'clarity:event-solid',
 		name: 'Events',
-		href: '/#events'
+		href: 'events'
 	}
 ];
 
@@ -53,16 +53,6 @@ export const secondaryLinks = [
 		href: '/contact'
 	}
 ];
-
-// const debounce = (callback: Function, wait = 300) => {
-// 	let timeout: ReturnType<typeof setTimeout>;
-//
-// 	return (...args: any[]) => {
-// 		clearTimeout(timeout);
-//
-// 		timeout = setTimeout(() => callback(...args), wait);
-// 	};
-// };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const debounce = <T extends (...args: any[]) => void>(

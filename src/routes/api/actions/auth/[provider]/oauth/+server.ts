@@ -1,6 +1,6 @@
 import { Collections } from '@types';
 import type { RequestHandler } from './$types';
-import { error, json, redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 	const { provider } = params;
@@ -10,28 +10,31 @@ export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 		redirect(303, '/login');
 	}
 
-	const redirectURL = `${url.origin}/${provider}/oauth`;
+	const redirectURL = `${url.origin}/api/actions/auth/${provider}/oauth`;
+
 	const pocketbaseState = cookies.get('state') ?? '';
 	const pocketbaseVerifier = cookies.get('verifier') ?? '';
 
 	const state = url.searchParams.get('state') ?? '';
 	const code = url.searchParams.get('code') ?? '';
 
-	if (state !== pocketbaseState) {
-		redirect(303, '/login');
-	}
+	// if (state !== pocketbaseState) {
+	// 	console.log(state);
+	// 	redirect(303, '/login');
+	// }
 
 	try {
+		await locals.DB.collection(Collections.Users).authRefresh();
 		await locals.DB.collection(Collections.Users).authWithOAuth2Code(
 			provider,
 			code,
 			pocketbaseVerifier,
 			redirectURL
 		);
+		console.log('hey');
+		redirect(303, '/me/settings');
 	} catch (err) {
-		error(404, err as unknown as string);
+		redirect(303, '/me/settings');
+		// error(404, err as unknown as string);
 	}
-	redirect(303, '/login');
-
-	return json({});
 };

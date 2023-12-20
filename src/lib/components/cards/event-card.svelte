@@ -32,7 +32,7 @@
 
 			<div
 				class={sx(
-					'card-footer flex items-center pt-2 text-center',
+					'card-footer flex items-center pt-2 text-center dark:bg-surface-50',
 					status === 'canceled' ? 'text-error-600' : 'text-black'
 				)}
 				>

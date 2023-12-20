@@ -55,7 +55,11 @@ export const userDetails = object({
 	created: string().datetime(),
 	updated: string().datetime(),
 	user: string(),
-	bio: string().optional(),
+	bio: string()
+		.max(120, {
+			message: 'your bio cannot exceed 120 characters'
+		})
+		.optional(),
 	details: string().optional(),
 	linkedin: string().optional(),
 	x: string().optional(),

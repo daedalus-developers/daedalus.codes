@@ -42,7 +42,7 @@
 				<p class="text-sm font-light">{bio || ''}</p>
 			</div>
 		</a>
-		<div class="card-footer flex items-center justify-center gap-2">
+		<div class="flex items-center justify-center gap-2 bg-transparent ring-transparent">
 			<a href={`mailto:${user.email}`}>
 				<Icon icon="mdi:at" width="24" />
 			</a>
