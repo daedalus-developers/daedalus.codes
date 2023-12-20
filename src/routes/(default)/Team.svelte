@@ -3,6 +3,14 @@
 	import Icon from '@iconify/svelte';
 	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
+	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	let options = {
+		loop: false,
+		dragFree: true
+	};
+
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	let plugins: any[] = [];
 </script>
 
 <section class="relative py-32">
@@ -55,13 +63,30 @@
 				{/each}
 			</ul>
 		{:then teamMembers}
-			<ul class="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-				{#each teamMembers as member}
-					<li class="flex w-full flex-col gap-3">
-						<UserCard user={member} />
-					</li>
-				{/each}
-			</ul>
+			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
+				<div class="embla__container">
+					{#each teamMembers as member}
+						<div
+							class="embla__slide w-full max-w-[85%] p-3 sm:max-w-[50%] md:max-w-[33.33%] lg:max-w-[25%]"
+						>
+							<UserCard user={member} />
+						</div>
+					{/each}
+				</div>
+			</div>
 		{/await}
 	</Container>
 </section>
+
+<style>
+	.embla {
+		overflow: hidden;
+	}
+	.embla__container {
+		display: flex;
+	}
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+</style>

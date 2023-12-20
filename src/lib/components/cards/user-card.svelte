@@ -23,7 +23,8 @@
 {#if expand?.user}
 	{@const { user } = expand}
 	<div
-		class="card rounded-lg border-transparent bg-surface-200-700-token dark:bg-surface-200-700-token p-3 shadow-none ring-transparent dark:ring-transparent min-h-full"
+		class="card rounded-none border-transparent bg-transparent shadow-none
+    ring-transparent dark:bg-transparent dark:ring-transparent"
 	>
 		<a href={`/${user.username}`}>
 			<div class="flex justify-center rounded-none">
@@ -33,7 +34,7 @@
 					background="bg-surface-600"
 					rounded="rounded-lg"
 					width="w-full"
-					cursor="cursor-pointer"
+					cursor="cursor-pointer aspect-[1/1.17]"
 				/>
 			</div>
 			<div class="flex flex-col gap-1 py-4 text-center">

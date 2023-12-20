@@ -14,10 +14,10 @@
 	setupViewTransition();
 
 	// Use onNavigate instead of afterNavigate so it will work on url fragment identifier eg #about
-	onNavigate(() => {
-		let elemPage: HTMLElement | null = document.querySelector('#page');
-		elemPage!.scrollTop = 0;
-	});
+	// onNavigate(() => {
+	// 	let elemPage: HTMLElement | null = document.querySelector('#page');
+	// 	elemPage!.scrollTop = 0;
+	// });
 </script>
 
 <svelte:head>

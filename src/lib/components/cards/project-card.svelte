@@ -8,7 +8,7 @@
 </script>
 
 <a href={`/projects/${name.toLowerCase().replaceAll(' ', '-')}`}>
-	<div class="card rounded-none dark:bg-surface-800-100-token dark:text-surface-100-800-token min-h-full">
+	<div class="card rounded-none dark:bg-surface-800-100-token dark:text-surface-100-800-token">
 		<img src={preview ? preview : ASSET_URL + 'daedalus.png'} alt={name} 
 			class="rounded-none aspect-video relative w-full h-full object-cover border-b-2 border-neutral-800"/>
 		<div class="mx-4 flex flex-col gap-1 py-3">

@@ -3,8 +3,8 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<AppShell scrollbarGutter="auto">
-	<svelte:fragment slot="header">
+<AppShell scrollbarGutter="auto" regionPage="relative" slotPageHeader="sticky top-0 z-10">
+	<svelte:fragment slot="pageHeader">
 		<Navbar />
 	</svelte:fragment>
 	<slot />

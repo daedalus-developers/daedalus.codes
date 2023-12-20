@@ -63,7 +63,10 @@
 						<div
 							class="embla__slide w-full max-w-[85%] p-3 sm:max-w-[50%] md:max-w-[45%] lg:max-w-[33.33%]"
 						>
+						<div class="dark:bg-surface-800-100-token h-full">
 							<ProjectCard {project} />
+						</div>
+							
 						</div>
 					{/each}
 				</div>
