@@ -35,7 +35,7 @@
 			{#each primaryLinks as link}
 				{#if link.href !== '/'}
 					<a
-						href={link.href}
+						href={`#${link.href}`}
 						class="hidden border-y-4
 					border-transparent md:flex md:items-center
 					{$page.url.pathname === link.href ? 'active' : ''}"
