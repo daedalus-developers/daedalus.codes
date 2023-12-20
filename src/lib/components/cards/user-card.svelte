@@ -37,12 +37,20 @@
 					cursor="cursor-pointer aspect-[1/1.17]"
 				/>
 			</div>
-			<div class="flex flex-col gap-1 py-4 text-center">
-				<p class="text-xl font-bold">{user.firstName} {user.lastName}</p>
-				<p class="text-sm font-light">{bio || ''}</p>
+			<div class="flex flex-col gap-1 py-4 text-center borderX">
+				<p class="text-xl font-bold mb-2">{user.firstName} {user.lastName}</p>
+				<div class="min-h-[50px] flex flex-col gap-2">
+					{#if bio}
+						<p class="text-sm font-light line-clamp-2 px-2">{bio}</p>
+					{:else}
+						<div class="placeholder"></div>
+						<div class="placeholder"></div>
+
+					{/if}
+				</div>
 			</div>
 		</a>
-		<div class="flex items-center justify-center gap-2 bg-transparent ring-transparent">
+		<div class="flex items-center justify-center gap-2 bg-transparent ring-transparent borderX">
 			<a href={`mailto:${user.email}`}>
 				<Icon icon="mdi:at" width="24" />
 			</a>
