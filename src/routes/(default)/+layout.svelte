@@ -3,10 +3,13 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<AppShell scrollbarGutter="auto" regionPage="relative" slotPageHeader="sticky top-0 z-[1000]">
-	<svelte:fragment slot="pageHeader">
+<div class="sticky top-0 z-20">
+	<Navbar />
+</div>
+<AppShell scrollbarGutter="auto" regionPage="relative" slotPageHeader="sticky top-0 z-20">
+	<!-- <svelte:fragment slot="pageHeader">
 		<Navbar />
-	</svelte:fragment>
+	</svelte:fragment> -->
 	<slot />
 	<svelte:fragment slot="pageFooter">
 		<Footer />
