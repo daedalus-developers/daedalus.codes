@@ -34,9 +34,12 @@
 			</p>
 		</div>
 		{@const projects = query.items}
-		<section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+		<section class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 			{#each projects as project}
-				<ProjectCard {project} />
+				<div class="card card-hover">
+					<ProjectCard {project} />
+				</div>
 			{/each}
 		</section>
 	{/await}
