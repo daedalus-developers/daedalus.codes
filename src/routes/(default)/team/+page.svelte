@@ -1,7 +1,20 @@
 <script lang="ts">
 	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
+	import { ASSET_URL } from '@utils';
 </script>
+
+<svelte:head>
+	<title>Daedalus - Team</title>
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Daedalus - Team" />
+	<meta
+		property="og:description"
+		content={`We build digital solutions that are both beautiful, functional, efficient and user-friendly.
+				We aim to inspire through our work, leaving a lasting impression on your users.`}
+	/>
+	<meta property="og:image" content={ASSET_URL + 'daedalus.png'} />
+</svelte:head>
 
 <section class="bg-transparent py-20 dark:bg-surface-100-800-token">
 	<Container>

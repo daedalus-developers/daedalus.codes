@@ -2,12 +2,25 @@
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 	import { ProjectCard } from '@components';
+	import { ASSET_URL } from '@utils';
 	export let data: PageData;
 
 	$: queryString = $page.url.searchParams.get('q') || '';
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	$: currentPerPage = $page.url.searchParams.get('perPage') || '10';
 </script>
+
+<svelte:head>
+	<title>Daedalus - Projects</title>
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Daedalus - Projects" />
+	<meta
+		property="og:description"
+		content={`We build digital solutions that are both beautiful, functional, efficient and user-friendly.
+				We aim to inspire through our work, leaving a lasting impression on your users.`}
+	/>
+	<meta property="og:image" content={ASSET_URL + 'daedalus.png'} />
+</svelte:head>
 
 <!-- SEARCH BOX -->
 <div class="py-5 pt-20">
