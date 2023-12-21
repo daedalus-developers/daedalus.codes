@@ -7,7 +7,6 @@
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { ModalRegistry, Drawers } from '@components';
 	import { onNavigate } from '$app/navigation';
-	import { ASSET_URL } from '@utils';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 	initializeStores();
