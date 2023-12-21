@@ -1,12 +1,12 @@
 import type { LayoutServerLoad } from './$types';
 import { queryUser } from '@server/queries';
 
-export const load: LayoutServerLoad = ({ locals }) => {
+export const load: LayoutServerLoad = async ({ locals }) => {
 	if (!locals.user) {
 		return {};
 	} else {
 		return {
-			user: queryUser(locals.user.id)
+			user: await queryUser(locals.user.id)
 		};
 	}
 };
