@@ -14,25 +14,28 @@ export const queryUser = (userId: string) =>
 			return undefined;
 		});
 
-export const queryUsersByRole = (role: string = '') =>
+export const queryUsersByRole = (page: number = 1, perPage: number = 10, role: string = '') =>
 	db
 		.collection(Collections.UsersDetails)
-		.getFullList({
+		.getList(page, perPage, {
+			sort: '-created',
 			expand: 'user'
 		})
 		.then((collection) => {
 			if (role === '') {
 				return collection;
 			} else if (role === 'user') {
-				return collection.filter((data) => data.expand?.user?.role === 'user');
+				collection.items = collection.items.filter((data) => data.expand?.user?.role === 'user');
+				return collection;
 			} else if (role === 'team') {
-				return collection.filter((data) => data.expand?.user?.role === 'team');
+				collection.items = collection.items.filter((data) => data.expand?.user?.role === 'team');
+				return collection;
 			} else {
 				return collection;
 			}
 		})
 		.then((collection) => {
-			collection.forEach((data) => {
+			collection.items = collection.items.map((data) => {
 				if (data.expand?.user?.avatar)
 					data.expand.user.avatar = db.files.getUrl(data.expand.user, data.expand.user.avatar, {
 						thumb: '300x350'
