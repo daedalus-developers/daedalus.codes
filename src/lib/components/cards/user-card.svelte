@@ -22,7 +22,7 @@
 
 {#if expand?.user}
 	{@const { user } = expand}
-	<div class="block hover:scale-125">
+	<div class="block hover:scale-105">
 		<a href={`/${user.username}`}>
 			<div class="flex justify-center rounded-none bg-surface-600">
 				<Avatar

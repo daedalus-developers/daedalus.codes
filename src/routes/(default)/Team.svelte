@@ -54,7 +54,8 @@
 					</li>
 				{/each}
 			</ul>
-		{:then teamMembers}
+		{:then query}
+			{@const teamMembers = query.items}
 			<ul class="grid grid-cols-1 gap-5 md:grid-cols-3">
 				{#each teamMembers as member}
 					<li class="flex w-full flex-col gap-3 px-10 md:px-2 lg:px-10">
