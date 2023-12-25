@@ -1,7 +1,11 @@
-import adapter from '@sveltejs/adapter-auto';
+import 'dotenv/config';
+import adapterAuto from '@sveltejs/adapter-auto';
+import adapterNode from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const dev = process.env.NODE_ENV === 'development' ? false : true;
+const adapter = process.env.ADAPTER === 'node' ? adapterNode : adapterAuto;
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
