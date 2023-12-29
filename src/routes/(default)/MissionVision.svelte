@@ -3,7 +3,7 @@
 	import { Container } from '@components/utilities';
 </script>
 
-<section class="bg-transparent py-32 dark:bg-surface-100-800-token">
+<section class="bg-transparent py-12 dark:bg-surface-100-800-token">
 	<Container>
 		<div class="embla" use:emblaCarouselSvelte>
 			<div class="embla__container">

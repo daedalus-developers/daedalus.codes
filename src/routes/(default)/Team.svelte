@@ -5,9 +5,9 @@
 	import { page } from '$app/stores';
 </script>
 
-<section class="relative py-32">
+<section class="relative py-12">
 	<div
-		class="bg-surface-100-800-token absolute bottom-[unset] left-0 top-0 -z-10 h-[50%] w-full dark:bottom-0 dark:top-[unset]"
+		class="bg-surface-100-900-token absolute bottom-[unset] left-0 top-0 -z-10 h-[50%] w-full dark:bottom-0 dark:top-[unset]"
 	></div>
 	<Container addClass="flex flex-col gap-10">
 		<div class="flex flex-col md:flex-row">

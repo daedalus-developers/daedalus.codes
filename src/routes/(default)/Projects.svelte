@@ -15,7 +15,7 @@
 	const dummyCardCount = 6;
 </script>
 
-<section class="py-32 dark:bg-surface-100-800-token">
+<section class="py-12 dark:bg-surface-100-800-token">
 	<Container>
 		<div class="mb-20 flex">
 			<h2
