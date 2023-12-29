@@ -11,7 +11,7 @@
 	<div
 		class="absolute bottom-32 left-0 z-0 h-52 w-60 rounded-full bg-secondary-800 blur-[150px] filter lg:h-80 lg:w-96"
 	></div>
-	<Container addClass="flex QQQ flex-col md:flex-row relative text-neutral-100 py-12">
+	<Container addClass="flex QQQ flex-col md:flex-row relative text-neutral-100 py-6">
 		<div class="lg:gap-10X flex w-full flex-col justify-center text-center md:text-left">
 			<h1 class="mb-10 text-5xl font-black lg:text-7xl">Carry the world with our craftmanship</h1>
 			<p class="mb-10">
