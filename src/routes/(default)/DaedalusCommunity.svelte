@@ -4,7 +4,7 @@
 	import { ASSET_URL } from '@utils';
 </script>
 
-<section class="bg-surface-100-800-token py-32 dark:bg-transparent">
+<section class="bg-surface-100-900-token py-20 dark:bg-transparent">
 	<Container>
 		<div class="flex flex-wrap">
 			<div class="w-full pb-20 md:max-w-[50%]">
@@ -51,14 +51,7 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="relative -z-10 mt-[-35%] w-full opacity-70 md:max-w-[50%]">
-				<img
-					src={`${ASSET_URL}saly.png`}
-					alt="thumbnail"
-					class="mx-auto ms-auto block max-w-[500px] md:hidden"
-				/>
-			</div>
+			<img src={`${ASSET_URL}saly.png`} alt="thumbnail" class="max-w-1/2 mx-auto md:hidden" />
 		</div>
 	</Container>
 </section>
