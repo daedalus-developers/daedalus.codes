@@ -35,8 +35,8 @@
 
 				{#if result.events}
 					<!-- <p>Events are available</p> -->
-					{@const events = result.events.items}
-					<EventsComponent eventsData={events} />
+					<!-- {@const events = result.events.items} -->
+					<!-- <EventsComponent eventsData={events} /> -->
 				{/if}
 			{/await}
 
