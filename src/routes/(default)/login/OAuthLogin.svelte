@@ -34,12 +34,13 @@
     <!-- <pre>{JSON.stringify(providers, null, 2)}</pre> -->
     {#each providers as provider}
     {@const theme = providerThemeColors.find(t => t.name === provider.name)}
-    <form method="POST" action="/api/actions/auth?/{provider.name}" 
+    <form method="POST" action="/api/actions/auth?/oauth" 
       class="
         {providers.length === 1 ? 'w-full' : ''}
         {providers.length === 2 ? 'w-[calc(50%-0.5rem)]' : ''}
         {providers.length === 3 ? 'w-[calc(33.33%-0.5rem)]' : ''}
       ">
+      <input type="text" name="target" value="{provider.name}" style="display:none;">
       <button 
         title="Login with {provider.displayName}"
         class="btn variant-filled gap-x-2 rounded-none w-full"
