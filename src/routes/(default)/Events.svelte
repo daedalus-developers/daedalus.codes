@@ -5,7 +5,7 @@
 	import { EventCard } from '@components';
 </script>
 
-<section class="relative z-10 bg-transparent py-20 dark:bg-surface-100-800-token">
+<section class="py-20 dark:bg-surface-200-700-token relative z-10">
 	<Container>
 		<div class="mb-20 flex">
 			<h2

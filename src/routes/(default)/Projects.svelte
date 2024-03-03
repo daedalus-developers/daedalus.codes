@@ -15,16 +15,16 @@
 	const dummyCardCount = 6;
 </script>
 
-<section class="py-12 dark:bg-surface-100-800-token">
+<section class="py-20 dark:bg-surface-200-700-token">
 	<Container>
 		<div class="mb-20 flex">
 			<h2
 				class="w-full text-center text-5xl font-black md:w-auto md:flex-none md:text-left md:text-6xl"
 			>
-				Projects <span class="text-primary-600">.</span>
+				Projects <span class="text-primary-700">.</span>
 			</h2>
 			<span class="ms-5 hidden w-[60%] border-b-2 border-neutral-500 md:block"></span>
-			<a href="/projects" class="variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+			<a href="/projects" class="dark:variant-filled-primary btn mx-auto hidden gap-2 md:flex">
 				View all
 				<Icon icon="carbon:arrow-right" class="text-2xl" />
 			</a>
