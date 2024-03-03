@@ -18,7 +18,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 		event.locals.DB.authStore.clear();
 	}
 	const response = await resolve(event);
-	response.headers.set('set-cookie', event.locals.DB.authStore.exportToCookie());
+
+	// response.headers.set('set-cookie', event.locals.DB.authStore.exportToCookie());
+	response.headers.append('set-cookie', event.locals.DB.authStore.exportToCookie({ 
+    sameSite: 'Lax'
+    })
+  );
 
 	return response;
 };
