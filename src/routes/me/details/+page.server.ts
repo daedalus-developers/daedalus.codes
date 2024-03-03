@@ -5,7 +5,7 @@ import { superValidate } from 'sveltekit-superforms/server';
 
 export const load: PageServerLoad = async ({ parent, locals }) => {
 	await parent();
-
+	console.log(Collections.UsersDetails)
 	const details = await db
 		.collection(Collections.UsersDetails)
 		.getFirstListItem(`user="${locals.user?.id}"`);
