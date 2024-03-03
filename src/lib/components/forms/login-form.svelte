@@ -21,10 +21,10 @@
 	});
 </script>
 
-<div class="flex flex-col gap-4">
+<div class="flex flex-col">
 	<div class="mx-auto py-4">
-		<img src={`${ASSET_URL}logo.png`} alt="Daedalus Logo" />
-		<h1 class="h2">Login</h1>
+		<!-- <img src={`${ASSET_URL}logo.png`} alt="Daedalus Logo" /> -->
+		<!-- <h1 class="h2">Login</h1> -->
 	</div>
 	<div class="form-control mx-auto min-w-[50%] text-center">
 		{#if $message}
@@ -34,7 +34,7 @@
 	<form
 		method="POST"
 		action="/api/actions/auth?/legacy"
-		class="form mx-auto min-w-[50%]"
+		class="form space-y-5 borderX"
 		use:enhance
 	>
 		<TextInput
@@ -53,7 +53,9 @@
 			errors={$errors.password}
 			constraints={$constraints.password}
 		/>
-		<button class="variant-filled-primary btn my-4 w-full">Login</button>
+		<div class="mt-5">
+			<button class="variant-filled btn my-4 w-full">Login</button>
+		</div>
 	</form>
 	<!-- <div class=""> -->
 	<!-- 	<div class="logo-cloud [&>.logo-item]:variant-ghost-secondary justify-center"> -->
@@ -66,6 +68,6 @@
 	<!-- 	</div> -->
 	<!-- </div> -->
 	<p class="text-center">
-		No account yet? Register <a class="underline" href="/register">here</a>.
+		No account yet? <a class="font-bold hover:underline" href="/register">Register here</a>.
 	</p>
 </div>
