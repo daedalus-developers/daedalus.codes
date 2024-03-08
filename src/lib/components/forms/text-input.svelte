@@ -11,23 +11,26 @@
 	// export let tainted: unknown | undefined = undefined;
 </script>
 
-<label class="label">
-	{#if label}<span class="text-sm font-semibold leading-6 dark:text-white">{label}</span><br />{/if}
-	<input
-		class={sx('input-bordered input', errors ? 'input-error' : '')}
-		type="text"
-		bind:value
-		aria-invalid={errors ? 'true' : undefined}
-		{...constraints}
-		{...$$restProps}
-	/>
-</label>
-
-{#if errors}
-	{#each errors as error}
-		<p class="mt-1 text-sm text-error-500">{error}</p>
-	{/each}
-{/if}
-{#if description && !errors}
-	<span class="text-sm text-tertiary-700">{description}</span>
-{/if}
+<div class="flex flex-col gap-1">
+	<label class="label">
+		{#if label}<span class="text-sm font-semibold leading-6 dark:text-white">{label}</span><br />{/if}
+		<input
+			class={sx('input-bordered input', errors ? 'input-error' : '')}
+			type="text"
+			bind:value
+			aria-invalid={errors ? 'true' : undefined}
+			{...constraints}
+			{...$$restProps}
+		/>
+	</label>
+	
+	{#if errors}
+		{#each errors as error}
+			<p class="mt-1 text-xs text-error-500">{error}</p>
+		{/each}
+	{/if}
+	{#if description && !errors}
+		<span class="text-xs text-tertiary-700">{description}</span>
+	{/if}
+	
+</div>

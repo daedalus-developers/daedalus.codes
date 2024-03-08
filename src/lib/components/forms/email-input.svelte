@@ -11,21 +11,25 @@
 	// export let tainted: unknown | undefined = undefined;
 </script>
 
-<label class="label">
-	{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
-	<input
-		class={sx('input-bordered input w-full', errors ? 'input-error' : '')}
-		type="email"
-		bind:value
-		aria-invalid={errors ? 'true' : undefined}
-		{...constraints}
-		{...$$restProps}
-	/>
-</label>
 
-{#if errors}
-	<span class="mt-1 text-sm text-error-500">{errors}</span>
-{/if}
-{#if description && !errors}
-	<span class="text-sm text-tertiary-700">{description}</span>
-{/if}
+<div class="flex flex-col gap-1">
+	<label class="label">
+		{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
+		<input
+			class={sx('input-bordered input w-full', errors ? 'input-error' : '')}
+			type="email"
+			bind:value
+			aria-invalid={errors ? 'true' : undefined}
+			{...constraints}
+			{...$$restProps}
+		/>
+	</label>
+	
+	{#if errors}
+		<span class="mt-1 text-sm text-error-500">{errors}</span>
+	{/if}
+	{#if description && !errors}
+		<span class="text-sm text-tertiary-700">{description}</span>
+	{/if}
+</div>
+

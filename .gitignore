@@ -11,4 +11,5 @@ vite.config.ts.timestamp-*
 /pb/pb_data*
 /pb/pb_public
 /pb/pocketbase*
+/pb/sampledata
 

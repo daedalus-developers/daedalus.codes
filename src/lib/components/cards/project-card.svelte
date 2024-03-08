@@ -23,7 +23,7 @@
 				{/each}
 			</div>
 			<h3
-				class="mx-4 text-lg font-bold uppercase tracking-wider text-primary-700 sm:text-xl dark:text-primary-700"
+				class="mx-4 text-lg font-bold uppercase tracking-wider text-primary-700 sm:text-xl dark:text-primary-500"
 			>
 				{name}
 			</h3>

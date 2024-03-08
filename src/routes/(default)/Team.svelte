@@ -5,7 +5,7 @@
 	import { page } from '$app/stores';
 </script>
 
-<section class="relative py-12">
+<section class="py-20 bg-surface-100-800-token dark:bg-transparent relative">
 	<div
 		class="bg-surface-100-900-token absolute bottom-[unset] left-0 top-0 -z-10 h-[50%] w-full dark:bottom-0 dark:top-[unset]"
 	></div>
@@ -18,7 +18,7 @@
 			</h2>
 			<span class="ms-5 hidden w-full border-b-2 border-neutral-500 md:block"></span>
 			<div class="w-64">
-				<a href="/team" class="variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+				<a href="/team" class="bg-primary-600 dark:variant-filled-primary btn mx-auto hidden gap-2 md:flex">
 					View All Team
 					<Icon icon="carbon:arrow-right" class="text-2xl" />
 				</a>

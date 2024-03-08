@@ -19,11 +19,8 @@
 	});
 </script>
 
-<div class="flex flex-col gap-4">
-	<div class="mx-auto py-4">
-		<h1 class="h2">Register</h1>
-	</div>
-	<div class="form-control mx-auto min-w-[50%] text-center">
+<div class="flex flex-col gap-8 w-full">
+	<div class="form-control mx-auto text-center">
 		{#if $message}
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
@@ -31,18 +28,10 @@
 	<form
 		method="POST"
 		action="/api/actions/auth?/register"
-		class="form mx-auto min-w-[50%]"
+		class="form mx-auto w-full space-y-8"
 		use:enhance
 	>
-		<TextInput
-			name="username"
-			label="Username"
-			description="we will @ you with this"
-			placeholder="johnwick"
-			bind:value={$form.username}
-			errors={$errors.username}
-			constraints={$constraints.username}
-		/>
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 		<TextInput
 			name="firstName"
 			label="First name"
@@ -58,7 +47,20 @@
 			bind:value={$form.lastName}
 			errors={$errors.lastName}
 			constraints={$constraints.lastName}
+		/>	
+	</div>
+
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<TextInput
+			name="username"
+			label="Username"
+			description="we will @ you with this"
+			placeholder="johnwick"
+			bind:value={$form.username}
+			errors={$errors.username}
+			constraints={$constraints.username}
 		/>
+		
 		<EmailInput
 			name="email"
 			label="Email"
@@ -67,6 +69,9 @@
 			errors={$errors.email}
 			constraints={$constraints.email}
 		/>
+	</div>
+
+
 		<PasswordInput
 			name="password"
 			label="Password"
@@ -83,9 +88,11 @@
 			errors={$errors.passwordConfirm}
 			constraints={$constraints.passwordConfirm}
 		/>
-		<button class="variant-filled-primary btn my-4 w-full">Register</button>
+		<div class="mt-5 text-end">
+			<button class="variant-filled-primary btn my-4">Register</button>
+		</div>
 	</form>
 	<p class="text-center">
-		Already have an account? Login <a class="underline" href="/login">here</a>.
+		Already have an account?  <a class="font-bold hover:underline" href="/login">Login now</a>.
 	</p>
 </div>
