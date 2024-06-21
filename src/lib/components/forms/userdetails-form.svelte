@@ -11,7 +11,6 @@
 	import { slash } from '@cartamd/plugin-slash';
 	import { code } from '@cartamd/plugin-code';
 	import 'carta-md/default.css';
-	import 'carta-md/light.css';
 	import '@cartamd/plugin-emoji/default.css';
 	import '@cartamd/plugin-slash/default.css';
 	import '@cartamd/plugin-attachment/default.css';
