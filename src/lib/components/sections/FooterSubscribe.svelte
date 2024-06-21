@@ -11,16 +11,19 @@
 	const toast = getToastStore();
 
 	// TODO: use correct form action sent by server
-	const { form, errors, constraints, enhance, delayed, tainted } = superForm($page.data.form, {
-		validators: zod(subscriberFormSchema),
-		onResult: async ({ result }) => {
-			if (result.type === 'success')
-				toast.trigger({
-					message: result.data?.message,
-					background: 'variant-filled-success'
-				});
+	const { form, errors, constraints, enhance, delayed, tainted } = superForm(
+		$page.data.subscriberForm,
+		{
+			validators: zod(subscriberFormSchema),
+			onResult: async ({ result }) => {
+				if (result.type === 'success')
+					toast.trigger({
+						message: result.data?.message,
+						background: 'variant-filled-success'
+					});
+			}
 		}
-	});
+	);
 </script>
 
 <section class="py-24">
