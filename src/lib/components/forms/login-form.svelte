@@ -5,6 +5,8 @@
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
 	import { getToastStore } from '@skeletonlabs/skeleton';
+	//TODO: Remove unnecessary imports and comments
+
 	import { ASSET_URL } from '@utils';
 	// import Icon from '@iconify/svelte';
 	const toast = getToastStore();
@@ -31,12 +33,7 @@
 			<div class="variant-ghost-error p-4">{$message}</div>
 		{/if}
 	</div>
-	<form
-		method="POST"
-		action="/api/actions/auth?/legacy"
-		class="form space-y-5 borderX"
-		use:enhance
-	>
+	<form method="POST" action="/api/actions/auth?/legacy" class="form borderX space-y-5" use:enhance>
 		<TextInput
 			name="key"
 			label="Username or Email"
