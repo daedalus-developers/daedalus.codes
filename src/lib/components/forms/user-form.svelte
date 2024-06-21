@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { superForm } from 'sveltekit-superforms/client';
 	import TextInput from './text-input.svelte';
 	import EmailInput from './email-input.svelte';
@@ -9,7 +8,10 @@
 	import { invalidateAll } from '$app/navigation';
 	import Icon from '@iconify/svelte';
 	import { zod } from 'sveltekit-superforms/adapters';
+	import type { PageServerData } from '../../../routes/me/account/$types';
+	import { page } from '$app/stores';
 
+	let data = $state($page.data) as PageServerData;
 	const toast = getToastStore();
 	const {
 		form,
@@ -19,7 +21,7 @@
 		message,
 		delayed,
 		tainted
-	} = superForm($page.data.form, {
+	} = superForm(data.form, {
 		validators: zod(userFormSchema),
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
@@ -29,23 +31,15 @@
 		}
 	});
 
-	let avatarInput: HTMLInputElement;
+	let avatarInput = $state<HTMLInputElement>();
 
-	let avatarFile: File | undefined = undefined;
+	let avatarFile = $state<File>();
 
 	const onAvatarChange = (): void => {
-		avatarFile = avatarInput.files?.[0];
+		avatarFile = avatarInput?.files?.[0];
 	};
 
-	$: avatar = $page.data.user.avatar;
-
-	$: {
-		if (avatarFile) {
-			avatar = URL.createObjectURL(avatarFile);
-		} else {
-			avatar = $page.data.user.avatar;
-		}
-	}
+	let avatar = $derived(avatarFile ? URL.createObjectURL(avatarFile) : data.user.avatar);
 </script>
 
 <div class="mx-4">
