@@ -12,4 +12,4 @@ vite.config.ts.timestamp-*
 /pb/pb_public
 /pb/pocketbase*
 /pb/sampledata
-/pb/migrations
+/pb/pb_migrations/
