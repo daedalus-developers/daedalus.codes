@@ -13,3 +13,4 @@ vite.config.ts.timestamp-*
 /pb/pocketbase*
 /pb/sampledata
 /pb/pb_migrations/
+src/routes/test
