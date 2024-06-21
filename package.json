@@ -53,7 +53,7 @@
 		"prettier": "^3.0.0",
 		"prettier-plugin-svelte": "^3.1.2",
 		"prettier-plugin-tailwindcss": "^0.5.9",
-		"svelte": "^4.2.7",
+		"svelte": "5.0.0-next.162",
 		"svelte-check": "^3.6.0",
 		"sveltekit-search-params": "^1.1.1",
 		"sveltekit-superforms": "^1.12.0",
@@ -75,5 +75,8 @@
 		"embla-carousel-autoplay": "8.0.0-rc15",
 		"embla-carousel-svelte": "8.0.0-rc15",
 		"isomorphic-dompurify": "^1.13.0"
+	},
+	"overrides": {
+		"svelte": "5.0.0-next.162"
 	}
 }
