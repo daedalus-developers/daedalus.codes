@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { page } from '$app/stores';
 	import { LoginForm } from '@components';
 	import OAuthLogin from './OAuthLogin.svelte';
 	import { ASSET_URL } from '@utils';
-	const providers = $page.data.authProviders;
+
+	const { data } = $props();
+	const providers = data.authProviders;
 </script>
 
 <section class="h-screen w-screen">

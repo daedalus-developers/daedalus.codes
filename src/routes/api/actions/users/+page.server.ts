@@ -5,10 +5,11 @@ import { fail } from '@sveltejs/kit';
 import type { ClientResponseError } from 'pocketbase';
 import { INVALID_CREDENTIALS, SOMETHING_WENT_WRONG } from '@utils';
 import { db } from '@server';
+import { zod } from 'sveltekit-superforms/adapters';
 
 export const actions: Actions = {
 	account: async ({ request, locals }) => {
-		const form = await superValidate(request, userFormSchema);
+		const form = await superValidate(request, zod(userFormSchema));
 		if (!form.valid) return fail(400, { form });
 		try {
 			if (locals.user) {
@@ -26,7 +27,7 @@ export const actions: Actions = {
 		}
 	},
 	details: async ({ request, locals }) => {
-		const form = await superValidate(request, userDetailsFormSchema);
+		const form = await superValidate(request, zod(userDetailsFormSchema));
 
 		if (!form.valid) return fail(400, { form });
 

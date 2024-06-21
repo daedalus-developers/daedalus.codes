@@ -1,26 +1,26 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { EmailInput } from '@components';
 	import { Container } from '@components/utilities/';
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import { subscriberFormSchema } from '@types';
 	import { ASSET_URL } from '@utils';
-	import { superForm, superValidateSync } from 'sveltekit-superforms/client';
+	import { superForm } from 'sveltekit-superforms/client';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	const toast = getToastStore();
 
-	const { form, errors, constraints, enhance, delayed, tainted } = superForm(
-		superValidateSync(subscriberFormSchema),
-		{
-			validators: subscriberFormSchema,
-			onResult: async ({ result }) => {
-				if (result.type === 'success')
-					toast.trigger({
-						message: result.data?.message,
-						background: 'variant-filled-success'
-					});
-			}
+	// TODO: use correct form action sent by server
+	const { form, errors, constraints, enhance, delayed, tainted } = superForm($page.data.form, {
+		validators: zod(subscriberFormSchema),
+		onResult: async ({ result }) => {
+			if (result.type === 'success')
+				toast.trigger({
+					message: result.data?.message,
+					background: 'variant-filled-success'
+				});
 		}
-	);
+	});
 </script>
 
 <section class="py-24">

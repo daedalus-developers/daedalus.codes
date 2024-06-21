@@ -1,9 +1,10 @@
 import type { PageServerLoad } from './$types';
-import { superValidate } from 'sveltekit-superforms/server';
+import { superValidate } from 'sveltekit-superforms';
 import { loginSchema } from '@types';
 import { redirect } from '@sveltejs/kit';
+import { zod } from 'sveltekit-superforms/adapters';
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ request, locals }) => {
 	if (locals.DB.authStore.isValid) redirect(307, '/me');
 
 	// Get OAuth methods available
@@ -13,6 +14,6 @@ export const load: PageServerLoad = async ({ locals }) => {
 	// console.log(authProviders);
 	return {
 		authProviders: (await locals.DB.collection('users').listAuthMethods())?.authProviders,
-		form: await superValidate(loginSchema)
+		form: await superValidate(zod(loginSchema), { id: 'login' })
 	};
 };

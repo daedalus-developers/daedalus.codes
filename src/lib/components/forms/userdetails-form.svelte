@@ -17,6 +17,7 @@
 	import '@cartamd/plugin-attachment/default.css';
 	// import '@cartamd/plugin-code/default.css';
 	import purifier from 'isomorphic-dompurify';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	const carta = new Carta({
 		sanitizer: purifier.sanitize,
@@ -44,7 +45,7 @@
 	const { form, errors, constraints, enhance, message, delayed, tainted } = superForm(
 		$page.data.form,
 		{
-			validators: userDetailsFormSchema,
+			validators: zod(userDetailsFormSchema),
 			onResult: async ({ result }) => {
 				if (result.type === 'success')
 					toast.trigger({

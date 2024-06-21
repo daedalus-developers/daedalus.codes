@@ -5,10 +5,11 @@ import type { Actions } from './$types';
 import type { ClientResponseError } from 'pocketbase';
 import { SOMETHING_WENT_WRONG } from '@utils';
 import { db } from '@server';
+import { zod } from 'sveltekit-superforms/adapters';
 
 export const actions: Actions = {
 	contact: async ({ request }) => {
-		const form = await superValidate(request, contactFormSchema);
+		const form = await superValidate(request, zod(contactFormSchema));
 		if (!form.valid) return fail(400, { form });
 
 		try {
@@ -29,7 +30,7 @@ export const actions: Actions = {
 		});
 	},
 	subscribe: async ({ request }) => {
-		const form = await superValidate(request, subscriberFormSchema);
+		const form = await superValidate(request, zod(subscriberFormSchema));
 		if (!form.valid) return fail(400, { form });
 		try {
 			await db.collection(Collections.Subscribers).create({

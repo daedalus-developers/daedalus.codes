@@ -8,6 +8,7 @@
 	import { enhance } from '$app/forms';
 	import { invalidateAll } from '$app/navigation';
 	import Icon from '@iconify/svelte';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	const toast = getToastStore();
 	const {
@@ -19,7 +20,7 @@
 		delayed,
 		tainted
 	} = superForm($page.data.form, {
-		validators: userFormSchema,
+		validators: zod(userFormSchema),
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
 				toast.trigger({

@@ -5,13 +5,14 @@
 	import TextInput from './text-input.svelte';
 	import PasswordInput from './password-input.svelte';
 	import { getToastStore } from '@skeletonlabs/skeleton';
+	import { zod } from 'sveltekit-superforms/adapters';
 	//TODO: Remove unnecessary imports and comments
 
 	import { ASSET_URL } from '@utils';
 	// import Icon from '@iconify/svelte';
 	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
-		validators: loginSchema,
+		validators: zod(loginSchema),
 		onResult: async ({ result }) => {
 			if (result.type === 'redirect')
 				toast.trigger({
