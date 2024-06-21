@@ -5,7 +5,6 @@
 	import Icon from '@iconify/svelte';
 
 	export let user: User;
-
 	const userActions: PopupSettings = {
 		event: 'click',
 		target: 'userActions',
@@ -21,7 +20,6 @@
 			src={user.avatar}
 			rounded="rounded-full"
 			width="w-9"
-			fallback={`${user.firstName[0]}${user.lastName[0]}`}
 		/>
 	</button>
 	<div data-popup="userActions">
