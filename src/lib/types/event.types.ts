@@ -1,22 +1,26 @@
-import { object, string, type output, type infer as zInfer, enum as zEnum } from 'zod';
+import { object, string, type output, enum as zEnum } from 'zod';
 import { requiredString } from './util.types';
+import type { ListResult } from 'pocketbase';
 
-export const eventType = zEnum(['hackaton', 'webinar']);
+export const daedalusEventType = ['hackaton', 'webinar'] as const;
 
-export type EventType = zInfer<typeof eventType>;
+export type DaedalusEventType = typeof daedalusEventType;
 
-export const eventStatus = zEnum(['open', 'ongoing', 'canceled', 'finished']);
+export const daedalusEventStatus = ['open', 'ongoing', 'canceled', 'finished'] as const;
 
-export type EventStatus = zInfer<typeof eventType>;
+export type DaedalusEventStatus = typeof daedalusEventType;
 
-export const eventSchema = object({
+export const daedalusEventSchema = object({
 	id: string(),
 	title: requiredString('Title', { min: 3 }).regex(/^[a-zA-Z0-9_]+$/),
 	date: string().datetime(),
 	preview: string(),
 	details: string().optional(),
 	created: string().datetime(),
-	updated: string().datetime()
+	updated: string().datetime(),
+	status: zEnum(daedalusEventStatus),
+	type: zEnum(daedalusEventType)
 });
 
-export type Event = output<typeof eventSchema>;
+export type DaedalusEvent = output<typeof daedalusEventSchema>;
+export type DaedalusEvents = Array<DaedalusEvent>;
