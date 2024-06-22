@@ -1,22 +1,25 @@
 import { db } from '@server';
 import type { PageServerLoad } from '../$types';
+import type { ListResult } from 'pocketbase';
+import type { DaedalusEvent, User } from '@types';
 
 export const load: PageServerLoad = async ({ url }) => {
 	const q = url.searchParams.get('q') || '';
 	const filterSearchType = url.searchParams.get('filter') || 'all';
+	const isAll = filterSearchType === 'all';
 	const limit = Number(url.searchParams.get('limit')) || 10;
 
 	async function fetchUsers() {
-		return await db.collection('users').getList(1, limit, {
-			filter: `username ~ "${q}"`,
-			expand: `user_details`,
+		return await db.collection('users').getList<User>(1, limit, {
+			filter: `username ~ "${q}" || email ~ "${q}" || firstName ~ "${q}" || lastName ~ "${q}"`,
+			expand: `user_details`, //TODO: This is NOT working...
 			sort: '-created',
 			search: q
 		});
 	}
 
 	async function fetchEvents() {
-		return await db.collection('events').getList(1, limit, {
+		return await db.collection('events').getList<DaedalusEvent>(1, limit, {
 			filter: `title ~ "${q}" || type ~ "${q}"`,
 			sort: '-created',
 			search: q
@@ -27,18 +30,10 @@ export const load: PageServerLoad = async ({ url }) => {
 		const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 		await delay(2000);
 
-		// if (!q || q.trim() === '') {
-		//   return {
-		//     users: null,
-		//     events: null
-		//   };
-		// }
-
 		const [userData, eventData] = await Promise.all([
-			filterSearchType !== 'events' ? fetchUsers() : null,
-			filterSearchType !== 'users' ? fetchEvents() : null
+			isAll || filterSearchType === 'users' ? fetchUsers() : null,
+			isAll || filterSearchType === 'events' ? fetchEvents() : null
 		]);
-
 		return {
 			users: userData,
 			events: eventData
@@ -47,8 +42,6 @@ export const load: PageServerLoad = async ({ url }) => {
 
 	return {
 		post: 'Some data',
-		streamed: {
-			searchData: fetchData()
-		}
+		searchData: fetchData()
 	};
 };
