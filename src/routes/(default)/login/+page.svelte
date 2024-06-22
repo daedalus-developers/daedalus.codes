@@ -33,7 +33,6 @@
 			</div>
 
 			<div class="mx-auto w-full max-w-[460px]">
-				<h2 class="h2 mb-10 text-center font-bold">Login</h2>
 				{#if providers.length > 0}
 					<OAuthLogin />
 
