@@ -59,7 +59,6 @@
 			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 				<div class="space-y-10">
 					<p class="leading-relaxed">{@html description}</p>
-					<!-- <button class="btn bg-secondary-500 uppercase">Start Course</button> -->
 				</div>
 				<div class="flex flex-col items-center justify-center gap-y-3">
 					<img
