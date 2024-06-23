@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { UserCard } from '@components';
-	import type { PageData } from './$types';
 	import { CartaViewer, Carta } from 'carta-md';
 	import { formatDistance } from 'date-fns';
 	import { code } from '@cartamd/plugin-code';
 	import { emoji } from '@cartamd/plugin-emoji';
 	import { ASSET_URL } from '@utils';
 
-	export let data: PageData;
+	const { data } = $props();
 
 	const { query: user } = data;
 
@@ -41,6 +40,8 @@
 		</p>
 	</div>
 	<div class="basis-3/4">
-		<CartaViewer {carta} value={user.details} />
+		{#if user.details}
+			<CartaViewer {carta} value={user.details} />
+		{/if}
 	</div>
 </div>
