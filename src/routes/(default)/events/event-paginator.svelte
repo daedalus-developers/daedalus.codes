@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { afterUpdate } from 'svelte';
 	import { queryParameters, ssp } from 'sveltekit-search-params';
 	import { Paginator, type PaginationSettings } from '@skeletonlabs/skeleton';
 	import { debounce } from '@utils';
+	import type { DaedalusEvent } from '@types';
+	import type { ListResult } from 'pocketbase';
 
 	const queryStore = queryParameters({
 		page: ssp.number(),
@@ -11,24 +11,25 @@
 		q: ssp.string()
 	});
 
-	let totalItems: number = 0;
-	let totalPages: number = 0;
+	type Props = {
+		events: ListResult<DaedalusEvent>;
+	};
+	const { events }: Props = $props();
 
-	afterUpdate(async () => {
-		const { totalItems: _totalItems, totalPages: _totalPages } = await $page.data.events;
-		totalItems = _totalItems;
-		totalPages = _totalPages;
+	let totalItems: number = $derived(events?.totalItems ?? 0);
+	let totalPages: number = $derived.by(() => {
+		if ($queryStore.page >= events.totalPages) {
+			$queryStore.page = events.totalPages - 1;
+		}
+		return events.totalPages;
 	});
 
-	let paginationSettings = {
-		page: 1,
-		limit: 6,
-		size: totalItems,
+	let paginationSettings = $state<PaginationSettings>({
+		page: $queryStore.page ?? 1,
+		limit: $queryStore.perPage ?? 6,
+		size: events?.totalItems ?? 0,
 		amounts: [3, 6, 9]
-	} satisfies PaginationSettings;
-
-	$: paginationSettings.size = totalItems;
-	$: paginationSettings.page = $queryStore.page ?? 0;
+	});
 
 	const onPageChange = (event: CustomEvent): void => {
 		$queryStore.page = event.detail;
@@ -45,7 +46,13 @@
 </script>
 
 <div class="flex flex-col items-center gap-4 py-4">
-	<input class="input" placeholder="Search..." type="search" on:keyup={debounce(onQueryChange)} />
+	<input
+		class="input"
+		placeholder="Search..."
+		type="search"
+		value={$queryStore.q}
+		onkeyup={debounce(onQueryChange)}
+	/>
 	<div class="flex items-center gap-4">
 		<p class="text-center text-lg font-bold">
 			Total:<span class="text-lg text-primary-500">{totalItems}</span>
