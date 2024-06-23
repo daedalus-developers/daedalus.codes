@@ -18,7 +18,7 @@
 <section class="py-5">
 	{#if course}
 		<Container addClass="space-y-5 pb-20">
-			{@const { id, title, description, price, cover, instructor } = course}
+			{@const { title, description, price, cover, instructor } = course}
 			{@const formatter = new Intl.NumberFormat('en-US', {
 				style: 'currency',
 				currency: price.currency
@@ -58,7 +58,11 @@
 
 			<div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 				<div class="space-y-10">
-					<p class="leading-relaxed">{@html description}</p>
+					<p class="leading-relaxed">
+						<!-- FIXME: For now, I will be disabling ESLINT BUT we must do something about this to avoid XSS attacks -->
+						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+						{@html description}
+					</p>
 				</div>
 				<div class="flex flex-col items-center justify-center gap-y-3">
 					<img

@@ -74,6 +74,7 @@
 		"cross-env": "^7.0.3",
 		"embla-carousel-autoplay": "8.0.0-rc15",
 		"embla-carousel-svelte": "8.0.0-rc15",
+		"globals": "^15.6.0",
 		"isomorphic-dompurify": "^1.13.0"
 	},
 	"overrides": {

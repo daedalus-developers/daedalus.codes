@@ -1,6 +1,6 @@
 import { db } from '@server';
 import { Collections, type UserDetails, type User, type ExpandedUserDetails } from '@types';
-import type { ListResult, RecordModel } from 'pocketbase';
+import type { ListResult } from 'pocketbase';
 
 export const queryUser = (userId: string) =>
 	db

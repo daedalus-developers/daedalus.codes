@@ -113,7 +113,7 @@
 			name="details"
 			bind:value={$form.details}
 			placeholder="...."
-		/>
+		></textarea>
 		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed || !$tainted}
 			>Update</button
 		>

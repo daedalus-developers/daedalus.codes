@@ -54,7 +54,7 @@ export const secondaryLinks = [
 	}
 ];
 
-export const debounce = <T extends (...args: any[]) => void>(
+export const debounce = <T extends (...args: never[]) => void>(
 	callback: T,
 	wait = 300
 ): ((...args: Parameters<T>) => void) => {

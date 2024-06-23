@@ -8,7 +8,7 @@
 	const data = $page.data as PageServerData;
 </script>
 
-<section class="py-20 dark:bg-surface-200-700-token relative z-10">
+<section class="relative z-10 py-20 dark:bg-surface-200-700-token">
 	<Container>
 		<div class="mb-20 flex">
 			<h2

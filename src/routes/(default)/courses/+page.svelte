@@ -17,7 +17,7 @@
 		{:then courses}
 			{#if courses && courses.length > 0}
 				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-					{#each courses as { id, slug, title, description, price, cover, instructor: { name, thumbnail } }}
+					{#each courses as { slug, title, price, cover }}
 						{@const formatter = new Intl.NumberFormat('en-US', {
 							style: 'currency',
 							currency: price.currency // Change the currency code as per your requirement

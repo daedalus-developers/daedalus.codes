@@ -59,4 +59,4 @@ type Breed = "Labrador" | "Corgi" | "Poodle";
 */
 export type Flatten<T> = {
 	[K in keyof T]: T[K];
-} & {};
+};

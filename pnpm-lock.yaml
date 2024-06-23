@@ -23,6 +23,9 @@ importers:
       embla-carousel-svelte:
         specifier: 8.0.0-rc15
         version: 8.0.0-rc15(svelte@5.0.0-next.162)
+      globals:
+        specifier: ^15.6.0
+        version: 15.6.0
       isomorphic-dompurify:
         specifier: ^1.13.0
         version: 1.13.0
@@ -1499,6 +1502,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@15.6.0:
+    resolution: {integrity: sha512-UzcJi88Hw//CurUIRa9Jxb0vgOCcuD/MNjwmXp633cyaRKkCWACkoqHCtfZv43b1kqXGg/fpOa8bwgacCeXsVg==}
     engines: {node: '>=18'}
 
   globalyzer@0.1.0:
@@ -4251,6 +4258,8 @@ snapshots:
       path-is-absolute: 1.0.1
 
   globals@14.0.0: {}
+
+  globals@15.6.0: {}
 
   globalyzer@0.1.0: {}
 

@@ -1,6 +1,5 @@
 import { db } from '@server';
 import type { PageServerLoad } from '../$types';
-import type { ListResult } from 'pocketbase';
 import { Collections, type DaedalusEvent, type User } from '@types';
 
 export const load: PageServerLoad = async ({ url }) => {

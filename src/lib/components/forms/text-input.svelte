@@ -13,7 +13,8 @@
 
 <div class="flex flex-col gap-1">
 	<label class="label">
-		{#if label}<span class="text-sm font-semibold leading-6 dark:text-white">{label}</span><br />{/if}
+		{#if label}<span class="text-sm font-semibold leading-6 dark:text-white">{label}</span><br
+			/>{/if}
 		<input
 			class={sx('input-bordered input', errors ? 'input-error' : '')}
 			type="text"
@@ -23,7 +24,7 @@
 			{...$$restProps}
 		/>
 	</label>
-	
+
 	{#if errors}
 		{#each errors as error}
 			<p class="mt-1 text-xs text-error-500">{error}</p>
@@ -32,5 +33,4 @@
 	{#if description && !errors}
 		<span class="text-xs text-tertiary-700">{description}</span>
 	{/if}
-	
 </div>

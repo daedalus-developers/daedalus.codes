@@ -22,7 +22,7 @@
 			{...$$restProps}
 		/>
 	</label>
-	
+
 	{#if errors}
 		<span class="text-xs text-error-500">{errors}</span>
 	{/if}
