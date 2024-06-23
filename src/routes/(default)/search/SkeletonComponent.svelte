@@ -15,8 +15,8 @@
 		<div class="card variant-ghost-surface mb-5 block p-4">
 			<div class="flex flex-col gap-1">
 				<div class="flex items-center gap-3">
-					<div class="placeholder-circle w-16 animate-pulse" />
-					<div class="placeholder w-full animate-pulse p-4" />
+					<div class="placeholder-circle w-16 animate-pulse"></div>
+					<div class="placeholder w-full animate-pulse p-4"></div>
 				</div>
 			</div>
 		</div>
