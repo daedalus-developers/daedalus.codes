@@ -116,35 +116,39 @@ export const actions: Actions = {
 		const { target } = data;
 
 		const provider = (
-			await (locals as any).DB.collection('users').listAuthMethods()
-		).authProviders.find((p: any) => p.name === target);
+			await locals.DB.collection<User>('users').listAuthMethods()
+		).authProviders.find((p) => p.name === target);
 		cookies.set('provider', JSON.stringify(provider), {
 			httpOnly: true,
 			path: `/auth/callback/${target}`
 		});
-		throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+		if (!provider) {
+			return fail(400, { message: 'Provider not found' });
+		}
+
+		redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	}
 	// Individual OAuth methods
 	// google: async ({ locals, cookies }) => {
-	//   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
+	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/google`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// github: async ({ locals, cookies }) => {
-	//   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
+	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/github`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// discord: async ({ locals, cookies }) => {
-	//   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/discord`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// facebook: async ({ locals, cookies }) => {
-	//   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/facebook`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
