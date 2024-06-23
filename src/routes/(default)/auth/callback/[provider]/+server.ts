@@ -1,6 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
+import { Collections, type User } from '@types';
 
 export const GET: RequestHandler = async ({ locals, url, cookies }) => {
 	const provider = JSON.parse(cookies.get('provider') || '{}');
@@ -10,7 +11,7 @@ export const GET: RequestHandler = async ({ locals, url, cookies }) => {
 	}
 
 	try {
-		const res = await locals.DB.collection('users').authWithOAuth2Code(
+		const res = await locals.DB.collection<User>(Collections.Users).authWithOAuth2Code(
 			provider.name,
 			url.searchParams.get('code') || '',
 			provider.codeVerifier,

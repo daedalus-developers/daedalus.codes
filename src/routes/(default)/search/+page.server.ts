@@ -1,7 +1,7 @@
 import { db } from '@server';
 import type { PageServerLoad } from '../$types';
 import type { ListResult } from 'pocketbase';
-import type { DaedalusEvent, User } from '@types';
+import { Collections, type DaedalusEvent, type User } from '@types';
 
 export const load: PageServerLoad = async ({ url }) => {
 	const q = url.searchParams.get('q') || '';
@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ url }) => {
 	const limit = Number(url.searchParams.get('limit')) || 10;
 
 	async function fetchUsers() {
-		return await db.collection('users').getList<User>(1, limit, {
+		return await db.collection<User>(Collections.Users).getList(1, limit, {
 			filter: `username ~ "${q}" || email ~ "${q}" || firstName ~ "${q}" || lastName ~ "${q}"`,
 			expand: `user_details`, //TODO: This is NOT working...
 			sort: '-created',
@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({ url }) => {
 	}
 
 	async function fetchEvents() {
-		return await db.collection('events').getList<DaedalusEvent>(1, limit, {
+		return await db.collection<DaedalusEvent>(Collections.Events).getList(1, limit, {
 			filter: `title ~ "${q}" || type ~ "${q}"`,
 			sort: '-created',
 			search: q

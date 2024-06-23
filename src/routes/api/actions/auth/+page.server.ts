@@ -1,6 +1,13 @@
 import { message, setError, superValidate } from 'sveltekit-superforms/server';
 import type { Actions } from './$types';
-import { Collections, changePasswordSchema, loginSchema, registerSchema, type User } from '@types';
+import {
+	Collections,
+	type UserDetails,
+	changePasswordSchema,
+	loginSchema,
+	registerSchema,
+	type User
+} from '@types';
 import { fail, redirect } from '@sveltejs/kit';
 import { isExisting } from '@server/auth.services';
 import { db } from '@server';
@@ -42,18 +49,18 @@ export const actions: Actions = {
 
 		try {
 			// Create database record
-			const { id } = await db.collection(Collections.Users).create<User>({
+			const { id } = await db.collection<User>(Collections.Users).create<User>({
 				...form.data,
 				role: 'user'
 			});
 
 			// Create relationship between user and user_details
-			await db.collection('users_details').create({
+			await db.collection<UserDetails>(Collections.UsersDetails).create({
 				user: id
 			});
 
 			// Request verification email
-			await db.collection(Collections.Users).requestVerification(form.data.email);
+			await db.collection<User>(Collections.Users).requestVerification(form.data.email);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -72,7 +79,7 @@ export const actions: Actions = {
 		const { key, password } = form.data;
 
 		try {
-			await locals.DB.collection(Collections.Users).authWithPassword(key, password);
+			await locals.DB.collection<User>(Collections.Users).authWithPassword(key, password);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -98,7 +105,8 @@ export const actions: Actions = {
 		if (!form.valid) return fail(400, { form });
 
 		try {
-			if (locals.user) await db.collection(Collections.Users).update(locals.user.id, form.data);
+			if (locals.user)
+				await db.collection<User>(Collections.Users).update(locals.user.id, form.data);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -116,7 +124,7 @@ export const actions: Actions = {
 		const { target } = data;
 
 		const provider = (
-			await locals.DB.collection<User>('users').listAuthMethods()
+			await locals.DB.collection<User>(Collections.Users).listAuthMethods()
 		).authProviders.find((p) => p.name === target);
 		cookies.set('provider', JSON.stringify(provider), {
 			httpOnly: true,
@@ -130,25 +138,25 @@ export const actions: Actions = {
 	}
 	// Individual OAuth methods
 	// google: async ({ locals, cookies }) => {
-	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/google`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// github: async ({ locals, cookies }) => {
-	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/github`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// discord: async ({ locals, cookies }) => {
-	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/discord`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
 	// },
 	// facebook: async ({ locals, cookies }) => {
-	//   const provider = (await locals.DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
 	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/facebook`});
 
 	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);

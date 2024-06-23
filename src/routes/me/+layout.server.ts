@@ -3,6 +3,7 @@ import type { LayoutServerLoad } from './$types';
 import { queryUser } from '@server/queries';
 import { db } from '@server';
 import { createInitialUserDetails } from '@server/queries/createInitialUserDetails';
+import { Collections, type UserDetails } from '@types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
 	if (!locals.DB.authStore.isValid && !locals.user) error(401, 'Unauthorized');
@@ -11,7 +12,7 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 	if (locals.user) {
 		console.log('yes');
 		await db
-			.collection('users_details')
+			.collection<UserDetails>(Collections.UsersDetails)
 			.getList(1, 2, {
 				filter: `user = "${locals.user.id}"`
 			})

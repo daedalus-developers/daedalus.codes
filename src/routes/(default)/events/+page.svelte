@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { ASSET_URL } from '@utils';
-	import type { PageData } from './$types';
 	import EventPaginator from './event-paginator.svelte';
 	import { EventCard } from '@components';
-	export let data: PageData;
+
+	const { data } = $props();
 </script>
 
 <svelte:head>
