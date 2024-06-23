@@ -1,10 +1,13 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import type { DaedalusEvent } from '@types';
 	import { ASSET_URL, sx } from '@utils';
 	import { format } from 'date-fns';
-	import type { RecordModel } from 'pocketbase';
 
-	export let event: RecordModel;
+	type Props = {
+		event: DaedalusEvent;
+	};
+	const { event }: Props = $props();
 
 	const { title, description, type, date, preview, status } = event;
 </script>

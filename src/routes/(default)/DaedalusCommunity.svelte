@@ -4,7 +4,7 @@
 	import { ASSET_URL } from '@utils';
 </script>
 
-<section class="py-20 bg-surface-100-800-token dark:bg-transparent">
+<section class="bg-surface-100-800-token py-20 dark:bg-transparent">
 	<Container>
 		<div class="flex flex-wrap">
 			<div class="w-full pb-20 md:max-w-[50%]">

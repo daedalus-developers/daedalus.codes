@@ -11,12 +11,12 @@
 	import { slash } from '@cartamd/plugin-slash';
 	import { code } from '@cartamd/plugin-code';
 	import 'carta-md/default.css';
-	import 'carta-md/light.css';
 	import '@cartamd/plugin-emoji/default.css';
 	import '@cartamd/plugin-slash/default.css';
 	import '@cartamd/plugin-attachment/default.css';
 	// import '@cartamd/plugin-code/default.css';
 	import purifier from 'isomorphic-dompurify';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	const carta = new Carta({
 		sanitizer: purifier.sanitize,
@@ -44,7 +44,7 @@
 	const { form, errors, constraints, enhance, message, delayed, tainted } = superForm(
 		$page.data.form,
 		{
-			validators: userDetailsFormSchema,
+			validators: zod(userDetailsFormSchema),
 			onResult: async ({ result }) => {
 				if (result.type === 'success')
 					toast.trigger({
@@ -113,7 +113,7 @@
 			name="details"
 			bind:value={$form.details}
 			placeholder="...."
-		/>
+		></textarea>
 		<button class="variant-filled-primary btn my-4 w-full" disabled={$delayed || !$tainted}
 			>Update</button
 		>

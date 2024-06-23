@@ -1,19 +1,26 @@
-import { Collections, userDetailsFormSchema, userFormSchema, type User } from '@types';
+import {
+	Collections,
+	userDetailsFormSchema,
+	userFormSchema,
+	type UserDetails,
+	type User
+} from '@types';
 import type { Actions } from './$types';
 import { message, superValidate } from 'sveltekit-superforms/server';
 import { fail } from '@sveltejs/kit';
 import type { ClientResponseError } from 'pocketbase';
 import { INVALID_CREDENTIALS, SOMETHING_WENT_WRONG } from '@utils';
 import { db } from '@server';
+import { zod } from 'sveltekit-superforms/adapters';
 
 export const actions: Actions = {
 	account: async ({ request, locals }) => {
-		const form = await superValidate(request, userFormSchema);
+		const form = await superValidate(request, zod(userFormSchema));
 		if (!form.valid) return fail(400, { form });
 		try {
 			if (locals.user) {
 				form.data.role = locals.user.role;
-				await locals.DB.collection(Collections.Users).update(locals.user.id, form.data);
+				await locals.DB.collection<User>(Collections.Users).update(locals.user.id, form.data);
 			}
 			return { form };
 		} catch (error) {
@@ -26,7 +33,7 @@ export const actions: Actions = {
 		}
 	},
 	details: async ({ request, locals }) => {
-		const form = await superValidate(request, userDetailsFormSchema);
+		const form = await superValidate(request, zod(userDetailsFormSchema));
 
 		if (!form.valid) return fail(400, { form });
 
@@ -34,9 +41,9 @@ export const actions: Actions = {
 			if (locals.user) {
 				const { id } = locals.user;
 				const details = await db
-					.collection(Collections.UsersDetails)
+					.collection<UserDetails>(Collections.UsersDetails)
 					.getFirstListItem(`user="${id}"`);
-				await locals.DB.collection(Collections.UsersDetails).update(details.id, {
+				await locals.DB.collection<UserDetails>(Collections.UsersDetails).update(details.id, {
 					bio: form.data.bio || '',
 					details: form.data.details || '',
 					x: form.data.x || '',

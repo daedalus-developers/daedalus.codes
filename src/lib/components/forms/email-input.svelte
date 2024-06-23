@@ -11,7 +11,6 @@
 	// export let tainted: unknown | undefined = undefined;
 </script>
 
-
 <div class="flex flex-col gap-1">
 	<label class="label">
 		{#if label}<span class="text-sm font-semibold leading-6">{label}</span><br />{/if}
@@ -24,7 +23,7 @@
 			{...$$restProps}
 		/>
 	</label>
-	
+
 	{#if errors}
 		<span class="mt-1 text-sm text-error-500">{errors}</span>
 	{/if}
@@ -32,4 +31,3 @@
 		<span class="text-sm text-tertiary-700">{description}</span>
 	{/if}
 </div>
-

@@ -7,10 +7,11 @@
 	import EmailInput from './email-input.svelte';
 	import PhoneInput from './phone-input.svelte';
 	import TextareaInput from './textarea-input.svelte';
+	import { zod } from 'sveltekit-superforms/adapters';
 
 	const toast = getToastStore();
 	const { form, errors, constraints, enhance, message } = superForm($page.data.form, {
-		validators: contactFormSchema,
+		validators: zod(contactFormSchema),
 		onResult: async ({ result }) => {
 			if (result.type === 'success')
 				toast.trigger({

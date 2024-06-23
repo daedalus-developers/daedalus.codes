@@ -1,11 +1,19 @@
 import { message, setError, superValidate } from 'sveltekit-superforms/server';
 import type { Actions } from './$types';
-import { Collections, changePasswordSchema, loginSchema, registerSchema, type User } from '@types';
+import {
+	Collections,
+	type UserDetails,
+	changePasswordSchema,
+	loginSchema,
+	registerSchema,
+	type User
+} from '@types';
 import { fail, redirect } from '@sveltejs/kit';
 import { isExisting } from '@server/auth.services';
 import { db } from '@server';
 import type { ClientResponseError } from 'pocketbase';
 import { INVALID_CREDENTIALS, SOMETHING_WENT_WRONG } from '@utils';
+import { zod } from 'sveltekit-superforms/adapters';
 
 import { env } from '$env/dynamic/private';
 
@@ -24,7 +32,7 @@ const NOT_ALLOWED_USERNAME = [
 
 export const actions: Actions = {
 	register: async ({ request }) => {
-		const form = await superValidate(request, registerSchema);
+		const form = await superValidate(request, zod(registerSchema));
 
 		if (!form.valid) return fail(400, { form });
 
@@ -41,18 +49,18 @@ export const actions: Actions = {
 
 		try {
 			// Create database record
-			const { id } = await db.collection(Collections.Users).create<User>({
+			const { id } = await db.collection<User>(Collections.Users).create<User>({
 				...form.data,
 				role: 'user'
 			});
 
 			// Create relationship between user and user_details
-			await db.collection('users_details').create({
+			await db.collection<UserDetails>(Collections.UsersDetails).create({
 				user: id
 			});
 
 			// Request verification email
-			await db.collection(Collections.Users).requestVerification(form.data.email);
+			await db.collection<User>(Collections.Users).requestVerification(form.data.email);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -64,14 +72,14 @@ export const actions: Actions = {
 		redirect(303, '/login');
 	},
 	legacy: async ({ request, locals }) => {
-		const form = await superValidate(request, loginSchema);
+		const form = await superValidate(request, zod(loginSchema));
 
 		if (!form.valid) return message(form, 'Please fill in all required fields');
 
 		const { key, password } = form.data;
 
 		try {
-			await locals.DB.collection(Collections.Users).authWithPassword(key, password);
+			await locals.DB.collection<User>(Collections.Users).authWithPassword(key, password);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -93,11 +101,12 @@ export const actions: Actions = {
 		redirect(302, '/');
 	},
 	changePassword: async ({ request, locals }) => {
-		const form = await superValidate(request, changePasswordSchema);
+		const form = await superValidate(request, zod(changePasswordSchema));
 		if (!form.valid) return fail(400, { form });
 
 		try {
-			if (locals.user) await db.collection(Collections.Users).update(locals.user.id, form.data);
+			if (locals.user)
+				await db.collection<User>(Collections.Users).update(locals.user.id, form.data);
 		} catch (error) {
 			const err = error as ClientResponseError;
 			return err.response.code !== 400
@@ -114,33 +123,42 @@ export const actions: Actions = {
 		const data = Object.fromEntries(formData);
 		const { target } = data;
 
-		const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === target);
-    cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/${target}`});
-		throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
-	},
+		const provider = (
+			await locals.DB.collection<User>(Collections.Users).listAuthMethods()
+		).authProviders.find((p) => p.name === target);
+		cookies.set('provider', JSON.stringify(provider), {
+			httpOnly: true,
+			path: `/auth/callback/${target}`
+		});
+		if (!provider) {
+			return fail(400, { message: 'Provider not found' });
+		}
+
+		redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+	}
 	// Individual OAuth methods
 	// google: async ({ locals, cookies }) => {
-  //   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
-  //   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/google`});
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'google');
+	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/google`});
 
-  //   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
-  // },
-  // github: async ({ locals, cookies }) => {
-  //   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
-  //   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/github`});
+	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+	// },
+	// github: async ({ locals, cookies }) => {
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'github');
+	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/github`});
 
-  //   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
-  // },
-  // discord: async ({ locals, cookies }) => {
-  //   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
-  //   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/discord`});
+	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+	// },
+	// discord: async ({ locals, cookies }) => {
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/discord`});
 
-  //   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
-  // },
+	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+	// },
 	// facebook: async ({ locals, cookies }) => {
-  //   const provider = (await (locals as any).DB.collection('users').listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
-  //   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/facebook`});
+	//   const provider = (await locals.DB.collection<User>(Collections.Users).listAuthMethods()).authProviders.find((p: any) => p.name === 'discord');
+	//   cookies.set('provider', JSON.stringify(provider), {httpOnly: true, path: `/auth/callback/facebook`});
 
-  //   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
-  // },
+	//   throw redirect(303, provider.authUrl + env.OAUTH_REDIRECT_URL + provider.name);
+	// },
 };

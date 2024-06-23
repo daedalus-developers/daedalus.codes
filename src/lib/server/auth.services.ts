@@ -1,9 +1,13 @@
-import { type UserRole, Collections, userRole } from '@types';
+import { type UserRole, Collections, userRole, type User } from '@types';
 import { db } from '.';
 import type { ClientResponseError } from 'pocketbase';
 import { fail, redirect } from '@sveltejs/kit';
 
-export const isExisting = async (collection: Collections, field: string, value: string) =>
+export const isExisting = async (
+	collection: Collections,
+	field: string,
+	value: string
+): Promise<boolean> =>
 	await db
 		.collection(collection)
 		.getFirstListItem(`${field}="${value}"`)
@@ -53,7 +57,7 @@ export const authorizationGuard = (locals: App.Locals, requiredRole: UserRole) =
 };
 
 export const authRefresh = async (locals: App.Locals) => {
-	await locals.DB.collection(Collections.Users).authRefresh();
+	await locals.DB.collection<User>(Collections.Users).authRefresh();
 	authenticationGuard(locals);
 	return;
 };

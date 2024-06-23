@@ -1,11 +1,11 @@
-// import { Collections } from '@types';
+// import { Collections, type User } from '@types';
 // import type { RequestHandler } from './$types';
 // import { redirect } from '@sveltejs/kit';
 
 // export const GET: RequestHandler = async ({ cookies, url, locals, params }) => {
 // 	const { provider } = params;
 
-// 	const { authProviders } = await locals.DB.collection(Collections.Users).listAuthMethods();
+// 	const { authProviders } = await locals.DB.collection<User>(Collections.Users).listAuthMethods();
 // 	if (!authProviders) {
 // 		redirect(303, '/login');
 // 	}
@@ -24,8 +24,8 @@
 // 	}
 
 // 	try {
-// 		await locals.DB.collection(Collections.Users).authRefresh();
-// 		await locals.DB.collection(Collections.Users).authWithOAuth2Code(
+// 		await locals.DB.collection<User>(Collections.Users).authRefresh();
+// 		await locals.DB.collection<User>(Collections.Users).authWithOAuth2Code(
 // 			provider,
 // 			code,
 // 			pocketbaseVerifier,

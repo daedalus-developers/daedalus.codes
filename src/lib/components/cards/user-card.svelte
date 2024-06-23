@@ -1,9 +1,12 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import type { RecordModel } from 'pocketbase';
+	import type { ExpandedUserDetails } from '@types';
 
-	export let user: RecordModel;
+	type Props = {
+		user: ExpandedUserDetails;
+	};
+	const { user }: Props = $props();
 
 	const { bio, x, linkedin, github, expand } = user;
 

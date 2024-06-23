@@ -1,16 +1,16 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import { CartaViewer, Carta } from 'carta-md';
 	import { ASSET_URL } from '@utils';
 	import { emoji } from '@cartamd/plugin-emoji';
 	import { code } from '@cartamd/plugin-code';
 
-	export let data: PageData;
+	const { data } = $props();
 
 	const { project } = data;
 
 	const carta = new Carta({
-		extensions: [code(), emoji()]
+		extensions: [code(), emoji()],
+		sanitizer: false
 	});
 </script>
 

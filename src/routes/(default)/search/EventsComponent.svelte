@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { formatDistance } from 'date-fns';
 	import Icon from '@iconify/svelte';
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	export let eventsData: any;
+	import type { DaedalusEvents } from '@types';
+	export let eventsData: DaedalusEvents;
 </script>
 
 {#if eventsData.length === 0}

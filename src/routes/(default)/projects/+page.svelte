@@ -1,13 +1,10 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 	import { ProjectCard } from '@components';
 	import { ASSET_URL } from '@utils';
-	export let data: PageData;
+	const { data } = $props();
 
-	$: queryString = $page.url.searchParams.get('q') || '';
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	$: currentPerPage = $page.url.searchParams.get('perPage') || '10';
+	let queryString = $derived($page.url.searchParams.get('q') || '');
 </script>
 
 <svelte:head>

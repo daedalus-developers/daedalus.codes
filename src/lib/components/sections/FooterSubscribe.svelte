@@ -1,34 +1,36 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { EmailInput } from '@components';
 	import { Container } from '@components/utilities/';
 	import { getToastStore } from '@skeletonlabs/skeleton';
 	import { subscriberFormSchema } from '@types';
 	import { ASSET_URL } from '@utils';
-	import { superForm, superValidateSync } from 'sveltekit-superforms/client';
+	import { superForm } from 'sveltekit-superforms/client';
+	import { zod } from 'sveltekit-superforms/adapters';
+	import type { LayoutServerData } from '../../../routes/(default)/$types';
 
 	const toast = getToastStore();
 
-	const { form, errors, constraints, enhance, delayed, tainted } = superForm(
-		superValidateSync(subscriberFormSchema),
-		{
-			validators: subscriberFormSchema,
-			onResult: async ({ result }) => {
-				if (result.type === 'success')
-					toast.trigger({
-						message: result.data?.message,
-						background: 'variant-filled-success'
-					});
-			}
+	const data = $page.data as LayoutServerData;
+
+	const { form, errors, constraints, enhance, delayed, tainted } = superForm(data.subscriberForm, {
+		validators: zod(subscriberFormSchema),
+		onResult: async ({ result }) => {
+			if (result.type === 'success')
+				toast.trigger({
+					message: result.data?.message,
+					background: 'variant-filled-success'
+				});
 		}
-	);
+	});
 </script>
 
 <section class="py-24">
 	<Container addClass="flex flex-col md:flex-row items-center">
 		<div class="flex flex-col gap-8 text-center md:gap-10 md:text-left">
 			<h3
-				class="text-3xl font-bold md:text-4xl
-			dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-clip-text dark:text-transparent"
+				class="text-3xl font-bold dark:bg-gradient-to-r
+			dark:from-primary-600 dark:to-secondary-600 dark:bg-clip-text dark:text-transparent md:text-4xl"
 			>
 				Subscribe to our newsletter
 			</h3>

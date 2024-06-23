@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { ASSET_URL } from '@utils';
-	import type { PageData } from './$types';
 	import EventPaginator from './event-paginator.svelte';
 	import { EventCard } from '@components';
-	export let data: PageData;
+
+	const { data } = $props();
 </script>
 
 <svelte:head>
@@ -17,11 +17,11 @@
 	/>
 	<meta property="og:image" content={ASSET_URL + 'daedalus.png'} />
 </svelte:head>
-<EventPaginator />
 
 {#await data.events}
 	Loading..
 {:then events}
+	<EventPaginator {events} />
 	<div class="grid grid-cols-1 gap-8 pt-4 md:grid-cols-3">
 		{#each events.items as event}
 			<EventCard {event} />

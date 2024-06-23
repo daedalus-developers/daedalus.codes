@@ -7,9 +7,7 @@
 	import UsersComponent from './UsersComponent.svelte';
 	import EventsComponent from './EventsComponent.svelte';
 
-	import type { PageData } from './$types';
-
-	export let data: PageData;
+	const { data } = $props();
 </script>
 
 <section class="py-10">
@@ -23,20 +21,15 @@
 				<FilterParams />
 			</div>
 
-			{#await data.streamed.searchData}
-				<!-- <p>Please wait...</p> -->
+			{#await data.searchData}
 				<SkeletonComponent />
 			{:then result}
 				{#if result.users}
-					<!-- <p>Users</p> -->
-					{@const users = result.users.items}
-					<UsersComponent usersData={users} />
+					<UsersComponent usersData={result.users.items} />
 				{/if}
 
 				{#if result.events}
-					<!-- <p>Events are available</p> -->
-					<!-- {@const events = result.events.items} -->
-					<!-- <EventsComponent eventsData={events} /> -->
+					<EventsComponent eventsData={result.events.items} />
 				{/if}
 			{/await}
 

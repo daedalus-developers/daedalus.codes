@@ -2,6 +2,8 @@
 	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
 	import { ASSET_URL } from '@utils';
+	import type { PageServerData } from './$types';
+	const data = $page.data as PageServerData;
 </script>
 
 <svelte:head>
@@ -45,20 +47,20 @@
 			team members.
 		</p>
 
-		{#await $page.data.team}
+		{#await data.team}
 			<ul class="flex animate-pulse flex-wrap justify-evenly md:flex-row">
 				{#each Array(3) as _}
 					<p class="hidden">{_}</p>
 					<li
 						class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
 					>
-						<div class="aspect-[1/1.15] w-full rounded-lg bg-surface-600" />
-						<div class="rounded-full bg-surface-600 pb-3" />
-						<div class="rounded-full bg-surface-600 pb-3" />
+						<div class="aspect-[1/1.15] w-full rounded-lg bg-surface-600"></div>
+						<div class="rounded-full bg-surface-600 pb-3"></div>
+						<div class="rounded-full bg-surface-600 pb-3"></div>
 						<div class="flex justify-evenly gap-3">
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
 						</div>
 					</li>
 				{/each}

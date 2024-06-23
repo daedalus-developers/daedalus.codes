@@ -7,7 +7,7 @@ import {
 	enum as zEnum,
 	custom
 } from 'zod';
-import { requiredString } from './util.types';
+import { requiredString, type Flatten } from './util.types';
 
 export const userRole = zEnum(['admin', 'team', 'user']);
 
@@ -115,7 +115,15 @@ export const avatarSchema = object({
 
 export type Avatar = zInfer<typeof avatarSchema>;
 
-export type UserWithDetails = User & Omit<UserDetails, 'user' | 'id' | 'created' | 'updated'>;
+export type UserWithDetails = Flatten<
+	User & Omit<UserDetails, 'user' | 'id' | 'created' | 'updated'>
+>;
+
+export type ExpandedUserDetails = Flatten<UserDetails> & {
+	expand?: {
+		user: User;
+	};
+};
 
 export type Team = {
 	avatar: string;

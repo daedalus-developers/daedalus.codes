@@ -54,8 +54,7 @@ export const secondaryLinks = [
 	}
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const debounce = <T extends (...args: any[]) => void>(
+export const debounce = <T extends (...args: never[]) => void>(
 	callback: T,
 	wait = 300
 ): ((...args: Parameters<T>) => void) => {

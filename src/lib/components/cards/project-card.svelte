@@ -1,8 +1,11 @@
 <script lang="ts">
+	import type { Project } from '@types';
 	import { ASSET_URL } from '@utils';
-	import type { RecordModel } from 'pocketbase';
 
-	export let project: RecordModel;
+	type Props = {
+		project: Project;
+	};
+	const { project }: Props = $props();
 
 	const { name, description, preview, tags } = project;
 </script>
@@ -23,7 +26,7 @@
 				{/each}
 			</div>
 			<h3
-				class="mx-4 text-lg font-bold uppercase tracking-wider text-primary-700 sm:text-xl dark:text-primary-500"
+				class="mx-4 text-lg font-bold uppercase tracking-wider text-primary-700 dark:text-primary-500 sm:text-xl"
 			>
 				{name}
 			</h3>

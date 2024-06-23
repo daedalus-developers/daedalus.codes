@@ -1,15 +1,15 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import { CartaViewer, Carta } from 'carta-md';
 	import { ASSET_URL } from '@utils';
 	import { emoji } from '@cartamd/plugin-emoji';
 	import { code } from '@cartamd/plugin-code';
-	export let data: PageData;
+	const { data } = $props();
 
 	const { event } = data;
 
 	const carta = new Carta({
-		extensions: [code(), emoji()]
+		extensions: [code(), emoji()],
+		sanitizer: false
 	});
 </script>
 
@@ -34,7 +34,9 @@
 		</div>
 	</div>
 	<article>
-		<CartaViewer {carta} value={event.details} />
+		{#if event.details}
+			<CartaViewer {carta} value={event.details} />
+		{/if}
 	</article>
 </div>
 

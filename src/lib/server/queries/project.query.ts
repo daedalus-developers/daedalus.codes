@@ -1,9 +1,10 @@
 import { db } from '@server';
 import { Collections } from '@types';
+import type { Project } from '@types';
 
 export const queryProject = (slug: string) =>
 	db
-		.collection(Collections.Projects)
+		.collection<Project>(Collections.Projects)
 		.getFirstListItem(`name~"${slug.replaceAll('-', ' ')}"`, {
 			requestKey: 'project'
 		})
@@ -14,7 +15,7 @@ export const queryProject = (slug: string) =>
 
 export const queryProjectById = (id: string) =>
 	db
-		.collection(Collections.Projects)
+		.collection<Project>(Collections.Projects)
 		.getOne(id)
 		.then((data) => {
 			data.preview = db.files.getUrl(data, data.preview);
@@ -24,7 +25,7 @@ export const queryProjectById = (id: string) =>
 // todo: add parameter to accept queryString for search feature
 export const queryProjects = (page: number = 1, perPage: number = 10) =>
 	db
-		.collection(Collections.Projects)
+		.collection<Project>(Collections.Projects)
 		.getList(page, perPage, {
 			sort: 'created',
 			filter: db.filter('published = true'),

@@ -2,7 +2,8 @@
 	import { Footer, Navbar } from '@components';
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { page } from '$app/stores';
-	$: currentPage = $page.url.pathname;
+	let currentPage = $derived($page.url.pathname);
+	let { children } = $props();
 	let componentExceptions = ['/login', '/register', '/forgot-password'];
 </script>
 
@@ -12,7 +13,7 @@
 			<Navbar />
 		{/if}
 	</svelte:fragment>
-	<slot />
+	{@render children()}
 	<svelte:fragment slot="pageFooter">
 		{#if !componentExceptions.includes(currentPage)}
 			<Footer />

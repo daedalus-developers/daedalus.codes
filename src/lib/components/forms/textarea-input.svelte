@@ -20,7 +20,7 @@
 		aria-invalid={errors ? 'true' : undefined}
 		{...constraints}
 		{...$$restProps}
-	/>
+	></textarea>
 </label>
 
 {#if errors}

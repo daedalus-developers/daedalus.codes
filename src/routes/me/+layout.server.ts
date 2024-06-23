@@ -3,24 +3,26 @@ import type { LayoutServerLoad } from './$types';
 import { queryUser } from '@server/queries';
 import { db } from '@server';
 import { createInitialUserDetails } from '@server/queries/createInitialUserDetails';
+import { Collections, type UserDetails } from '@types';
 
 export const load: LayoutServerLoad = async ({ locals }) => {
 	if (!locals.DB.authStore.isValid && !locals.user) error(401, 'Unauthorized');
 
-		// CHECK IF THE LOGGED IN USER HAS A USER PROFILE. IF NOT CREATE ONE
-	if ((locals as any).user) {
-		console.log('yes')
-		await db.collection('users_details').getList(1,2, {
-			filter: `user = "${(locals as any).user.id}"`
-		})
-		.then((res) => {
-			const isExist = res.items.length > 0;
-			console.log(isExist);
-			if (!isExist) {
-				createInitialUserDetails((locals as any).user.id)
-			}
-		})
-
+	// CHECK IF THE LOGGED IN USER HAS A USER PROFILE. IF NOT CREATE ONE
+	if (locals.user) {
+		console.log('yes');
+		await db
+			.collection<UserDetails>(Collections.UsersDetails)
+			.getList(1, 2, {
+				filter: `user = "${locals.user.id}"`
+			})
+			.then((res) => {
+				const isExist = res.items.length > 0;
+				console.log(isExist);
+				if (!isExist) {
+					createInitialUserDetails(locals.user!.id);
+				}
+			});
 	}
 
 	if (!locals.user) {
