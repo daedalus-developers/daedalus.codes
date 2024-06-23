@@ -9,7 +9,8 @@
 	const { event } = data;
 
 	const carta = new Carta({
-		extensions: [code(), emoji()]
+		extensions: [code(), emoji()],
+		sanitizer: false
 	});
 </script>
 
