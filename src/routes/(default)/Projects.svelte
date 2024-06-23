@@ -3,6 +3,9 @@
 	import emblaCarouselSvelte, { type EmblaPluginType } from 'embla-carousel-svelte';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
+	import type { PageServerData } from './projects/$types';
+
+	const data = $page.data as PageServerData;
 
 	let options = {
 		loop: false,
@@ -30,7 +33,7 @@
 		</div>
 
 		<!-- CAROUSEL -->
-		{#await $page.data.projects}
+		{#await data.projects}
 			<div class="embla" use:emblaCarouselSvelte={{ options, plugins }}>
 				<div class="embla__container">
 					{#each Array(dummyCardCount) as _}

@@ -3,6 +3,9 @@
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
 	import { EventCard } from '@components';
+	import type { PageServerData } from './events/$types';
+
+	const data = $page.data as PageServerData;
 </script>
 
 <section class="py-20 dark:bg-surface-200-700-token relative z-10">
@@ -21,7 +24,7 @@
 				</a>
 			</div>
 		</div>
-		{#await $page.data.events}
+		{#await data.events}
 			<p class="py-10 text-center">Processing</p>
 		{:then query}
 			{@const events = query.items}
