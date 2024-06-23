@@ -1,11 +1,10 @@
 <script lang="ts">
-	/** eslint-disable @typescript-eslint/no-unused-vars */
 	import Icon from '@iconify/svelte';
 	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
 </script>
 
-<section class="py-20 bg-surface-100-800-token dark:bg-transparent relative">
+<section class="bg-surface-100-800-token relative py-20 dark:bg-transparent">
 	<div
 		class="bg-surface-100-900-token absolute bottom-[unset] left-0 top-0 -z-10 h-[50%] w-full dark:bottom-0 dark:top-[unset]"
 	></div>
@@ -18,7 +17,10 @@
 			</h2>
 			<span class="ms-5 hidden w-full border-b-2 border-neutral-500 md:block"></span>
 			<div class="w-64">
-				<a href="/team" class="bg-primary-600 dark:variant-filled-primary btn mx-auto hidden gap-2 md:flex">
+				<a
+					href="/team"
+					class="btn mx-auto hidden gap-2 bg-primary-600 dark:variant-filled-primary md:flex"
+				>
 					View All Team
 					<Icon icon="carbon:arrow-right" class="text-2xl" />
 				</a>
@@ -43,13 +45,13 @@
 					<li
 						class="mb-5 flex w-full max-w-[80%] flex-col gap-3 px-10 sm:max-w-[50%] md:max-w-[33.33%] md:px-2 lg:px-10"
 					>
-						<div class="aspect-[1/1.15] w-full rounded-lg bg-surface-600" />
-						<div class="rounded-full bg-surface-600 pb-3" />
-						<div class="rounded-full bg-surface-600 pb-3" />
+						<div class="aspect-[1/1.15] w-full rounded-lg bg-surface-600"></div>
+						<div class="rounded-full bg-surface-600 pb-3"></div>
+						<div class="rounded-full bg-surface-600 pb-3"></div>
 						<div class="flex justify-evenly gap-3">
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
-							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1" />
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
+							<div class="aspect-square rounded-full bg-surface-600 p-7 py-1"></div>
 						</div>
 					</li>
 				{/each}
