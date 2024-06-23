@@ -1,6 +1,5 @@
 import { object, string, type output, enum as zEnum } from 'zod';
 import { requiredString } from './util.types';
-import type { ListResult } from 'pocketbase';
 
 export const daedalusEventType = ['hackaton', 'webinar'] as const;
 
@@ -16,6 +15,7 @@ export const daedalusEventSchema = object({
 	date: string().datetime(),
 	preview: string(),
 	details: string().optional(),
+	description: string().optional(),
 	created: string().datetime(),
 	updated: string().datetime(),
 	status: zEnum(daedalusEventStatus),
