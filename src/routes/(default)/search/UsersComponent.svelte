@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Icon from '@iconify/svelte';
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	export let usersData: any;
+	import type { User } from '@types';
+	type Props = { usersData: User[] };
+	let { usersData }: Props = $props();
 </script>
 
 {#if usersData.length === 0}
@@ -23,7 +24,6 @@
 	<p class="py-3 uppercase">Users</p>
 {/if}
 
-<!-- <div class="mb-20"> -->
 {#each usersData as user}
 	<a href="/profile/{user.username}" class="card variant-ghost-surface mb-5 block p-4">
 		<div class="flex flex-col gap-1">
@@ -39,4 +39,3 @@
 		</div>
 	</a>
 {/each}
-<!-- </div> -->
