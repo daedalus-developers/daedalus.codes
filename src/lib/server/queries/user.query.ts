@@ -1,10 +1,10 @@
 import { db } from '@server';
-import { Collections } from '@types';
+import { Collections, type UserDetails, type User } from '@types';
 import type { RecordModel } from 'pocketbase';
 
 export const queryUser = (userId: string) =>
 	db
-		.collection(Collections.Users)
+		.collection<User>(Collections.Users)
 		.getOne(userId)
 		.then((data) => {
 			data.avatar = db.files.getUrl(data, data.avatar);
@@ -13,10 +13,10 @@ export const queryUser = (userId: string) =>
 		.catch(() => {
 			return undefined;
 		});
-
+//FIXME: I am not sure how the expand works, can someone verify how it should be typed thanks!
 export const queryUsersByRole = (page: number = 1, perPage: number = 10, role: string = '') =>
 	db
-		.collection(Collections.UsersDetails)
+		.collection<UserDetails>(Collections.UsersDetails)
 		.getList(page, perPage, {
 			sort: '-created',
 			expand: 'user'
@@ -47,12 +47,12 @@ export const queryUsersByRole = (page: number = 1, perPage: number = 10, role: s
 
 export const queryUserByUsername = async (username: string): Promise<RecordModel | undefined> => {
 	const query = await db
-		.collection(Collections.Users)
+		.collection<User>(Collections.Users)
 		.getFirstListItem(db.filter('username = {:username}', { username }))
 		.catch(() => undefined);
 	if (!query) return undefined;
 	return db
-		.collection(Collections.UsersDetails)
+		.collection<UserDetails>(Collections.UsersDetails)
 		.getFirstListItem(db.filter('user= {:id}', { id: query.id }), {
 			expand: 'user'
 		})

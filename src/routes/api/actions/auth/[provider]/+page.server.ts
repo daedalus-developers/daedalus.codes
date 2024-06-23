@@ -1,4 +1,4 @@
-import { Collections } from '@types';
+import { Collections, type User } from '@types';
 import type { Actions } from './$types';
 import type { AuthProviderInfo } from 'pocketbase';
 import { redirect } from '@sveltejs/kit';
@@ -7,7 +7,7 @@ export const actions: Actions = {
 	default: async ({ cookies, url, locals, params }) => {
 		const { provider } = params;
 
-		const { authProviders } = await locals.DB.collection(Collections.Users).listAuthMethods();
+		const { authProviders } = await locals.DB.collection<User>(Collections.Users).listAuthMethods();
 
 		const authProvider = authProviders.find((p: AuthProviderInfo) => p.name === provider);
 

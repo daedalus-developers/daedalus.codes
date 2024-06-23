@@ -1,5 +1,5 @@
 import { fail, redirect } from '@sveltejs/kit';
-import { Collections, contactFormSchema, subscriberFormSchema } from '@types';
+import { Collections, type Contact, contactFormSchema, subscriberFormSchema } from '@types';
 import { message, superValidate } from 'sveltekit-superforms/server';
 import type { Actions } from './$types';
 import type { ClientResponseError } from 'pocketbase';
@@ -13,7 +13,7 @@ export const actions: Actions = {
 		if (!form.valid) return fail(400, { form });
 
 		try {
-			await db.collection(Collections.Contacts).create({
+			await db.collection<Contact>(Collections.Contacts).create({
 				...form.data
 			});
 			redirect(302, '/');
@@ -25,9 +25,6 @@ export const actions: Actions = {
 						status: err.response.code
 					});
 		}
-		return message(form, SOMETHING_WENT_WRONG, {
-			status: 500
-		});
 	},
 	subscribe: async ({ request }) => {
 		const form = await superValidate(request, zod(subscriberFormSchema));

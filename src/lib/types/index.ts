@@ -1,10 +1,10 @@
 export enum Collections {
 	Users = 'users',
 	UsersDetails = 'users_details',
-	Media = 'media',
+	Media = 'media', //TODO: Create Media schema in @types
 	Events = 'events',
 	Projects = 'projects',
-	Subscribers = 'subscribers',
+	Subscribers = 'subscribers', //TODO: Create Subscribers schema in @types
 	Contacts = 'contacts'
 }
 export * from './auth.types';
