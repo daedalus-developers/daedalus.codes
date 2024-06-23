@@ -20,6 +20,7 @@
 			src={user.avatar}
 			rounded="rounded-full"
 			width="w-9"
+			border="border-4 border-surface-300-600-token hover:!border-primary-500"
 		/>
 	</button>
 	<div data-popup="userActions">
