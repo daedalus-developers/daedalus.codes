@@ -1,9 +1,9 @@
 import { db } from '@server';
-import { Collections } from '@types';
+import { Collections, type DaedalusEvent } from '@types';
 
 export const queryEvent = (slug: string) =>
 	db
-		.collection(Collections.Events)
+		.collection<DaedalusEvent>(Collections.Events)
 		.getFirstListItem(`title~"${slug.replaceAll('-', ' ')}"`, {
 			requestKey: 'event'
 		})
@@ -14,7 +14,7 @@ export const queryEvent = (slug: string) =>
 
 export const queryEventByID = (id: string) =>
 	db
-		.collection(Collections.Events)
+		.collection<DaedalusEvent>(Collections.Events)
 		.getOne(id)
 		.then((data) => {
 			data.preview = db.files.getUrl(data, data.preview);
@@ -35,7 +35,7 @@ export const queryEvents = (
 	}
 ) =>
 	db
-		.collection(Collections.Events)
+		.collection<DaedalusEvent>(Collections.Events)
 		.getList(page, perPage, {
 			sort: '-date',
 			requestKey: 'events',
