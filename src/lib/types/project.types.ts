@@ -10,7 +10,10 @@ const projectSchema = object({
 	published: boolean(),
 	link: string().nullable(),
 	created: string().datetime(),
-	updated: string().datetime()
+	updated: string().datetime(),
+	tags: array(string()),
+	description: string().optional(),
+	name: string()
 });
 
 export const projectsSchema = array(projectSchema);
