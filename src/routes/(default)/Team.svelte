@@ -2,6 +2,9 @@
 	import Icon from '@iconify/svelte';
 	import { Container, UserCard } from '@components';
 	import { page } from '$app/stores';
+	import type { PageServerData } from './team/$types';
+
+	const data = $page.data as PageServerData;
 </script>
 
 <section class="bg-surface-100-800-token relative py-20 dark:bg-transparent">
@@ -38,7 +41,7 @@
 			<Icon icon="carbon:arrow-right" class="text-2xl" />
 		</a>
 
-		{#await $page.data.team}
+		{#await data.team}
 			<ul class="flex animate-pulse flex-wrap justify-evenly md:flex-row">
 				{#each Array(3) as _}
 					<p class="hidden">{_}</p>

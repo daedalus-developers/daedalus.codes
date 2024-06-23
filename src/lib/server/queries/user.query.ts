@@ -1,6 +1,6 @@
 import { db } from '@server';
-import { Collections, type UserDetails, type User } from '@types';
-import type { RecordModel } from 'pocketbase';
+import { Collections, type UserDetails, type User, type ExpandedUserDetails } from '@types';
+import type { ListResult, RecordModel } from 'pocketbase';
 
 export const queryUser = (userId: string) =>
 	db
@@ -21,7 +21,8 @@ export const queryUsersByRole = (page: number = 1, perPage: number = 10, role: s
 			sort: '-created',
 			expand: 'user'
 		})
-		.then((collection) => {
+		.then((rawCollection) => {
+			const collection = rawCollection as unknown as ListResult<ExpandedUserDetails>;
 			if (role === '') {
 				return collection;
 			} else if (role === 'user') {
@@ -45,7 +46,9 @@ export const queryUsersByRole = (page: number = 1, perPage: number = 10, role: s
 			return collection;
 		});
 
-export const queryUserByUsername = async (username: string): Promise<RecordModel | undefined> => {
+export const queryUserByUsername = async (
+	username: string
+): Promise<ExpandedUserDetails | undefined> => {
 	const query = await db
 		.collection<User>(Collections.Users)
 		.getFirstListItem(db.filter('username = {:username}', { username }))
@@ -56,7 +59,8 @@ export const queryUserByUsername = async (username: string): Promise<RecordModel
 		.getFirstListItem(db.filter('user= {:id}', { id: query.id }), {
 			expand: 'user'
 		})
-		.then((data) => {
+		.then((rawData) => {
+			const data = rawData as unknown as ExpandedUserDetails;
 			if (data.expand?.user?.avatar)
 				data.expand.user.avatar = db.files.getUrl(data.expand.user, data.expand.user.avatar, {
 					thumb: '300x350'

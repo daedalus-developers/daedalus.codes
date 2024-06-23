@@ -119,6 +119,12 @@ export type UserWithDetails = Flatten<
 	User & Omit<UserDetails, 'user' | 'id' | 'created' | 'updated'>
 >;
 
+export type ExpandedUserDetails = Flatten<UserDetails> & {
+	expand?: {
+		user: User;
+	};
+};
+
 export type Team = {
 	avatar: string;
 	firstName: string;
