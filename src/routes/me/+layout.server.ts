@@ -19,7 +19,7 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 				const isExist = res.items.length > 0;
 				console.log(isExist);
 				if (!isExist) {
-					createInitialUserDetails(locals.user.id);
+					createInitialUserDetails(locals.user!.id);
 				}
 			});
 	}
