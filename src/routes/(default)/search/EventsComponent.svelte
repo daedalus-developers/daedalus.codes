@@ -18,7 +18,10 @@
 
 <div class="mb-20">
 	{#each eventsData as event}
-		<div class="card variant-ghost-surface mb-5 block overflow-hidden md:p-4">
+		<a
+			class="card variant-ghost-surface mb-5 block overflow-hidden md:p-4"
+			href={`/events/${event.title.toLowerCase().replaceAll(' ', '-')}`}
+		>
 			<div
 				class="md:items-centerX flex
         flex-col gap-3
@@ -67,7 +70,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	{/each}
 </div>
 
